@@ -94,8 +94,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${rajdhani.variable} scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="bg-carbon-black text-soft-ivory font-body selection:bg-electric-yellow selection:text-carbon-black min-h-screen flex flex-col antialiased">
+      <body
+        className="bg-carbon-black text-soft-ivory font-body selection:bg-electric-yellow selection:text-carbon-black min-h-screen flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

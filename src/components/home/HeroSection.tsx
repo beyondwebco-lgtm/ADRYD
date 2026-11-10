@@ -6,7 +6,7 @@ import { ArrowRight, ChevronDown, MapPin, Zap, ShieldCheck, Sparkles } from 'luc
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-[100svh] flex items-center justify-center pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 overflow-hidden bg-gradient-hero">
       {/* Background Decorative Tech Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-burgundy/30 rounded-full blur-3xl pointer-events-none" />
@@ -121,24 +121,24 @@ export default function HeroSection() {
               </div>
 
               {/* Floating Tech Stat Pill 1 */}
-              <div className="absolute -top-4 -left-4 sm:left-4 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-3 animate-bounce [animation-duration:4s]">
-                <div className="w-8 h-8 rounded-lg bg-burgundy/60 border border-burgundy-light flex items-center justify-center text-electric-yellow">
-                  <Zap className="w-4 h-4" />
+              <div className="hidden xs:flex absolute -top-4 left-0 sm:left-4 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-2xl items-center gap-2.5 sm:gap-3 animate-bounce [animation-duration:4s]">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-burgundy/60 border border-burgundy-light flex items-center justify-center text-electric-yellow shrink-0">
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-tech uppercase text-muted-grey">Mobility Channel</div>
-                  <div className="text-xs font-heading font-bold text-white">Active Street Transit</div>
+                  <div className="text-[9px] sm:text-[10px] font-tech uppercase text-muted-grey">Mobility Channel</div>
+                  <div className="text-[11px] sm:text-xs font-heading font-bold text-white whitespace-nowrap">Active Street Transit</div>
                 </div>
               </div>
 
               {/* Floating Tech Stat Pill 2 */}
-              <div className="absolute -bottom-4 right-0 sm:right-6 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-electric-yellow/20 border border-electric-yellow/40 flex items-center justify-center text-electric-yellow">
-                  <Sparkles className="w-4 h-4" />
+              <div className="hidden xs:flex absolute -bottom-4 right-0 sm:right-6 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-2xl items-center gap-2.5 sm:gap-3">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-electric-yellow/20 border border-electric-yellow/40 flex items-center justify-center text-electric-yellow shrink-0">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-tech uppercase text-muted-grey">ADRYD Upgrade</div>
-                  <div className="text-xs font-heading font-bold text-white">Mobile Showcases</div>
+                  <div className="text-[9px] sm:text-[10px] font-tech uppercase text-muted-grey">ADRYD Upgrade</div>
+                  <div className="text-[11px] sm:text-xs font-heading font-bold text-white whitespace-nowrap">Mobile Showcases</div>
                 </div>
               </div>
             </div>

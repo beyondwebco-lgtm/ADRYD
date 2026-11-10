@@ -258,7 +258,7 @@ export default function Header() {
             </nav>
 
             {/* Right Action CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               <Link
                 href="/contact"
                 className="px-3 py-1.5 text-xs font-semibold tracking-wide text-soft-ivory/80 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
@@ -288,11 +288,21 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Actions & Menu Toggle */}
+            {/* Mobile/Tablet Actions & Menu Toggle */}
             <div className="flex items-center gap-2 xl:hidden">
+              <a
+                href={getWhatsAppUrl(SITE_CONFIG.whatsappMessages.campaign)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-graphite/80 text-white hover:text-electric-yellow border border-white/10"
+                title="Chat with ADRYD team on WhatsApp"
+                aria-label="Chat on WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+              </a>
               <Link
                 href="/book-campaign"
-                className="px-3.5 py-1.5 text-xs font-heading font-black uppercase tracking-wider rounded-full bg-electric-yellow text-carbon-black shadow-[0_0_15px_rgba(255,229,0,0.3)]"
+                className="px-3.5 py-1.5 text-xs font-heading font-black uppercase tracking-wider rounded-full bg-electric-yellow text-carbon-black shadow-[0_0_15px_rgba(255,229,0,0.3)] hover:brightness-105 transition-all"
               >
                 Launch
               </Link>
