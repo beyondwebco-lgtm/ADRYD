@@ -9,6 +9,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
+import BrandLogo from '@/components/ui/BrandLogo';
 
 export default function Footer() {
   const currentYear = 2026;
@@ -29,17 +30,7 @@ export default function Footer() {
           {/* Brand Column (2 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="inline-flex items-center gap-2 group">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-burgundy/40 border border-burgundy-light/60">
-                <span className="font-heading font-black text-xl italic text-electric-yellow tracking-tighter">
-                  &gt;&gt;
-                </span>
-              </div>
-              <span className="font-heading font-black text-3xl tracking-tight text-white group-hover:text-electric-yellow transition-colors italic">
-                ADRYD
-              </span>
-              <span className="text-xs font-bold text-electric-yellow bg-electric-yellow/10 px-1.5 py-0.5 rounded border border-electric-yellow/30">
-                EV
-              </span>
+              <BrandLogo size="lg" showTagline={false} />
             </Link>
 
             <p className="font-tech text-xs tracking-widest text-electric-yellow uppercase font-semibold">
