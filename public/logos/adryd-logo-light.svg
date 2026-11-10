@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 68" fill="none">
+  <!-- Chevron Speed Symbol -->
+  <g transform="translate(2, 6)">
+    <path d="M0 4L22 28L0 52H14L36 28L14 4H0Z" fill="#730018"/>
+    <path d="M16 4L38 28L16 52H26L48 28L26 4H16Z" fill="#730018" opacity="0.85"/>
+    <path d="M30 4L52 28L30 52H38L60 28L38 4H30Z" fill="#FFE500"/>
+  </g>
+  <!-- Brand Text ADRYD -->
+  <text x="72" y="42" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="40" font-weight="900" font-style="italic" letter-spacing="-0.03em" fill="#101115">ADRYD</text>
+  <!-- Registered symbol -->
+  <text x="240" y="20" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="700" fill="#730018">®</text>
+  <!-- Tagline -->
+  <text x="74" y="58" font-family="'Rajdhani', 'Inter', system-ui, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.16em" fill="#730018">RIDE. PROMOTE. SELL. GROW.</text>
+</svg>

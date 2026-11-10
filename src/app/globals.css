@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burgundy-900: #43000f;
+  --color-burgundy-800: #580012;
+  --color-burgundy: #730018;
+  --color-burgundy-light: #940a25;
+  --color-burgundy-accent: #aa1230;
+
+  --color-electric-yellow: #ffe500;
+  --color-electric-yellow-hover: #e5cd00;
+  --color-electric-yellow-glow: rgba(255, 229, 0, 0.35);
+
+  --color-carbon-black: #101115;
+  --color-carbon-dark: #0b0c0f;
+  --color-carbon-card: #15161c;
+
+  --color-graphite: #24252b;
+  --color-graphite-light: #32343c;
+  --color-graphite-border: rgba(255, 255, 255, 0.08);
+
+  --color-soft-ivory: #f7f5f0;
+  --color-ivory-muted: #e4e0d4;
+  --color-muted-grey: #a6a6ad;
+
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-tech: var(--font-rajdhani), sans-serif;
+}
+
+:root {
+  --bg-primary: #101115;
+  --text-primary: #f7f5f0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101115;
+}
+::-webkit-scrollbar-thumb {
+  background: #24252b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #730018;
+}
+
+/* Background Gradients & Glows */
+.bg-gradient-hero {
+  background: radial-gradient(circle at 75% 35%, rgba(115, 0, 24, 0.45) 0%, rgba(67, 0, 15, 0.6) 40%, rgba(16, 17, 21, 0.98) 85%);
+}
+
+.bg-gradient-burgundy {
+  background: linear-gradient(135deg, #730018 0%, #43000f 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(180deg, #15161c 0%, #101115 100%);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 35px -5px rgba(255, 229, 0, 0.35);
+}
+
+.glow-burgundy {
+  box-shadow: 0 10px 40px -10px rgba(115, 0, 24, 0.5);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffe500 0%, #ffc800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-white {
+  background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Route Trail Animation */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.animate-route-dash {
+  stroke-dasharray: 8 6;
+  animation: dash 12s linear infinite;
+}
+
+/* Subtle grid overlay */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
