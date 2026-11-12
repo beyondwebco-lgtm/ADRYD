@@ -23,8 +23,8 @@ export async function POST(request: Request) {
         subject: `[New Rider Partner Interest] ${validatedData.fullName} - ${validatedData.vehicleModel} (${applicationId})`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-            <div style="background-color: #101115; border-bottom: 3px solid #FFE500; padding: 16px; border-radius: 6px; text-align: center;">
-              <h1 style="color: #FFE500; margin: 0; font-size: 22px;">ADRYD PARTNER NETWORK</h1>
+            <div style="background-color: #0C0D12; border-bottom: 3px solid #E7FF39; padding: 16px; border-radius: 6px; text-align: center;">
+              <h1 style="color: #E7FF39; margin: 0; font-size: 22px;">ADRYD PARTNER NETWORK</h1>
               <p style="color: #ffffff; margin: 4px 0 0 0; font-size: 12px;">NEW RIDER INTEREST REGISTRATION</p>
             </div>
             
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
                 <tr><td style="padding: 6px 0; color: #666;">Mobile:</td><td>${validatedData.mobile}</td></tr>
                 <tr><td style="padding: 6px 0; color: #666;">Email:</td><td>${validatedData.email}</td></tr>
                 <tr><td style="padding: 6px 0; color: #666;">Service Zone:</td><td>${validatedData.serviceArea} (Hyderabad)</td></tr>
-                <tr><td style="padding: 6px 0; color: #666;">Vehicle Model:</td><td style="font-weight: bold; color: #730018;">${validatedData.vehicleModel}</td></tr>
+                <tr><td style="padding: 6px 0; color: #666;">Vehicle Model:</td><td style="font-weight: bold; color: #0C0D12;">${validatedData.vehicleModel}</td></tr>
                 <tr><td style="padding: 6px 0; color: #666;">Ownership:</td><td>${validatedData.vehicleOwnership}</td></tr>
                 <tr><td style="padding: 6px 0; color: #666;">Availability:</td><td>${validatedData.preferredAvailability}</td></tr>
               </table>
@@ -78,11 +78,12 @@ export async function POST(request: Request) {
       message:
         'Partner application recorded. (Note: Running in development mode without active RESEND_API_KEY).',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Rider Registration Error:', error);
-    if (error?.errors) {
+    const err = error as { errors?: unknown; message?: string };
+    if (err?.errors) {
       return NextResponse.json(
-        { success: false, errors: error.errors },
+        { success: false, errors: err.errors },
         { status: 400 }
       );
     }

@@ -23,8 +23,8 @@ export async function POST(request: Request) {
         subject: `[Contact Message] ${validatedData.subject} (${ticketId})`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-            <div style="background-color: #730018; padding: 14px; border-radius: 6px; text-align: center;">
-              <h2 style="color: #ffffff; margin: 0; font-size: 20px;">ADRYD CONTACT INQUIRY</h2>
+            <div style="background-color: #0C0D12; border: 1px solid #353740; padding: 16px; border-radius: 6px; text-align: center;">
+              <h2 style="color: #E7FF39; margin: 0; font-size: 20px; letter-spacing: 0.05em;">ADRYD CONTACT INQUIRY</h2>
             </div>
             <div style="padding: 20px 0;">
               <p>Ticket: <strong>${ticketId}</strong></p>
@@ -63,11 +63,12 @@ export async function POST(request: Request) {
       mode: 'dev_mock',
       message: 'Message received. (Dev mode active).',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Contact Form Error:', error);
-    if (error?.errors) {
+    const err = error as { errors?: unknown; message?: string };
+    if (err?.errors) {
       return NextResponse.json(
-        { success: false, errors: error.errors },
+        { success: false, errors: err.errors },
         { status: 400 }
       );
     }

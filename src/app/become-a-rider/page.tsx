@@ -20,24 +20,39 @@ import {
   Sparkles,
   MapPin,
   FileCheck,
+  Users2,
+  Truck,
+  QrCode,
+  Layers,
+  Building2,
 } from 'lucide-react';
+import { SITE_CONFIG } from '@/config/site';
 
 const HYDERABAD_ZONES_LIST = [
   'HITEC City & Madhapur',
   'Gachibowli & Financial District',
   'Kukatpally & KPHB',
+  'Kompally & Medchal Highway',
   'Jubilee Hills & Banjara Hills',
   'Begumpet & Secunderabad',
   'Ameerpet & SR Nagar',
-  'Dilsukhnagar & LB Nagar',
   'Kondapur & Miyapur',
   'Other Hyderabad Zone',
 ];
 
 export default function BecomeARiderPage() {
+  const [partnerType, setPartnerType] = useState<'rider' | 'fleet'>('rider');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState<any>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<{ applicationId?: string; submissionId?: string; message?: string } | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // Fleet form state
+  const [fleetName, setFleetName] = useState('');
+  const [fleetContact, setFleetContact] = useState('');
+  const [fleetPhone, setFleetPhone] = useState('');
+  const [fleetCount, setFleetCount] = useState('');
+  const [fleetNotes, setFleetNotes] = useState('');
+  const [fleetSubmitted, setFleetSubmitted] = useState(false);
 
   const {
     register,
@@ -53,7 +68,7 @@ export default function BecomeARiderPage() {
     },
   });
 
-  const onSubmit = async (data: RiderRegistrationInput) => {
+  const onSubmitRider = async (data: RiderRegistrationInput) => {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
@@ -67,299 +82,423 @@ export default function BecomeARiderPage() {
         setSubmitSuccess(res);
         reset();
       } else {
-        setSubmitError(res.message || 'Submission failed. Please try again.');
+        setSubmitError(res.message || 'Submission failed. Please check your details.');
       }
     } catch (e) {
-      setSubmitError('Network error. Please try again later.');
+      setSubmitError('Network error. Please try again later or reach out on WhatsApp.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const onSubmitFleet = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fleetName || !fleetPhone) {
+      setSubmitError('Please enter your fleet organization name and contact number.');
+      return;
+    }
+    setFleetSubmitted(true);
+  };
+
   return (
-    <div className="min-h-screen bg-carbon-black text-soft-ivory pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0C0D12] text-[#F2F3F5] pt-32 pb-24 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-burgundy/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-electric-yellow/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-[#24212C]/60 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#E7FF39]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-yellow/10 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest">
-              <Zap className="w-3.5 h-3.5 text-electric-yellow" />
-              Join the Hyderabad EV Advertising Fleet
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest">
+              <Zap className="w-3.5 h-3.5 text-[#E7FF39]" />
+              PARTNER NETWORK • HYDERABAD PILOT
             </div>
 
             <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-[1.02]">
-              Ride Your EV.{' '}
-              <span className="text-electric-yellow">Earn On Every Journey.</span>
+              JOIN THE MOVEMENT.{' '}
+              <br />
+              <span className="text-[#E7FF39]">BECOME AN ADRYD PARTNER.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-soft-ivory/80 max-w-xl leading-relaxed">
-              If you own an electric two-wheeler in Hyderabad, explore opportunities to carry
-              approved, premium brand advertising panels on your daily commutes and planned city
-              routes.
+            <p className="text-base sm:text-lg text-[#A5A8B3] max-w-xl leading-relaxed">
+              ADRYD offers individual electric two-wheeler riders and commercial fleet owners
+              opportunities to participate in structured promotional campaigns, product showcase stops,
+              and local delivery concepts across Hyderabad.
             </p>
 
-            {/* 3 Key Benefits Pills */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-carbon-card border border-graphite-border">
-                <Bike className="w-5 h-5 text-electric-yellow mb-2" />
-                <div className="font-heading font-bold text-sm text-white">Daily Commute Routes</div>
-                <div className="text-xs text-muted-grey mt-0.5">Monetise your normal transit</div>
+            {/* 5 Operating Opportunities */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="p-3.5 rounded-xl bg-[#17191F] border border-[#353740] flex items-start gap-3">
+                <Bike className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-heading font-bold text-xs text-white">Mobile Brand Promotion</div>
+                  <div className="text-[11px] text-[#A5A8B3]">Ride planned corridors displaying brand livery</div>
+                </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-carbon-card border border-graphite-border">
-                <ShieldCheck className="w-5 h-5 text-electric-yellow mb-2" />
-                <div className="font-heading font-bold text-sm text-white">Zero Cost Install</div>
-                <div className="text-xs text-muted-grey mt-0.5">Compliant removable panels</div>
+              <div className="p-3.5 rounded-xl bg-[#17191F] border border-[#353740] flex items-start gap-3">
+                <Sparkles className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-heading font-bold text-xs text-white">Showcase Assistance</div>
+                  <div className="text-[11px] text-[#A5A8B3]">Assist consumers at stationary showcase stops</div>
+                </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-carbon-card border border-graphite-border">
-                <FileCheck className="w-5 h-5 text-electric-yellow mb-2" />
-                <div className="font-heading font-bold text-sm text-white">Verified Campaigns</div>
-                <div className="text-xs text-muted-grey mt-0.5">Reputable brand promotions</div>
+              <div className="p-3.5 rounded-xl bg-[#17191F] border border-[#353740] flex items-start gap-3">
+                <QrCode className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-heading font-bold text-xs text-white">QR Customer Guidance</div>
+                  <div className="text-[11px] text-[#A5A8B3]">Help shoppers scan on-scooter digital catalogues</div>
+                </div>
               </div>
+
+              <div className="p-3.5 rounded-xl bg-[#17191F] border border-[#353740] flex items-start gap-3">
+                <Truck className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-heading font-bold text-xs text-white">Local Delivery Concepts</div>
+                  <div className="text-[11px] text-[#A5A8B3]">Hyperlocal order drop-offs &amp; replenishment</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#17191F] border border-[#353740] flex items-start gap-3 text-xs text-[#A5A8B3]">
+              <ShieldCheck className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+              <p>
+                <strong className="text-white">Fair Disclosure:</strong> Registering interest does not
+                guarantee campaign assignment or fixed monthly income. Partner opportunities depend on active
+                advertiser briefs, route alignment, and vehicle eligibility.
+              </p>
             </div>
           </div>
 
+          {/* Right Image */}
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-graphite-border shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-[#353740] shadow-2xl">
               <Image
                 src="/images/adryd-rider-partner.jpg"
                 alt="ADRYD EV Partner Rider"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-carbon-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 p-3 bg-carbon-black/85 backdrop-blur-md rounded-xl border border-white/10 text-xs">
-                <span className="text-electric-yellow font-bold font-tech uppercase block">
-                  Hyderabad Pilot Partner Pool
-                </span>
-                <span className="text-muted-grey text-[11px]">
-                  Safety-first verification, vehicle inspections, and route scheduling.
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D12]/90 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#0C0D12]/90 backdrop-blur-md border border-[#353740]">
+                <div className="text-[10px] font-tech font-bold text-[#E7FF39] uppercase tracking-widest">
+                  Verified Partner Network
+                </div>
+                <div className="font-heading font-bold text-base text-white mt-0.5">
+                  Promotional Mobility Across Hyderabad Corridors
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Form Container */}
-        <div className="max-w-3xl mx-auto">
-          {submitSuccess ? (
-            <div className="bg-carbon-card border border-emerald-500/40 rounded-2xl p-8 sm:p-12 text-center shadow-2xl animate-in fade-in duration-300">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto mb-6">
-                <CheckCircle2 className="w-10 h-10" />
-              </div>
-              <div className="inline-block px-3 py-1 rounded-full bg-graphite border border-graphite-border text-xs font-tech text-electric-yellow uppercase tracking-widest mb-3">
-                Application ID: {submitSuccess.applicationId}
-              </div>
-              <h2 className="font-heading font-black text-3xl text-white uppercase mb-4">
-                Partner Interest Registered!
-              </h2>
-              <p className="text-sm text-muted-grey max-w-lg mx-auto leading-relaxed mb-6">
-                Thank you for applying to join the ADRYD Electric Vehicle Partner network. Our
-                operations coordinator will review your vehicle model, commute zone, and reach out
-                for physical inspection and onboarding verification.
-              </p>
-              <button
-                type="button"
-                onClick={() => setSubmitSuccess(null)}
-                className="px-6 py-3 rounded-xl bg-electric-yellow text-carbon-black font-heading font-bold text-xs uppercase tracking-wider"
-              >
-                Register Another Vehicle
-              </button>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="bg-carbon-card border border-graphite-border rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6"
+        {/* Partner Registration Forms Card */}
+        <div id="fleet-partnership" className="max-w-3xl mx-auto bg-[#17191F] border border-[#353740] rounded-3xl p-6 sm:p-10 shadow-2xl">
+          {/* Toggle Tabs: Rider vs Fleet */}
+          <div className="flex items-center justify-center p-1 rounded-2xl bg-[#0C0D12] border border-[#353740] mb-8 max-w-md mx-auto">
+            <button
+              type="button"
+              onClick={() => setPartnerType('rider')}
+              className={`flex-1 py-2.5 rounded-xl text-xs font-heading font-bold transition-all ${
+                partnerType === 'rider'
+                  ? 'bg-[#E7FF39] text-[#0C0D12] shadow-[0_0_15px_rgba(231,255,57,0.3)]'
+                  : 'text-[#A5A8B3] hover:text-white'
+              }`}
             >
-              <div className="border-b border-graphite-border pb-4">
-                <h2 className="font-heading font-bold text-2xl text-white">
-                  Rider Partner Registration
-                </h2>
-                <p className="text-xs text-muted-grey mt-1">
-                  Fill in your vehicle and availability details to enter the Hyderabad pilot intake queue.
-                </p>
-              </div>
+              Individual EV Rider
+            </button>
+            <button
+              type="button"
+              onClick={() => setPartnerType('fleet')}
+              className={`flex-1 py-2.5 rounded-xl text-xs font-heading font-bold transition-all ${
+                partnerType === 'fleet'
+                  ? 'bg-[#E7FF39] text-[#0C0D12] shadow-[0_0_15px_rgba(231,255,57,0.3)]'
+                  : 'text-[#A5A8B3] hover:text-white'
+              }`}
+            >
+              Fleet Partner / Operator
+            </button>
+          </div>
 
-              {submitError && (
-                <div className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs flex items-center gap-3">
-                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
-                  <span>{submitError}</span>
+          {/* TAB 1: Individual Rider Interest Form */}
+          {partnerType === 'rider' && (
+            <div>
+              {submitSuccess ? (
+                <div className="text-center py-8 space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-heading font-black text-2xl text-white uppercase">
+                    Rider Registration Received!
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#A5A8B3] max-w-md mx-auto">
+                    Thank you. Reference ID: <strong className="text-[#E7FF39]">{submitSuccess.applicationId || submitSuccess.submissionId}</strong>.
+                    Our operations desk will contact you when campaigns matching your EV model and preferred areas open up.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitSuccess(null)}
+                    className="px-6 py-2.5 rounded-xl bg-[#24212C] text-xs font-heading font-bold text-white hover:bg-[#2D2A37]"
+                  >
+                    Register Another Vehicle
+                  </button>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmitRider)} className="space-y-5">
+                  <div className="border-b border-[#353740] pb-3 mb-4">
+                    <h3 className="font-heading font-bold text-lg text-white uppercase">
+                      Register Interest as an EV Partner Rider
+                    </h3>
+                    <p className="text-xs text-[#A5A8B3] mt-0.5">
+                      Tell us about your electric scooter and preferred corridors in Hyderabad.
+                    </p>
+                  </div>
+
+                  {submitError && (
+                    <div className="p-3.5 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Full Name *
+                      </label>
+                      <input
+                        {...register('fullName')}
+                        type="text"
+                        placeholder="e.g. Suresh Kumar"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      />
+                      {errors.fullName && (
+                        <span className="text-xs text-red-400 mt-1 block">{errors.fullName.message}</span>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Mobile Number (WhatsApp Preferred) *
+                      </label>
+                      <input
+                        {...register('mobile')}
+                        type="tel"
+                        placeholder="e.g. 9876543210"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      />
+                      {errors.mobile && (
+                        <span className="text-xs text-red-400 mt-1 block">{errors.mobile.message}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        EV Make &amp; Model *
+                      </label>
+                      <input
+                        {...register('vehicleModel')}
+                        type="text"
+                        placeholder="e.g. Ather 450X, Ola S1 Pro, TVS iQube"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      />
+                      {errors.vehicleModel && (
+                        <span className="text-xs text-red-400 mt-1 block">{errors.vehicleModel.message}</span>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Vehicle Ownership *
+                      </label>
+                      <select
+                        {...register('vehicleOwnership')}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      >
+                        <option value="Owned" className="bg-[#17191F]">Self Owned</option>
+                        <option value="Family Owned" className="bg-[#17191F]">Family Owned</option>
+                        <option value="Rented / Leased" className="bg-[#17191F]">Rented / Leased</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Preferred Hyderabad Operating Zone *
+                      </label>
+                      <select
+                        {...register('serviceArea')}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      >
+                        {HYDERABAD_ZONES_LIST.map((z) => (
+                          <option key={z} value={z} className="bg-[#17191F]">
+                            {z}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Daily Availability *
+                      </label>
+                      <select
+                        {...register('preferredAvailability')}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      >
+                        <option value="Peak Commute Hours (Morning & Evening)" className="bg-[#17191F]">
+                          Peak Commute Hours (Morning &amp; Evening)
+                        </option>
+                        <option value="Full Day (4-6 Hours)" className="bg-[#17191F]">Full Day (4-6 Hours)</option>
+                        <option value="Weekends Only" className="bg-[#17191F]">Weekends Only</option>
+                        <option value="Flexible Schedule" className="bg-[#17191F]">Flexible Schedule</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] disabled:opacity-50 text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    >
+                      {isSubmitting ? (
+                        <span>Registering...</span>
+                      ) : (
+                        <>
+                          <span>Submit Rider Interest</span>
+                          <Send className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
               )}
+            </div>
+          )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Full Name *
-                  </label>
-                  <input
-                    {...register('fullName')}
-                    type="text"
-                    placeholder="e.g. Vikram Reddy"
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                  />
-                  {errors.fullName && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.fullName.message}
-                    </span>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Mobile Number (WhatsApp Enabled) *
-                  </label>
-                  <input
-                    {...register('mobile')}
-                    type="tel"
-                    placeholder="e.g. 9849012345"
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                  />
-                  {errors.mobile && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.mobile.message}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Email Address *
-                  </label>
-                  <input
-                    {...register('email')}
-                    type="email"
-                    placeholder="e.g. vikram@gmail.com"
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                  />
-                  {errors.email && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.email.message}
-                    </span>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Primary Service Corridor in Hyderabad *
-                  </label>
-                  <select
-                    {...register('serviceArea')}
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
+          {/* TAB 2: Commercial Fleet Partner Enquiry */}
+          {partnerType === 'fleet' && (
+            <div>
+              {fleetSubmitted ? (
+                <div className="text-center py-8 space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-heading font-black text-2xl text-white uppercase">
+                    Fleet Partnership Enquiry Received!
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#A5A8B3] max-w-md mx-auto">
+                    Thank you. Our fleet logistics coordinator will reach out to discuss batch EV vehicle
+                    allocation and campaign integration in Hyderabad.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setFleetSubmitted(false)}
+                    className="px-6 py-2.5 rounded-xl bg-[#24212C] text-xs font-heading font-bold text-white hover:bg-[#2D2A37]"
                   >
-                    <option value="" disabled>
-                      Select primary transit zone
-                    </option>
-                    {HYDERABAD_ZONES_LIST.map((zone) => (
-                      <option key={zone} value={zone} className="bg-carbon-card">
-                        {zone}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.serviceArea && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.serviceArea.message}
-                    </span>
-                  )}
+                    Submit Another Inquiry
+                  </button>
                 </div>
-              </div>
+              ) : (
+                <form onSubmit={onSubmitFleet} className="space-y-5">
+                  <div className="border-b border-[#353740] pb-3 mb-4">
+                    <h3 className="font-heading font-bold text-lg text-white uppercase">
+                      Commercial EV Fleet Partnership Enquiry
+                    </h3>
+                    <p className="text-xs text-[#A5A8B3] mt-0.5">
+                      For fleet aggregators, EV rental operators, and commercial two-wheeler fleet managers.
+                    </p>
+                  </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Electric Scooter Model *
-                  </label>
-                  <input
-                    {...register('vehicleModel')}
-                    type="text"
-                    placeholder="e.g. Ather 450X, Ola S1 Pro, TVS iQube"
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                  />
-                  {errors.vehicleModel && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.vehicleModel.message}
-                    </span>
-                  )}
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Fleet Company / Entity Name *
+                      </label>
+                      <input
+                        type="text"
+                        value={fleetName}
+                        onChange={(e) => setFleetName(e.target.value)}
+                        placeholder="e.g. GreenWheels Mobility Pvt Ltd"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                        required
+                      />
+                    </div>
 
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                    Vehicle Ownership Status *
-                  </label>
-                  <select
-                    {...register('vehicleOwnership')}
-                    className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                  >
-                    <option value="Owned">Personally Owned</option>
-                    <option value="Rented / Leased">Rented / Leased EV</option>
-                    <option value="Family Vehicle">Family Owned</option>
-                    <option value="Purchasing Soon">Planning to purchase soon</option>
-                  </select>
-                </div>
-              </div>
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Contact Person Name
+                      </label>
+                      <input
+                        type="text"
+                        value={fleetContact}
+                        onChange={(e) => setFleetContact(e.target.value)}
+                        placeholder="e.g. Vikram Reddy"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      />
+                    </div>
+                  </div>
 
-              <div>
-                <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                  Preferred Availability *
-                </label>
-                <select
-                  {...register('preferredAvailability')}
-                  className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white"
-                >
-                  <option value="Peak Commute Hours (Morning & Evening)">
-                    Peak Commute Hours (8:30 AM - 11:30 AM &amp; 5:30 PM - 8:30 PM)
-                  </option>
-                  <option value="Full Day (6-8 Hours)">Full Day Campaign Deployment (6-8 Hours)</option>
-                  <option value="Weekends Only">Weekends &amp; Event Activations Only</option>
-                  <option value="Flexible Schedule">Flexible Daily Delivery / Transit</option>
-                </select>
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Phone / WhatsApp Number *
+                      </label>
+                      <input
+                        type="tel"
+                        value={fleetPhone}
+                        onChange={(e) => setFleetPhone(e.target.value)}
+                        placeholder="e.g. 9876543210"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                        required
+                      />
+                    </div>
 
-              <div>
-                <label className="block text-xs font-tech uppercase tracking-wider text-muted-grey mb-1.5">
-                  Additional Notes / Past Experience (Optional)
-                </label>
-                <textarea
-                  {...register('experienceNotes')}
-                  rows={3}
-                  placeholder="Tell us about your daily commute route, distance covered, or prior delivery experience..."
-                  className="w-full px-4 py-3 rounded-xl bg-graphite/40 border border-graphite-border focus:border-electric-yellow focus:outline-none text-sm text-white placeholder-muted-grey/50"
-                />
-              </div>
+                    <div>
+                      <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                        Total Electric Scooters in Fleet
+                      </label>
+                      <input
+                        type="text"
+                        value={fleetCount}
+                        onChange={(e) => setFleetCount(e.target.value)}
+                        placeholder="e.g. 10 - 50 EVs"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white"
+                      />
+                    </div>
+                  </div>
 
-              {/* Compliance & Safety Statement */}
-              <div className="p-4 rounded-xl bg-graphite/40 border border-graphite-border text-xs text-muted-grey leading-relaxed flex items-start gap-3">
-                <ShieldCheck className="w-4 h-4 text-electric-yellow shrink-0 mt-0.5" />
-                <p>
-                  <strong className="text-white">Partner Eligibility:</strong> All participating riders
-                  must hold a valid driving licence, active vehicle insurance, and comply with safety helmet
-                  regulations. Registration represents an expression of interest and does not guarantee
-                  fixed compensation.
-                </p>
-              </div>
+                  <div>
+                    <label className="block text-xs font-tech uppercase text-[#A5A8B3] mb-1">
+                      Fleet Details &amp; Operational Hubs
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={fleetNotes}
+                      onChange={(e) => setFleetNotes(e.target.value)}
+                      placeholder="Vehicle makes, battery swap infrastructure, current operating hubs in Hyderabad..."
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C0D12] border border-[#353740] focus:border-[#E7FF39] focus:outline-none text-xs text-white placeholder-[#A5A8B3]/50"
+                    />
+                  </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover disabled:opacity-50 text-carbon-black font-heading font-black text-xs uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 transition-all cursor-pointer"
-              >
-                {isSubmitting ? (
-                  <span>Submitting Details...</span>
-                ) : (
-                  <>
-                    <span>Submit Partner Application</span>
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </form>
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="w-full py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    >
+                      <span>Submit Fleet Partnership Enquiry</span>
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           )}
         </div>
       </div>

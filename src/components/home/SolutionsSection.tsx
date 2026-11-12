@@ -80,12 +80,12 @@ export default function SolutionsSection() {
   return (
     <section className="py-24 bg-carbon-black text-soft-ivory relative overflow-hidden">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-burgundy/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-electric-yellow/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-burgundy/30 border border-burgundy-light/50 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-electric-yellow/10 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-4">
             Campaign Formats
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-5xl tracking-tight text-white uppercase leading-tight">
@@ -113,7 +113,7 @@ export default function SolutionsSection() {
                     <span className="text-[10px] font-tech font-bold uppercase px-2.5 py-1 rounded-full bg-graphite text-electric-yellow border border-graphite-border">
                       {item.badge}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-burgundy/40 border border-burgundy-light/40 flex items-center justify-center text-electric-yellow group-hover:bg-electric-yellow group-hover:text-carbon-black transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-carbon-card-hover border border-graphite-border flex items-center justify-center text-electric-yellow group-hover:bg-electric-yellow group-hover:text-carbon-black transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export default function SolutionsSection() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-burgundy-900 via-burgundy to-burgundy-900 border border-burgundy-light flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#17191F] via-[#24212C] to-[#17191F] border border-graphite-border flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="font-heading font-bold text-xl text-white mb-1">
               Need a Custom Multi-Week or Multi-City Fleet Campaign?
@@ -184,7 +184,7 @@ export default function SolutionsSection() {
           </div>
           <Link
             href="/book-campaign?package=custom-package"
-            className="shrink-0 px-6 py-3 rounded-xl bg-white hover:bg-soft-ivory text-burgundy font-heading font-bold text-xs uppercase tracking-wider transition-all"
+            className="shrink-0 px-6 py-3 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-bold text-xs uppercase tracking-wider transition-all"
           >
             Speak to Campaign Director
           </Link>

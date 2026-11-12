@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const campaignEnquirySchema = z.object({
-  // Step 1: Business Information
+  // 1. Business Information
   fullName: z.string().min(2, 'Please enter your full name'),
   companyName: z.string().min(2, 'Please enter your company or brand name'),
   email: z.string().email('Please enter a valid business email address'),
@@ -10,21 +10,31 @@ export const campaignEnquirySchema = z.object({
     .min(10, 'Please enter a valid 10-digit mobile number')
     .max(15, 'Mobile number is too long')
     .regex(/^[0-9+ ]+$/, 'Please enter numbers only'),
-  industry: z.string().min(1, 'Please select your industry sector'),
+  businessCategory: z.string().min(1, 'Please select your business category'),
 
-  // Step 2: Campaign Requirements
+  // 2. Service Selection (Multiple allowed)
+  selectedServices: z
+    .array(z.string())
+    .min(1, 'Please select at least one ADRYD service vertical'),
+
+  // 3. Campaign Information
   objective: z.string().min(1, 'Please select your campaign objective'),
-  packageType: z.string().min(1, 'Please select an advertising package'),
-  city: z.string().min(1, 'City is required'),
-  targetZones: z.array(z.string()).min(1, 'Please select at least one target area in Hyderabad'),
-  pinCode: z.string().optional(),
+  preferredPackage: z.string().min(1, 'Please select a preferred package or plan'),
   riderCount: z.number().min(1, 'At least 1 rider is required').max(50, 'Max 50 riders'),
+  preferredDuration: z.string().min(1, 'Please select preferred duration'),
   preferredDate: z.string().min(1, 'Please select an approximate start date'),
-  duration: z.string().min(1, 'Please select campaign duration'),
+  targetCity: z.string().min(1, 'Target city is required'),
+  targetAreas: z.array(z.string()).min(1, 'Please select at least one target area in Hyderabad'),
+  pinCodes: z.string().optional(),
   estimatedBudget: z.string().min(1, 'Please select an estimated budget range'),
+  productCategory: z.string().min(1, 'Please select a product category'),
 
-  // Step 3: Additional Notes
-  campaignDescription: z.string().optional(),
+  // 4. Product Requirements (Conditional)
+  productType: z.string().optional(),
+  displaySamplingReqs: z.string().optional(),
+  expectedQuantity: z.string().optional(),
+  preOrderReqs: z.string().optional(),
+  deliveryReqs: z.string().optional(),
   brandingRequirements: z.string().optional(),
   additionalNotes: z.string().optional(),
 });

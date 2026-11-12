@@ -2,98 +2,99 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ChevronDown, MapPin, Zap, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, MapPin, Zap, ShieldCheck, Sparkles, QrCode } from 'lucide-react';
+import { SITE_CONFIG } from '@/config/site';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 overflow-hidden bg-gradient-hero">
-      {/* Background Decorative Tech Elements */}
+    <section className="relative min-h-[100svh] flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 overflow-hidden bg-gradient-hero">
+      {/* Background Decorative Grid & Minimal Neon Light Trails */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-burgundy/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-electric-yellow/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[550px] h-[550px] bg-[#24212C]/80 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-[380px] h-[380px] bg-[#E7FF39]/8 rounded-full blur-[130px] pointer-events-none" />
 
-      {/* Animated SVG Route Trail Background */}
+      {/* Animated SVG Neon Route Lines */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-25"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-30"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M-50,600 C300,550 500,200 900,350 C1200,450 1500,250 1950,400"
           fill="none"
-          stroke="#FFE500"
+          stroke="#E7FF39"
           strokeWidth="2"
           className="animate-route-dash"
         />
         <path
-          d="M-50,750 C400,700 700,500 1100,600 C1400,680 1600,550 2000,580"
+          d="M-50,720 C400,680 700,480 1100,580 C1400,660 1600,520 2000,560"
           fill="none"
-          stroke="#730018"
-          strokeWidth="3"
-          strokeDasharray="6 8"
+          stroke="#353740"
+          strokeWidth="1.5"
+          strokeDasharray="4 6"
         />
       </svg>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headlines & CTA (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-graphite/80 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-6 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500">
-              <span className="w-2 h-2 rounded-full bg-electric-yellow animate-ping" />
-              <span>Electric Mobility × Brand Advertising</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-6 backdrop-blur-sm shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500">
+              <span className="w-2 h-2 rounded-full bg-[#E7FF39] animate-ping" />
+              <span>THE NEXT GENERATION OF MOBILE COMMERCE</span>
             </div>
 
             {/* Oversized Cinematic Headline */}
             <h1 className="font-heading font-black text-4xl sm:text-6xl xl:text-7xl tracking-tight text-white uppercase leading-[0.95] mb-6">
               YOUR BRAND.{' '}
               <br />
-              <span className="text-electric-yellow drop-shadow-[0_0_35px_rgba(255,229,0,0.4)]">
-                EVERY STREET.
-              </span>{' '}
+              YOUR PRODUCTS.{' '}
               <br />
-              EVERY MOVE.
+              <span className="text-[#E7FF39] drop-shadow-[0_0_35px_rgba(231,255,57,0.35)]">
+                OUR MOVING MARKETPLACE.
+              </span>
             </h1>
 
             {/* Sub-headline description */}
-            <p className="text-base sm:text-lg text-soft-ivory/85 max-w-xl font-normal leading-relaxed mb-8">
-              Take your brand beyond static billboards. Discover high-recall, location-targeted
-              promotional campaigns powered by daily electric scooter mobility across Hyderabad.
+            <p className="text-base sm:text-lg text-[#A5A8B3] max-w-xl font-normal leading-relaxed mb-8">
+              Take your brand and products directly to local audiences through electric mobility-powered
+              advertising, product showcases, QR-enabled shopping experiences, pre-orders and delivery solutions.
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
               <Link
                 href="/book-campaign"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-black text-base uppercase tracking-wider shadow-xl hover:shadow-electric-yellow/30 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(231,255,57,0.35)] hover:shadow-[0_0_35px_rgba(231,255,57,0.5)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
               >
                 <span>Launch a Campaign</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
 
               <Link
-                href="#concept"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-graphite/70 hover:bg-graphite border border-graphite-border hover:border-soft-ivory/40 text-soft-ivory font-heading font-bold text-sm tracking-wide backdrop-blur-sm transition-all"
+                href="/adryd-upgrade"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#17191F] hover:bg-[#24212C] border border-[#353740] hover:border-[#E7FF39]/40 text-[#F2F3F5] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all"
               >
-                <span>Explore ADRYD</span>
-                <ChevronDown className="w-4 h-4 text-electric-yellow" />
+                <Sparkles className="w-3.5 h-3.5 text-[#E7FF39]" />
+                <span>Discover ADRYD Upgrade</span>
               </Link>
             </div>
 
-            {/* Micro Badges / Proof Indicators */}
-            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/10 w-full text-xs text-muted-grey font-tech">
+            {/* Micro Proof Indicators */}
+            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-[#353740] w-full text-xs text-[#A5A8B3] font-tech">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-electric-yellow" />
-                <span className="text-soft-ivory tracking-wider font-semibold">HYDERABAD</span>
-                <span>• INITIAL LAUNCH MARKET</span>
+                <MapPin className="w-4 h-4 text-[#E7FF39]" />
+                <span className="text-white tracking-wider font-semibold">HYDERABAD PILOT</span>
+                <span>• 5 TARGET ZONES</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-emerald-400" />
-                <span className="text-soft-ivory tracking-wider font-semibold">100% ELECTRIC</span>
-                <span>• ZERO EMISSION MOBILITY</span>
+                <Zap className="w-4 h-4 text-[#E7FF39]" />
+                <span className="text-white tracking-wider font-semibold">100% ELECTRIC</span>
+                <span>• ZERO EMISSION FLEET</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-electric-yellow" />
-                <span className="text-soft-ivory tracking-wider font-semibold">PILOT VALIDATION</span>
+                <ShieldCheck className="w-4 h-4 text-[#E7FF39]" />
+                <span className="text-white tracking-wider font-semibold">PROPOSED PLATFORM</span>
               </div>
             </div>
           </div>
@@ -101,44 +102,48 @@ export default function HeroSection() {
           {/* Right Column: Hero Visual with Clean Transparent Scooter (5 cols) */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             {/* Glowing Backdrop Ring */}
-            <div className="absolute w-[320px] sm:w-[460px] h-[320px] sm:h-[460px] rounded-full bg-burgundy/40 blur-2xl -z-10" />
-            <div className="absolute w-[240px] sm:w-[340px] h-[240px] sm:h-[340px] rounded-full border border-electric-yellow/20 animate-pulse -z-10" />
+            <div className="absolute w-[320px] sm:w-[460px] h-[320px] sm:h-[460px] rounded-full bg-[#24212C] blur-3xl -z-10" />
+            <div className="absolute w-[260px] sm:w-[360px] h-[260px] sm:h-[360px] rounded-full border border-[#E7FF39]/20 animate-pulse -z-10" />
 
             {/* Scooter Graphic Container */}
             <div className="relative w-full max-w-lg lg:max-w-none group">
               <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
                 <Image
                   src="/images/adryd-scooter-hero.png"
-                  alt="ADRYD Electric Advertising Scooter"
+                  alt="ADRYD Electric Advertising & Product Showcase Scooter"
                   width={1004}
                   height={731}
                   priority
-                  className="w-full h-auto drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] filter contrast-105"
+                  className="w-full h-auto drop-shadow-[0_25px_35px_rgba(0,0,0,0.95)] filter contrast-105"
                 />
 
                 {/* Ground Shadow Glow */}
-                <div className="w-3/4 h-6 mx-auto -mt-3 bg-carbon-black/90 rounded-full blur-md" />
+                <div className="w-3/4 h-6 mx-auto -mt-3 bg-[#0C0D12]/95 rounded-full blur-md" />
               </div>
 
-              {/* Floating Tech Stat Pill 1 */}
-              <div className="hidden xs:flex absolute -top-4 left-0 sm:left-4 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-2xl items-center gap-2.5 sm:gap-3 animate-bounce [animation-duration:4s]">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-burgundy/60 border border-burgundy-light flex items-center justify-center text-electric-yellow shrink-0">
-                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              {/* Floating Tech Stat Pill 1: Mobile Showcase */}
+              <div className="hidden xs:flex absolute -top-4 left-0 sm:left-4 bg-[#17191F]/90 backdrop-blur-md border border-[#353740] px-3.5 py-2.5 rounded-xl shadow-2xl items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#24212C] border border-[#353740] flex items-center justify-center text-[#E7FF39] shrink-0">
+                  <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[9px] sm:text-[10px] font-tech uppercase text-muted-grey">Mobility Channel</div>
-                  <div className="text-[11px] sm:text-xs font-heading font-bold text-white whitespace-nowrap">Active Street Transit</div>
+                  <div className="text-[10px] font-tech uppercase text-[#A5A8B3]">Product Discovery</div>
+                  <div className="text-xs font-heading font-bold text-white whitespace-nowrap">
+                    Live Mobile Showcases
+                  </div>
                 </div>
               </div>
 
-              {/* Floating Tech Stat Pill 2 */}
-              <div className="hidden xs:flex absolute -bottom-4 right-0 sm:right-6 bg-carbon-card/90 backdrop-blur-md border border-graphite-border px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-2xl items-center gap-2.5 sm:gap-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-electric-yellow/20 border border-electric-yellow/40 flex items-center justify-center text-electric-yellow shrink-0">
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              {/* Floating Tech Stat Pill 2: Frictionless QR Commerce */}
+              <div className="hidden xs:flex absolute -bottom-4 right-0 sm:right-6 bg-[#17191F]/90 backdrop-blur-md border border-[#353740] px-3.5 py-2.5 rounded-xl shadow-2xl items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#24212C] border border-[#E7FF39]/40 flex items-center justify-center text-[#E7FF39] shrink-0">
+                  <QrCode className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[9px] sm:text-[10px] font-tech uppercase text-muted-grey">ADRYD Upgrade</div>
-                  <div className="text-[11px] sm:text-xs font-heading font-bold text-white whitespace-nowrap">Mobile Showcases</div>
+                  <div className="text-[10px] font-tech uppercase text-[#A5A8B3]">Connected Commerce</div>
+                  <div className="text-xs font-heading font-bold text-white whitespace-nowrap">
+                    Scan • Pre-Order • Deliver
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,10 +151,44 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[11px] font-tech text-muted-grey/70 uppercase tracking-widest pointer-events-none">
-        <span>Scroll to Explore</span>
-        <div className="w-1 h-4 rounded-full bg-electric-yellow/50 animate-pulse" />
+      {/* Animated Extended Brand Line Strip */}
+      <div className="mt-12 w-full border-y border-[#353740] bg-[#17191F]/70 py-3 backdrop-blur-md overflow-hidden">
+        <div className="flex items-center justify-around gap-8 text-[11px] sm:text-xs font-tech font-bold uppercase tracking-widest text-[#F2F3F5] animate-pulse">
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            RIDE
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            PROMOTE
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2 text-[#E7FF39]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            SHOWCASE
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            SELL
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2 text-[#E7FF39]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            PRE-ORDER
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            DELIVER
+          </span>
+          <span className="text-[#353740]">/</span>
+          <span className="flex items-center gap-2 text-[#E7FF39]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+            GROW
+          </span>
+        </div>
       </div>
     </section>
   );

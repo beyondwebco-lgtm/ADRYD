@@ -25,7 +25,7 @@ const rajdhani = Rajdhani({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#730018',
+  themeColor: '#0C0D12',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -34,21 +34,23 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://adryd.com'),
   title: {
-    default: 'ADRYD | Electric Mobility-Powered Mobile Advertising Platform',
-    template: '%s | ADRYD',
+    default: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
+    template: '%s | ADRYD Upgrade',
   },
-  description: 'ADRYD turns electric vehicle movement into a measurable, high-impact mobile advertising channel across Hyderabad. Ride. Promote. Sell. Grow.',
+  description:
+    'Discover ADRYD Upgrade, an electric mobility-powered platform concept connecting mobile advertising, product showcases, QR commerce, pre-orders and hyperlocal delivery.',
   keywords: [
-    'EV advertising Hyderabad',
     'Mobile advertising Hyderabad',
-    'Electric scooter advertising',
-    'Mobile brand promotion',
-    'Location-based advertising Hyderabad',
-    'Fleet advertising campaigns',
-    'ADRYD mobility tech',
-    'OOH advertising Hyderabad',
+    'Electric vehicle advertising',
     'Mobile product showcasing',
-    'ADRYD Upgrade'
+    'Mobile commerce platform',
+    'Hyperlocal brand promotion',
+    'QR-enabled product marketing',
+    'Local pre-order campaigns',
+    'EV advertising campaigns',
+    'Product activation campaigns',
+    'Hyperlocal delivery solutions',
+    'ADRYD Upgrade',
   ],
   authors: [{ name: 'ADRYD Mobility Technologies' }],
   creator: 'ADRYD',
@@ -61,22 +63,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://adryd.com',
-    siteName: 'ADRYD',
-    title: 'ADRYD | Electric Mobility-Powered Mobile Advertising Platform',
-    description: 'Connect your brand with citywide EV movement in Hyderabad. Premium mobile brand showcases, location targeting, and verified campaign execution.',
+    siteName: 'ADRYD Upgrade',
+    title: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
+    description:
+      'Connecting brands, products and local audiences through electric mobility-powered promotions, product showcases and commerce experiences across Hyderabad.',
     images: [
       {
         url: '/images/adryd-fleet-hyderabad.jpg',
         width: 1200,
         height: 630,
-        alt: 'ADRYD Electric Mobility Fleet in Hyderabad',
+        alt: 'ADRYD Upgrade Moving Marketplace in Hyderabad',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ADRYD | Electric Mobility-Powered Mobile Advertising Platform',
-    description: 'Transform your brand visibility with on-the-go electric scooter advertising and mobile commerce showcases in Hyderabad.',
+    title: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
+    description:
+      'Transform brand visibility into product discovery and commerce through electric mobility in Hyderabad.',
     images: ['/images/adryd-fleet-hyderabad.jpg'],
   },
   robots: {
@@ -97,7 +101,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="bg-carbon-black text-soft-ivory font-body selection:bg-electric-yellow selection:text-carbon-black min-h-screen flex flex-col antialiased"
+        className="bg-[#0C0D12] text-[#F2F3F5] font-body selection:bg-[#E7FF39] selection:text-[#0C0D12] min-h-screen flex flex-col antialiased"
         suppressHydrationWarning
       >
         <Header />

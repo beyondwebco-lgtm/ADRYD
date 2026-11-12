@@ -61,12 +61,12 @@ export default function SolutionsHubPage() {
   return (
     <div className="min-h-screen bg-carbon-black text-soft-ivory pt-28 pb-24 relative overflow-hidden">
       {/* Background radial glow */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-burgundy/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-electric-yellow/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-burgundy/30 border border-burgundy-light text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-yellow/10 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-6">
             <Zap className="w-3.5 h-3.5" />
             Mobility Media Formats
           </div>
@@ -91,7 +91,7 @@ export default function SolutionsHubPage() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-graphite-border">
-                    <div className="w-12 h-12 rounded-xl bg-burgundy/40 border border-burgundy-light/40 flex items-center justify-center text-electric-yellow group-hover:bg-electric-yellow group-hover:text-carbon-black transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-carbon-card-hover border border-graphite-border flex items-center justify-center text-electric-yellow group-hover:bg-electric-yellow group-hover:text-carbon-black transition-colors">
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-tech text-electric-yellow uppercase tracking-widest">
@@ -159,7 +159,7 @@ export default function SolutionsHubPage() {
               <thead>
                 <tr className="border-b border-graphite-border text-xs font-tech uppercase text-muted-grey">
                   <th className="py-4 px-4">Feature Dimension</th>
-                  <th className="py-4 px-4 text-white font-bold bg-burgundy/20 rounded-t-lg">
+                  <th className="py-4 px-4 text-electric-yellow font-bold bg-carbon-card-hover border-x border-t border-graphite-border rounded-t-lg">
                     ADRYD Electric Mobility
                   </th>
                   <th className="py-4 px-4 text-muted-grey">Static Hoardings / Billboards</th>
@@ -168,7 +168,7 @@ export default function SolutionsHubPage() {
               <tbody className="divide-y divide-graphite-border text-xs sm:text-sm">
                 <tr>
                   <td className="py-4 px-4 font-heading font-semibold text-white">Visual Perspective</td>
-                  <td className="py-4 px-4 text-electric-yellow font-medium bg-burgundy/10 flex items-center gap-2">
+                  <td className="py-4 px-4 text-electric-yellow font-medium bg-carbon-card-hover/40 border-x border-graphite-border flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     Eye-level pedestrian &amp; commuter field of view
                   </td>
@@ -176,7 +176,7 @@ export default function SolutionsHubPage() {
                 </tr>
                 <tr>
                   <td className="py-4 px-4 font-heading font-semibold text-white">Geographic Flexibility</td>
-                  <td className="py-4 px-4 text-electric-yellow font-medium bg-burgundy/10 flex items-center gap-2">
+                  <td className="py-4 px-4 text-electric-yellow font-medium bg-carbon-card-hover/40 border-x border-graphite-border flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     Flexible routes across multiple PIN codes
                   </td>
@@ -184,7 +184,7 @@ export default function SolutionsHubPage() {
                 </tr>
                 <tr>
                   <td className="py-4 px-4 font-heading font-semibold text-white">Campaign Duration</td>
-                  <td className="py-4 px-4 text-electric-yellow font-medium bg-burgundy/10 flex items-center gap-2">
+                  <td className="py-4 px-4 text-electric-yellow font-medium bg-carbon-card-hover/40 border-x border-graphite-border flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     Flexible 3-day, 7-day, or monthly runs
                   </td>
@@ -192,7 +192,7 @@ export default function SolutionsHubPage() {
                 </tr>
                 <tr>
                   <td className="py-4 px-4 font-heading font-semibold text-white">Environmental Footprint</td>
-                  <td className="py-4 px-4 text-electric-yellow font-medium bg-burgundy/10 flex items-center gap-2">
+                  <td className="py-4 px-4 text-electric-yellow font-medium bg-carbon-card-hover/40 border-x border-graphite-border flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     100% Zero-Emission Electric Scooters
                   </td>
@@ -200,7 +200,7 @@ export default function SolutionsHubPage() {
                 </tr>
                 <tr>
                   <td className="py-4 px-4 font-heading font-semibold text-white">Execution Proof</td>
-                  <td className="py-4 px-4 text-electric-yellow font-medium bg-burgundy/10 flex items-center gap-2">
+                  <td className="py-4 px-4 text-electric-yellow font-medium bg-carbon-card-hover/40 border-x border-graphite-border flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     Photo proofs + planned GPS telemetry summaries
                   </td>
@@ -212,7 +212,7 @@ export default function SolutionsHubPage() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-burgundy-900 to-carbon-card border border-burgundy-light flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-[#17191F] via-[#24212C] to-[#17191F] border border-graphite-border flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="font-heading font-bold text-xl text-white mb-1">
               Need Help Selecting The Right Campaign?

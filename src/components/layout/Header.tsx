@@ -11,11 +11,13 @@ import {
   ArrowRight,
   MessageCircle,
   MapPin,
-  Bike,
-  Users2,
-  Layers,
-  Palette,
-  Compass,
+  Megaphone,
+  ShoppingBag,
+  QrCode,
+  PackageCheck,
+  Truck,
+  Video,
+  BarChart3,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
 import BrandLogo from '@/components/ui/BrandLogo';
@@ -23,8 +25,15 @@ import BrandLogo from '@/components/ui/BrandLogo';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
+
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,81 +44,52 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile drawer on route transition
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setSolutionsOpen(false);
-  }, [pathname]);
-
   const getWhatsAppUrl = (text: string) => {
     const num = SITE_CONFIG.contact.whatsapp.replace(/\D/g, '');
     return `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
   };
 
-  const solutionItems = [
-    {
-      title: 'Single Rider Campaign',
-      href: '/solutions/single-rider',
-      description: 'Focused promotional mobility for targeted local business areas.',
-      icon: Bike,
-    },
-    {
-      title: 'Dual Rider Campaign',
-      href: '/solutions/dual-rider',
-      description: 'Two branded EVs in synchronized tandem along arterial corridors.',
-      icon: Users2,
-    },
-    {
-      title: 'Multi-Rider Fleet',
-      href: '/solutions/fleet-advertising',
-      description: 'Multi-vehicle saturation across high-density commercial zones.',
-      icon: Layers,
-    },
-    {
-      title: 'Location & Corridor Targeting',
-      href: '/solutions/location-targeting',
-      description: 'Strategic time-of-day and PIN-code route corridor selection.',
-      icon: Compass,
-    },
-    {
-      title: 'Creative & Wrap Studio',
-      href: '/creative-services',
-      description: 'Commercial wrap design, promotional video, and social content.',
-      icon: Palette,
-    },
+  const serviceIcons = [
+    Megaphone,
+    ShoppingBag,
+    QrCode,
+    PackageCheck,
+    Truck,
+    Video,
+    BarChart3,
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-carbon-black/85 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.85)] py-2.5 sm:py-3'
-            : 'bg-carbon-black/35 backdrop-blur-md border-b border-white/[0.04] py-3 sm:py-4'
+            ? 'bg-[#0C0D12]/90 backdrop-blur-2xl border-b border-[#353740] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.9)] py-2.5 sm:py-3'
+            : 'bg-[#0C0D12]/60 backdrop-blur-md border-b border-[#353740]/60 py-3 sm:py-4'
         }`}
       >
-        {/* Subtle top ambient edge glow line */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-electric-yellow/25 to-transparent pointer-events-none" />
+        {/* Subtle top ambient neon glow line */}
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#E7FF39]/30 to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Authentic ADRYD Brand Logo - Clean, Neat & Bold */}
+            {/* Authentic ADRYD Brand Logo */}
             <Link
               href="/"
-              className="group focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-yellow rounded-lg transition-transform"
-              aria-label="ADRYD - Ride. Promote. Sell. Grow."
+              className="group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E7FF39] rounded-lg transition-transform"
+              aria-label="ADRYD Upgrade - Your Brand. Your Products. Our Moving Marketplace."
             >
               <BrandLogo size="md" showTagline={true} />
             </Link>
 
-            {/* Desktop Navigation Links - Floating Glassmorphic Capsule */}
-            <nav className="hidden xl:flex items-center gap-1 px-2 py-1 rounded-full bg-white/[0.035] border border-white/[0.07] backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden xl:flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#17191F]/80 border border-[#353740] backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">
               <Link
                 href="/"
                 className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
                   pathname === '/'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
                 Home
@@ -119,72 +99,77 @@ export default function Header() {
                 href="/about"
                 className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
                   pathname === '/about'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
                 About
               </Link>
 
-              {/* Solutions Dropdown */}
+              {/* Our Services Mega Dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => setSolutionsOpen(true)}
-                onMouseLeave={() => setSolutionsOpen(false)}
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
               >
                 <Link
-                  href="/solutions"
+                  href="/services"
                   className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
-                    pathname.startsWith('/solutions')
-                      ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                      : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                    pathname.startsWith('/services') || pathname.startsWith('/solutions')
+                      ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                      : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                   }`}
-                  aria-expanded={solutionsOpen}
+                  aria-expanded={servicesOpen}
                 >
-                  <span>Solutions</span>
+                  <span>Our Services</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      solutionsOpen ? 'rotate-180' : ''
+                      servicesOpen ? 'rotate-180 text-[#E7FF39]' : ''
                     }`}
                   />
                 </Link>
 
                 {/* Dropdown Menu Modal Card */}
-                {solutionsOpen && (
-                  <div className="absolute top-full left-0 pt-3 w-96 z-50 animate-in fade-in-0 zoom-in-95 duration-150">
-                    <div className="p-3 rounded-2xl bg-carbon-black/95 backdrop-blur-2xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.9)] ring-1 ring-white/10">
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/[0.08] mb-1">
-                        <span className="font-tech text-[11px] font-bold uppercase tracking-wider text-electric-yellow">
-                          Campaign Solutions
-                        </span>
-                        <span className="text-[10px] text-muted-grey font-tech">
-                          HYDERABAD PILOT
+                {servicesOpen && (
+                  <div className="absolute top-full left-0 pt-3 w-[420px] z-50 animate-in fade-in-0 zoom-in-95 duration-150">
+                    <div className="p-3.5 rounded-2xl bg-[#17191F] border border-[#353740] shadow-[0_24px_60px_rgba(0,0,0,0.95)]">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-[#353740] mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39] animate-pulse" />
+                          <span className="font-tech text-xs font-bold uppercase tracking-wider text-[#E7FF39]">
+                            Seven Connected Verticals
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-[#A5A8B3] font-tech uppercase tracking-wider">
+                          Version 3.0
                         </span>
                       </div>
+
                       <div className="space-y-1">
-                        {solutionItems.map((item) => {
-                          const Icon = item.icon;
-                          const isActive = pathname === item.href;
+                        {SITE_CONFIG.services.map((item, index) => {
+                          const Icon = serviceIcons[index] || Megaphone;
                           return (
                             <Link
-                              key={item.href}
-                              href={item.href}
-                              className={`flex items-start gap-3 p-2.5 rounded-xl transition-all group/item ${
-                                isActive
-                                  ? 'bg-burgundy/40 border border-burgundy-light/40 text-electric-yellow'
-                                  : 'hover:bg-white/[0.06] text-soft-ivory'
-                              }`}
+                              key={item.id}
+                              href={`/services#${item.slug}`}
+                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-[#24212C] group/item text-[#F2F3F5]"
                             >
-                              <div className="w-8 h-8 rounded-lg bg-burgundy/40 border border-burgundy-light/40 flex items-center justify-center shrink-0 text-electric-yellow group-hover/item:border-electric-yellow/60 group-hover/item:scale-105 transition-all">
+                              <div className="w-8 h-8 rounded-lg bg-[#0C0D12] border border-[#353740] flex items-center justify-center shrink-0 text-[#E7FF39] group-hover/item:border-[#E7FF39]/60 group-hover/item:scale-105 transition-all">
                                 <Icon className="w-4 h-4" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <div className="text-xs font-heading font-bold text-white group-hover/item:text-electric-yellow flex items-center justify-between">
-                                  <span>{item.title}</span>
-                                  <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-electric-yellow" />
+                                <div className="text-xs font-heading font-bold text-white group-hover/item:text-[#E7FF39] flex items-center justify-between">
+                                  <span>{item.name}</span>
+                                  {item.isFutureCapability ? (
+                                    <span className="text-[9px] font-tech uppercase px-1.5 py-0.5 rounded bg-[#24212C] text-[#A5A8B3] border border-[#353740]">
+                                      Roadmap
+                                    </span>
+                                  ) : (
+                                    <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-[#E7FF39]" />
+                                  )}
                                 </div>
-                                <p className="text-[11px] text-muted-grey mt-0.5 line-clamp-1 leading-snug">
-                                  {item.description}
+                                <p className="text-[11px] text-[#A5A8B3] mt-0.5 line-clamp-1 leading-snug">
+                                  {item.shortDesc}
                                 </p>
                               </div>
                             </Link>
@@ -192,34 +177,36 @@ export default function Header() {
                         })}
                       </div>
 
-                      <div className="mt-2 pt-2 border-t border-white/[0.08] px-3 py-1 flex items-center justify-between">
+                      <div className="mt-2.5 pt-2.5 border-t border-[#353740] px-3 py-1 flex items-center justify-between">
                         <Link
-                          href="/solutions"
-                          className="text-xs font-semibold text-electric-yellow hover:underline flex items-center gap-1"
+                          href="/services"
+                          className="text-xs font-semibold text-[#E7FF39] hover:underline flex items-center gap-1.5"
                         >
-                          <span>Compare All Packages</span>
+                          <span>Explore All 7 Services</span>
                           <ArrowRight className="w-3 h-3" />
                         </Link>
-                        <span className="text-[10px] text-muted-grey">Zero static blindspots</span>
+                        <span className="text-[10px] text-[#A5A8B3] font-tech">
+                          Hyderabad Pilot 2026
+                        </span>
                       </div>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* ADRYD Upgrade with glowing pill */}
+              {/* ADRYD Upgrade */}
               <Link
                 href="/adryd-upgrade"
                 className={`relative inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
                   pathname === '/adryd-upgrade'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/90 hover:text-white hover:bg-white/[0.06]'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
-                <Sparkles className="w-3 h-3 text-electric-yellow animate-pulse" />
+                <Sparkles className="w-3 h-3 text-[#E7FF39]" />
                 <span>ADRYD Upgrade</span>
-                <span className="text-[9px] font-tech font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-burgundy text-white border border-burgundy-light">
-                  New
+                <span className="text-[9px] font-tech font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-[#E7FF39]/20 text-[#E7FF39] border border-[#E7FF39]/40">
+                  V3.0
                 </span>
               </Link>
 
@@ -227,33 +214,33 @@ export default function Header() {
                 href="/how-it-works"
                 className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
                   pathname === '/how-it-works'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
                 How It Works
               </Link>
 
               <Link
-                href="/industries"
+                href="/campaign-plans"
                 className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
-                  pathname === '/industries'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                  pathname === '/campaign-plans'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
-                Industries
+                Campaign Plans
               </Link>
 
               <Link
                 href="/become-a-rider"
                 className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all duration-200 ${
                   pathname === '/become-a-rider'
-                    ? 'text-carbon-black bg-electric-yellow shadow-[0_0_14px_rgba(255,229,0,0.35)]'
-                    : 'text-soft-ivory/80 hover:text-white hover:bg-white/[0.06]'
+                    ? 'text-[#0C0D12] bg-[#E7FF39] font-bold shadow-[0_0_16px_rgba(231,255,57,0.35)]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
                 }`}
               >
-                Become a Rider
+                Become a Partner
               </Link>
             </nav>
 
@@ -261,7 +248,11 @@ export default function Header() {
             <div className="hidden xl:flex items-center gap-3">
               <Link
                 href="/contact"
-                className="px-3 py-1.5 text-xs font-semibold tracking-wide text-soft-ivory/80 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
+                className={`px-3.5 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-all ${
+                  pathname === '/contact'
+                    ? 'text-[#E7FF39]'
+                    : 'text-[#A5A8B3] hover:text-[#F2F3F5] hover:bg-[#24212C]/60'
+                }`}
               >
                 Contact
               </Link>
@@ -271,30 +262,30 @@ export default function Header() {
                 href={getWhatsAppUrl(SITE_CONFIG.whatsappMessages.campaign)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-8 h-8 rounded-full bg-graphite/80 hover:bg-burgundy text-white hover:text-electric-yellow transition-all border border-white/10 hover:border-emerald-500/50 group/wa"
+                className="flex items-center justify-center w-8 h-8 rounded-full bg-[#17191F] hover:bg-[#24212C] text-white hover:text-[#E7FF39] transition-all border border-[#353740] hover:border-[#E7FF39]/50 group/wa"
                 title="Chat with ADRYD team on WhatsApp"
                 aria-label="Chat on WhatsApp"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400 group-hover/wa:scale-110 transition-transform" />
               </a>
 
-              {/* Primary CTA: Launch Campaign */}
+              {/* Primary CTA: Launch a Campaign */}
               <Link
                 href="/book-campaign"
-                className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(255,229,0,0.25)] hover:shadow-[0_0_28px_rgba(255,229,0,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_24px_rgba(231,255,57,0.3)] hover:shadow-[0_0_32px_rgba(231,255,57,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
-                <span>Launch Campaign</span>
+                <span>Launch a Campaign</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            {/* Mobile/Tablet Actions & Menu Toggle */}
+            {/* Mobile Actions & Menu Toggle */}
             <div className="flex items-center gap-2 xl:hidden">
               <a
                 href={getWhatsAppUrl(SITE_CONFIG.whatsappMessages.campaign)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-graphite/80 text-white hover:text-electric-yellow border border-white/10"
+                className="flex items-center justify-center w-8 h-8 rounded-full bg-[#17191F] text-white border border-[#353740]"
                 title="Chat with ADRYD team on WhatsApp"
                 aria-label="Chat on WhatsApp"
               >
@@ -302,14 +293,14 @@ export default function Header() {
               </a>
               <Link
                 href="/book-campaign"
-                className="px-3.5 py-1.5 text-xs font-heading font-black uppercase tracking-wider rounded-full bg-electric-yellow text-carbon-black shadow-[0_0_15px_rgba(255,229,0,0.3)] hover:brightness-105 transition-all"
+                className="px-3.5 py-1.5 text-xs font-heading font-black uppercase tracking-wider rounded-full bg-[#E7FF39] text-[#0C0D12] shadow-[0_0_15px_rgba(231,255,57,0.3)] hover:brightness-105 transition-all"
               >
                 Launch
               </Link>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl bg-graphite/60 border border-white/10 text-soft-ivory hover:text-electric-yellow hover:border-electric-yellow/40 focus:outline-none transition-colors"
+                className="p-2 rounded-xl bg-[#17191F] border border-[#353740] text-[#F2F3F5] hover:text-[#E7FF39] hover:border-[#E7FF39]/40 focus:outline-none transition-colors"
                 aria-label="Toggle navigation drawer"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -321,13 +312,13 @@ export default function Header() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-carbon-black/95 backdrop-blur-2xl flex flex-col pt-20 pb-8 px-6 overflow-y-auto animate-in fade-in duration-200 xl:hidden">
+        <div className="fixed inset-0 z-40 bg-[#0C0D12]/98 backdrop-blur-2xl flex flex-col pt-20 pb-8 px-6 overflow-y-auto animate-in fade-in duration-200 xl:hidden">
           {/* Top Brand inside Drawer */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+          <div className="flex items-center justify-between pb-4 border-b border-[#353740]">
             <BrandLogo size="sm" showTagline={true} />
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-lg bg-white/[0.05] text-muted-grey hover:text-white"
+              className="p-2 rounded-lg bg-[#17191F] text-[#A5A8B3] hover:text-white"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -335,43 +326,43 @@ export default function Header() {
           </div>
 
           {/* Navigation Links inside Drawer */}
-          <div className="flex flex-col gap-1 py-4 border-b border-white/[0.08]">
+          <div className="flex flex-col gap-1 py-4 border-b border-[#353740]">
             <Link
               href="/"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/about' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/about' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
               About ADRYD
             </Link>
 
-            {/* Solutions Sublinks */}
+            {/* Our Services in Mobile */}
             <div className="py-2">
               <Link
-                href="/solutions"
-                className={`text-lg font-heading font-bold px-3 py-2 flex items-center justify-between rounded-lg ${
-                  pathname.startsWith('/solutions') ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory'
+                href="/services"
+                className={`text-base font-heading font-bold px-3 py-2 flex items-center justify-between rounded-lg ${
+                  pathname.startsWith('/services') ? 'text-[#E7FF39] bg-[#17191F]' : 'text-[#F2F3F5]'
                 }`}
               >
-                <span>Advertising Solutions</span>
-                <span className="text-xs text-muted-grey font-normal font-sans">View All</span>
+                <span>Our Services</span>
+                <span className="text-xs text-[#E7FF39] font-normal font-sans">View All 7</span>
               </Link>
-              <div className="pl-4 mt-1 space-y-1 border-l-2 border-burgundy ml-3">
-                {solutionItems.map((sol) => (
+              <div className="pl-4 mt-1 space-y-1 border-l-2 border-[#E7FF39]/40 ml-3">
+                {SITE_CONFIG.services.map((svc) => (
                   <Link
-                    key={sol.href}
-                    href={sol.href}
-                    className="block text-sm text-soft-ivory/80 hover:text-electric-yellow py-1.5 px-2"
+                    key={svc.id}
+                    href={`/services#${svc.slug}`}
+                    className="block text-xs text-[#A5A8B3] hover:text-[#E7FF39] py-1.5 px-2"
                   >
-                    {sol.title}
+                    {svc.name}
                   </Link>
                 ))}
               </div>
@@ -379,60 +370,53 @@ export default function Header() {
 
             <Link
               href="/adryd-upgrade"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg flex items-center gap-2 ${
-                pathname === '/adryd-upgrade' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg flex items-center justify-between ${
+                pathname === '/adryd-upgrade' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-electric-yellow" />
-              <span>ADRYD Upgrade</span>
-              <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-burgundy text-white">
+              <span className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#E7FF39]" />
+                <span>ADRYD Upgrade</span>
+              </span>
+              <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E7FF39]/20 text-[#E7FF39]">
                 Commerce
               </span>
             </Link>
 
             <Link
               href="/how-it-works"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/how-it-works' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/how-it-works' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
               How It Works
             </Link>
 
             <Link
-              href="/industries"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/industries' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              href="/campaign-plans"
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/campaign-plans' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
-              Industries
-            </Link>
-
-            <Link
-              href="/technology"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/technology' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
-              }`}
-            >
-              Platform Telemetry
+              Campaign Plans
             </Link>
 
             <Link
               href="/become-a-rider"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/become-a-rider' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/become-a-rider' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
-              Become an EV Partner
+              Become a Partner
             </Link>
 
             <Link
               href="/contact"
-              className={`text-lg font-heading font-bold py-2 px-3 rounded-lg transition-colors ${
-                pathname === '/contact' ? 'text-electric-yellow bg-white/[0.05]' : 'text-soft-ivory hover:text-electric-yellow'
+              className={`text-base font-heading font-bold py-2.5 px-3 rounded-lg transition-colors ${
+                pathname === '/contact' ? 'text-[#0C0D12] bg-[#E7FF39]' : 'text-[#F2F3F5] hover:text-[#E7FF39]'
               }`}
             >
-              Contact Us
+              Contact
             </Link>
           </div>
 
@@ -440,7 +424,7 @@ export default function Header() {
           <div className="pt-6 space-y-3 mt-auto">
             <Link
               href="/book-campaign"
-              className="w-full py-3.5 rounded-xl bg-electric-yellow text-carbon-black font-heading font-black text-center text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(255,229,0,0.3)] flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-[#E7FF39] text-[#0C0D12] font-heading font-black text-center text-sm uppercase tracking-wider shadow-[0_0_24px_rgba(231,255,57,0.3)] flex items-center justify-center gap-2"
             >
               <span>Launch a Campaign</span>
               <ArrowRight className="w-4 h-4" />
@@ -450,15 +434,15 @@ export default function Header() {
               href={getWhatsAppUrl(SITE_CONFIG.whatsappMessages.campaign)}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-graphite border border-white/10 text-white font-medium text-center text-xs flex items-center justify-center gap-2 hover:border-emerald-500/50"
+              className="w-full py-3 rounded-xl bg-[#17191F] border border-[#353740] text-white font-medium text-center text-xs flex items-center justify-center gap-2 hover:border-[#E7FF39]/50"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
               <span>Direct WhatsApp Desk</span>
             </a>
 
-            <div className="flex items-center justify-center gap-2 text-[11px] text-muted-grey pt-2 font-tech">
-              <MapPin className="w-3.5 h-3.5 text-burgundy" />
-              <span>HYDERABAD PILOT NETWORK • 2026</span>
+            <div className="flex items-center justify-center gap-2 text-[11px] text-[#A5A8B3] pt-2 font-tech">
+              <MapPin className="w-3.5 h-3.5 text-[#E7FF39]" />
+              <span>PROPOSED HYDERABAD PILOT • 2026</span>
             </div>
           </div>
         </div>

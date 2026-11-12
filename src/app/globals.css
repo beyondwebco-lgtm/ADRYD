@@ -1,27 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-burgundy-900: #43000f;
-  --color-burgundy-800: #580012;
-  --color-burgundy: #730018;
-  --color-burgundy-light: #940a25;
-  --color-burgundy-accent: #aa1230;
+  /* Carbon Black × Neon Volt Design System */
+  --color-carbon-bg: #0C0D12;
+  --color-secondary-bg: #24212C;
+  --color-card-bg: #17191F;
+  --color-neon-volt: #E7FF39;
+  --color-neon-hover: #D4FF00;
+  --color-main-text: #F2F3F5;
+  --color-secondary-text: #A5A8B3;
+  --color-border-color: #353740;
+  --color-pure-white: #FFFFFF;
 
-  --color-electric-yellow: #ffe500;
-  --color-electric-yellow-hover: #e5cd00;
-  --color-electric-yellow-glow: rgba(255, 229, 0, 0.35);
+  /* Backward-compatible utility aliases */
+  --color-carbon-black: #0C0D12;
+  --color-carbon-dark: #08090C;
+  --color-carbon-card: #17191F;
+  --color-graphite: #24212C;
+  --color-graphite-light: #2D2A37;
+  --color-graphite-border: #353740;
 
-  --color-carbon-black: #101115;
-  --color-carbon-dark: #0b0c0f;
-  --color-carbon-card: #15161c;
+  --color-electric-yellow: #E7FF39;
+  --color-electric-yellow-hover: #D4FF00;
+  --color-electric-yellow-glow: rgba(231, 255, 57, 0.35);
 
-  --color-graphite: #24252b;
-  --color-graphite-light: #32343c;
-  --color-graphite-border: rgba(255, 255, 255, 0.08);
-
-  --color-soft-ivory: #f7f5f0;
-  --color-ivory-muted: #e4e0d4;
-  --color-muted-grey: #a6a6ad;
+  --color-soft-ivory: #F2F3F5;
+  --color-ivory-muted: #A5A8B3;
+  --color-muted-grey: #A5A8B3;
 
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
@@ -29,54 +34,68 @@
 }
 
 :root {
-  --bg-primary: #101115;
-  --text-primary: #f7f5f0;
+  --bg-primary: #0C0D12;
+  --bg-secondary: #24212C;
+  --bg-card: #17191F;
+  --accent-neon: #E7FF39;
+  --text-primary: #F2F3F5;
+  --text-secondary: #A5A8B3;
+  --border-color: #353740;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #101115;
+  background: #0C0D12;
 }
 ::-webkit-scrollbar-thumb {
-  background: #24252b;
+  background: #24212C;
+  border: 1px solid #353740;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #730018;
+  background: #E7FF39;
 }
 
-/* Background Gradients & Glows */
+/* Background Gradients & Glows - Carbon Black × Neon Volt */
 .bg-gradient-hero {
-  background: radial-gradient(circle at 75% 35%, rgba(115, 0, 24, 0.45) 0%, rgba(67, 0, 15, 0.6) 40%, rgba(16, 17, 21, 0.98) 85%);
+  background: radial-gradient(circle at 75% 30%, rgba(36, 33, 44, 0.85) 0%, rgba(23, 25, 31, 0.95) 45%, #0C0D12 85%);
 }
 
-.bg-gradient-burgundy {
-  background: linear-gradient(135deg, #730018 0%, #43000f 100%);
+.bg-gradient-neon {
+  background: linear-gradient(135deg, #E7FF39 0%, #D4FF00 100%);
 }
 
 .bg-gradient-dark {
-  background: linear-gradient(180deg, #15161c 0%, #101115 100%);
+  background: linear-gradient(180deg, #17191F 0%, #0C0D12 100%);
 }
 
-.glow-yellow {
-  box-shadow: 0 0 35px -5px rgba(255, 229, 0, 0.35);
+.bg-gradient-card {
+  background: linear-gradient(145deg, #1A1C24 0%, #13141A 100%);
 }
 
-.glow-burgundy {
-  box-shadow: 0 10px 40px -10px rgba(115, 0, 24, 0.5);
+.glow-neon {
+  box-shadow: 0 0 35px -5px rgba(231, 255, 57, 0.35);
 }
 
-.text-gradient-gold {
-  background: linear-gradient(135deg, #ffe500 0%, #ffc800 100%);
+.glow-neon-sm {
+  box-shadow: 0 0 15px -2px rgba(231, 255, 57, 0.25);
+}
+
+.glow-card {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85);
+}
+
+.text-gradient-neon {
+  background: linear-gradient(135deg, #E7FF39 0%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-white {
-  background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #A5A8B3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -97,6 +116,6 @@
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(53, 55, 64, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(53, 55, 64, 0.35) 1px, transparent 1px);
 }

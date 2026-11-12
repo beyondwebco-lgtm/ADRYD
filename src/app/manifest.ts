@@ -2,13 +2,13 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'ADRYD — Electric Mobility Advertising',
-    short_name: 'ADRYD',
-    description: 'Electric mobility-powered mobile advertising and on-the-go brand growth in Hyderabad.',
+    name: 'ADRYD — Your Brand. Your Products. Our Moving Marketplace.',
+    short_name: 'ADRYD UPGRADE',
+    description: 'Electric Mobility-Powered Mobile Advertising, Product Showcase, Commerce, Pre-Orders and Hyperlocal Delivery Platform.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#101115',
-    theme_color: '#730018',
+    background_color: '#0C0D12',
+    theme_color: '#0C0D12',
     icons: [
       {
         src: '/icon-192.png',

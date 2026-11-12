@@ -1,49 +1,57 @@
 import HeroSection from '@/components/home/HeroSection';
 import ConceptSection from '@/components/home/ConceptSection';
-import HowItWorksSection from '@/components/home/HowItWorksSection';
-import SolutionsSection from '@/components/home/SolutionsSection';
-import CityTargetingSection from '@/components/home/CityTargetingSection';
+import ServicesSection from '@/components/home/ServicesSection';
 import AdrydUpgradeSection from '@/components/home/AdrydUpgradeSection';
-import IndustriesSection from '@/components/home/IndustriesSection';
+import ProductCategoriesSection from '@/components/home/ProductCategoriesSection';
+import CampaignPackagesSection from '@/components/home/CampaignPackagesSection';
+import HowItWorksSection from '@/components/home/HowItWorksSection';
+import CityTargetingSection from '@/components/home/CityTargetingSection';
+import CreativeServicesSection from '@/components/home/CreativeServicesSection';
 import TechnologyPreviewSection from '@/components/home/TechnologyPreviewSection';
 import RiderPartnerSection from '@/components/home/RiderPartnerSection';
-import CreativeServicesSection from '@/components/home/CreativeServicesSection';
+import SafetyTrustSection from '@/components/home/SafetyTrustSection';
 import FinalCtaSection from '@/components/home/FinalCtaSection';
 
 export default function HomePage() {
   return (
     <>
-      {/* 01: Full-Viewport Cinematic Hero */}
+      {/* 01: Full-Viewport Cinematic Carbon Black × Neon Volt Hero */}
       <HeroSection />
 
-      {/* 02: The ADRYD Concept (Soft Ivory contrast) */}
+      {/* 02: The ADRYD Concept (More Than Advertising. A Marketplace in Motion) */}
       <ConceptSection />
 
-      {/* 03: How ADRYD Works (Timeline) */}
-      <HowItWorksSection />
+      {/* 03: The Seven ADRYD Services (Promote, Showcase, Sell, Pre-Order, Deliver, Viral, Insights) */}
+      <ServicesSection />
 
-      {/* 04: Advertising Solutions (4 Packages) */}
-      <SolutionsSection />
-
-      {/* 05: City Targeting Experience (Interactive Hyderabad Route Simulator) */}
-      <CityTargetingSection />
-
-      {/* 06: ADRYD Upgrade (Mobile Commerce & Showcases) */}
+      {/* 04: ADRYD Upgrade (From Brand Visibility to Product Discovery to Commerce) */}
       <AdrydUpgradeSection />
 
-      {/* 07: Industries We Serve (8 Segments) */}
-      <IndustriesSection />
+      {/* 05: Product Categories (8 Categories with 5 Pilot Priority Sectors) */}
+      <ProductCategoriesSection />
 
-      {/* 08: Campaign Technology (Console & Roadmap Preview) */}
-      <TechnologyPreviewSection />
+      {/* 06: Campaign Packages (5 Illustrative Packages & 4 Monthly Retainer Plans) */}
+      <CampaignPackagesSection />
 
-      {/* 09: Become an EV Partner (Rider Network) */}
-      <RiderPartnerSection />
+      {/* 07: How ADRYD Works (6-Step Moving Campaign Timeline) */}
+      <HowItWorksSection />
 
-      {/* 10: Creative Services (Studio & Production) */}
+      {/* 08: Hyderabad Pilot Locations (5 Test Corridors with Audience Profiles) */}
+      <CityTargetingSection />
+
+      {/* 09: ADRYD Viral (From the Street to the Screen) */}
       <CreativeServicesSection />
 
-      {/* 11: Final Cinematic CTA */}
+      {/* 10: Technology & Roadmap (Designed for a Connected Future) */}
+      <TechnologyPreviewSection />
+
+      {/* 11: Partner Network (Join the Movement. Become an ADRYD Partner) */}
+      <RiderPartnerSection />
+
+      {/* 12: Safety & Trust (Built Around Responsible Operations) */}
+      <SafetyTrustSection />
+
+      {/* 13: Final Cinematic CTA */}
       <FinalCtaSection />
     </>
   );

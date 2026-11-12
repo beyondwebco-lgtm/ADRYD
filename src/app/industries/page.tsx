@@ -1,196 +1,251 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  ShoppingBag,
-  UtensilsCrossed,
-  Building,
-  GraduationCap,
-  CalendarCheck2,
+  Shirt,
+  Cookie,
+  Apple,
+  Palette,
+  Heart,
+  Cpu,
+  Flower2,
   Rocket,
-  Stethoscope,
-  Briefcase,
   ArrowRight,
   Check,
-  Zap,
+  Sparkles,
+  ShieldAlert,
 } from 'lucide-react';
+import { SITE_CONFIG } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | ADRYD Mobility Media',
+  title: 'Product Categories | Products That Move With Your Brand',
   description:
-    'Tailored electric mobility advertising strategies for retail, real estate, restaurants, education, events, startups, and marketing agencies across Hyderabad.',
+    'Discover the eight consumer product categories of ADRYD Upgrade: fashion, artisanal foods, organic agriculture, handmade crafts, personal care, education, home & garden, and emerging startups.',
 };
 
-const INDUSTRY_BLUEPRINTS = [
-  {
-    id: 'retail-fashion',
-    title: 'Retail, Fashion & Lifestyle',
-    icon: ShoppingBag,
-    summary: 'Bring seasonal wear, boutique launches, and festive discounts to high-footfall high streets.',
-    recommendedFleet: '2 to 4 EV Scooters',
-    recommendedCorridors: 'Jubilee Hills Rd 36, Banjara Hills Rd 10, Inorbit Mall Area',
-    strategy: 'Use ADRYD Upgrade illuminated showcase boxes for tactile product inspection outside tech campuses and women’s hostels.',
-  },
-  {
-    id: 'restaurants-cafes',
-    title: 'Restaurants, Breweries & Cafés',
-    icon: UtensilsCrossed,
-    summary: 'Drive high-volume lunch orders and evening weekend footfall to newly opened dining venues.',
-    recommendedFleet: '2 EV Scooters',
-    recommendedCorridors: 'Madhapur 100 Ft Rd, Gachibowli Financial District, Knowledge City',
-    strategy: 'Concentrate morning coffee hours and 12:00 PM – 2:30 PM lunch surges right at IT park entrances with QR delivery discount codes.',
-  },
-  {
-    id: 'real-estate',
-    title: 'Real Estate & Living Communities',
-    icon: Building,
-    summary: 'Generate high-intent site visit enquiries for luxury villas, gated apartments, and commercial projects.',
-    recommendedFleet: '4 to 8 EV Scooters',
-    recommendedCorridors: 'Kokapet SEZ, Narsingi, Tellapur, Financial District, Jubilee Hills',
-    strategy: 'Target affluent commuter arterial roads during weekend mornings and weekday evening traffic jams with clean, elegant branding.',
-  },
-  {
-    id: 'education-coaching',
-    title: 'Education, Universities & EdTech',
-    icon: GraduationCap,
-    summary: 'Amplify seasonal admission drives, competitive exam batches, and open house dates.',
-    recommendedFleet: '2 to 4 EV Scooters',
-    recommendedCorridors: 'Ameerpet, Kukatpally, Madhapur, Dilsukhnagar, Ashok Nagar',
-    strategy: 'Saturate dense student residential clusters, library hubs, and metro transit points preceding enrollment deadlines.',
-  },
-  {
-    id: 'events-exhibitions',
-    title: 'Events, Expos & Concerts',
-    icon: CalendarCheck2,
-    summary: 'Execute a concentrated 48-to-72 hour urban blitz leading up to major ticketed events and trade expos.',
-    recommendedFleet: '6 to 10+ EV Scooters',
-    recommendedCorridors: 'HITEX Exhibition Center, HICC, Gachibowli Stadium, Cyber Towers',
-    strategy: 'Coordinated convoys circling exhibition approaches and city metro corridors to ignite urgent ticket sales.',
-  },
-  {
-    id: 'startups-d2c',
-    title: 'Startups & Emerging D2C Brands',
-    icon: Rocket,
-    summary: 'Get your app downloads or physical products noticed without burning millions on static billboards.',
-    recommendedFleet: '2 to 4 EV Scooters',
-    recommendedCorridors: 'HITEC City, T-Hub Phase 2, Madhapur, Kondapur',
-    strategy: 'Combine moving scooters with bold QR pre-order incentives and Instagram reel street content for viral organic reach.',
-  },
-  {
-    id: 'healthcare',
-    title: 'Healthcare, Clinics & Diagnostics',
-    icon: Stethoscope,
-    summary: 'Promote new branch openings, preventive wellness packages, and local health checkup camps.',
-    recommendedFleet: '1 to 2 EV Scooters',
-    recommendedCorridors: 'Kukatpally, Begumpet, Secunderabad, Kondapur',
-    strategy: 'Compliant, dignified local awareness along residential family sectors and arterial neighbourhood transit lanes.',
-  },
-  {
-    id: 'marketing-agencies',
-    title: 'Advertising Agencies & Media Buyers',
-    icon: Briefcase,
-    summary: 'Integrate dynamic electric vehicle mobility into your clients’ multi-channel outdoor media plans.',
-    recommendedFleet: 'Flexible Agency Fleet Booking',
-    recommendedCorridors: 'Custom Hyderabad Citywide Grid',
-    strategy: 'Access white-label post-campaign execution audits, photographic proof decks, and priority fleet reservation.',
-  },
-];
-
 export default function IndustriesPage() {
+  const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+    fashion: Shirt,
+    bakery: Cookie,
+    'food-agri': Apple,
+    handmade: Palette,
+    lifestyle: Heart,
+    'tech-edu': Cpu,
+    'home-garden': Flower2,
+    startups: Rocket,
+  };
+
+  const pilotPriorityCategories = SITE_CONFIG.productCategories.filter(
+    (c) => c.isPilotPriority
+  );
+  const secondaryCategories = SITE_CONFIG.productCategories.filter(
+    (c) => !c.isPilotPriority
+  );
+
   return (
-    <div className="min-h-screen bg-carbon-black text-soft-ivory pt-28 pb-24 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen bg-[#0C0D12] text-[#F2F3F5] pt-32 pb-24 relative overflow-hidden">
+      {/* Background Gradients */}
+      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#24212C]/60 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Page Hero */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-burgundy/30 border border-burgundy-light text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-4">
-            <Zap className="w-3.5 h-3.5" />
-            Strategic Industry Blueprints
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-[#E7FF39]" />
+            RETAIL VERTICALS &amp; PRODUCTS
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-[1.02] mb-4">
-            Built For Brands That Want To Be Seen
+          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-[0.98] mb-6">
+            PRODUCTS THAT MOVE{' '}
+            <br />
+            <span className="text-[#E7FF39]">WITH YOUR BRAND.</span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-grey max-w-2xl leading-relaxed">
-            Every business category has unique customer touchpoints. Explore how ADRYD customizes
-            fleet sizes, corridor timings, and promotional formats for your sector.
+          <p className="text-base sm:text-xl text-[#A5A8B3] leading-relaxed font-normal">
+            ADRYD Upgrade is designed around eight core consumer product sectors. We pair tailored
+            merchandise display enclosures, planned corridor schedules, and contactless QR pre-order
+            workflows to bring your craft directly to consumers.
           </p>
         </div>
 
-        {/* 8 Industry Blueprints Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {INDUSTRY_BLUEPRINTS.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.id}
-                className="p-8 rounded-2xl bg-carbon-card border border-graphite-border hover:border-electric-yellow/40 transition-all flex flex-col justify-between shadow-2xl"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-graphite-border">
-                    <div className="w-12 h-12 rounded-xl bg-burgundy/40 border border-burgundy-light/40 flex items-center justify-center text-electric-yellow">
-                      <Icon className="w-6 h-6" />
+        {/* Phase 1 Priority Categories */}
+        <div className="mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b border-[#353740]">
+            <div>
+              <span className="font-tech text-xs text-[#E7FF39] uppercase font-bold">
+                Phase 1 Pilot Validation
+              </span>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase mt-1">
+                Five Recommended Pilot Categories
+              </h2>
+            </div>
+            <span className="text-xs text-[#A5A8B3] font-tech uppercase">
+              High Visual Contrast &amp; Tactile Discovery
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pilotPriorityCategories.map((cat) => {
+              const Icon = categoryIcons[cat.id] || Sparkles;
+              return (
+                <div
+                  key={cat.id}
+                  className="p-8 rounded-3xl bg-[#17191F] border border-[#353740] hover:border-[#E7FF39]/70 transition-all duration-300 flex flex-col justify-between shadow-xl group hover:-translate-y-1"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E7FF39]/15 text-[#E7FF39] border border-[#E7FF39]/30">
+                        Pilot Priority
+                      </span>
+                      <div className="w-10 h-10 rounded-xl bg-[#24212C] border border-[#353740] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#0C0D12] transition-all">
+                        <Icon className="w-5 h-5" />
+                      </div>
                     </div>
-                    <span className="text-xs font-tech text-electric-yellow font-bold uppercase">
-                      Hyderabad Blueprint
-                    </span>
+
+                    <h3 className="font-heading font-black text-2xl text-white mb-1 group-hover:text-[#E7FF39] transition-colors">
+                      {cat.title}
+                    </h3>
+                    <div className="text-xs font-tech text-[#E7FF39]/90 mb-3 uppercase">
+                      {cat.subtitle}
+                    </div>
+
+                    <p className="text-xs text-[#A5A8B3] leading-relaxed mb-6">
+                      {cat.description}
+                    </p>
+
+                    <div className="space-y-1.5 pt-4 border-t border-[#353740]/60 mb-6">
+                      <span className="text-[10px] font-tech uppercase text-[#A5A8B3] block">
+                        Example Merchandise:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {cat.examples.map((ex, i) => (
+                          <span
+                            key={i}
+                            className="text-[11px] font-tech px-2.5 py-0.5 rounded bg-[#0C0D12] text-[#F2F3F5] border border-[#353740]"
+                          >
+                            {ex}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-grey leading-relaxed mb-6">
-                    {item.summary}
-                  </p>
-
-                  <div className="space-y-3 p-4 rounded-xl bg-graphite/40 border border-graphite-border text-xs mb-6">
-                    <div>
-                      <span className="text-muted-grey block text-[10px] font-tech uppercase mb-0.5">
-                        Recommended Fleet Scale:
-                      </span>
-                      <span className="text-white font-bold">{item.recommendedFleet}</span>
-                    </div>
-                    <div>
-                      <span className="text-muted-grey block text-[10px] font-tech uppercase mb-0.5">
-                        Target Corridors:
-                      </span>
-                      <span className="text-electric-yellow font-medium">{item.recommendedCorridors}</span>
-                    </div>
-                    <div>
-                      <span className="text-muted-grey block text-[10px] font-tech uppercase mb-0.5">
-                        Tactical Approach:
-                      </span>
-                      <span className="text-soft-ivory/90 leading-relaxed">{item.strategy}</span>
-                    </div>
+                  <div className="pt-2">
+                    <Link
+                      href={`/book-campaign?category=${encodeURIComponent(cat.title)}`}
+                      className="w-full py-3 rounded-xl bg-[#24212C] hover:bg-[#E7FF39] text-white hover:text-[#0C0D12] font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all"
+                    >
+                      <span>Plan {cat.title.split('&')[0].trim()} Campaign</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="pt-4 border-t border-graphite-border">
-                  <Link
-                    href={`/book-campaign?industry=${item.id}`}
-                    className="inline-flex items-center justify-between w-full text-xs font-heading font-bold text-electric-yellow hover:underline"
-                  >
-                    <span>Plan {item.title} Campaign</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
-        {/* CTA */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-burgundy-900 via-burgundy to-burgundy-900 border border-burgundy-light flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Phase 2 Expansion Categories */}
+        <div className="mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b border-[#353740]">
+            <div>
+              <span className="font-tech text-xs text-[#A5A8B3] uppercase font-bold">
+                Phase 2 Expansion
+              </span>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase mt-1">
+                Additional Planned Product Sectors
+              </h2>
+            </div>
+            <span className="text-xs text-[#A5A8B3] font-tech uppercase">
+              Subject to Operational Feasibility
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {secondaryCategories.map((cat) => {
+              const Icon = categoryIcons[cat.id] || Sparkles;
+              return (
+                <div
+                  key={cat.id}
+                  className="p-8 rounded-3xl bg-[#17191F]/70 border border-[#353740] hover:border-[#E7FF39]/40 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-[#24212C] text-[#A5A8B3] border border-[#353740]">
+                        Phase 2 Expansion
+                      </span>
+                      <div className="w-10 h-10 rounded-xl bg-[#24212C] border border-[#353740] flex items-center justify-center text-[#A5A8B3]">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                    </div>
+
+                    <h3 className="font-heading font-black text-2xl text-white mb-1">
+                      {cat.title}
+                    </h3>
+                    <div className="text-xs font-tech text-[#A5A8B3] mb-3 uppercase">
+                      {cat.subtitle}
+                    </div>
+
+                    <p className="text-xs text-[#A5A8B3] leading-relaxed mb-6">
+                      {cat.description}
+                    </p>
+
+                    <div className="space-y-1.5 pt-4 border-t border-[#353740]/60 mb-6">
+                      <span className="text-[10px] font-tech uppercase text-[#A5A8B3] block">
+                        Example Merchandise:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {cat.examples.map((ex, i) => (
+                          <span
+                            key={i}
+                            className="text-[11px] font-tech px-2.5 py-0.5 rounded bg-[#0C0D12] text-[#A5A8B3] border border-[#353740]"
+                          >
+                            {ex}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href={`/book-campaign?category=${encodeURIComponent(cat.title)}`}
+                      className="w-full py-3 rounded-xl bg-[#0C0D12] hover:bg-[#24212C] border border-[#353740] text-[#F2F3F5] hover:text-[#E7FF39] font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all"
+                    >
+                      <span>Enquire Category Pilot</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Operational Safety Notice */}
+        <div className="p-6 rounded-3xl bg-[#17191F] border border-[#353740] flex items-start gap-4 text-xs text-[#A5A8B3] mb-12">
+          <ShieldAlert className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+          <p>
+            <strong className="text-white">Merchandise Qualification Notice:</strong> Product categories
+            represent planned retail applications. Operational approval for live on-vehicle display or sampling
+            requires physical inspection of dimensions, structural weight distribution, and non-hazardous compliance
+            before campaign confirmation.
+          </p>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#17191F] border border-[#353740] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <h4 className="font-heading font-bold text-xl text-white">
-              Don&apos;t See Your Vertical?
-            </h4>
-            <p className="text-xs text-soft-ivory/80 mt-1">
-              Our marketing strategy team creates bespoke routing schedules and custom vehicle
-              activations for emerging sectors.
+            <h3 className="font-heading font-black text-2xl text-white uppercase">
+              Do You Sell a Product in These Categories?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#A5A8B3] mt-1 max-w-xl">
+              Tell us about your merchandise to explore mobile showcase enclosures and scheduled Hyderabad corridor stops.
             </p>
           </div>
           <Link
-            href="/contact"
-            className="shrink-0 px-6 py-3 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-bold text-xs uppercase tracking-wider"
+            href="/book-campaign"
+            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
           >
-            Consult Campaign Specialist
+            Launch a Campaign
           </Link>
         </div>
       </div>
