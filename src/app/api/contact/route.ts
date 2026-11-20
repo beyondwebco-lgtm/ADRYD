@@ -22,22 +22,22 @@ export async function POST(request: Request) {
         replyTo: validatedData.email,
         subject: `[Contact Message] ${validatedData.subject} (${ticketId})`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-            <div style="background-color: #0C0D12; border: 1px solid #353740; padding: 16px; border-radius: 6px; text-align: center;">
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #222222; border-radius: 8px; background-color: #000000; color: #B8B8B8;">
+            <div style="background-color: #101010; border: 1px solid #222222; padding: 16px; border-radius: 6px; text-align: center;">
               <h2 style="color: #E7FF39; margin: 0; font-size: 20px; letter-spacing: 0.05em;">ADRYD CONTACT INQUIRY</h2>
             </div>
-            <div style="padding: 20px 0;">
-              <p>Ticket: <strong>${ticketId}</strong></p>
-              <p><strong>Name:</strong> ${validatedData.fullName}</p>
-              <p><strong>Email:</strong> ${validatedData.email}</p>
-              <p><strong>Phone:</strong> ${validatedData.phone}</p>
-              <p><strong>Subject:</strong> ${validatedData.subject}</p>
-              <div style="margin-top: 15px; padding: 12px; background: #f9f9f9; border-radius: 6px;">
-                <strong>Message:</strong>
-                <p style="white-space: pre-wrap; margin: 6px 0 0 0;">${validatedData.message}</p>
+            <div style="padding: 20px 0; color: #B8B8B8;">
+              <p>Ticket: <strong style="color: #03F2FF;">${ticketId}</strong></p>
+              <p><strong style="color: #FFFFFF;">Name:</strong> ${validatedData.fullName}</p>
+              <p><strong style="color: #FFFFFF;">Email:</strong> ${validatedData.email}</p>
+              <p><strong style="color: #FFFFFF;">Phone:</strong> ${validatedData.phone}</p>
+              <p><strong style="color: #FFFFFF;">Subject:</strong> ${validatedData.subject}</p>
+              <div style="margin-top: 15px; padding: 12px; background: #101010; border: 1px solid #222222; border-radius: 6px;">
+                <strong style="color: #E7FF39;">Message:</strong>
+                <p style="white-space: pre-wrap; margin: 6px 0 0 0; color: #FFFFFF;">${validatedData.message}</p>
               </div>
             </div>
-            <div style="border-top: 1px solid #eee; padding-top: 10px; font-size: 11px; color: #999;">
+            <div style="border-top: 1px solid #222222; padding-top: 10px; font-size: 11px; color: #888888;">
               Received on ${timestamp} via ADRYD Web
             </div>
           </div>

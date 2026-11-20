@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Electric Mobility-Powered Mobile Advertising, Product Showcase, Commerce, Pre-Orders and Hyperlocal Delivery Platform.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0C0D12',
-    theme_color: '#0C0D12',
+    background_color: '#000000',
+    theme_color: '#000000',
     icons: [
       {
         src: '/icon-192.png',

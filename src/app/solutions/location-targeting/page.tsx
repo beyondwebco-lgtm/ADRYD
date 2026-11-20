@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Compass, MapPin, CheckCircle2, ArrowRight, Navigation, ShieldAlert } from 'lucide-react';
+import { Compass, MapPin, ShieldAlert } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Location & Corridor Targeting | ADRYD Hyderabad',
@@ -41,17 +41,17 @@ const ZONES_BREAKDOWN = [
 
 export default function LocationTargetingPage() {
   return (
-    <div className="min-h-screen bg-carbon-black text-soft-ivory pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-28 pb-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-yellow/10 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
             <Compass className="w-3.5 h-3.5" />
             Geographic Precision
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-[1.02] mb-4">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#FFFFFF] uppercase leading-[1.02] mb-4">
             Location &amp; Corridor Targeting
           </h1>
-          <p className="text-base sm:text-lg text-muted-grey max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#888888] max-w-2xl leading-relaxed">
             Eliminate wasted impressions by choosing the exact commercial arteries and residential
             clusters in Hyderabad that align with your customer demographics.
           </p>
@@ -62,36 +62,36 @@ export default function LocationTargetingPage() {
           {ZONES_BREAKDOWN.map((zone, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-carbon-card border border-graphite-border hover:border-electric-yellow/40 transition-colors"
+              className="p-6 sm:p-8 rounded-2xl bg-[#101010] border border-[#222222] hover:border-[#03F2FF]/40 transition-colors"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-graphite-border">
-                <h3 className="font-heading font-bold text-xl text-white flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-electric-yellow" />
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-[#222222]">
+                <h3 className="font-heading font-bold text-xl text-[#FFFFFF] flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-[#E7FF39]" />
                   {zone.name}
                 </h3>
-                <span className="text-xs font-tech text-electric-yellow uppercase bg-electric-yellow/10 px-2.5 py-1 rounded border border-electric-yellow/20">
+                <span className="text-xs font-tech text-[#03F2FF] uppercase bg-[#000000] px-2.5 py-1 rounded border border-[#03F2FF]/30">
                   PINs: {zone.pinCodes}
                 </span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                 <div>
-                  <span className="text-muted-grey block text-[10px] font-tech uppercase mb-1">
+                  <span className="text-[#888888] block text-[10px] font-tech uppercase mb-1">
                     Key Corridors &amp; Hubs
                   </span>
-                  <span className="text-white font-medium">{zone.locations}</span>
+                  <span className="text-[#FFFFFF] font-medium">{zone.locations}</span>
                 </div>
                 <div>
-                  <span className="text-muted-grey block text-[10px] font-tech uppercase mb-1">
+                  <span className="text-[#888888] block text-[10px] font-tech uppercase mb-1">
                     Audience Demographics
                   </span>
-                  <span className="text-white font-medium">{zone.audience}</span>
+                  <span className="text-[#FFFFFF] font-medium">{zone.audience}</span>
                 </div>
                 <div>
-                  <span className="text-muted-grey block text-[10px] font-tech uppercase mb-1">
+                  <span className="text-[#888888] block text-[10px] font-tech uppercase mb-1">
                     Recommended Peak Window
                   </span>
-                  <span className="text-emerald-400 font-tech font-bold">{zone.peakTimes}</span>
+                  <span className="text-[#E7FF39] font-tech font-bold">{zone.peakTimes}</span>
                 </div>
               </div>
             </div>
@@ -99,10 +99,10 @@ export default function LocationTargetingPage() {
         </div>
 
         {/* Permissions & Compliance Notice */}
-        <div className="p-4 rounded-xl bg-graphite/40 border border-graphite-border mb-12 flex items-start gap-3 text-xs text-muted-grey">
-          <ShieldAlert className="w-4 h-4 text-electric-yellow shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-[#101010] border border-[#222222] mb-12 flex items-start gap-3 text-xs text-[#888888]">
+          <ShieldAlert className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
           <p>
-            <strong className="text-white">Corridor Permission Notice:</strong> In accordance with our
+            <strong className="text-[#FFFFFF]">Corridor Permission Notice:</strong> In accordance with our
             operating compliance guidelines, specific transit corridors, high-security roads, or
             private mall driveways are validated for accessibility and regulatory compliance before
             final route authorization.
@@ -110,18 +110,18 @@ export default function LocationTargetingPage() {
         </div>
 
         {/* CTA */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-[#17191F] via-[#24212C] to-[#17191F] border border-graphite-border flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 rounded-2xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <h4 className="font-heading font-bold text-xl text-white">
+            <h4 className="font-heading font-bold text-xl text-[#FFFFFF]">
               Target a Specific Zone or Corridor
             </h4>
-            <p className="text-xs text-soft-ivory/80 mt-1">
+            <p className="text-xs text-[#B8B8B8] mt-1">
               Select your preferred Hyderabad commercial hub in our interactive campaign planner.
             </p>
           </div>
           <Link
             href="/book-campaign"
-            className="shrink-0 px-6 py-3 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-bold text-xs uppercase tracking-wider"
+            className="shrink-0 px-6 py-3 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
           >
             Open Campaign Planner
           </Link>

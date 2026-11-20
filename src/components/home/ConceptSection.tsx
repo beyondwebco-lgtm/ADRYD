@@ -51,22 +51,22 @@ export default function ConceptSection() {
   ];
 
   return (
-    <section id="concept" className="py-24 bg-[#0C0D12] text-[#F2F3F5] relative overflow-hidden border-t border-[#353740]">
+    <section id="concept" className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
       {/* Background ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#24212C]/60 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E7FF39]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#03F2FF]/10 border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(3,242,255,0.12)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF]" />
             THE ADRYD CONCEPT
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
             MORE THAN ADVERTISING.{' '}
             <span className="text-[#E7FF39]">A MARKETPLACE IN MOTION.</span>
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-[#A5A8B3] leading-relaxed font-normal">
+          <p className="mt-6 text-base sm:text-lg text-[#B8B8B8] leading-relaxed font-normal">
             ADRYD brings together mobile brand visibility, real-world product discovery and digital commerce.
             Through electric vehicles and trained promotional partners, brands can explore new ways to
             showcase products, engage customers, generate enquiries and support local fulfilment.
@@ -80,21 +80,21 @@ export default function ConceptSection() {
             return (
               <div
                 key={item.num}
-                className="group relative bg-[#17191F] p-8 rounded-2xl border border-[#353740] hover:border-[#E7FF39]/60 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_40px_rgba(231,255,57,0.08)] transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-[#101010] p-8 rounded-2xl border border-[#222222] hover:border-[#E7FF39]/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_40px_rgba(231,255,57,0.08)] hover:bg-[#151515] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top row: Number and Icon */}
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#353740]">
-                    <span className="font-heading font-black text-4xl text-[#353740] group-hover:text-[#E7FF39] transition-colors">
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#222222]">
+                    <span className="font-heading font-black text-4xl text-[#222222] group-hover:text-[#E7FF39] transition-colors">
                       {item.num}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-[#24212C] border border-[#353740] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#0C0D12] transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#000000] transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
                   </div>
 
-                  {/* Subtitle & Title */}
-                  <div className="text-xs font-tech font-bold uppercase tracking-wider text-[#E7FF39] mb-1">
+                  {/* Subtitle & Title: Cyan for secondary details */}
+                  <div className="text-xs font-tech font-bold uppercase tracking-wider text-[#03F2FF] mb-1">
                     {item.subtitle}
                   </div>
                   <h3 className="font-heading font-bold text-2xl text-white mb-3">
@@ -102,22 +102,22 @@ export default function ConceptSection() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-[#A5A8B3] leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#B8B8B8] leading-relaxed mb-6">
                     {item.description}
                   </p>
 
                   {/* Key Highlights */}
-                  <ul className="space-y-2.5 mb-6 text-xs text-[#F2F3F5] font-medium">
+                  <ul className="space-y-2.5 mb-6 text-xs text-[#FFFFFF] font-medium">
                     {item.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
-                        <span>{h}</span>
+                        <span className="text-[#B8B8B8]">{h}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-[#353740]">
+                <div className="pt-4 border-t border-[#222222]">
                   <Link
                     href={item.link}
                     className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-[#E7FF39] hover:underline group/link"
@@ -132,22 +132,22 @@ export default function ConceptSection() {
         </div>
 
         {/* Bottom Banner inside Concept */}
-        <div className="rounded-2xl bg-[#17191F] border border-[#353740] text-[#F2F3F5] p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="rounded-2xl bg-[#101010] border border-[#222222] text-[#B8B8B8] p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-2 text-center md:text-left">
-            <div className="text-xs font-tech font-bold text-[#E7FF39] uppercase tracking-widest">
+            <div className="text-xs font-tech font-bold text-[#03F2FF] uppercase tracking-widest">
               Moving Marketplace Architecture
             </div>
             <h4 className="font-heading font-bold text-xl sm:text-2xl text-white">
               Connecting Brands with Local Shoppers via Electric Mobility
             </h4>
-            <p className="text-xs sm:text-sm text-[#A5A8B3] max-w-xl">
+            <p className="text-xs sm:text-sm text-[#B8B8B8] max-w-xl">
               We coordinate route feasibility, vehicle-compliant branding installation, sample showcase
               boxes, and customer purchase pathways across Hyderabad.
             </p>
           </div>
           <Link
             href="/adryd-upgrade"
-            className="shrink-0 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.25)]"
+            className="shrink-0 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.25)] hover:scale-[1.02]"
           >
             Discover ADRYD Upgrade
           </Link>

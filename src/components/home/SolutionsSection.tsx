@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Check, Bike, Users, ShieldAlert, Sparkles, Building2 } from 'lucide-react';
+import { ArrowRight, Check, Bike, Users, Sparkles, Building2 } from 'lucide-react';
 
 const solutions = [
   {
@@ -78,21 +78,21 @@ const solutions = [
 
 export default function SolutionsSection() {
   return (
-    <section className="py-24 bg-carbon-black text-soft-ivory relative overflow-hidden">
+    <section className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-electric-yellow/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-electric-yellow/10 border border-electric-yellow/30 text-electric-yellow text-xs font-tech font-bold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
             Campaign Formats
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl tracking-tight text-white uppercase leading-tight">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl tracking-tight text-[#FFFFFF] uppercase leading-tight">
             One City.{' '}
-            <span className="text-electric-yellow">Endless Possibilities.</span>
+            <span className="text-[#E7FF39]">Endless Possibilities.</span>
           </h2>
-          <p className="mt-4 text-base text-muted-grey leading-relaxed">
+          <p className="mt-4 text-base text-[#B8B8B8] leading-relaxed">
             Choose the deployment scale tailored to your brand goals. From targeted local store
             launches to synchronized citywide fleet activations across Hyderabad.
           </p>
@@ -105,44 +105,44 @@ export default function SolutionsSection() {
             return (
               <div
                 key={item.id}
-                className="group relative bg-carbon-card border border-graphite-border rounded-2xl p-6 hover:border-electric-yellow/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-xl hover:shadow-electric-yellow/5"
+                className="group relative bg-[#101010] border border-[#222222] rounded-2xl p-6 hover:border-[#03F2FF]/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-xl"
               >
                 <div>
                   {/* Top Badge & Icon */}
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-[10px] font-tech font-bold uppercase px-2.5 py-1 rounded-full bg-graphite text-electric-yellow border border-graphite-border">
+                    <span className="text-[10px] font-tech font-bold uppercase px-2.5 py-1 rounded-full bg-[#000000] text-[#03F2FF] border border-[#03F2FF]/30">
                       {item.badge}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-carbon-card-hover border border-graphite-border flex items-center justify-center text-electric-yellow group-hover:bg-electric-yellow group-hover:text-carbon-black transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#000000] transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title & Tagline */}
-                  <div className="text-xs font-tech font-semibold uppercase tracking-wider text-muted-grey mb-1">
+                  <div className="text-xs font-tech font-semibold uppercase tracking-wider text-[#888888] mb-1">
                     {item.tagline}
                   </div>
-                  <h3 className="font-heading font-bold text-xl text-white mb-3">
+                  <h3 className="font-heading font-bold text-xl text-[#FFFFFF] mb-3">
                     {item.name}
                   </h3>
 
-                  <p className="text-xs text-muted-grey leading-relaxed mb-5">
+                  <p className="text-xs text-[#888888] leading-relaxed mb-5">
                     {item.description}
                   </p>
 
                   {/* Ideal Use Case */}
-                  <div className="p-3 rounded-lg bg-graphite/40 border border-graphite-border mb-5 text-[11px]">
-                    <span className="text-electric-yellow font-semibold block mb-0.5">
+                  <div className="p-3 rounded-lg bg-[#000000] border border-[#222222] mb-5 text-[11px]">
+                    <span className="text-[#03F2FF] font-semibold block mb-0.5">
                       Ideal For:
                     </span>
-                    <span className="text-soft-ivory/80 leading-normal">{item.idealFor}</span>
+                    <span className="text-[#B8B8B8] leading-normal">{item.idealFor}</span>
                   </div>
 
                   {/* Features List */}
-                  <ul className="space-y-2 mb-6 text-xs text-soft-ivory/80">
+                  <ul className="space-y-2 mb-6 text-xs text-[#B8B8B8]">
                     {item.features.map((f, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-electric-yellow shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -150,17 +150,17 @@ export default function SolutionsSection() {
                 </div>
 
                 {/* CTAs */}
-                <div className="pt-4 border-t border-graphite-border flex flex-col gap-2">
+                <div className="pt-4 border-t border-[#222222] flex flex-col gap-2">
                   <Link
                     href={`/book-campaign?package=${item.query}`}
-                    className="w-full py-2.5 px-3 rounded-lg bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-bold text-xs uppercase tracking-wider text-center transition-all"
+                    className="w-full py-2.5 px-3 rounded-lg bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider text-center transition-all shadow-[0_0_15px_rgba(231,255,57,0.2)]"
                   >
                     Enquire This Package
                   </Link>
 
                   <Link
                     href={item.link}
-                    className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-muted-grey hover:text-white transition-colors py-1"
+                    className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-[#888888] hover:text-[#03F2FF] transition-colors py-1"
                   >
                     <span>View Specifications</span>
                     <ArrowRight className="w-3 h-3" />
@@ -172,19 +172,19 @@ export default function SolutionsSection() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#17191F] via-[#24212C] to-[#17191F] border border-graphite-border flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#101010] border border-[#222222] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <h4 className="font-heading font-bold text-xl text-white mb-1">
+            <h4 className="font-heading font-bold text-xl text-[#FFFFFF] mb-1">
               Need a Custom Multi-Week or Multi-City Fleet Campaign?
             </h4>
-            <p className="text-xs sm:text-sm text-soft-ivory/80 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#B8B8B8] max-w-xl">
               Our marketing strategy team creates bespoke routing schedules, custom showcase
               fabrication, and rider briefing for large brands and agencies.
             </p>
           </div>
           <Link
             href="/book-campaign?package=custom-package"
-            className="shrink-0 px-6 py-3 rounded-xl bg-electric-yellow hover:bg-electric-yellow-hover text-carbon-black font-heading font-bold text-xs uppercase tracking-wider transition-all"
+            className="shrink-0 px-6 py-3 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.25)]"
           >
             Speak to Campaign Director
           </Link>

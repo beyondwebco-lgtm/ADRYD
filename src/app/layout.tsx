@@ -25,7 +25,7 @@ const rajdhani = Rajdhani({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0C0D12',
+  themeColor: '#000000',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -101,7 +101,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="bg-[#0C0D12] text-[#F2F3F5] font-body selection:bg-[#E7FF39] selection:text-[#0C0D12] min-h-screen flex flex-col antialiased"
+        className="bg-[#000000] text-[#B8B8B8] font-body selection:bg-[#E7FF39] selection:text-[#000000] min-h-screen flex flex-col antialiased"
         suppressHydrationWarning
       >
         <Header />

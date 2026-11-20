@@ -1,32 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  /* Carbon Black × Neon Volt Design System */
-  --color-carbon-bg: #0C0D12;
-  --color-secondary-bg: #24212C;
-  --color-card-bg: #17191F;
-  --color-neon-volt: #E7FF39;
+  /* ==========================================================================
+     Pure Black (70%) × Neon Lime (20%) × Electric Cyan (10%) Design System
+     ========================================================================== */
+  
+  /* 70% Primary Background & Dark Charcoal Surfaces */
+  --color-black-bg: #000000;
+  --color-pure-black: #000000;
+  --color-charcoal-card: #101010;
+  --color-charcoal-hover: #151515;
+  --color-charcoal-border: #222222;
+
+  /* 20% Primary Accent: Neon Lime Yellow */
+  --color-neon-lime: #E7FF39;
   --color-neon-hover: #D4FF00;
-  --color-main-text: #F2F3F5;
-  --color-secondary-text: #A5A8B3;
-  --color-border-color: #353740;
+  --color-neon-glow: rgba(231, 255, 57, 0.35);
+
+  /* 10% Secondary Accent: Electric Cyan */
+  --color-electric-cyan: #03F2FF;
+  --color-cyan-hover: #00D8E6;
+  --color-cyan-glow: rgba(3, 242, 255, 0.3);
+
+  /* Typography */
+  --color-heading-white: #FFFFFF;
+  --color-body-gray: #B8B8B8;
+  --color-muted-gray: #888888;
   --color-pure-white: #FFFFFF;
 
-  /* Backward-compatible utility aliases */
-  --color-carbon-black: #0C0D12;
-  --color-carbon-dark: #08090C;
-  --color-carbon-card: #17191F;
-  --color-graphite: #24212C;
-  --color-graphite-light: #2D2A37;
-  --color-graphite-border: #353740;
+  /* Backward-compatible utility aliases matching previous token names */
+  --color-carbon-bg: #000000;
+  --color-carbon-black: #000000;
+  --color-carbon-dark: #000000;
+  --color-carbon-card: #101010;
+  --color-carbon-card-hover: #151515;
+  --color-card-bg: #101010;
+  --color-secondary-bg: #101010;
 
+  --color-graphite: #121212;
+  --color-graphite-light: #181818;
+  --color-graphite-border: #222222;
+  --color-border-color: #222222;
+
+  --color-neon-volt: #E7FF39;
   --color-electric-yellow: #E7FF39;
   --color-electric-yellow-hover: #D4FF00;
   --color-electric-yellow-glow: rgba(231, 255, 57, 0.35);
 
-  --color-soft-ivory: #F2F3F5;
-  --color-ivory-muted: #A5A8B3;
-  --color-muted-grey: #A5A8B3;
+  --color-main-text: #FFFFFF;
+  --color-soft-ivory: #FFFFFF;
+  --color-secondary-text: #B8B8B8;
+  --color-ivory-muted: #B8B8B8;
+  --color-muted-grey: #888888;
 
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
@@ -34,34 +59,38 @@
 }
 
 :root {
-  --bg-primary: #0C0D12;
-  --bg-secondary: #24212C;
-  --bg-card: #17191F;
-  --accent-neon: #E7FF39;
-  --text-primary: #F2F3F5;
-  --text-secondary: #A5A8B3;
-  --border-color: #353740;
+  --bg-primary: #000000;
+  --bg-card: #101010;
+  --bg-card-hover: #151515;
+  --border-subtle: #222222;
+  
+  --accent-lime: #E7FF39;
+  --accent-cyan: #03F2FF;
+  
+  --text-heading: #FFFFFF;
+  --text-body: #B8B8B8;
+  --text-muted: #888888;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0D12;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #24212C;
-  border: 1px solid #353740;
+  background: #181818;
+  border: 1px solid #222222;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #E7FF39;
 }
 
-/* Background Gradients & Glows - Carbon Black × Neon Volt */
+/* Background Gradients & Glows - Pure Black Aesthetic */
 .bg-gradient-hero {
-  background: radial-gradient(circle at 75% 30%, rgba(36, 33, 44, 0.85) 0%, rgba(23, 25, 31, 0.95) 45%, #0C0D12 85%);
+  background: radial-gradient(circle at 75% 30%, rgba(16, 16, 16, 0.9) 0%, rgba(0, 0, 0, 0.98) 50%, #000000 100%);
 }
 
 .bg-gradient-neon {
@@ -69,23 +98,32 @@
 }
 
 .bg-gradient-dark {
-  background: linear-gradient(180deg, #17191F 0%, #0C0D12 100%);
+  background: linear-gradient(180deg, #101010 0%, #000000 100%);
 }
 
 .bg-gradient-card {
-  background: linear-gradient(145deg, #1A1C24 0%, #13141A 100%);
+  background: linear-gradient(145deg, #121212 0%, #0D0D0D 100%);
 }
 
+/* Subtle Glows */
 .glow-neon {
-  box-shadow: 0 0 35px -5px rgba(231, 255, 57, 0.35);
+  box-shadow: 0 0 25px -4px rgba(231, 255, 57, 0.35);
 }
 
 .glow-neon-sm {
-  box-shadow: 0 0 15px -2px rgba(231, 255, 57, 0.25);
+  box-shadow: 0 0 12px -2px rgba(231, 255, 57, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -4px rgba(3, 242, 255, 0.3);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 12px -2px rgba(3, 242, 255, 0.2);
 }
 
 .glow-card {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.95);
 }
 
 .text-gradient-neon {
@@ -94,8 +132,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #03F2FF 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-gradient-white {
-  background: linear-gradient(180deg, #FFFFFF 0%, #A5A8B3 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -116,6 +160,6 @@
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(53, 55, 64, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(53, 55, 64, 0.35) 1px, transparent 1px);
+    linear-gradient(to right, rgba(34, 34, 34, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 34, 34, 0.4) 1px, transparent 1px);
 }

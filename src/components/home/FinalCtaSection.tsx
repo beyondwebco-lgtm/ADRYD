@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, MessageCircle, MapPin, Zap, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageCircle, MapPin, Sparkles } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
 
 export default function FinalCtaSection() {
@@ -9,13 +9,13 @@ export default function FinalCtaSection() {
   )}`;
 
   return (
-    <section className="py-24 bg-[#0C0D12] text-[#F2F3F5] relative overflow-hidden border-t border-[#353740]">
+    <section className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#24212C]/70 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Decorative SVG Animated Route Lines */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-25"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -28,26 +28,26 @@ export default function FinalCtaSection() {
         <path
           d="M-50,450 C400,350 800,600 1400,350 S1900,450 2200,400"
           fill="none"
-          stroke="#353740"
+          stroke="#222222"
           strokeWidth="1.5"
           strokeDasharray="4 6"
         />
       </svg>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
-          <Sparkles className="w-3.5 h-3.5 text-[#E7FF39]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
           HYDERABAD PILOT CAMPAIGN PLANNING OPEN
         </div>
 
-        <h2 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white uppercase leading-[0.95] mb-6">
+        <h2 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-[#FFFFFF] uppercase leading-[0.95] mb-6">
           READY TO PUT YOUR BRAND{' '}
           <span className="text-[#E7FF39] drop-shadow-[0_0_35px_rgba(231,255,57,0.35)]">
             IN MOTION?
           </span>
         </h2>
 
-        <p className="text-base sm:text-xl text-[#A5A8B3] max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="text-base sm:text-xl text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed mb-10">
           Take your brand and products directly to local audiences through electric mobility-powered
           advertising, product showcases, QR-enabled shopping experiences, pre-orders and delivery solutions.
         </p>
@@ -55,7 +55,7 @@ export default function FinalCtaSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <Link
             href="/book-campaign"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(231,255,57,0.35)] hover:shadow-[0_0_35px_rgba(231,255,57,0.5)] hover:-translate-y-0.5 transition-all"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(231,255,57,0.35)] hover:shadow-[0_0_35px_rgba(231,255,57,0.5)] hover:-translate-y-0.5 transition-all"
           >
             <span>Launch Your Campaign</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -65,20 +65,20 @@ export default function FinalCtaSection() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#17191F] hover:bg-[#24212C] border border-[#353740] text-white font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]"
           >
-            <MessageCircle className="w-4 h-4 text-emerald-400" />
+            <MessageCircle className="w-4 h-4 text-[#03F2FF]" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#A5A8B3] font-tech uppercase tracking-wider">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#888888] font-tech uppercase tracking-wider">
           <span className="flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-[#E7FF39]" /> Hyderabad, Telangana
+            <MapPin className="w-3.5 h-3.5 text-[#03F2FF]" /> Hyderabad, Telangana
           </span>
-          <span className="text-[#353740]">•</span>
+          <span className="text-[#333333]">•</span>
           <span>Fast 24-Hour Campaign Brief Turnaround</span>
-          <span className="text-[#353740]">•</span>
+          <span className="text-[#333333]">•</span>
           <span>Zero Obligation Quotes</span>
         </div>
       </div>

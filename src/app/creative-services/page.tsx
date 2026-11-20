@@ -9,9 +9,7 @@ import {
   Brush,
   ArrowRight,
   CheckCircle2,
-  Zap,
   QrCode,
-  Users2,
   ShieldAlert,
 } from 'lucide-react';
 
@@ -92,24 +90,24 @@ const STUDIO_SERVICES = [
 
 export default function CreativeServicesPage() {
   return (
-    <div className="min-h-screen bg-[#0C0D12] text-[#F2F3F5] pt-32 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
       {/* Background Gradients */}
-      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#24212C]/60 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Page Hero */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-[#E7FF39]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
             ADRYD VIRAL • CONTENT &amp; PRODUCTION STUDIO
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-[0.98] mb-6">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-[#FFFFFF] uppercase leading-[0.98] mb-6">
             FROM THE STREET{' '}
             <br />
             <span className="text-[#E7FF39]">TO THE SCREEN.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#A5A8B3] leading-relaxed font-normal">
+          <p className="text-base sm:text-xl text-[#B8B8B8] leading-relaxed font-normal">
             Outdoor advertising achieves its full potential when physical visibility triggers digital
             conversations. Our content studio produces cinematic videos, vertical product reels, and
             social creatives that turn real-world movement into digital reach.
@@ -123,27 +121,27 @@ export default function CreativeServicesPage() {
             return (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-[#17191F] border border-[#353740] hover:border-[#E7FF39]/60 transition-all duration-300 flex flex-col justify-between shadow-xl group hover:-translate-y-1"
+                className="p-8 rounded-3xl bg-[#101010] border border-[#222222] hover:border-[#03F2FF]/60 transition-all duration-300 flex flex-col justify-between shadow-xl group hover:-translate-y-1"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#24212C] border border-[#353740] flex items-center justify-center text-[#E7FF39] mb-6 group-hover:bg-[#E7FF39] group-hover:text-[#0C0D12] transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] mb-6 group-hover:bg-[#E7FF39] group-hover:text-[#000000] transition-colors">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="font-heading font-black text-xl text-white mb-2 group-hover:text-[#E7FF39] transition-colors">
+                  <h3 className="font-heading font-black text-xl text-[#FFFFFF] mb-2 group-hover:text-[#E7FF39] transition-colors">
                     {s.title}
                   </h3>
 
-                  <p className="text-xs text-[#A5A8B3] leading-relaxed mb-6">
+                  <p className="text-xs text-[#888888] leading-relaxed mb-6">
                     {s.summary}
                   </p>
 
-                  <div className="space-y-2 pt-4 border-t border-[#353740]/60 mb-6">
-                    <span className="text-[10px] font-tech text-[#E7FF39] uppercase font-bold block mb-1">
+                  <div className="space-y-2 pt-4 border-t border-[#222222] mb-6">
+                    <span className="text-[10px] font-tech text-[#03F2FF] uppercase font-bold block mb-1">
                       Deliverables:
                     </span>
                     {s.deliverables.map((d, i) => (
-                      <div key={i} className="flex items-start gap-2 text-[11px] text-[#F2F3F5]">
+                      <div key={i} className="flex items-start gap-2 text-[11px] text-[#B8B8B8]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
                         <span>{d}</span>
                       </div>
@@ -154,7 +152,7 @@ export default function CreativeServicesPage() {
                 <div className="pt-2">
                   <Link
                     href={`/book-campaign?service=ADRYD%20Viral&objective=${encodeURIComponent(s.title)}`}
-                    className="w-full py-3 rounded-xl bg-[#0C0D12] hover:bg-[#24212C] border border-[#353740] text-white hover:text-[#E7FF39] font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all"
+                    className="w-full py-3 rounded-xl bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]"
                   >
                     <span>Include in Campaign Brief</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -166,28 +164,28 @@ export default function CreativeServicesPage() {
         </div>
 
         {/* Responsible Disclaimer: No guaranteed viral metrics */}
-        <div className="p-6 rounded-3xl bg-[#17191F] border border-[#353740] flex items-start gap-3.5 text-xs text-[#A5A8B3] mb-12">
-          <ShieldAlert className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+        <div className="p-6 rounded-3xl bg-[#101010] border border-[#222222] flex items-start gap-3.5 text-xs text-[#888888] mb-12">
+          <ShieldAlert className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
           <p>
-            <strong className="text-white">Editorial Notice:</strong> ADRYD Viral services create
+            <strong className="text-[#FFFFFF]">Editorial Notice:</strong> ADRYD Viral services create
             professional social media content and digital assets documenting your campaign. We do not
             claim guaranteed viral performance, artificial view metrics, or automated follower thresholds.
           </p>
         </div>
 
         {/* Bottom CTA */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#17191F] border border-[#353740] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <h3 className="font-heading font-black text-2xl text-white uppercase">
+            <h3 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
               Need Custom Showcase Fabrication or Video Production?
             </h3>
-            <p className="text-xs sm:text-sm text-[#A5A8B3] mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#888888] mt-1 max-w-xl">
               Our creative director will evaluate your merchandise and recommend vehicle wrap templates.
             </p>
           </div>
           <Link
             href="/contact"
-            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
+            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
           >
             Connect with Studio
           </Link>

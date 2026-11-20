@@ -12,7 +12,6 @@ import {
   ArrowRight,
   Eye,
   CheckCircle2,
-  Users2,
   ShieldCheck,
 } from 'lucide-react';
 
@@ -92,17 +91,17 @@ export default function AdrydUpgradeSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#0C0D12] text-[#F2F3F5] relative overflow-hidden border-t border-[#353740]">
+    <section className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
       {/* Background radial glow */}
-      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#24212C]/60 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#E7FF39]/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#17191F] border border-[#353740] text-[#E7FF39] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#E7FF39]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#03F2FF]/10 border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(3,242,255,0.12)]">
+              <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
               ADRYD UPGRADE PLATFORM
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-[1.05]">
@@ -112,7 +111,7 @@ export default function AdrydUpgradeSection() {
               <br />
               <span className="text-[#E7FF39]">TO COMMERCE.</span>
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-[#A5A8B3] leading-relaxed font-normal">
+            <p className="mt-6 text-base sm:text-lg text-[#B8B8B8] leading-relaxed font-normal">
               ADRYD Upgrade explores a connected mobile commerce model where electric vehicles become brand
               touchpoints, product showcases and gateways to local shopping experiences.
             </p>
@@ -121,7 +120,7 @@ export default function AdrydUpgradeSection() {
           <div className="shrink-0">
             <Link
               href="/adryd-upgrade"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#0C0D12] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               <span>Explore ADRYD Upgrade</span>
               <ArrowRight className="w-4 h-4" />
@@ -143,24 +142,24 @@ export default function AdrydUpgradeSection() {
                   key={step.num}
                   type="button"
                   onClick={() => setActiveStep(idx + 1)}
-                  className={`p-4 rounded-2xl text-left border transition-all duration-300 flex flex-col justify-between ${
+                  className={`p-4 rounded-2xl text-left border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
                     isSelected
-                      ? 'bg-[#17191F] border-[#E7FF39] shadow-[0_0_20px_rgba(231,255,57,0.15)] ring-1 ring-[#E7FF39]'
-                      : 'bg-[#17191F]/60 border-[#353740] hover:border-[#E7FF39]/40'
+                      ? 'bg-[#101010] border-[#E7FF39] shadow-[0_0_20px_rgba(231,255,57,0.2)] ring-1 ring-[#E7FF39]'
+                      : 'bg-[#101010]/70 border-[#222222] hover:border-[#03F2FF]/40 hover:bg-[#151515]'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className={`font-tech text-xs font-black ${isSelected ? 'text-[#E7FF39]' : 'text-[#A5A8B3]'}`}>
+                      <span className={`font-tech text-xs font-black ${isSelected ? 'text-[#E7FF39]' : 'text-[#03F2FF]'}`}>
                         {step.num}
                       </span>
-                      <StepIcon className={`w-4 h-4 ${isSelected ? 'text-[#E7FF39]' : 'text-[#A5A8B3]'}`} />
+                      <StepIcon className={`w-4 h-4 ${isSelected ? 'text-[#E7FF39]' : 'text-[#888888]'}`} />
                     </div>
                     <div className="font-heading font-bold text-xs text-white line-clamp-1">
                       {step.title}
                     </div>
                   </div>
-                  <div className="text-[11px] text-[#A5A8B3] mt-2 line-clamp-2">
+                  <div className="text-[11px] text-[#888888] mt-2 line-clamp-2">
                     {step.short}
                   </div>
                 </button>
@@ -170,15 +169,15 @@ export default function AdrydUpgradeSection() {
         </div>
 
         {/* Interactive Conceptual Customer Journey Simulation */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#17191F] border border-[#353740] shadow-2xl mb-16 relative">
-          <div className="flex items-center justify-between pb-4 border-b border-[#353740] mb-6">
+        <div className="p-8 sm:p-10 rounded-3xl bg-[#101010] border border-[#222222] shadow-2xl mb-16 relative">
+          <div className="flex items-center justify-between pb-4 border-b border-[#222222] mb-6">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-[#E7FF39] animate-pulse" />
-              <span className="font-tech text-xs font-bold text-[#E7FF39] uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#03F2FF] animate-pulse" />
+              <span className="font-tech text-xs font-bold text-[#03F2FF] uppercase tracking-wider">
                 Interactive Conceptual Journey
               </span>
             </div>
-            <span className="text-[10px] text-[#A5A8B3] font-tech uppercase">
+            <span className="text-[10px] text-[#888888] font-tech uppercase">
               Illustrative Customer Flow
             </span>
           </div>
@@ -186,16 +185,16 @@ export default function AdrydUpgradeSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Visual Box */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#353740] shadow-xl">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#222222] shadow-xl">
                 <Image
                   src="/images/adryd-mobile-showcase.jpg"
                   alt="ADRYD Mobile Showcase Prototype"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D12] via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#0C0D12]/90 backdrop-blur-md border border-[#353740]">
-                  <div className="text-[10px] font-tech font-bold text-[#E7FF39] uppercase">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#000000]/90 backdrop-blur-md border border-[#222222]">
+                  <div className="text-[10px] font-tech font-bold text-[#03F2FF] uppercase">
                     Stage {sixSteps[activeStep - 1].num} • {sixSteps[activeStep - 1].title}
                   </div>
                   <div className="text-xs font-heading font-bold text-white mt-0.5">
@@ -210,10 +209,10 @@ export default function AdrydUpgradeSection() {
               <h3 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
                 {sixSteps[activeStep - 1].title}
               </h3>
-              <p className="text-sm sm:text-base text-[#F2F3F5] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#FFFFFF] font-medium leading-relaxed">
                 {sixSteps[activeStep - 1].desc}
               </p>
-              <div className="p-4 rounded-xl bg-[#0C0D12] border border-[#353740] space-y-2 text-xs text-[#A5A8B3]">
+              <div className="p-4 rounded-xl bg-[#000000] border border-[#222222] space-y-2 text-xs text-[#B8B8B8]">
                 <div className="text-white font-semibold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#E7FF39]" />
                   <span>How it works in practice:</span>
@@ -227,12 +226,12 @@ export default function AdrydUpgradeSection() {
                 <button
                   type="button"
                   onClick={() => setActiveStep((prev) => (prev % 6) + 1)}
-                  className="px-4 py-2.5 rounded-lg bg-[#24212C] hover:bg-[#2D2A37] border border-[#353740] text-xs font-heading font-bold text-[#F2F3F5] flex items-center gap-1.5 transition-all"
+                  className="px-4 py-2.5 rounded-lg bg-transparent hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-xs font-heading font-bold text-[#FFFFFF] hover:text-[#03F2FF] flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(3,242,255,0.12)] cursor-pointer"
                 >
                   <span>Next Step in Journey</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#E7FF39]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#03F2FF]" />
                 </button>
-                <span className="text-[11px] text-[#A5A8B3] font-tech">
+                <span className="text-[11px] text-[#888888] font-tech">
                   Step {activeStep} of 6
                 </span>
               </div>
@@ -240,7 +239,7 @@ export default function AdrydUpgradeSection() {
           </div>
         </div>
 
-        {/* Sample Campaign Concepts (Clearly labeled as concepts) */}
+        {/* Sample Campaign Concepts */}
         <div>
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -251,7 +250,7 @@ export default function AdrydUpgradeSection() {
                 Sample Campaign Concepts (Illustrative Only)
               </h3>
             </div>
-            <span className="text-[10px] font-tech uppercase px-2.5 py-1 rounded bg-[#17191F] text-[#A5A8B3] border border-[#353740]">
+            <span className="text-[10px] font-tech uppercase px-2.5 py-1 rounded bg-[#101010] text-[#03F2FF] border border-[#222222]">
               Concept Blueprints
             </span>
           </div>
@@ -260,35 +259,35 @@ export default function AdrydUpgradeSection() {
             {sampleConcepts.map((sc, idx) => (
               <div
                 key={idx}
-                className="bg-[#17191F] border border-[#353740] rounded-2xl p-6 flex flex-col justify-between hover:border-[#E7FF39]/40 transition-all group"
+                className="bg-[#101010] border border-[#222222] rounded-2xl p-6 flex flex-col justify-between hover:border-[#E7FF39]/40 hover:bg-[#151515] transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-tech text-[#E7FF39] uppercase font-bold px-2 py-0.5 rounded bg-[#24212C] border border-[#353740]">
+                    <span className="text-[10px] font-tech text-[#03F2FF] uppercase font-bold px-2 py-0.5 rounded bg-[#000000] border border-[#03F2FF]/30">
                       {sc.archetype}
                     </span>
-                    <span className="text-[10px] text-[#A5A8B3] font-tech">• {sc.brand}</span>
+                    <span className="text-[10px] text-[#888888] font-tech">• {sc.brand}</span>
                   </div>
                   <h4 className="font-heading font-bold text-lg text-white mb-2 group-hover:text-[#E7FF39] transition-colors">
                     {sc.title}
                   </h4>
-                  <p className="text-xs text-[#A5A8B3] leading-relaxed mb-4">
+                  <p className="text-xs text-[#B8B8B8] leading-relaxed mb-4">
                     {sc.desc}
                   </p>
                 </div>
 
                 <div>
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#353740] mb-4">
+                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#222222] mb-4">
                     {sc.tags.map((t, i) => (
                       <span
                         key={i}
-                        className="text-[10px] font-tech px-2 py-0.5 rounded bg-[#0C0D12] text-[#F2F3F5] border border-[#353740]"
+                        className="text-[10px] font-tech px-2 py-0.5 rounded bg-[#000000] text-[#B8B8B8] border border-[#222222]"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
-                  <div className="text-[10px] font-tech text-[#A5A8B3] italic text-center">
+                  <div className="text-[10px] font-tech text-[#888888] italic text-center">
                     Sample campaign concept — subject to pilot validation
                   </div>
                 </div>
@@ -298,8 +297,8 @@ export default function AdrydUpgradeSection() {
         </div>
 
         {/* Regulatory & Safety Notice */}
-        <div className="p-4 rounded-xl bg-[#17191F] border border-[#353740] flex items-start gap-3 text-xs text-[#A5A8B3]">
-          <ShieldCheck className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-[#101010] border border-[#222222] flex items-start gap-3 text-xs text-[#888888]">
+          <ShieldCheck className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
           <p>
             <strong className="text-white">Conceptual Notice:</strong> ADRYD Upgrade visual blueprints, sample campaign posters and product journeys illustrate proposed platform capabilities. Commercial deployment of illuminated display cases and mobile selling is subject to local transport approvals, structural safety testing, and municipal retail guidelines.
           </p>
