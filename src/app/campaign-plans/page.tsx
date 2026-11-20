@@ -26,12 +26,12 @@ export default function CampaignPlansPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Page Hero */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#FFFFFF] text-[#000000] text-xs font-tech font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#000000]" />
             CAMPAIGN ARCHITECTURE &amp; PLANS
           </div>
           <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-[#FFFFFF] uppercase leading-[0.98] mb-6">
-            CAMPAIGN PLANS.{' '}
+            <span className="text-[#03F2FF]">CAMPAIGN PLANS.</span>{' '}
             <br />
             <span className="text-[#E7FF39]">MEASURABLE IMPACT.</span>
           </h1>

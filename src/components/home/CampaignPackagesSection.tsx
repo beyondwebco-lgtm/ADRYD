@@ -18,19 +18,19 @@ export default function CampaignPackagesSection() {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#03F2FF]/10 border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(3,242,255,0.12)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] border border-[#FFFFFF] text-[#000000] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#000000]" />
               Campaign Architecture
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
               {viewMode === 'packages' ? (
                 <>
-                  FLEXIBLE CAMPAIGNS.{' '}
+                  <span className="text-[#03F2FF]">FLEXIBLE CAMPAIGNS.</span>{' '}
                   <span className="text-[#E7FF39]">MEASURABLE MOVEMENT.</span>
                 </>
               ) : (
                 <>
-                  KEEP YOUR BRAND{' '}
+                  <span className="text-[#03F2FF]">KEEP YOUR BRAND</span>{' '}
                   <span className="text-[#E7FF39]">MOVING.</span>
                 </>
               )}
