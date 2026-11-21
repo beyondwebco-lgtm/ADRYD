@@ -252,8 +252,8 @@ export default function BecomeARiderPage() {
               onClick={() => handleSelectPartnerType('without_ev_rider')}
               className={`p-6 sm:p-7 rounded-3xl text-left border transition-all duration-300 flex flex-col justify-between relative cursor-pointer ${
                 partnerType === 'without_ev_rider'
-                  ? 'bg-[#EAF9FD] border-[#1756C1] ring-2 ring-[#1756C1]/30 shadow-md'
-                  : 'bg-white border-[#DCECF2] hover:border-gray-300'
+                  ? 'bg-[#F0ECFF] border-[#7856FF] ring-2 ring-[#7856FF]/30 shadow-md'
+                  : 'bg-white border-[#DFEAF0] hover:border-gray-300'
               }`}
             >
               <div>
@@ -261,7 +261,7 @@ export default function BecomeARiderPage() {
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
                       partnerType === 'without_ev_rider'
-                        ? 'bg-[#1756C1] text-white'
+                        ? 'bg-[#7856FF] text-white'
                         : 'bg-[#F6FAFC] text-[#637786]'
                     }`}
                   >
@@ -271,7 +271,7 @@ export default function BecomeARiderPage() {
                   <span
                     className={`text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${
                       partnerType === 'without_ev_rider'
-                        ? 'bg-[#1756C1] text-white'
+                        ? 'bg-[#7856FF] text-white'
                         : 'bg-[#F6FAFC] text-[#637786]'
                     }`}
                   >
@@ -288,11 +288,11 @@ export default function BecomeARiderPage() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#DCECF2] flex items-center justify-between text-xs font-bold">
-                <span className={partnerType === 'without_ev_rider' ? 'text-[#1756C1]' : 'text-[#637786]'}>
+              <div className="pt-4 border-t border-[#DFEAF0] flex items-center justify-between text-xs font-bold">
+                <span className={partnerType === 'without_ev_rider' ? 'text-[#7856FF]' : 'text-[#637786]'}>
                   {partnerType === 'without_ev_rider' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'without_ev_rider' && <Check className="w-4 h-4 text-[#1756C1]" />}
+                {partnerType === 'without_ev_rider' && <Check className="w-4 h-4 text-[#7856FF]" />}
               </div>
             </button>
 

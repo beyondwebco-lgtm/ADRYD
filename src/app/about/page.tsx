@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 };
 
 const sevenCapabilities = [
-  { num: '01', title: 'Brand Promotion', desc: 'Eye-level mobile advertising across prime Hyderabad commercial corridors.' },
-  { num: '02', title: 'Product Showcasing', desc: 'Illuminated showcase display compartments letting customers view products up close.' },
-  { num: '03', title: 'QR Commerce', desc: 'Scan-and-buy catalogues connecting curiosity with instant purchases.' },
-  { num: '04', title: 'Pre-Order Demand', desc: 'Capture advance orders and customer interest before major retail drops.' },
-  { num: '05', title: 'Hyperlocal Delivery', desc: 'Fast local fulfilment and sample replenishment on electric vehicles.' },
-  { num: '06', title: 'Viral Social Content', desc: 'Street-to-screen reels and social amplification of real-world interactions.' },
-  { num: '07', title: 'Verified Insights', desc: 'Planned route metrics, corridor impression logs and engagement reporting.' },
+  { num: '01', title: 'Brand Promotion', desc: 'Eye-level mobile advertising across prime Hyderabad commercial corridors.', bg: 'bg-[#EAF9FD]', border: 'border-[#D5EFF7]', color: 'text-[#00A8C8]' },
+  { num: '02', title: 'Product Showcasing', desc: 'Illuminated showcase display compartments letting customers view products up close.', bg: 'bg-[#F0ECFF]', border: 'border-[#E4DCFF]', color: 'text-[#7856FF]' },
+  { num: '03', title: 'QR Commerce', desc: 'Scan-and-buy catalogues connecting curiosity with instant purchases.', bg: 'bg-[#EAF9FD]', border: 'border-[#D5EFF7]', color: 'text-[#00A8C8]' },
+  { num: '04', title: 'Pre-Order Demand', desc: 'Capture advance orders and customer interest before major retail drops.', bg: 'bg-[#F0ECFF]', border: 'border-[#E4DCFF]', color: 'text-[#7856FF]' },
+  { num: '05', title: 'Hyperlocal Delivery', desc: 'Fast local fulfilment and sample replenishment on electric vehicles.', bg: 'bg-[#EAF9FD]', border: 'border-[#D5EFF7]', color: 'text-[#00A8C8]' },
+  { num: '06', title: 'Viral Social Content', desc: 'Street-to-screen reels and social amplification of real-world interactions.', bg: 'bg-[#F0ECFF]', border: 'border-[#E4DCFF]', color: 'text-[#7856FF]' },
+  { num: '07', title: 'Verified Insights', desc: 'Planned route metrics, corridor impression logs and engagement reporting.', bg: 'bg-[#F6FAFC]', border: 'border-[#DFEAF0]', color: 'text-[#123C83]' },
 ];
 
 const safetyPrinciples = [
@@ -40,8 +40,8 @@ const safetyPrinciples = [
     title: 'Rider Safety & Eligibility',
     desc: 'Promotional riders undergo licence verification, vehicle fitness checks and road safety orientation.',
     icon: UserCheck,
-    bg: 'bg-[#EAF9FD]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    color: 'text-[#7856FF]',
   },
   {
     title: 'Secure Product Handling',
@@ -55,21 +55,21 @@ const safetyPrinciples = [
     desc: 'Showcase stops and sampling sessions are coordinated in approved commercial hubs and tech parks.',
     icon: MapPin,
     bg: 'bg-[#EAF9FD]',
-    color: 'text-[#58C9EF]',
+    color: 'text-[#00A8C8]',
   },
   {
     title: 'Verified Brand Standards',
     desc: 'Partner brands undergo standard verification to ensure genuine products and customer satisfaction.',
     icon: FileCheck,
-    bg: 'bg-[#EAF9FD]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#F0ECFF]',
+    color: 'text-[#7856FF]',
   },
   {
     title: 'Responsible Data Practices',
     desc: 'Customer enquiry portals and QR interactions respect privacy with zero third-party data reselling.',
     icon: ShieldCheck,
     bg: 'bg-[#F6FAFC]',
-    color: 'text-[#1756C1]',
+    color: 'text-[#123C83]',
   },
 ];
 
@@ -141,9 +141,9 @@ export default function AboutPage() {
             {sevenCapabilities.map((cap) => (
               <div
                 key={cap.num}
-                className="rounded-3xl bg-[#F6FAFC] p-6 border border-[#DCECF2] card-hover-lift space-y-2"
+                className={`rounded-3xl ${cap.bg} p-6 border ${cap.border} card-hover-lift space-y-2`}
               >
-                <div className="text-xs font-bold text-[#00A8C8]">
+                <div className={`text-xs font-bold ${cap.color}`}>
                   Capability {cap.num}
                 </div>
                 <h3 className="font-heading font-bold text-lg text-[#172B3A]">

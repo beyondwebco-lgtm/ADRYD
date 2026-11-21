@@ -27,7 +27,7 @@ const industries = [
     desc: 'Showcase fabric textures, embroidery details and festive collections directly in high-footfall shopping areas.',
     icon: Shirt,
     bg: 'bg-[#EAF9FD]',
-    border: 'border-[#DCECF2]',
+    border: 'border-[#D5EFF7]',
     color: 'text-[#00A8C8]',
   },
   {
@@ -36,9 +36,9 @@ const industries = [
     tagline: 'Artisanal Chocolates, Snacks & Specialty Foods',
     desc: 'Deploy temperature-protected sample units with instant QR ordering for sweet treats and gourmet foods.',
     icon: Utensils,
-    bg: 'bg-[#F6FAFC]',
-    border: 'border-[#DCECF2]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
   {
     id: 'handmade',
@@ -47,8 +47,8 @@ const industries = [
     desc: 'Connect independent makers with urban consumers through tactile showcases in front of cafes and lifestyle parks.',
     icon: Sparkles,
     bg: 'bg-[#EAF9FD]',
-    border: 'border-[#DCECF2]',
-    color: 'text-[#123C83]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
   },
   {
     id: 'beauty',
@@ -56,9 +56,9 @@ const industries = [
     tagline: 'Skincare, Fragrances & Personal Care',
     desc: 'Distribute tester samples, promote pre-orders and demonstrate premium beauty products at eye level.',
     icon: Heart,
-    bg: 'bg-[#F6FAFC]',
-    border: 'border-[#DCECF2]',
-    color: 'text-[#58C9EF]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
   {
     id: 'lifestyle',
@@ -67,7 +67,7 @@ const industries = [
     desc: 'Drive curiosity for consumer tech, wearables and daily innovations with illuminated vehicle enclosures.',
     icon: Compass,
     bg: 'bg-[#EAF9FD]',
-    border: 'border-[#DCECF2]',
+    border: 'border-[#D5EFF7]',
     color: 'text-[#00A8C8]',
   },
   {
@@ -76,9 +76,9 @@ const industries = [
     tagline: 'Neighborhood Outlets & Dining Hubs',
     desc: 'Create immediate neighborhood buzz for new store openings, weekend specials and seasonal discounts.',
     icon: Store,
-    bg: 'bg-[#F6FAFC]',
-    border: 'border-[#DCECF2]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
 ];
 

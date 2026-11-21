@@ -23,10 +23,10 @@ export default function RiderPartnerSection() {
       title: 'Rider Without EV',
       description: 'Want to partner with ADRYD? Register as a rider candidate for potential opportunities involving partner-arranged vehicles.',
       icon: UserCheck,
-      bg: 'bg-white',
-      border: 'border-[#DCECF2]',
-      accentColor: 'text-[#1756C1]',
-      btnBg: 'bg-[#1756C1] text-white hover:bg-[#13469E]',
+      bg: 'bg-[#F0ECFF]',
+      border: 'border-[#E4DCFF]',
+      accentColor: 'text-[#7856FF]',
+      btnBg: 'bg-[#7856FF] text-white hover:bg-[#6844EE]',
       href: '/become-a-rider?type=without_ev_rider',
       cta: 'Apply as a Rider',
     },
@@ -35,8 +35,8 @@ export default function RiderPartnerSection() {
       title: 'Fleet Partner',
       description: 'Commercial EV fleet owner? Partner with ADRYD to monetize your electric scooter fleet during commercial campaign hours.',
       icon: Building2,
-      bg: 'bg-[#F6FAFC]',
-      border: 'border-[#DCECF2]',
+      bg: 'bg-white',
+      border: 'border-[#DFEAF0]',
       accentColor: 'text-[#123C83]',
       btnBg: 'bg-[#123C83] text-white hover:bg-[#0F2F66]',
       href: '/become-a-rider?type=fleet_partner',
@@ -45,7 +45,7 @@ export default function RiderPartnerSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-white relative border-t border-[#DCECF2]">
+    <section className="py-20 lg:py-28 bg-[#F6FAFC] relative border-t border-[#DFEAF0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

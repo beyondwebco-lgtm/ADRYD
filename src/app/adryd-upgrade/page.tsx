@@ -25,6 +25,7 @@ const stages = [
     desc: 'High-recall electric scooter wrapping and branded rider apparel moving along planned commercial routes.',
     icon: Eye,
     bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
     color: 'text-[#00A8C8]',
   },
   {
@@ -32,8 +33,9 @@ const stages = [
     title: 'Product Showcase',
     desc: 'Illuminated, weather-sealed display compartments bringing real products directly to urban pedestrian hubs.',
     icon: Sparkles,
-    bg: 'bg-[#F6FAFC]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
   {
     num: '03',
@@ -41,15 +43,17 @@ const stages = [
     desc: 'Pedestrians scan high-contrast on-scooter QR codes to view mobile catalogues and place instant orders.',
     icon: QrCode,
     bg: 'bg-[#EAF9FD]',
-    color: 'text-[#123C83]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
   },
   {
     num: '04',
     title: 'Customer Purchase',
     desc: 'Direct ordering assistance and promo code redemption through frictionless mobile checkout.',
     icon: ShoppingBag,
-    bg: 'bg-[#F6FAFC]',
-    color: 'text-[#58C9EF]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
   {
     num: '05',
@@ -57,6 +61,7 @@ const stages = [
     desc: 'Scheduled showcase stops at corporate tech parks and gated communities collecting advance orders.',
     icon: PackageCheck,
     bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
     color: 'text-[#00A8C8]',
   },
   {
@@ -64,8 +69,9 @@ const stages = [
     title: 'Hyperlocal Fulfilment',
     desc: 'Same-day delivery and neighborhood order dispatch powered by the electric mobility fleet.',
     icon: Truck,
-    bg: 'bg-[#F6FAFC]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
 ];
 
@@ -107,7 +113,7 @@ export default function AdrydUpgradePage() {
               return (
                 <div
                   key={stage.num}
-                  className={`rounded-3xl ${stage.bg} border border-[#DCECF2] p-8 card-hover-lift flex flex-col justify-between`}
+                  className={`rounded-3xl ${stage.bg} border ${stage.border || 'border-[#DFEAF0]'} p-8 card-hover-lift flex flex-col justify-between`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">

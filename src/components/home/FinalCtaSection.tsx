@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function FinalCtaSection() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-r from-[#00A8C8] via-[#1756C1] to-[#123C83] text-white relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-gradient-to-r from-[#00A8C8] via-[#7856FF] to-[#123C83] text-white relative overflow-hidden">
       {/* Subtle Ambient Decorative Circles */}
       <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
       <div className="absolute -bottom-24 -right-20 w-96 h-96 rounded-full bg-[#58C9EF]/20 blur-3xl pointer-events-none" />

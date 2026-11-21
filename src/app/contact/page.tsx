@@ -98,7 +98,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#1756C1] shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-[#7856FF] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#172B3A] block font-bold text-base mb-0.5">Email Us</strong>
                     <a href={`mailto:${SITE_CONFIG.contact.email}`} className="text-[#172B3A] hover:text-[#00A8C8] transition-colors">

@@ -121,24 +121,24 @@ function Boundaries() {
   );
 }
 
-// 12 Stylized Palapitta Blue Shapes: Turquoise, Royal Blue, Sky Blue, White, Deep Blue
+// 12 Stylized Geometric Shapes: Palapitta Blue (#00A8C8), Vibrant Violet (#7856FF), Sky Blue (#58C9EF), Royal Blue (#1756C1), White (#FFFFFF)
 const initialObjects: PhysicsObjectProps[] = [
-  // Product Boxes (Palapitta Turquoise & Sky Blue)
+  // Product Boxes (Palapitta Blue & Vibrant Violet)
   { type: 'box', color: '#00A8C8', initialPosition: [-0.8, 4.2, 0.1], size: [0.65, 0.65, 0.65] },
-  { type: 'box', color: '#58C9EF', initialPosition: [0.9, 4.8, -0.2], size: [0.6, 0.6, 0.6] },
+  { type: 'box', color: '#7856FF', initialPosition: [0.9, 4.8, -0.2], size: [0.6, 0.6, 0.6] },
   { type: 'box', color: '#FFFFFF', initialPosition: [-1.4, 5.5, 0.2], size: [0.55, 0.55, 0.55] },
-  // Cylinders / Showcase Pods (Royal Blue & Deep Blue)
-  { type: 'cylinder', color: '#1756C1', initialPosition: [0.2, 3.8, 0.3], radius: 0.32, height: 0.65 },
+  // Cylinders / Showcase Pods (Vibrant Violet, Ice Blue & Deep Blue)
+  { type: 'cylinder', color: '#7856FF', initialPosition: [0.2, 3.8, 0.3], radius: 0.32, height: 0.65 },
   { type: 'cylinder', color: '#EAF9FD', initialPosition: [-0.5, 5.0, -0.4], radius: 0.35, height: 0.6 },
-  { type: 'cylinder', color: '#123C83', initialPosition: [1.3, 4.2, 0.1], radius: 0.28, height: 0.55 },
-  // Spheres (Palapitta Blue & Royal Blue, directly matching reference image 2!)
+  { type: 'cylinder', color: '#00A8C8', initialPosition: [1.3, 4.2, 0.1], radius: 0.28, height: 0.55 },
+  // Spheres (Palapitta Blue, Vibrant Violet & Sky Blue)
   { type: 'sphere', color: '#00A8C8', initialPosition: [-0.2, 4.5, 0.4], radius: 0.32 },
-  { type: 'sphere', color: '#1756C1', initialPosition: [0.7, 5.3, -0.3], radius: 0.28 },
+  { type: 'sphere', color: '#7856FF', initialPosition: [0.7, 5.3, -0.3], radius: 0.28 },
   { type: 'sphere', color: '#58C9EF', initialPosition: [-1.0, 3.5, -0.2], radius: 0.26 },
   { type: 'sphere', color: '#FFFFFF', initialPosition: [1.6, 3.9, 0.3], radius: 0.22 },
   // Capsules / Rounded Forms
-  { type: 'capsule', color: '#00A8C8', initialPosition: [0.0, 5.8, -0.1], radius: 0.24, height: 0.5 },
-  { type: 'capsule', color: '#1756C1', initialPosition: [-0.7, 4.9, 0.3], radius: 0.22, height: 0.48 },
+  { type: 'capsule', color: '#7856FF', initialPosition: [0.0, 5.8, -0.1], radius: 0.24, height: 0.5 },
+  { type: 'capsule', color: '#00A8C8', initialPosition: [-0.7, 4.9, 0.3], radius: 0.22, height: 0.48 },
 ];
 
 export default function GravityPhysicsCanvas() {

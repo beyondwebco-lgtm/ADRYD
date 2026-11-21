@@ -2,13 +2,14 @@
 
 @theme {
   /* ==========================================================================
-     ADRYD V3.0 Palapitta Blue Design System (Indian Roller Bird Inspiration)
+     ADRYD V3.0 Blue × White × Vibrant Violet Design System
      ========================================================================== */
   
-  /* Primary & Backgrounds (55% White + 20% Ice Blue/Soft Background) */
+  /* Primary & Backgrounds (55% White + 25% Palapitta + 20% Vibrant Violet) */
   --color-bg-white: #FFFFFF;
-  --color-bg-soft: #F6FAFC;
+  --color-bg-soft: #F7FAFC;
   --color-bg-ice: #EAF9FD;
+  --color-bg-lavender: #F0ECFF;
   --color-bg-canvas: #FFFFFF;
 
   /* Typography */
@@ -18,20 +19,26 @@
   --color-text-muted: #637786;
   --color-text-light: #FFFFFF;
 
-  /* Primary Brand Blue (15% Palapitta Turquoise) */
+  /* Primary Brand Blue (Palapitta Turquoise) */
   --color-palapitta: #00A8C8;
   --color-palapitta-hover: #0093AF;
   --color-palapitta-glow: rgba(0, 168, 200, 0.25);
 
-  /* Royal & Deep Blue (10% Wing Accents & Important Headings) */
+  /* Primary Vibrant Violet (Creative & Energy Accent) */
+  --color-violet: #7856FF;
+  --color-violet-hover: #6440FF;
+  --color-violet-glow: rgba(120, 86, 255, 0.25);
+
+  /* Royal & Deep Blue (Wing Accents & Important Headings) */
   --color-royal-blue: #1756C1;
   --color-royal-hover: #13469E;
   --color-deep-blue: #123C83;
   --color-sky-blue: #58C9EF;
 
   /* Subtle Borders */
-  --color-border-subtle: #DCECF2;
+  --color-border-subtle: #DFEAF0;
   --color-border-ice: #D5EFF7;
+  --color-border-lavender: #E4DCFF;
 
   --font-heading: var(--font-plus-jakarta-sans), sans-serif;
   --font-body: var(--font-inter), sans-serif;
@@ -39,16 +46,19 @@
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-soft: #F6FAFC;
+  --bg-soft: #F7FAFC;
   --bg-ice: #EAF9FD;
+  --bg-lavender: #F0ECFF;
   --text-charcoal: #172B3A;
   --text-muted: #637786;
   
   --palapitta: #00A8C8;
+  --violet: #7856FF;
   --royal-blue: #1756C1;
   --deep-blue: #123C83;
   --sky-blue: #58C9EF;
-  --border-subtle: #DCECF2;
+  --border-subtle: #DFEAF0;
+  --border-lavender: #E4DCFF;
 }
 
 /* Custom Scrollbar */
@@ -56,10 +66,10 @@
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F6FAFC;
+  background: #F7FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DCECF2;
+  background: #DFEAF0;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -81,7 +91,7 @@ body {
 }
 .card-hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px -10px rgba(0, 168, 200, 0.12), 0 0 1px 1px rgba(220, 236, 242, 0.6);
+  box-shadow: 0 16px 36px -10px rgba(120, 86, 255, 0.12), 0 0 1px 1px rgba(223, 234, 240, 0.8);
 }
 
 /* 3D Perspective Card Container */

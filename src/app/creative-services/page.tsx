@@ -22,28 +22,32 @@ const services = [
     desc: 'Short-form vertical video capturing authentic consumer reactions, unboxings and live product sampling moments.',
     icon: Video,
     bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
     color: 'text-[#00A8C8]',
   },
   {
     title: 'Vehicle Wrap Design',
     desc: 'High-contrast automotive livery layouts engineered specifically for moving two-wheelers and high legibility at distance.',
     icon: Palette,
-    bg: 'bg-[#F6FAFC]',
-    color: 'text-[#1756C1]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
   {
     title: 'Campaign Cinematics & B-Roll',
     desc: 'High-resolution drone footage and moving convoy tracking shots capturing your fleet moving through Hyderabad landmarks.',
     icon: Camera,
     bg: 'bg-[#EAF9FD]',
-    color: 'text-[#123C83]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
   },
   {
     title: 'Social Amplification Packages',
     desc: 'Packaged content assets optimized for Instagram, YouTube Shorts and digital ad placements.',
     icon: Share2,
-    bg: 'bg-[#F6FAFC]',
-    color: 'text-[#58C9EF]',
+    bg: 'bg-[#F0ECFF]',
+    border: 'border-[#E4DCFF]',
+    color: 'text-[#7856FF]',
   },
 ];
 
@@ -75,7 +79,7 @@ export default function CreativeServicesPage() {
             return (
               <div
                 key={idx}
-                className={`rounded-3xl ${svc.bg} border border-[#DCECF2] p-8 lg:p-10 card-hover-lift flex flex-col justify-between`}
+                className={`rounded-3xl ${svc.bg} border ${svc.border || 'border-[#DFEAF0]'} p-8 lg:p-10 card-hover-lift flex flex-col justify-between`}
               >
                 <div className="space-y-4">
                   <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${svc.color}`}>

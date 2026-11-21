@@ -11,22 +11,28 @@ export default function CampaignPackagesSection() {
       name: 'Starter',
       riders: '1 Rider',
       scope: '3-Day Test / Single Corridor',
-      description: 'Ideal for local pilots, single-neighborhood buzz, or product sampling tests.',
+      description: 'Ideal for local pilots, single-neighborhood buzz, or initial product sampling tests.',
       highlights: ['1 Branded EV', '1 Specific Corridor', 'Sample / Flyer Handout', 'Pilot Report Summary'],
       popular: false,
-      accent: 'border-[#DCECF2] bg-white',
+      border: 'border-[#DFEAF0]',
+      bg: 'bg-white',
       badge: 'Test Pilot',
+      badgeClass: 'bg-[#EAF9FD] text-[#00A8C8]',
+      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#00A8C8] border border-[#DFEAF0]',
     },
     {
       id: 'local_reach',
       name: 'Local Reach',
       riders: '2–3 Riders',
       scope: '1-Week Campaign / Multi-Area',
-      description: 'Built for store launches, neighborhood saturation, and weekend activations.',
+      description: 'Built for store launches, neighborhood saturation, and weekend retail activations.',
       highlights: ['2–3 Branded EVs', 'Cross-Corridor Routes', 'QR Product Showcasing', 'Visual Proof of Play'],
       popular: false,
-      accent: 'border-[#DCECF2] bg-white',
+      border: 'border-[#DFEAF0]',
+      bg: 'bg-white',
       badge: 'Local Activation',
+      badgeClass: 'bg-[#EAF9FD] text-[#1756C1]',
+      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#1756C1] border border-[#DFEAF0]',
     },
     {
       id: 'community',
@@ -36,8 +42,11 @@ export default function CampaignPackagesSection() {
       description: 'Designed for brands seeking strong, memorable presence across prime urban clusters.',
       highlights: ['4–5 Branded EVs', 'Dual-Cluster Presence', 'Active Showcasing & QR', 'Priority Corridor Routing'],
       popular: true,
-      accent: 'border-[#00A8C8] bg-gradient-to-b from-[#EAF9FD]/60 to-white shadow-xl ring-1 ring-[#00A8C8]',
+      border: 'border-[#7856FF] ring-2 ring-[#7856FF]/30 shadow-xl',
+      bg: 'bg-gradient-to-b from-[#F0ECFF]/60 to-white',
       badge: 'Most Popular',
+      badgeClass: 'bg-[#7856FF] text-white',
+      btnClass: 'bg-[#7856FF] hover:bg-[#6440FF] text-white shadow-md',
     },
     {
       id: 'city_activation',
@@ -47,8 +56,11 @@ export default function CampaignPackagesSection() {
       description: 'Full-scale city presence designed to build brand recall across major commercial hubs.',
       highlights: ['6–10 Branded EVs', 'Citywide Corridors', 'Pre-Order & Showcase', 'Dedicated Account Lead'],
       popular: false,
-      accent: 'border-[#DCECF2] bg-white',
+      border: 'border-[#DFEAF0]',
+      bg: 'bg-white',
       badge: 'High Impact',
+      badgeClass: 'bg-[#EAF9FD] text-[#00A8C8]',
+      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#00A8C8] border border-[#DFEAF0]',
     },
     {
       id: 'bulk_activation',
@@ -58,25 +70,29 @@ export default function CampaignPackagesSection() {
       description: 'Custom fleet deployments, major event sponsorships and corporate brand rollouts.',
       highlights: ['10+ Custom Fleet', 'Synchronized Convoys', 'Full Media & PR Support', 'Comprehensive Analytics'],
       popular: false,
-      accent: 'border-[#DCECF2] bg-white',
+      border: 'border-[#DFEAF0]',
+      bg: 'bg-white',
       badge: 'Enterprise',
+      badgeClass: 'bg-[#F0ECFF] text-[#7856FF]',
+      btnClass: 'bg-[#F7FAFC] hover:bg-[#F0ECFF] text-[#7856FF] border border-[#DFEAF0]',
     },
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F6FAFC] relative border-t border-[#DCECF2]">
+    <section id="plans" className="py-20 lg:py-28 bg-[#EAF9FD] relative border-t border-[#DFEAF0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0ECFF] text-[#7856FF] text-xs font-bold uppercase tracking-wider border border-[#E4DCFF]">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Campaign Architecture</span>
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
               FLEXIBLE CAMPAIGNS.{' '}
-              <span className="text-[#00A8C8]">BIG POSSIBILITIES.</span>
+              <span className="text-[#00A8C8]">BIG</span>{' '}
+              <span className="text-[#7856FF]">POSSIBILITIES.</span>
             </h2>
             <p className="text-base sm:text-lg text-[#637786] font-normal">
               Five compact campaign packages designed for local businesses, product launches and citywide activations.
@@ -85,7 +101,7 @@ export default function CampaignPackagesSection() {
 
           <Link
             href="/campaign-plans"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#00A8C8] hover:text-[#0093AF] transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#7856FF] hover:text-[#6440FF] transition-colors shrink-0"
           >
             <span>View Monthly Retainer Plans</span>
             <ArrowRight className="w-4 h-4" />
@@ -100,53 +116,53 @@ export default function CampaignPackagesSection() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`rounded-3xl p-6 border ${pkg.accent} flex flex-col justify-between card-hover-lift transition-all`}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              className={`rounded-3xl ${pkg.bg} border ${pkg.border} p-6 flex flex-col justify-between card-hover-lift relative`}
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                    pkg.popular ? 'bg-[#00A8C8] text-white' : 'bg-[#EAF9FD] text-[#00A8C8]'
-                  }`}>
+              <div>
+                {/* Badge */}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full ${pkg.badgeClass}`}>
                     {pkg.badge}
                   </span>
-                  <span className="text-xs font-bold text-[#637786]">{pkg.riders}</span>
+                  <span className="text-xs font-bold text-[#172B3A]">
+                    {pkg.riders}
+                  </span>
                 </div>
 
-                <div>
-                  <h3 className="font-heading font-black text-2xl text-[#172B3A] uppercase tracking-tight">
-                    {pkg.name}
-                  </h3>
-                  <div className="text-xs font-bold text-[#1756C1] mt-0.5">{pkg.scope}</div>
+                {/* Package Name */}
+                <h3 className="font-heading font-black text-xl text-[#172B3A] uppercase tracking-tight mb-1">
+                  {pkg.name}
+                </h3>
+
+                {/* Scope */}
+                <div className="text-xs font-semibold text-[#7856FF] mb-3">
+                  {pkg.scope}
                 </div>
 
-                <p className="text-xs text-[#637786] leading-relaxed">
+                {/* Description */}
+                <p className="text-xs text-[#637786] leading-relaxed mb-6 font-normal">
                   {pkg.description}
                 </p>
 
-                <div className="space-y-2 pt-2 border-t border-[#DCECF2]">
+                {/* Highlights */}
+                <ul className="space-y-2 mb-6">
                   {pkg.highlights.map((h, i) => (
-                    <div key={i} className="flex items-center gap-2 text-[11px] text-[#172B3A] font-medium">
+                    <li key={i} className="flex items-center gap-2 text-xs text-[#172B3A] font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#00A8C8] shrink-0" />
                       <span>{h}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
-              <div className="pt-6 mt-4">
-                <Link
-                  href={`/book-campaign?package=${pkg.id}`}
-                  className={`w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-full text-xs font-bold transition-all ${
-                    pkg.popular
-                      ? 'bg-[#00A8C8] hover:bg-[#0093AF] text-white shadow-md'
-                      : 'bg-[#F6FAFC] hover:bg-[#EAF9FD] text-[#172B3A] border border-[#DCECF2]'
-                  }`}
-                >
-                  <span>Enquire Package</span>
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
+              {/* Action Button linking with preselected plan query */}
+              <Link
+                href={`/book-campaign?plan=${pkg.id}`}
+                className={`w-full py-3 px-4 rounded-full text-xs font-bold text-center block transition-all ${pkg.btnClass}`}
+              >
+                Book Package
+              </Link>
             </motion.div>
           ))}
         </div>
