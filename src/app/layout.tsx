@@ -1,13 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-import { Space_Grotesk, Inter, Rajdhani } from 'next/font/google';
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
+import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-plus-jakarta-sans',
   display: 'swap',
 });
 
@@ -17,15 +19,8 @@ const inter = Inter({
   display: 'swap',
 });
 
-const rajdhani = Rajdhani({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-rajdhani',
-  display: 'swap',
-});
-
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  themeColor: '#FFFFFF',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -34,11 +29,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://adryd.com'),
   title: {
-    default: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
-    template: '%s | ADRYD Upgrade',
+    default: 'ADRYD | Your Brand. Everywhere It Matters.',
+    template: '%s | ADRYD',
   },
   description:
-    'Discover ADRYD Upgrade, an electric mobility-powered platform concept connecting mobile advertising, product showcases, QR commerce, pre-orders and hyperlocal delivery.',
+    'ADRYD brings brands and customers together through electric mobility, creative promotions and real-world product experiences.',
   keywords: [
     'Mobile advertising Hyderabad',
     'Electric vehicle advertising',
@@ -63,24 +58,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://adryd.com',
-    siteName: 'ADRYD Upgrade',
-    title: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
+    siteName: 'ADRYD',
+    title: 'ADRYD | Your Brand. Everywhere It Matters.',
     description:
-      'Connecting brands, products and local audiences through electric mobility-powered promotions, product showcases and commerce experiences across Hyderabad.',
+      'ADRYD brings brands and customers together through electric mobility, creative promotions and real-world product experiences.',
     images: [
       {
         url: '/images/adryd-fleet-hyderabad.jpg',
         width: 1200,
         height: 630,
-        alt: 'ADRYD Upgrade Moving Marketplace in Hyderabad',
+        alt: 'ADRYD Moving Marketplace',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ADRYD Upgrade | Mobile Advertising & Commerce Platform',
+    title: 'ADRYD | Your Brand. Everywhere It Matters.',
     description:
-      'Transform brand visibility into product discovery and commerce through electric mobility in Hyderabad.',
+      'ADRYD brings brands and customers together through electric mobility, creative promotions and real-world product experiences.',
     images: ['/images/adryd-fleet-hyderabad.jpg'],
   },
   robots: {
@@ -97,17 +92,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${rajdhani.variable} scroll-smooth`}
+      className={`${plusJakartaSans.variable} ${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body
-        className="bg-[#000000] text-[#B8B8B8] font-body selection:bg-[#E7FF39] selection:text-[#000000] min-h-screen flex flex-col antialiased"
+        className="bg-[#FFFFFF] text-[#172B3A] font-body selection:bg-[#EAF9FD] selection:text-[#00A8C8] min-h-screen flex flex-col antialiased"
         suppressHydrationWarning
       >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <SmoothScrollProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

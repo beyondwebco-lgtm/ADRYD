@@ -1,57 +1,41 @@
 import HeroSection from '@/components/home/HeroSection';
 import ConceptSection from '@/components/home/ConceptSection';
 import ServicesSection from '@/components/home/ServicesSection';
-import AdrydUpgradeSection from '@/components/home/AdrydUpgradeSection';
+import HowItWorksSection from '@/components/home/HowItWorksSection';
 import ProductCategoriesSection from '@/components/home/ProductCategoriesSection';
 import CampaignPackagesSection from '@/components/home/CampaignPackagesSection';
-import HowItWorksSection from '@/components/home/HowItWorksSection';
-import CityTargetingSection from '@/components/home/CityTargetingSection';
-import CreativeServicesSection from '@/components/home/CreativeServicesSection';
-import TechnologyPreviewSection from '@/components/home/TechnologyPreviewSection';
+import GravitySection from '@/components/home/GravitySection';
 import RiderPartnerSection from '@/components/home/RiderPartnerSection';
-import SafetyTrustSection from '@/components/home/SafetyTrustSection';
 import FinalCtaSection from '@/components/home/FinalCtaSection';
 
 export default function HomePage() {
   return (
     <>
-      {/* 01: Full-Viewport Cinematic Carbon Black × Neon Volt Hero */}
+      {/* 01: Hero — YOUR BRAND. EVERYWHERE IT MATTERS. (3D Palapitta Electric Scooter) */}
       <HeroSection />
 
-      {/* 02: The ADRYD Concept (More Than Advertising. A Marketplace in Motion) */}
+      {/* 02: About — MORE THAN ADVERTISING. */}
       <ConceptSection />
 
-      {/* 03: The Seven ADRYD Services (Promote, Showcase, Sell, Pre-Order, Deliver, Viral, Insights) */}
+      {/* 03: Services — ONE PLATFORM. MORE POSSIBILITIES. */}
       <ServicesSection />
 
-      {/* 04: ADRYD Upgrade (From Brand Visibility to Product Discovery to Commerce) */}
-      <AdrydUpgradeSection />
-
-      {/* 05: Product Categories (8 Categories with 5 Pilot Priority Sectors) */}
-      <ProductCategoriesSection />
-
-      {/* 06: Campaign Packages (5 Illustrative Packages & 4 Monthly Retainer Plans) */}
-      <CampaignPackagesSection />
-
-      {/* 07: How ADRYD Works (6-Step Moving Campaign Timeline) */}
+      {/* 04: How It Works — THREE SIMPLE STEPS. (Curved Route & Scooter in Motion) */}
       <HowItWorksSection />
 
-      {/* 08: Hyderabad Pilot Locations (5 Test Corridors with Audience Profiles) */}
-      <CityTargetingSection />
+      {/* 05: Product Categories — MADE FOR EVERY BRAND. (3D Product Showcase) */}
+      <ProductCategoriesSection />
 
-      {/* 09: ADRYD Viral (From the Street to the Screen) */}
-      <CreativeServicesSection />
+      {/* 06: Campaign Plans — FLEXIBLE CAMPAIGNS. BIG POSSIBILITIES. */}
+      <CampaignPackagesSection />
 
-      {/* 10: Technology & Roadmap (Designed for a Connected Future) */}
-      <TechnologyPreviewSection />
+      {/* 07: 3D Physics — CREATIVE IDEAS. REAL-WORLD IMPACT. */}
+      <GravitySection />
 
-      {/* 11: Partner Network (Join the Movement. Become an ADRYD Partner) */}
+      {/* 08: Become a Partner — RIDE WITH ADRYD. */}
       <RiderPartnerSection />
 
-      {/* 12: Safety & Trust (Built Around Responsible Operations) */}
-      <SafetyTrustSection />
-
-      {/* 13: Final Cinematic CTA */}
+      {/* 09: Final CTA — LET'S GET YOUR BRAND MOVING. */}
       <FinalCtaSection />
     </>
   );

@@ -1,239 +1,203 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  CheckCircle2,
+  Target,
+  Compass,
+  Rocket,
+  ArrowRight,
   Sparkles,
-  Info,
-  HelpCircle,
+  ShoppingBag,
+  Users,
+  Bike,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How It Works | From Your Idea to a Moving Campaign',
+  title: 'How It Works | ADRYD Campaign Journey',
   description:
-    'Discover the six-step moving campaign journey of ADRYD Upgrade: from brand brief and service selection to route deployment and verified outcomes across Hyderabad.',
+    'Learn how ADRYD brings mobile advertising, product showcases, QR commerce and hyperlocal delivery to life in three straightforward steps.',
 };
 
-const steps = [
+const mainSteps = [
   {
     step: '01',
-    title: 'Tell Us About Your Brand',
-    subtitle: 'Brand Discovery & Briefing',
-    desc: 'Share your business, products and promotional objectives through our interactive campaign brief. Whether you are an artisan handloom brand, a D2C startup, or a regional enterprise, we tailor the operational concept to your audience.',
-    highlights: [
-      'Share brand story, product category & launch goals',
-      'Identify target consumer profiles in Hyderabad',
-      'No upfront financial commitment required',
-    ],
+    title: 'Tell Us Your Goal',
+    subtitle: 'Share your brand, products and campaign needs.',
+    desc: 'Submit your campaign requirements: objective, target city corridor (e.g. Hitec City, Jubilee Hills), desired duration, rider count, and whether you require vehicle wrap branding, live product showcases, or QR-driven sampling.',
+    icon: Target,
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
   },
   {
     step: '02',
-    title: 'Choose Your Campaign',
-    subtitle: 'Service Architecture Selection',
-    desc: 'Select promotion, showcase, pre-order, delivery or combined service interests. Choose pure eye-level EV wrapping, illuminated mobile showcase boxes, QR catalog ordering, or multi-vehicle fleet activations.',
-    highlights: [
-      'Select from the seven ADRYD service verticals',
-      'Configure single or fleet vehicle counts',
-      'Select burst campaigns or monthly retainer plans',
-    ],
+    title: 'We Plan Your Campaign',
+    subtitle: 'We help explore suitable riders, routes and promotion formats.',
+    desc: 'Our operations team plans optimized corridor routing, coordinates approved vehicle branding wraps, prepares illuminated product display enclosures, and briefs verified riders on safety and route protocols.',
+    icon: Compass,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
   },
   {
     step: '03',
-    title: 'Select Your Audience',
-    subtitle: 'Corridor & Corridor Mapping',
-    desc: 'Choose proposed target areas, PIN codes, landmarks and preferred dates across Hyderabad. Focus on IT corridors (HITEC City, Madhapur, Gachibowli) or dense retail catchments (Kukatpally, Kompally).',
-    highlights: [
-      'Target high-footfall business and residential zones',
-      'Align scheduled stops with peak commuter windows',
-      'Focus on specific PIN-code clusters and tech campuses',
-    ],
-  },
-  {
-    step: '04',
-    title: 'Plan Your Activation',
-    subtitle: 'Route & Wrap Feasibility',
-    desc: 'Review campaign requirements, branding, fleet size and operational feasibility with the ADRYD team. Our logistics specialists evaluate route permissions, vehicle fabrication specs, and rider scheduling.',
-    highlights: [
-      'Review digital 3D vehicle wrap mockups',
-      'Inspect showcase acrylic mounting specifications',
-      'Confirm stationary stop venue permissions',
-    ],
-  },
-  {
-    step: '05',
-    title: 'Campaign Execution',
-    subtitle: 'Street Deployment & Assistance',
-    desc: 'Following approval and operational readiness, campaigns may be coordinated with eligible riders and vehicles. Trained promotional riders navigate scheduled corridors and assist curious shoppers.',
-    highlights: [
-      'Trained riders in compliant branded apparel',
-      'Timed presence along agreed high-density roads',
-      'On-ground customer assistance with QR code scanning',
-    ],
-  },
-  {
-    step: '06',
-    title: 'Review Outcomes',
-    subtitle: 'Performance & Telemetry Logs',
-    desc: 'Campaign reporting may include route evidence, QR engagement, enquiries and order-related metrics where supported. Review photographic proof of installation, digital catalogue interactions, and customer leads.',
-    highlights: [
-      'Comprehensive post-campaign executive summary',
-      'Photographic installation proof and route logs',
-      'QR interaction counts and qualified lead handoffs',
-    ],
+    title: 'Take Your Brand Further',
+    subtitle: "Bring your campaign concept to life through ADRYD's planned mobility network.",
+    desc: 'Your branded fleet takes to prime streets, creating high-recall impressions at eye level, showcasing products directly to interested customers, facilitating QR purchases, and generating viral street reaction content.',
+    icon: Rocket,
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#123C83]',
   },
 ];
 
-const FAQS = [
+const stakeholderJourneys = [
   {
-    q: 'Does submitting a campaign brief on this website confirm a booking?',
-    a: 'No. The current website accepts campaign enquiries and quotation requests. All campaigns undergo operational feasibility checks, vehicle livery fabrication reviews, and route scheduling before commercial confirmation.',
+    title: 'Brand Owner Journey',
+    role: 'Brands, Retailers & Makers',
+    desc: 'From initial briefing to active street deployment, track your mobile presence and engage shoppers directly in their daily environments.',
+    icon: ShoppingBag,
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
+    href: '/book-campaign',
+    cta: 'Book Campaign',
   },
   {
-    q: 'How are campaign corridors planned in Hyderabad?',
-    a: 'Corridors are planned based on your target demographic profiles across test zones like HITEC City, Madhapur, Kukatpally, Kompally, and Gachibowli. Routes adhere to municipal traffic guidelines and focus on eye-level visibility during peak commuter and shopping hours.',
+    title: 'Customer Experience',
+    role: 'Pedestrians, Commuters & Shoppers',
+    desc: 'Encounter eye-level brand vehicles in prime commercial hubs, view illuminated products in transit, scan instant QR codes and order on the spot.',
+    icon: Users,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
+    href: '/services',
+    cta: 'Explore Experience',
   },
   {
-    q: 'What types of merchandise can be showcased in ADRYD Upgrade?',
-    a: 'Our pilot focuses on five priority categories: Fashion & Textiles, Homemade Bakery & Packaged Foods, Farm-Fresh & Organic Products, Handmade Crafts & Gifts, and Lifestyle & Personal Care. All merchandise must be non-hazardous, securely packaged, and compliant with transport weight limits.',
-  },
-  {
-    q: 'How does QR-enabled mobile commerce work on the scooters?',
-    a: 'Vehicles feature high-contrast illuminated QR badges. When commuters or pedestrians scan the code with their smartphone, they are directed to the brand’s digital catalogue, exclusive launch discount page, or pre-order form.',
-  },
-  {
-    q: 'Are ADRYD campaign metrics and GPS tracking currently live?',
-    a: 'ADRYD Insights and automated real-time GPS tracking represent upcoming platform capabilities on our technology roadmap. During our current pilot phase, campaigns use verified route schedules, photographic installation proofs, and manual route logs.',
+    title: 'Rider Partner Experience',
+    role: 'EV Riders & Fleet Operators',
+    desc: 'Monetize daily rides on approved electric scooters by participating in coordinated promotional runs with zero commissions taken from your earnings.',
+    icon: Bike,
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#58C9EF]',
+    href: '/become-a-rider',
+    cta: 'Join as Rider',
   },
 ];
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Hero */}
-        <div className="mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
-            STEP-BY-STEP OPERATIONAL FRAMEWORK
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Simple Process</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#FFFFFF] uppercase leading-[1.02] mb-4">
-            FROM YOUR IDEA{' '}
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            Simple from{' '}
             <br />
-            <span className="text-[#E7FF39]">TO A MOVING CAMPAIGN.</span>
+            <span className="text-[#00A8C8]">start to finish.</span>
           </h1>
-          <p className="text-base sm:text-lg text-[#B8B8B8] max-w-2xl leading-relaxed">
-            From initial concept and service selection to route corridor planning, vehicle fabrication,
-            and outcome reporting. A structured, transparent pathway to urban brand mobility.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            How ADRYD transforms brand ideas into high-visibility moving marketplace campaigns across Hyderabad.
           </p>
         </div>
 
-        {/* 6 Step Detailed Vertical Flow */}
-        <div className="space-y-8 mb-20">
-          {steps.map((s) => (
-            <div
-              key={s.step}
-              className="p-8 sm:p-10 rounded-3xl bg-[#101010] border border-[#222222] hover:border-[#03F2FF]/40 transition-all shadow-xl"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-[#222222]">
-                <div className="flex items-center gap-4">
-                  <span className="font-heading font-black text-4xl text-[#E7FF39]">
-                    {s.step}
-                  </span>
-                  <div>
-                    <span className="text-[10px] font-tech text-[#03F2FF] uppercase tracking-wider block">
-                      {s.subtitle}
-                    </span>
-                    <h2 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
+        {/* 3 Main Steps */}
+        <div className="space-y-8 mb-24">
+          {mainSteps.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.step}
+                className={`rounded-3xl ${s.bg} border ${s.border} p-8 lg:p-10 card-hover-lift`}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  
+                  <div className="lg:col-span-4 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className={`font-heading font-black text-4xl ${s.color}`}>
+                        {s.step}
+                      </span>
+                      <div className={`w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center ${s.color} border border-[#DCECF2]`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <h2 className="font-heading font-black text-2xl text-[#172B3A]">
                       {s.title}
                     </h2>
+                    <p className={`text-sm font-bold ${s.color}`}>
+                      {s.subtitle}
+                    </p>
                   </div>
+
+                  <div className="lg:col-span-8 space-y-4">
+                    <p className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal">
+                      {s.desc}
+                    </p>
+                  </div>
+
                 </div>
-                <span className="text-xs font-tech uppercase px-2.5 py-1 rounded bg-[#000000] text-[#03F2FF] border border-[#03F2FF]/30 self-start sm:self-auto">
-                  Stage {s.step} of 06
-                </span>
               </div>
-
-              <p className="text-sm text-[#B8B8B8] leading-relaxed mb-6">
-                {s.desc}
-              </p>
-
-              <div className="pt-2 border-t border-[#222222]">
-                <div className="text-[11px] font-tech font-bold uppercase tracking-wider text-[#03F2FF] mb-2">
-                  Key Stage Highlights:
-                </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-[#888888]">
-                  {s.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Operational Notice Banner */}
-        <div className="p-6 rounded-3xl bg-[#101010] border border-[#222222] flex items-start gap-3.5 text-xs text-[#888888] mb-16">
-          <Info className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-          <p>
-            <strong className="text-[#FFFFFF]">Enquiry &amp; Feasibility Notice:</strong> The current website
-            is designed to receive custom campaign briefs and quotation requests, not automatic bookings.
-            Every activation is reviewed by our planning team to confirm vehicle availability, route approvals,
-            and wrap fabrication lead times before commercial launch.
-          </p>
-        </div>
-
-        {/* FAQs Section */}
-        <div className="mb-16">
-          <div className="max-w-2xl mb-8">
-            <span className="font-tech text-xs text-[#03F2FF] uppercase font-bold">
-              Frequently Asked Questions
-            </span>
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#FFFFFF] uppercase mt-1">
-              Common Questions About ADRYD Operations
-            </h3>
-          </div>
-
-          <div className="space-y-4">
-            {FAQS.map((faq, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-2xl bg-[#101010] border border-[#222222] space-y-2 hover:border-[#03F2FF]/30 transition-colors"
-              >
-                <h4 className="font-heading font-bold text-base text-[#FFFFFF] flex items-start gap-2.5">
-                  <HelpCircle className="w-4 h-4 text-[#03F2FF] shrink-0 mt-1" />
-                  <span>{faq.q}</span>
-                </h4>
-                <p className="text-xs text-[#888888] leading-relaxed pl-6.5">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
-              Ready to Share Your Campaign Brief?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888888] mt-1 max-w-xl">
-              Complete our 4-step campaign planner and receive a customized route schedule for Hyderabad.
+        {/* 3 Stakeholder Journeys */}
+        <div className="mb-20">
+          <div className="max-w-2xl mb-10 space-y-2">
+            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+              The Moving Ecosystem
+            </h2>
+            <p className="text-sm text-[#637786]">
+              Connecting three key participants across our mobility network.
             </p>
           </div>
-          <Link
-            href="/book-campaign"
-            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
-          >
-            Launch a Campaign
-          </Link>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {stakeholderJourneys.map((j, idx) => {
+              const Icon = j.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`rounded-3xl ${j.bg} border ${j.border} p-8 card-hover-lift flex flex-col justify-between`}
+                >
+                  <div className="space-y-4">
+                    <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${j.color} border border-[#DCECF2]`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className={`text-[11px] font-bold uppercase tracking-wider ${j.color}`}>
+                        {j.role}
+                      </span>
+                      <h3 className="font-heading font-bold text-xl text-[#172B3A] mt-1">
+                        {j.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#637786] leading-relaxed font-normal mt-2">
+                        {j.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-6">
+                    <Link
+                      href={j.href}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#172B3A] hover:text-[#00A8C8] transition-colors"
+                    >
+                      <span>{j.cta}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
       </div>
     </div>
   );

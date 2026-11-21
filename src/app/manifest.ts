@@ -2,21 +2,22 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'ADRYD — Your Brand. Your Products. Our Moving Marketplace.',
-    short_name: 'ADRYD UPGRADE',
-    description: 'Electric Mobility-Powered Mobile Advertising, Product Showcase, Commerce, Pre-Orders and Hyperlocal Delivery Platform.',
+    name: 'ADRYD — The Moving Marketplace',
+    short_name: 'ADRYD',
+    description:
+      'Electric mobility-powered mobile advertising, product showcase, commerce and hyperlocal delivery platform.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#000000',
+    background_color: '#FFFFFF',
+    theme_color: '#FFFFFF',
     icons: [
       {
-        src: '/icon-192.png',
+        src: '/icon.png',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        src: '/icon-512.png',
+        src: '/apple-icon.png',
         sizes: '512x512',
         type: 'image/png',
       },

@@ -1,86 +1,48 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, MessageCircle, MapPin, Sparkles } from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
+import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function FinalCtaSection() {
-  const num = SITE_CONFIG.contact.whatsapp.replace(/\D/g, '');
-  const waUrl = `https://wa.me/${num}?text=${encodeURIComponent(
-    SITE_CONFIG.whatsappMessages.campaign
-  )}`;
-
   return (
-    <section className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
+    <section className="py-20 lg:py-28 bg-gradient-to-r from-[#00A8C8] via-[#1756C1] to-[#123C83] text-white relative overflow-hidden">
+      {/* Subtle Ambient Decorative Circles */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-20 w-96 h-96 rounded-full bg-[#58C9EF]/20 blur-3xl pointer-events-none" />
 
-      {/* Decorative SVG Animated Route Lines */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M-100,200 C300,100 600,400 1200,150 S1800,300 2100,200"
-          fill="none"
-          stroke="#E7FF39"
-          strokeWidth="2.5"
-          className="animate-route-dash"
-        />
-        <path
-          d="M-50,450 C400,350 800,600 1400,350 S1900,450 2200,400"
-          fill="none"
-          stroke="#222222"
-          strokeWidth="1.5"
-          strokeDasharray="4 6"
-        />
-      </svg>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
-          <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
-          HYDERABAD PILOT CAMPAIGN PLANNING OPEN
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+        
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider border border-white/20">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>The Moving Marketplace</span>
         </div>
 
-        <h2 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-[#FFFFFF] uppercase leading-[0.95] mb-6">
-          READY TO PUT YOUR BRAND{' '}
-          <span className="text-[#E7FF39] drop-shadow-[0_0_35px_rgba(231,255,57,0.35)]">
-            IN MOTION?
-          </span>
+        <h2 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.05] uppercase">
+          LET&apos;S GET YOUR BRAND MOVING.
         </h2>
 
-        <p className="text-base sm:text-xl text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed mb-10">
-          Take your brand and products directly to local audiences through electric mobility-powered
-          advertising, product showcases, QR-enabled shopping experiences, pre-orders and delivery solutions.
+        <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto font-normal">
+          Connect your products with thousands of urban customers every single day across Hyderabad&apos;s prime corridors.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/book-campaign"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(231,255,57,0.35)] hover:shadow-[0_0_35px_rgba(231,255,57,0.5)] hover:-translate-y-0.5 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-white text-[#00A8C8] hover:bg-[#EAF9FD] text-base font-bold shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
-            <span>Launch Your Campaign</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Launch a Campaign</span>
+            <ArrowRight className="w-5 h-5 text-[#00A8C8]" />
           </Link>
 
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]"
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-transparent hover:bg-white/10 text-white border-2 border-white/60 text-base font-semibold transition-all duration-200"
           >
-            <MessageCircle className="w-4 h-4 text-[#03F2FF]" />
-            <span>Chat on WhatsApp</span>
-          </a>
+            <span>Talk to Campaign Team</span>
+          </Link>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#888888] font-tech uppercase tracking-wider">
-          <span className="flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-[#03F2FF]" /> Hyderabad, Telangana
-          </span>
-          <span className="text-[#333333]">•</span>
-          <span>Fast 24-Hour Campaign Brief Turnaround</span>
-          <span className="text-[#333333]">•</span>
-          <span>Zero Obligation Quotes</span>
-        </div>
       </div>
     </section>
   );

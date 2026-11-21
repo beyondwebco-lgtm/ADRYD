@@ -9,193 +9,183 @@ import {
   Video,
   BarChart3,
   ArrowRight,
-  Check,
-  Info,
+  CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Seven Connected Moving Marketplace Verticals',
+  title: 'Services | ADRYD The Moving Marketplace',
   description:
-    'Explore the 7 connected service verticals of ADRYD Upgrade: Promote, Showcase, Sell, Pre-Order, Deliver, Viral, and Insights.',
+    'Discover ADRYD’s seven service verticals: Mobile Advertising, Product Showcases, QR Selling, Pre-Orders, Hyperlocal Delivery, Viral Content and Campaign Insights.',
 };
 
+const serviceVerticals = [
+  {
+    id: 'promote',
+    title: 'Promote',
+    tagline: 'Take brands onto the streets.',
+    icon: Megaphone,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#00A8C8]',
+    btnColor: 'bg-[#00A8C8] hover:bg-[#0093AF] text-white',
+    description: 'High-impact mobile advertising using electric scooter fleets wrapped in vibrant, approved brand livery moving along high-footfall commercial corridors.',
+    features: ['High-recall street visibility', 'Targeted urban corridors', 'Uniformed brand ambassadors', 'Eco-friendly electric fleet'],
+  },
+  {
+    id: 'showcase',
+    title: 'Showcase',
+    tagline: 'Bring products closer to customers.',
+    icon: ShoppingBag,
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#1756C1]',
+    btnColor: 'bg-[#1756C1] hover:bg-[#13469E] text-white',
+    description: 'Specialized vehicle-mounted illuminated display boxes and product sampling trays that allow potential buyers to examine, touch and experience your items.',
+    features: ['Illuminated showcase display', 'Curated sampling trays', 'Live product demos', 'Secure weather-resistant boxes'],
+  },
+  {
+    id: 'sell',
+    title: 'Sell',
+    tagline: 'Create opportunities to purchase.',
+    icon: QrCode,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#00A8C8]',
+    btnColor: 'bg-[#00A8C8] hover:bg-[#0093AF] text-white',
+    description: 'Direct QR-driven mobile commerce enabling pedestrians and commuters to scan and immediately purchase featured items through mobile-optimized checkout pages.',
+    features: ['Instant QR catalogue access', 'Frictionless mobile checkout', 'Digital payment integration', 'Campaign-specific promo codes'],
+  },
+  {
+    id: 'preorder',
+    title: 'Pre-Order',
+    tagline: 'Capture customer interest.',
+    icon: PackageCheck,
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#58C9EF]',
+    btnColor: 'bg-[#00A8C8] hover:bg-[#0093AF] text-white',
+    description: 'Capture advance orders, test consumer interest for new product launches, and gather committed purchase intent prior to broad market rollout.',
+    features: ['Demand validation testing', 'Exclusive pre-launch reservations', 'Community & office group orders', 'Early-bird customer capture'],
+  },
+  {
+    id: 'deliver',
+    title: 'Deliver',
+    tagline: 'Support local fulfilment.',
+    icon: Truck,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
+    btnColor: 'bg-[#1756C1] hover:bg-[#13469E] text-white',
+    description: 'Same-day hyperlocal delivery and fast restocking for local retailers, supporting immediate promotional fulfilment within designated delivery corridors.',
+    features: ['Same-day neighborhood drop', 'Boutique retail replenishment', 'Sample pack distribution', 'Sustainable zero-emission transit'],
+  },
+  {
+    id: 'viral',
+    title: 'Viral',
+    tagline: 'Extend reach through social content.',
+    icon: Video,
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
+    btnColor: 'bg-[#00A8C8] hover:bg-[#0093AF] text-white',
+    description: 'Creative social media capture, street reaction videos, influencer collaborations and high-energy content translating real-world buzz into digital reach.',
+    features: ['Street interaction reels', 'High-res campaign B-roll', 'Micro-influencer meetups', 'Multi-platform social content'],
+  },
+  {
+    id: 'insights',
+    title: 'Insights',
+    tagline: 'Explore future reporting capabilities.',
+    icon: BarChart3,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#123C83]',
+    btnColor: 'bg-[#123C83] hover:bg-[#0F2F66] text-white',
+    description: 'Planned telemetry and verification systems designed to log campaign operating hours, route tracking, QR engagement scans and audience reach metrics.',
+    features: ['Corridor route logs', 'Daily active hours tracking', 'QR scan interaction logs', 'Campaign post-run summaries'],
+  },
+];
+
 export default function ServicesPage() {
-  const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-    promote: Megaphone,
-    showcase: ShoppingBag,
-    sell: QrCode,
-    'pre-order': PackageCheck,
-    deliver: Truck,
-    viral: Video,
-    insights: BarChart3,
-  };
-
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/4 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Hero */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF] animate-pulse" />
-            SEVEN SERVICES • ONE MOVING MARKETPLACE
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Seven Service Verticals</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-[#FFFFFF] uppercase leading-[0.98] mb-6">
-            SEVEN SERVICES.{' '}
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            One platform.{' '}
             <br />
-            <span className="text-[#E7FF39]">ONE CONNECTED BRAND EXPERIENCE.</span>
+            <span className="text-[#00A8C8]">More possibilities.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#B8B8B8] leading-relaxed font-normal">
-            ADRYD expands out-of-home advertising into a complete promotional and commerce ecosystem.
-            From high-recall electric scooter branding to live product showcases, QR commerce, pre-orders,
-            hyperlocal delivery, viral digital content, and verified campaign insights.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            ADRYD connects physical brand movement with product discovery, digital commerce and local delivery.
           </p>
         </div>
 
-        {/* 7 Services Detailed Vertical Stack */}
-        <div className="space-y-12 mb-20">
-          {SITE_CONFIG.services.map((svc) => {
-            const Icon = serviceIcons[svc.id] || Megaphone;
+        {/* 7 Services Detailed Cards */}
+        <div className="space-y-8">
+          {serviceVerticals.map((svc) => {
+            const Icon = svc.icon;
             return (
               <div
                 key={svc.id}
-                id={svc.slug}
-                className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] hover:border-[#03F2FF]/50 transition-all duration-300 shadow-2xl relative overflow-hidden group"
+                id={svc.id}
+                className={`rounded-3xl ${svc.bg} border ${svc.border} p-8 lg:p-10 card-hover-lift scroll-mt-32`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  {/* Left Column: Number, Title & Copy (8 cols) */}
-                  <div className="lg:col-span-8 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-tech text-xs font-bold text-[#03F2FF] bg-[#03F2FF]/10 px-3 py-1 rounded border border-[#03F2FF]/30 uppercase">
-                        Service {svc.number}
-                      </span>
-                      <span className="text-xs font-tech text-[#888888] uppercase tracking-wider">
+                  
+                  {/* Left: Icon & Title */}
+                  <div className="lg:col-span-4 space-y-4">
+                    <div className={`w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center ${svc.color} border border-[#DCECF2]`}>
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h2 className="font-heading font-black text-3xl text-[#172B3A]">
+                        {svc.title}
+                      </h2>
+                      <p className={`text-sm font-bold mt-1 ${svc.color}`}>
                         {svc.tagline}
-                      </span>
-                      {svc.isFutureCapability && (
-                        <span className="text-[10px] font-tech uppercase px-2 py-0.5 rounded bg-[#000000] text-[#03F2FF] border border-[#03F2FF]/30">
-                          Proposed Platform Capability
-                        </span>
-                      )}
-                    </div>
-
-                    <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase group-hover:text-[#E7FF39] transition-colors">
-                      {svc.name}
-                    </h2>
-
-                    <p className="text-base sm:text-lg text-[#FFFFFF] font-medium leading-relaxed">
-                      {svc.shortDesc}
-                    </p>
-
-                    <p className="text-sm text-[#B8B8B8] leading-relaxed">
-                      {svc.longDesc}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="pt-3">
-                      <div className="text-xs font-tech font-bold uppercase tracking-wider text-[#03F2FF] mb-3">
-                        Key Service Highlights:
-                      </div>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#B8B8B8]">
-                        {svc.highlights.map((h, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <Check className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="pt-4 flex flex-wrap items-center gap-4">
-                      <Link
-                        href={`/book-campaign?service=${encodeURIComponent(svc.name)}`}
-                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] transition-all"
-                      >
-                        <span>{svc.ctaLabel}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-
-                      <Link
-                        href="/campaign-plans"
-                        className="inline-flex items-center gap-1.5 px-5 py-3.5 rounded-xl bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] text-xs font-heading font-semibold transition-all hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]"
-                      >
-                        <span>View Campaign Plans</span>
-                      </Link>
+                      </p>
                     </div>
                   </div>
 
-                  {/* Right Column: Visual Box (4 cols) */}
-                  <div className="lg:col-span-4 relative">
-                    <div className="p-6 rounded-2xl bg-[#000000] border border-[#222222] flex flex-col justify-between min-h-[280px]">
-                      <div className="flex items-center justify-between pb-4 border-b border-[#222222]">
-                        <div className="w-12 h-12 rounded-xl bg-[#101010] border border-[#222222] flex items-center justify-center text-[#E7FF39]">
-                          <Icon className="w-6 h-6" />
+                  {/* Middle: Description & Features */}
+                  <div className="lg:col-span-5 space-y-5">
+                    <p className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal">
+                      {svc.description}
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {svc.features.map((f, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-[#172B3A]">
+                          <CheckCircle2 className={`w-3.5 h-3.5 ${svc.color} shrink-0`} />
+                          <span>{f}</span>
                         </div>
-                        <span className="font-heading font-black text-3xl text-[#333333]">
-                          {svc.number}
-                        </span>
-                      </div>
-
-                      <div className="my-4 space-y-2">
-                        <div className="text-[10px] font-tech text-[#888888] uppercase">
-                          Operational Scope
-                        </div>
-                        <div className="text-sm font-heading font-bold text-[#FFFFFF]">
-                          Hyderabad Pilot Network
-                        </div>
-                        <p className="text-xs text-[#888888] leading-relaxed">
-                          {svc.isFutureCapability
-                            ? 'Reporting telemetry and campaign dashboards represent upcoming platform milestones.'
-                            : 'Executed across designated corridors with trained EV promotional riders.'}
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-[#222222] flex items-center justify-between text-xs text-[#888888] font-tech">
-                        <span>100% ELECTRIC</span>
-                        <span className="text-[#03F2FF] uppercase font-bold">Verified Fleet</span>
-                      </div>
+                      ))}
                     </div>
                   </div>
+
+                  {/* Right: CTA */}
+                  <div className="lg:col-span-3 flex lg:justify-end">
+                    <Link
+                      href={`/book-campaign?service=${svc.id}`}
+                      className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-xs shadow-sm transition-all ${svc.btnColor}`}
+                    >
+                      <span>Plan This Service</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Operational & Regulatory Disclosure */}
-        <div className="p-6 rounded-2xl bg-[#101010] border border-[#222222] flex items-start gap-3.5 text-xs text-[#888888] mb-12">
-          <Info className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-          <p>
-            <strong className="text-[#FFFFFF]">Service Availability &amp; Pilot Readiness:</strong> All seven
-            services reflect ADRYD Upgrade Version 3.0 platform architecture. Services are introduced in
-            structured pilot validation phases across Hyderabad. Vehicle modifications, illuminated display
-            structures, on-street sampling, and commercial selling follow applicable transport regulations and
-            local location approvals.
-          </p>
-        </div>
-
-        {/* Bottom CTA Banner */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
-              Ready to Plan a Multi-Service Campaign?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888888] mt-1 max-w-xl">
-              Combine promotion, product showcasing, QR pre-orders, and viral content capture into one
-              tailored campaign brief.
-            </p>
-          </div>
-          <Link
-            href="/book-campaign"
-            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
-          >
-            Launch a Campaign
-          </Link>
-        </div>
       </div>
     </div>
   );

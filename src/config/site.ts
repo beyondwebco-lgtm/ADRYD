@@ -615,7 +615,7 @@ export const SITE_CONFIG = {
       { label: 'About ADRYD', href: '/about' },
       { label: 'Become a Rider Partner', href: '/become-a-rider' },
       { label: 'Fleet Partnership', href: '/become-a-rider#fleet-partnership' },
-      { label: 'Hyderabad Pilot Areas', href: '/#pilot-locations' },
+      { label: 'Hyderabad Pilot Areas', href: '/solutions/location-targeting' },
       { label: 'Safety & Compliance', href: '/about#safety-trust' },
       { label: 'Contact Team', href: '/contact' },
     ],

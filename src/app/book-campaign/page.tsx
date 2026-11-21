@@ -150,7 +150,6 @@ function CampaignForm() {
     }
   };
 
-  // Check conditional services
   const hasShowcase = selectedServices.includes('ADRYD Showcase');
   const hasSellOrPreOrder =
     selectedServices.includes('ADRYD Sell') ||
@@ -217,73 +216,66 @@ function CampaignForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#E7FF39]/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Page Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
-            Official Campaign Planner • Hyderabad Pilot
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            Campaign Planner • Hyderabad
           </div>
-          <h1 className="font-heading font-black text-3xl sm:text-5xl text-[#FFFFFF] uppercase tracking-tight">
+          <h1 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] uppercase tracking-tight">
             Launch Your Campaign
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-[#B8B8B8]">
-            Plan your promotion, showcase, QR pre-orders, and local delivery requirements to receive a
-            tailored corridor route and quotation.
+          <p className="text-sm sm:text-base text-[#637786]">
+            Plan your promotion, showcase, QR pre-orders, and local delivery requirements to receive a tailored corridor route.
           </p>
         </div>
 
-        {/* Progress Stepper Bar */}
+        {/* Progress Stepper */}
         {!submitSuccess && (
-          <div className="mb-10">
-            <div className="grid grid-cols-4 gap-2 text-center text-xs font-tech uppercase tracking-wider mb-2">
-              <span className={currentStep >= 1 ? 'text-[#E7FF39] font-bold' : 'text-[#888888]'}>
+          <div className="mb-10 max-w-2xl mx-auto">
+            <div className="grid grid-cols-4 gap-2 text-center text-xs font-bold uppercase tracking-wider mb-2">
+              <span className={currentStep >= 1 ? 'text-[#00A8C8]' : 'text-gray-400'}>
                 1. Business
               </span>
-              <span className={currentStep >= 2 ? 'text-[#E7FF39] font-bold' : 'text-[#888888]'}>
+              <span className={currentStep >= 2 ? 'text-[#00A8C8]' : 'text-gray-400'}>
                 2. Services
               </span>
-              <span className={currentStep >= 3 ? 'text-[#E7FF39] font-bold' : 'text-[#888888]'}>
-                3. Specifications
+              <span className={currentStep >= 3 ? 'text-[#00A8C8]' : 'text-gray-400'}>
+                3. Scope
               </span>
-              <span className={currentStep >= 4 ? 'text-[#E7FF39] font-bold' : 'text-[#888888]'}>
-                4. Review &amp; Send
+              <span className={currentStep >= 4 ? 'text-[#00A8C8]' : 'text-gray-400'}>
+                4. Review
               </span>
             </div>
-            <div className="w-full bg-[#101010] h-2 rounded-full overflow-hidden border border-[#222222]">
+            <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
               <div
-                className="bg-[#E7FF39] h-full transition-all duration-300 shadow-[0_0_10px_rgba(231,255,57,0.5)]"
+                className="bg-[#00A8C8] h-full transition-all duration-300"
                 style={{ width: `${(currentStep / 4) * 100}%` }}
               />
             </div>
           </div>
         )}
 
-        {/* Confirmation State */}
+        {/* Confirmation Screen */}
         {submitSuccess ? (
-          <div className="bg-[#101010] border border-emerald-500/40 rounded-3xl p-8 sm:p-12 text-center shadow-2xl animate-in fade-in zoom-in-95 duration-300">
-            <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-6">
+          <div className="bg-white border border-emerald-200 rounded-3xl p-8 sm:p-12 text-center shadow-[0_12px_40px_rgba(0,168,200,0.06)]">
+            <div className="w-20 h-20 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto mb-6">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
-            <div className="inline-block px-3 py-1 rounded-full bg-[#000000] border border-[#222222] text-xs font-tech text-[#03F2FF] uppercase tracking-widest mb-3">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#EAF9FD] text-xs font-bold text-[#00A8C8] uppercase tracking-wider mb-3">
               Reference ID: {submitSuccess.submissionId}
             </div>
 
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase mb-4">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#172B3A] uppercase mb-4">
               Campaign Brief Received!
             </h2>
 
-            <p className="text-sm sm:text-base text-[#B8B8B8] max-w-lg mx-auto leading-relaxed mb-8">
-              Thank you, <strong className="text-[#FFFFFF]">{watchedValues.fullName}</strong>. Your campaign
-              requirements for <strong className="text-[#FFFFFF]">{watchedValues.companyName}</strong> have
-              been registered in our Hyderabad campaign queue. Our operations team will review route
-              feasibility and contact you within 24 hours.
+            <p className="text-sm sm:text-base text-[#637786] max-w-lg mx-auto leading-relaxed mb-8">
+              Thank you, <strong className="text-[#172B3A]">{watchedValues.fullName}</strong>. Your campaign requirements for <strong className="text-[#172B3A]">{watchedValues.companyName}</strong> have been recorded in our Hyderabad planning queue. Our team will review route feasibility and contact you within 24 hours.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -291,7 +283,7 @@ function CampaignForm() {
                 href={getWhatsAppFollowUp()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-lg"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs shadow-md transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Fast-Track on WhatsApp</span>
@@ -303,103 +295,102 @@ function CampaignForm() {
                   setSubmitSuccess(null);
                   setCurrentStep(1);
                 }}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] text-xs font-heading font-semibold transition-all hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white border border-[#DCECF2] hover:bg-[#F6FAFC] text-[#172B3A] text-xs font-bold transition-all"
               >
                 Submit Another Brief
               </button>
             </div>
           </div>
         ) : (
-          /* Multi-step Form Card */
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-[#101010] border border-[#222222] rounded-3xl p-6 sm:p-10 shadow-2xl relative"
+            className="bg-white border border-[#DCECF2] rounded-3xl p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,168,200,0.04)]"
           >
             {submitError && (
-              <div className="mb-6 p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs flex items-center gap-3">
-                <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+              <div className="mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-3">
+                <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
                 <span>{submitError}</span>
               </div>
             )}
 
             {/* STEP 1: Business Information */}
             {currentStep === 1 && (
-              <div className="space-y-6 animate-in fade-in duration-200">
-                <div className="border-b border-[#222222] pb-4">
-                  <h3 className="font-heading font-bold text-xl text-[#FFFFFF] uppercase">
-                    Step 1: Business Information
+              <div className="space-y-6">
+                <div className="border-b border-[#DCECF2] pb-4">
+                  <h3 className="font-heading font-black text-xl text-[#172B3A]">
+                    Step 1: Business Profile
                   </h3>
-                  <p className="text-xs text-[#888888] mt-1">
+                  <p className="text-xs text-[#637786] mt-1">
                     Provide your contact details and brand identity.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
                       Full Name *
                     </label>
                     <input
                       {...register('fullName')}
                       type="text"
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF] placeholder-[#888888]/50"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     />
                     {errors.fullName && (
-                      <span className="text-xs text-red-400 mt-1 block">
+                      <span className="text-xs text-red-500 mt-1 block">
                         {errors.fullName.message}
                       </span>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Business / Brand Name *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Brand / Business Name *
                     </label>
                     <input
                       {...register('companyName')}
                       type="text"
                       placeholder="e.g. Hyderabad Roasters"
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF] placeholder-[#888888]/50"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     />
                     {errors.companyName && (
-                      <span className="text-xs text-red-400 mt-1 block">
+                      <span className="text-xs text-red-500 mt-1 block">
                         {errors.companyName.message}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Business Email Address *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Email Address *
                     </label>
                     <input
                       {...register('email')}
                       type="email"
                       placeholder="e.g. rahul@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF] placeholder-[#888888]/50"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     />
                     {errors.email && (
-                      <span className="text-xs text-red-400 mt-1 block">
+                      <span className="text-xs text-red-500 mt-1 block">
                         {errors.email.message}
                       </span>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Mobile Number (WhatsApp Preferred) *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Mobile / WhatsApp *
                     </label>
                     <input
                       {...register('mobile')}
                       type="tel"
                       placeholder="e.g. 9876543210"
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF] placeholder-[#888888]/50"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     />
                     {errors.mobile && (
-                      <span className="text-xs text-red-400 mt-1 block">
+                      <span className="text-xs text-red-500 mt-1 block">
                         {errors.mobile.message}
                       </span>
                     )}
@@ -407,24 +398,20 @@ function CampaignForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
                     Business Category *
                   </label>
                   <select
                     {...register('businessCategory')}
-                    className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF]"
+                    className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                   >
-                    <option value="" disabled>
-                      Select Business Category
-                    </option>
+                    <option value="" disabled>Select Business Category</option>
                     {BUSINESS_CATEGORIES.map((bc) => (
-                      <option key={bc} value={bc} className="bg-[#101010] text-[#FFFFFF]">
-                        {bc}
-                      </option>
+                      <option key={bc} value={bc}>{bc}</option>
                     ))}
                   </select>
                   {errors.businessCategory && (
-                    <span className="text-xs text-red-400 mt-1 block">
+                    <span className="text-xs text-red-500 mt-1 block">
                       {errors.businessCategory.message}
                     </span>
                   )}
@@ -432,25 +419,24 @@ function CampaignForm() {
               </div>
             )}
 
-            {/* STEP 2: Service Selection & Objective */}
+            {/* STEP 2: Service Selection */}
             {currentStep === 2 && (
-              <div className="space-y-6 animate-in fade-in duration-200">
-                <div className="border-b border-[#222222] pb-4">
-                  <h3 className="font-heading font-bold text-xl text-[#FFFFFF] uppercase">
-                    Step 2: Service Selection &amp; Objectives
+              <div className="space-y-6">
+                <div className="border-b border-[#DCECF2] pb-4">
+                  <h3 className="font-heading font-black text-xl text-[#172B3A]">
+                    Step 2: Desired Services &amp; Goal
                   </h3>
-                  <p className="text-xs text-[#888888] mt-1">
-                    Select one or more of the seven ADRYD services you would like to explore.
+                  <p className="text-xs text-[#637786] mt-1">
+                    Select one or more of the seven ADRYD services you would like to test.
                   </p>
                 </div>
 
-                {/* Multi-Select Services Grid */}
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs font-tech uppercase tracking-wider text-[#888888]">
-                      Select Desired Services (Multi-Select) *
+                  <div className="flex items-center justify-between mb-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#172B3A]">
+                      Select Desired Services *
                     </label>
-                    <span className="text-[11px] text-[#03F2FF] font-tech">
+                    <span className="text-xs text-[#00A8C8] font-bold">
                       {selectedServices.length} Selected
                     </span>
                   </div>
@@ -464,27 +450,27 @@ function CampaignForm() {
                           key={svc.id}
                           type="button"
                           onClick={() => toggleService(svc.id)}
-                          className={`p-3.5 rounded-xl text-left border transition-all flex items-start gap-3 ${
+                          className={`p-4 rounded-2xl text-left border transition-all flex items-start gap-3 ${
                             isSelected
-                              ? 'bg-[#151515] border-[#E7FF39] shadow-[0_0_15px_rgba(231,255,57,0.15)] ring-1 ring-[#E7FF39]'
-                              : 'bg-[#000000] border-[#222222] text-[#888888] hover:border-[#03F2FF]/40'
+                              ? 'bg-[#EAF9FD] border-[#00A8C8] shadow-sm ring-1 ring-[#00A8C8]'
+                              : 'bg-white border-gray-200 hover:border-gray-300'
                           }`}
                         >
                           <div
-                            className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
+                            className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${
                               isSelected
-                                ? 'bg-[#E7FF39] text-[#000000]'
-                                : 'bg-[#101010] text-[#03F2FF]'
+                                ? 'bg-[#00A8C8] text-white'
+                                : 'bg-[#F6FAFC] text-[#637786]'
                             }`}
                           >
-                            <Icon className="w-3.5 h-3.5" />
+                            <Icon className="w-4 h-4" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="font-heading font-bold text-xs text-[#FFFFFF] flex items-center justify-between">
+                            <div className="font-bold text-sm text-[#172B3A] flex items-center justify-between">
                               <span>{svc.label}</span>
-                              {isSelected && <Check className="w-3.5 h-3.5 text-[#E7FF39]" />}
+                              {isSelected && <Check className="w-4 h-4 text-[#00A8C8]" />}
                             </div>
-                            <p className="text-[11px] text-[#888888] leading-snug mt-0.5">
+                            <p className="text-xs text-[#637786] leading-snug mt-1">
                               {svc.desc}
                             </p>
                           </div>
@@ -492,25 +478,19 @@ function CampaignForm() {
                       );
                     })}
                   </div>
-                  {errors.selectedServices && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.selectedServices.message}
-                    </span>
-                  )}
                 </div>
 
-                {/* Product Category & Objective */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
                       Product Category *
                     </label>
                     <select
                       {...register('productCategory')}
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF]"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     >
                       {SITE_CONFIG.productCategories.map((cat) => (
-                        <option key={cat.id} value={cat.title} className="bg-[#101010] text-[#FFFFFF]">
+                        <option key={cat.id} value={cat.title}>
                           {cat.title}
                         </option>
                       ))}
@@ -518,41 +498,35 @@ function CampaignForm() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
                       Campaign Objective *
                     </label>
                     <input
                       {...register('objective')}
                       type="text"
                       placeholder="e.g. New store launch in HITEC City"
-                      className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-sm text-[#FFFFFF] placeholder-[#888888]/50"
+                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
                     />
-                    {errors.objective && (
-                      <span className="text-xs text-red-400 mt-1 block">
-                        {errors.objective.message}
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>
             )}
 
-            {/* STEP 3: Specifications & Conditional Product Details */}
+            {/* STEP 3: Campaign Scope & Routes */}
             {currentStep === 3 && (
-              <div className="space-y-6 animate-in fade-in duration-200">
-                <div className="border-b border-[#222222] pb-4">
-                  <h3 className="font-heading font-bold text-xl text-[#FFFFFF] uppercase">
-                    Step 3: Campaign &amp; Product Requirements
+              <div className="space-y-6">
+                <div className="border-b border-[#DCECF2] pb-4">
+                  <h3 className="font-heading font-black text-xl text-[#172B3A]">
+                    Step 3: Route &amp; Scope Requirements
                   </h3>
-                  <p className="text-xs text-[#888888] mt-1">
-                    Specify package, route corridors, duration and merchandise handling needs.
+                  <p className="text-xs text-[#637786] mt-1">
+                    Select package tier, corridor routes and timing.
                   </p>
                 </div>
 
-                {/* Preferred Package */}
                 <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-2">
-                    Preferred Campaign Package or Plan *
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-2">
+                    Preferred Campaign Package *
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {PACKAGES.map((pkg) => (
@@ -560,28 +534,25 @@ function CampaignForm() {
                         key={pkg.id}
                         type="button"
                         onClick={() => setValue('preferredPackage', pkg.name)}
-                        className={`p-3 rounded-xl text-left border transition-all ${
+                        className={`p-3.5 rounded-2xl text-left border transition-all ${
                           selectedPackage === pkg.name
-                            ? 'bg-[#151515] border-[#E7FF39] text-[#FFFFFF] ring-1 ring-[#E7FF39]'
-                            : 'bg-[#000000] border-[#222222] text-[#888888] hover:text-[#FFFFFF]'
+                            ? 'bg-[#EAF9FD] border-[#00A8C8] ring-1 ring-[#00A8C8]'
+                            : 'bg-white border-gray-200 hover:border-gray-300'
                         }`}
                       >
-                        <div className="font-heading font-bold text-xs text-[#FFFFFF]">
-                          {pkg.name}
-                        </div>
-                        <div className="text-[11px] text-[#03F2FF] mt-0.5">{pkg.desc}</div>
+                        <div className="font-bold text-xs text-[#172B3A]">{pkg.name}</div>
+                        <div className="text-[11px] text-[#637786] mt-0.5">{pkg.desc}</div>
                       </button>
                     ))}
                   </div>
                 </div>
 
-                {/* Target Hyderabad Corridors */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs font-tech uppercase tracking-wider text-[#888888]">
-                      Target Corridors &amp; Areas in Hyderabad *
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#172B3A]">
+                      Target Hyderabad Corridors *
                     </label>
-                    <span className="text-[11px] text-[#03F2FF] font-tech">
+                    <span className="text-xs text-[#00A8C8] font-bold">
                       {selectedAreas.length} Selected
                     </span>
                   </div>
@@ -593,279 +564,153 @@ function CampaignForm() {
                           key={area}
                           type="button"
                           onClick={() => toggleArea(area)}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all flex items-center gap-1.5 ${
+                          className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all flex items-center gap-1.5 ${
                             isSelected
-                              ? 'bg-[#E7FF39] text-[#000000] border-[#E7FF39] font-bold shadow-[0_0_10px_rgba(231,255,57,0.3)]'
-                              : 'bg-[#000000] border-[#222222] text-[#888888] hover:text-[#FFFFFF]'
+                              ? 'bg-[#EAF9FD] text-[#00A8C8] border-[#00A8C8] font-bold'
+                              : 'bg-white border-gray-200 text-[#637786] hover:border-gray-300'
                           }`}
                         >
-                          {isSelected && <Check className="w-3 h-3 text-[#000000]" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-[#00A8C8]" />}
                           <span>{area}</span>
                         </button>
                       );
                     })}
                   </div>
-                  {errors.targetAreas && (
-                    <span className="text-xs text-red-400 mt-1 block">
-                      {errors.targetAreas.message}
-                    </span>
-                  )}
                 </div>
 
-                {/* Grid for Riders, Duration, Date, Budget */}
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Rider Quantity *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Rider Count
                     </label>
                     <input
                       {...register('riderCount', { valueAsNumber: true })}
                       type="number"
                       min={1}
                       max={50}
-                      className="w-full px-3 py-2.5 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-xs text-[#FFFFFF]"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-xs text-[#172B3A]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Preferred Duration *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Duration
                     </label>
                     <select
                       {...register('preferredDuration')}
-                      className="w-full px-3 py-2.5 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-xs text-[#FFFFFF]"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-xs text-[#172B3A]"
                     >
-                      <option value="3 Hours (Single Session)" className="bg-[#101010]">3 Hours (Single Session)</option>
-                      <option value="4 Hours (Single Session)" className="bg-[#101010]">4 Hours (Single Session)</option>
-                      <option value="6 Hours (Peak Windows)" className="bg-[#101010]">6 Hours (Peak Windows)</option>
-                      <option value="Weekend Blitz (2 Days)" className="bg-[#101010]">Weekend Blitz (2 Days)</option>
-                      <option value="Full Week (7 Days)" className="bg-[#101010]">Full Week (7 Days)</option>
-                      <option value="Monthly Sustained" className="bg-[#101010]">Monthly Sustained</option>
+                      <option value="3 Hours (Single Session)">3 Hours</option>
+                      <option value="4 Hours (Single Session)">4 Hours</option>
+                      <option value="6 Hours (Peak Windows)">6 Hours</option>
+                      <option value="Weekend Blitz (2 Days)">Weekend Blitz</option>
+                      <option value="Full Week (7 Days)">Full Week</option>
+                      <option value="Monthly Sustained">Monthly Sustained</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Approx Start Date *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Start Date
                     </label>
                     <input
                       {...register('preferredDate')}
                       type="date"
-                      className="w-full px-3 py-2.5 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-xs text-[#FFFFFF]"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-xs text-[#172B3A]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                      Estimated Budget *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      Estimated Budget
                     </label>
                     <select
                       {...register('estimatedBudget')}
-                      className="w-full px-3 py-2.5 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-xs text-[#FFFFFF]"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-xs text-[#172B3A]"
                     >
-                      <option value="₹10,000 - ₹25,000" className="bg-[#101010]">₹10,000 - ₹25,000</option>
-                      <option value="₹25,000 - ₹50,000" className="bg-[#101010]">₹25,000 - ₹50,000</option>
-                      <option value="₹50,000 - ₹1,00,000" className="bg-[#101010]">₹50,000 - ₹1,00,000</option>
-                      <option value="₹1,00,000+" className="bg-[#101010]">₹1,00,000+</option>
+                      <option value="₹10,000 - ₹25,000">₹10K - ₹25K</option>
+                      <option value="₹25,000 - ₹50,000">₹25K - ₹50K</option>
+                      <option value="₹50,000 - ₹1,00,000">₹50K - ₹100K</option>
+                      <option value="₹1,00,000+">₹100K+</option>
                     </select>
                   </div>
                 </div>
 
-                {/* CONDITIONAL SECTION: Showcase / Product Requirements */}
                 {hasShowcase && (
-                  <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-4">
-                    <div className="flex items-center gap-2 text-xs font-tech font-bold uppercase tracking-wider text-[#03F2FF]">
+                  <div className="p-5 rounded-2xl bg-[#F6FAFC] border border-[#DCECF2] space-y-3">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#00A8C8] uppercase tracking-wider">
                       <ShoppingBag className="w-4 h-4" />
-                      <span>Product Showcase &amp; Sampling Requirements</span>
+                      <span>Product Showcase &amp; Sampling</span>
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-[11px] font-tech uppercase text-[#888888] mb-1">
-                          Product Type &amp; Dimensions
-                        </label>
-                        <input
-                          {...register('productType')}
-                          type="text"
-                          placeholder="e.g. Sarees, Bakery Hampers, Perfume Bottles"
-                          className="w-full px-3 py-2 rounded-lg bg-[#101010] border border-[#222222] text-xs text-[#FFFFFF] focus:border-[#E7FF39] focus:outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-tech uppercase text-[#888888] mb-1">
-                          Expected Display Quantity / Samples
-                        </label>
-                        <input
-                          {...register('expectedQuantity')}
-                          type="text"
-                          placeholder="e.g. 5 display items, 100 sample testers"
-                          className="w-full px-3 py-2 rounded-lg bg-[#101010] border border-[#222222] text-xs text-[#FFFFFF] focus:border-[#E7FF39] focus:outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] font-tech uppercase text-[#888888] mb-1">
-                        Sampling or Tactile Inspection Details
-                      </label>
-                      <textarea
-                        {...register('displaySamplingReqs')}
-                        rows={2}
-                        placeholder="Can customers touch the items? Any temperature or moisture restrictions?"
-                        className="w-full px-3 py-2 rounded-lg bg-[#101010] border border-[#222222] text-xs text-[#FFFFFF] focus:border-[#E7FF39] focus:outline-none placeholder-[#888888]/50"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* CONDITIONAL SECTION: Pre-Order Requirements */}
-                {hasSellOrPreOrder && (
-                  <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-tech font-bold uppercase tracking-wider text-[#03F2FF]">
-                      <PackageCheck className="w-4 h-4" />
-                      <span>Pre-Order &amp; QR Commerce Specifications</span>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-tech uppercase text-[#888888] mb-1">
-                        Pre-Order Campaign Mechanics
-                      </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <input
-                        {...register('preOrderReqs')}
+                        {...register('productType')}
                         type="text"
-                        placeholder="e.g. 20% launch discount voucher via QR, collection for festival delivery"
-                        className="w-full px-3 py-2 rounded-lg bg-[#101010] border border-[#222222] text-xs text-[#FFFFFF] focus:border-[#E7FF39] focus:outline-none"
+                        placeholder="Product Type (e.g. Sarees, Gourmet Snacks)"
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-gray-200 text-xs text-[#172B3A]"
                       />
-                    </div>
-                  </div>
-                )}
-
-                {/* CONDITIONAL SECTION: Delivery Requirements */}
-                {hasDeliver && (
-                  <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-tech font-bold uppercase tracking-wider text-[#03F2FF]">
-                      <Truck className="w-4 h-4" />
-                      <span>Hyperlocal Delivery Details</span>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-tech uppercase text-[#888888] mb-1">
-                        Delivery Hub / Store Replenishment
-                      </label>
                       <input
-                        {...register('deliveryReqs')}
+                        {...register('expectedQuantity')}
                         type="text"
-                        placeholder="e.g. Scheduled drop-offs to retail store in Madhapur"
-                        className="w-full px-3 py-2 rounded-lg bg-[#101010] border border-[#222222] text-xs text-[#FFFFFF] focus:border-[#E7FF39] focus:outline-none"
+                        placeholder="Sample Quantity (e.g. 50 testers)"
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-gray-200 text-xs text-[#172B3A]"
                       />
                     </div>
                   </div>
                 )}
-
-                {/* Branding / Artwork Notes */}
-                <div>
-                  <label className="block text-xs font-tech uppercase tracking-wider text-[#888888] mb-1.5">
-                    Vehicle Wrap &amp; Branding Status
-                  </label>
-                  <textarea
-                    {...register('brandingRequirements')}
-                    rows={2}
-                    placeholder="Do you have print-ready artwork? Would you require ADRYD Creative Studio for wrap adaptation or video reels?"
-                    className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#222222] focus:border-[#E7FF39] focus:outline-none text-xs text-[#FFFFFF] placeholder-[#888888]/50"
-                  />
-                </div>
               </div>
             )}
 
             {/* STEP 4: Review and Submit */}
             {currentStep === 4 && (
-              <div className="space-y-6 animate-in fade-in duration-200">
-                <div className="border-b border-[#222222] pb-4">
-                  <h3 className="font-heading font-bold text-xl text-[#FFFFFF] uppercase">
-                    Step 4: Review Your Campaign Brief
+              <div className="space-y-6">
+                <div className="border-b border-[#DCECF2] pb-4">
+                  <h3 className="font-heading font-black text-xl text-[#172B3A]">
+                    Step 4: Review Brief
                   </h3>
-                  <p className="text-xs text-[#888888] mt-1">
-                    Please verify your requirements before submitting to our Hyderabad operations team.
+                  <p className="text-xs text-[#637786] mt-1">
+                    Verify your details before submitting to our Hyderabad operations team.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-2">
-                    <div className="text-[10px] font-tech text-[#03F2FF] uppercase font-bold">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                  <div className="p-5 rounded-2xl bg-[#F6FAFC] border border-[#DCECF2] space-y-2">
+                    <div className="font-bold text-[#00A8C8] uppercase tracking-wider">
                       Client Profile
                     </div>
-                    <div>
-                      <span className="text-[#888888] block">Name:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.fullName}</span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Company:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.companyName}</span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Email:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.email}</span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Mobile:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.mobile}</span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Category:</span>
-                      <span className="text-[#FFFFFF]">{watchedValues.businessCategory}</span>
-                    </div>
+                    <div><span className="text-[#637786]">Name:</span> <strong className="text-[#172B3A]">{watchedValues.fullName}</strong></div>
+                    <div><span className="text-[#637786]">Brand:</span> <strong className="text-[#172B3A]">{watchedValues.companyName}</strong></div>
+                    <div><span className="text-[#637786]">Email:</span> <strong className="text-[#172B3A]">{watchedValues.email}</strong></div>
+                    <div><span className="text-[#637786]">Mobile:</span> <strong className="text-[#172B3A]">{watchedValues.mobile}</strong></div>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-2">
-                    <div className="text-[10px] font-tech text-[#03F2FF] uppercase font-bold">
-                      Campaign Specifications
+                  <div className="p-5 rounded-2xl bg-[#F6FAFC] border border-[#DCECF2] space-y-2">
+                    <div className="font-bold text-[#1756C1] uppercase tracking-wider">
+                      Campaign Scope
                     </div>
-                    <div>
-                      <span className="text-[#888888] block">Selected Services:</span>
-                      <span className="text-[#E7FF39] font-bold">
-                        {watchedValues.selectedServices?.join(', ')}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Package:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.preferredPackage}</span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Target Corridors:</span>
-                      <span className="text-[#FFFFFF] font-bold">
-                        {watchedValues.targetAreas?.join(', ')}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Riders &amp; Duration:</span>
-                      <span className="text-[#FFFFFF] font-bold">
-                        {watchedValues.riderCount} Riders • {watchedValues.preferredDuration}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[#888888] block">Estimated Budget:</span>
-                      <span className="text-[#FFFFFF] font-bold">{watchedValues.estimatedBudget}</span>
-                    </div>
+                    <div><span className="text-[#637786]">Services:</span> <strong className="text-[#172B3A]">{watchedValues.selectedServices?.join(', ')}</strong></div>
+                    <div><span className="text-[#637786]">Package:</span> <strong className="text-[#172B3A]">{watchedValues.preferredPackage}</strong></div>
+                    <div><span className="text-[#637786]">Corridors:</span> <strong className="text-[#172B3A]">{watchedValues.targetAreas?.join(', ')}</strong></div>
+                    <div><span className="text-[#637786]">Budget:</span> <strong className="text-[#172B3A]">{watchedValues.estimatedBudget}</strong></div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#151515] border border-[#222222] flex items-start gap-3 text-xs text-[#888888]">
-                  <ShieldCheck className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
+                <div className="p-4 rounded-2xl bg-[#F6FAFC] border border-[#DCECF2] flex items-start gap-3 text-xs text-[#637786]">
+                  <ShieldCheck className="w-4 h-4 text-[#00A8C8] shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-[#FFFFFF]">Privacy &amp; Zero-Obligation:</strong> Submitting this
-                    brief requests an initial route feasibility assessment and quotation. No credit card details
-                    or financial commitments are processed on this website.
+                    <strong className="text-[#172B3A]">Zero Financial Commitment:</strong> Submitting this brief requests route feasibility and a formal quotation. No payment is processed on this site.
                   </p>
                 </div>
               </div>
             )}
 
-            {/* Stepper Navigation Buttons */}
-            <div className="mt-8 pt-6 border-t border-[#222222] flex items-center justify-between gap-4">
+            {/* Stepper Buttons */}
+            <div className="mt-8 pt-6 border-t border-[#DCECF2] flex items-center justify-between gap-4">
               {currentStep > 1 ? (
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-5 py-3 rounded-xl bg-[#000000] hover:bg-[#151515] border border-[#222222] text-[#FFFFFF] text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-6 py-3 rounded-full bg-white border border-[#DCECF2] text-[#172B3A] text-xs font-bold hover:bg-[#F6FAFC] flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Previous</span>
@@ -878,7 +723,7 @@ function CampaignForm() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-7 py-3 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] text-xs font-heading font-black uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-8 py-3.5 rounded-full bg-[#00A8C8] hover:bg-[#0091AD] text-white text-xs font-bold shadow-md hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />
@@ -887,7 +732,7 @@ function CampaignForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-8 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] disabled:opacity-50 text-[#000000] text-xs font-heading font-black uppercase tracking-wider shadow-[0_0_25px_rgba(231,255,57,0.4)] flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-8 py-3.5 rounded-full bg-[#00A8C8] hover:bg-[#0091AD] disabled:opacity-50 text-white text-xs font-bold shadow-md hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span>Submitting Brief...</span>
@@ -902,6 +747,7 @@ function CampaignForm() {
             </div>
           </form>
         )}
+
       </div>
     </div>
   );
@@ -911,8 +757,8 @@ export default function BookCampaignPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#000000] flex items-center justify-center text-[#FFFFFF] font-tech">
-          Loading ADRYD Campaign Planner...
+        <div className="min-h-screen bg-white flex items-center justify-center text-[#172B3A]">
+          Loading Campaign Planner...
         </div>
       }
     >

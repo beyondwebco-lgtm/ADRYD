@@ -2,164 +2,98 @@
 
 @theme {
   /* ==========================================================================
-     Pure Black (70%) × Neon Lime (20%) × Electric Cyan (10%) Design System
+     ADRYD V3.0 Palapitta Blue Design System (Indian Roller Bird Inspiration)
      ========================================================================== */
   
-  /* 70% Primary Background & Dark Charcoal Surfaces */
-  --color-black-bg: #000000;
-  --color-pure-black: #000000;
-  --color-charcoal-card: #101010;
-  --color-charcoal-hover: #151515;
-  --color-charcoal-border: #222222;
-
-  /* 20% Primary Accent: Neon Lime Yellow */
-  --color-neon-lime: #E7FF39;
-  --color-neon-hover: #D4FF00;
-  --color-neon-glow: rgba(231, 255, 57, 0.35);
-
-  /* 10% Secondary Accent: Electric Cyan */
-  --color-electric-cyan: #03F2FF;
-  --color-cyan-hover: #00D8E6;
-  --color-cyan-glow: rgba(3, 242, 255, 0.3);
+  /* Primary & Backgrounds (55% White + 20% Ice Blue/Soft Background) */
+  --color-bg-white: #FFFFFF;
+  --color-bg-soft: #F6FAFC;
+  --color-bg-ice: #EAF9FD;
+  --color-bg-canvas: #FFFFFF;
 
   /* Typography */
-  --color-heading-white: #FFFFFF;
-  --color-body-gray: #B8B8B8;
-  --color-muted-gray: #888888;
-  --color-pure-white: #FFFFFF;
+  --color-text-charcoal: #172B3A;
+  --color-text-heading: #172B3A;
+  --color-text-body: #172B3A;
+  --color-text-muted: #637786;
+  --color-text-light: #FFFFFF;
 
-  /* Backward-compatible utility aliases matching previous token names */
-  --color-carbon-bg: #000000;
-  --color-carbon-black: #000000;
-  --color-carbon-dark: #000000;
-  --color-carbon-card: #101010;
-  --color-carbon-card-hover: #151515;
-  --color-card-bg: #101010;
-  --color-secondary-bg: #101010;
+  /* Primary Brand Blue (15% Palapitta Turquoise) */
+  --color-palapitta: #00A8C8;
+  --color-palapitta-hover: #0093AF;
+  --color-palapitta-glow: rgba(0, 168, 200, 0.25);
 
-  --color-graphite: #121212;
-  --color-graphite-light: #181818;
-  --color-graphite-border: #222222;
-  --color-border-color: #222222;
+  /* Royal & Deep Blue (10% Wing Accents & Important Headings) */
+  --color-royal-blue: #1756C1;
+  --color-royal-hover: #13469E;
+  --color-deep-blue: #123C83;
+  --color-sky-blue: #58C9EF;
 
-  --color-neon-volt: #E7FF39;
-  --color-electric-yellow: #E7FF39;
-  --color-electric-yellow-hover: #D4FF00;
-  --color-electric-yellow-glow: rgba(231, 255, 57, 0.35);
+  /* Subtle Borders */
+  --color-border-subtle: #DCECF2;
+  --color-border-ice: #D5EFF7;
 
-  --color-main-text: #FFFFFF;
-  --color-soft-ivory: #FFFFFF;
-  --color-secondary-text: #B8B8B8;
-  --color-ivory-muted: #B8B8B8;
-  --color-muted-grey: #888888;
-
-  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-heading: var(--font-plus-jakarta-sans), sans-serif;
   --font-body: var(--font-inter), sans-serif;
-  --font-tech: var(--font-rajdhani), sans-serif;
 }
 
 :root {
-  --bg-primary: #000000;
-  --bg-card: #101010;
-  --bg-card-hover: #151515;
-  --border-subtle: #222222;
+  --bg-primary: #FFFFFF;
+  --bg-soft: #F6FAFC;
+  --bg-ice: #EAF9FD;
+  --text-charcoal: #172B3A;
+  --text-muted: #637786;
   
-  --accent-lime: #E7FF39;
-  --accent-cyan: #03F2FF;
-  
-  --text-heading: #FFFFFF;
-  --text-body: #B8B8B8;
-  --text-muted: #888888;
+  --palapitta: #00A8C8;
+  --royal-blue: #1756C1;
+  --deep-blue: #123C83;
+  --sky-blue: #58C9EF;
+  --border-subtle: #DCECF2;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #F6FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #181818;
-  border: 1px solid #222222;
-  border-radius: 4px;
+  background: #DCECF2;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E7FF39;
+  background: #00A8C8;
 }
 
-/* Background Gradients & Glows - Pure Black Aesthetic */
-.bg-gradient-hero {
-  background: radial-gradient(circle at 75% 30%, rgba(16, 16, 16, 0.9) 0%, rgba(0, 0, 0, 0.98) 50%, #000000 100%);
+/* Base Body Styles */
+body {
+  background-color: #FFFFFF;
+  color: #172B3A;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.bg-gradient-neon {
-  background: linear-gradient(135deg, #E7FF39 0%, #D4FF00 100%);
+/* Subtle Card Hover Transitions */
+.card-hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(0, 168, 200, 0.12), 0 0 1px 1px rgba(220, 236, 242, 0.6);
 }
 
-.bg-gradient-dark {
-  background: linear-gradient(180deg, #101010 0%, #000000 100%);
+/* 3D Perspective Card Container */
+.perspective-1000 {
+  perspective: 1000px;
 }
 
-.bg-gradient-card {
-  background: linear-gradient(145deg, #121212 0%, #0D0D0D 100%);
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-/* Subtle Glows */
-.glow-neon {
-  box-shadow: 0 0 25px -4px rgba(231, 255, 57, 0.35);
-}
-
-.glow-neon-sm {
-  box-shadow: 0 0 12px -2px rgba(231, 255, 57, 0.25);
-}
-
-.glow-cyan {
-  box-shadow: 0 0 25px -4px rgba(3, 242, 255, 0.3);
-}
-
-.glow-cyan-sm {
-  box-shadow: 0 0 12px -2px rgba(3, 242, 255, 0.2);
-}
-
-.glow-card {
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.95);
-}
-
-.text-gradient-neon {
-  background: linear-gradient(135deg, #E7FF39 0%, #FFFFFF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #03F2FF 0%, #FFFFFF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-white {
-  background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Route Trail Animation */
-@keyframes dash {
-  to {
-    stroke-dashoffset: -100;
-  }
-}
-
-.animate-route-dash {
-  stroke-dasharray: 8 6;
-  animation: dash 12s linear infinite;
-}
-
-/* Subtle grid overlay */
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(34, 34, 34, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(34, 34, 34, 0.4) 1px, transparent 1px);
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

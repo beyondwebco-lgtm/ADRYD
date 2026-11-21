@@ -18,18 +18,18 @@ export default function FloatingWhatsApp() {
     <div className="fixed bottom-6 right-6 z-40 flex items-end gap-3 group">
       {/* Tooltip badge */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 bg-[#101010]/95 backdrop-blur-md border border-[#222222] text-[#FFFFFF] px-3.5 py-2 rounded-xl shadow-2xl text-xs font-medium animate-in fade-in slide-in-from-right-4 duration-300">
-          <span className="w-2 h-2 rounded-full bg-[#03F2FF] animate-ping" />
+        <div className="hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md border border-gray-200 text-[#202124] px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-xs font-semibold animate-in fade-in slide-in-from-right-4 duration-300">
+          <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
           <span>Chat with ADRYD Campaign Team</span>
           <button
             onClick={(e) => {
               e.preventDefault();
               setShowTooltip(false);
             }}
-            className="text-[#888888] hover:text-[#FFFFFF] ml-1 transition-colors"
+            className="text-gray-400 hover:text-gray-700 ml-1 transition-colors"
             aria-label="Dismiss tooltip"
           >
-            <X className="w-3 h-3" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
@@ -39,12 +39,12 @@ export default function FloatingWhatsApp() {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] shadow-[0_0_20px_rgba(231,255,57,0.35)] hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#E7FF39]/30"
+        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-[0_8px_25px_rgba(37,211,102,0.35)] hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
         aria-label="Chat on WhatsApp"
         title="Chat with ADRYD on WhatsApp"
       >
-        <span className="absolute inset-0 rounded-full bg-[#E7FF39] animate-ping opacity-25" />
-        <MessageCircle className="w-7 h-7 text-[#000000] fill-[#000000]/20" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
+        <MessageCircle className="w-7 h-7 text-white fill-white/20" />
       </a>
     </div>
   );

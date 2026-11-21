@@ -1,319 +1,286 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Check,
+  Layers,
+  Calendar,
+  CheckCircle2,
   ArrowRight,
-  ShieldCheck,
-  Info,
+  Sparkles,
+  Clock,
 } from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Campaign Packages & Monthly Plans | ADRYD Upgrade',
+  title: 'Campaign Plans & Monthly Subscriptions | ADRYD',
   description:
-    'Explore flexible electric mobility campaign packages and monthly brand movement subscription plans across Hyderabad with ADRYD Upgrade.',
+    'Explore ADRYD’s five campaign activation formats and four monthly subscription retainers designed for brands of all sizes across Hyderabad.',
 };
 
+const packages = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    riders: '1 Rider',
+    duration: '3 Days / 1 Corridor',
+    desc: 'Perfect for local business pilots, product sampling runs or single-neighborhood promotions.',
+    features: ['1 Branded Electric Vehicle', 'Dedicated Single Corridor', 'Handout & Flyer Distribution', 'Basic Activity Log'],
+    popular: false,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#00A8C8]',
+  },
+  {
+    id: 'local_reach',
+    name: 'Local Reach',
+    riders: '2–3 Riders',
+    duration: '1 Week / Multi-Area',
+    desc: 'Designed for store openings, weekend buzz and focused commercial district activations.',
+    features: ['2–3 Branded Electric Vehicles', 'Cross-Corridor Street Routes', 'Illuminated Product Showcasing', 'QR Code Scan Reports'],
+    popular: false,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
+  },
+  {
+    id: 'community',
+    name: 'Community',
+    riders: '4–5 Riders',
+    duration: '2 Weeks / Prime Hubs',
+    desc: 'High-frequency street presence across IT corridors, universities and prime retail avenues.',
+    features: ['4–5 Branded Electric Vehicles', 'Dual-Cluster Corridor Routing', 'QR Ordering & Pre-Orders', 'Visual Verification Reports'],
+    popular: true,
+    bg: 'bg-gradient-to-b from-[#EAF9FD]/60 to-white',
+    border: 'border-[#00A8C8]',
+    color: 'text-[#00A8C8]',
+  },
+  {
+    id: 'city_activation',
+    name: 'City Activation',
+    riders: '6–10 Riders',
+    duration: '1 Month Strategic',
+    desc: 'Sustained citywide brand recall across Hyderabad’s top high-street commercial hubs.',
+    features: ['6–10 Branded Electric Vehicles', 'Citywide Coordinated Routes', 'Full Showcase & Delivery Sync', 'Dedicated Campaign Lead'],
+    popular: false,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#58C9EF]',
+  },
+  {
+    id: 'bulk_activation',
+    name: 'Bulk Activation',
+    riders: '10+ Riders',
+    duration: 'Custom Scope / Enterprise',
+    desc: 'Large-scale fleet mobilizations, major brand launches, festival sponsorships and PR activations.',
+    features: ['10+ Custom Electric Fleet', 'Multi-Corridor Synchronized Convoys', 'Full Media & Reel Coverage', 'Custom Reporting Analytics'],
+    popular: false,
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#123C83]',
+  },
+];
+
+const subscriptions = [
+  {
+    id: 'sub_micro',
+    name: 'Micro-Brand Presence',
+    riders: '1 Rider • Part-Time',
+    hours: '40–50 Active Hours / Month',
+    desc: 'Consistent monthly street visibility for local cafes, boutiques, handmade creators and neighborhood stores.',
+    features: ['1 Designated Brand EV', 'Weekend Peak Hours', 'Local Corridor Focus', 'Monthly Activity Summary'],
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#D5EFF7]',
+    color: 'text-[#00A8C8]',
+  },
+  {
+    id: 'sub_growth',
+    name: 'Growth Retainer',
+    riders: '2–3 Riders • Regular',
+    hours: '80–120 Active Hours / Month',
+    desc: 'Steady multi-neighborhood presence for growing retail labels, D2C brands and multi-location businesses.',
+    features: ['2–3 Branded EVs', 'Weekday & Weekend Split', 'Rotating Corridor Routes', 'Bi-Weekly Progress Logs'],
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
+  },
+  {
+    id: 'sub_dominance',
+    name: 'Commercial Dominance',
+    riders: '4–6 Riders • Daily',
+    hours: '160–240 Active Hours / Month',
+    desc: 'Continuous high-recall street and storefront presence across Hyderabad’s busiest shopping and tech hubs.',
+    features: ['4–6 Branded EVs', 'Daily Peak Transit Hours', 'Full Corridor Saturation', 'Dedicated Operations Lead'],
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#00A8C8]',
+  },
+  {
+    id: 'sub_enterprise',
+    name: 'Enterprise Fleet',
+    riders: '8+ Riders • Dedicated',
+    hours: 'Custom Fleet Hours / Month',
+    desc: 'Fully dedicated mobile marketplace fleet operating as an exclusive mobile retail and promotional arm.',
+    features: ['Custom Dedicated Fleet', 'Bespoke Display Designs', 'Full Delivery & Pre-Order Sync', 'Custom SLA & Telemetry'],
+    bg: 'bg-white',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#123C83]',
+  },
+];
+
 export default function CampaignPlansPage() {
-  const showPrices = SITE_CONFIG.approvedForPublicDisplay;
-
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/4 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Hero */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#FFFFFF] text-[#000000] text-xs font-tech font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#000000]" />
-            CAMPAIGN ARCHITECTURE &amp; PLANS
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Flexible Formats</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-[#FFFFFF] uppercase leading-[0.98] mb-6">
-            <span className="text-[#03F2FF]">CAMPAIGN PLANS.</span>{' '}
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            Campaign plans.{' '}
             <br />
-            <span className="text-[#E7FF39]">MEASURABLE IMPACT.</span>
+            <span className="text-[#00A8C8]">Measurable impact.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#B8B8B8] leading-relaxed font-normal">
-            Whether you are testing hyper-local customer response with a single rider or orchestrating a
-            citywide multi-rider blitz across Hyderabad, explore our illustrative campaign packages and
-            structured monthly plans.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            Choose from five concise campaign activation tiers or structured monthly subscription retainers.
           </p>
         </div>
 
         {/* SECTION 1: 5 CAMPAIGN PACKAGES */}
-        <div id="packages" className="mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#222222]">
-            <div>
-              <span className="font-tech text-xs text-[#03F2FF] uppercase tracking-wider font-bold">
-                Illustrative Campaign Tiers
-              </span>
-              <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase mt-1">
-                Five Campaign Packages
-              </h2>
+        <div className="mb-24">
+          <div className="max-w-2xl mb-10 space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#00A8C8]">
+              <Layers className="w-3.5 h-3.5" />
+              <span>Deployment Tiers</span>
             </div>
-            <span className="text-xs text-[#888888] font-tech uppercase">
-              Single-Day to Multi-Day Activations
-            </span>
+            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+              Campaign Packages
+            </h2>
+            <p className="text-sm text-[#637786]">
+              Designed for product drops, grand openings and focused promotional blitzes.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-            {SITE_CONFIG.campaignPackages.map((pkg) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`p-6 rounded-3xl border transition-all flex flex-col justify-between ${
-                  pkg.id === 'local-reach'
-                    ? 'bg-[#101010] border-[#E7FF39] shadow-[0_0_30px_rgba(231,255,57,0.15)] ring-1 ring-[#E7FF39]'
-                    : 'bg-[#101010] border-[#222222] hover:border-[#E7FF39]/40'
-                }`}
+                className={`rounded-3xl p-6 border ${pkg.border} ${pkg.bg} card-hover-lift flex flex-col justify-between relative shadow-sm`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-tech font-bold uppercase px-2.5 py-0.5 rounded-full bg-[#000000] text-[#03F2FF] border border-[#03F2FF]/30">
-                      {pkg.badge}
-                    </span>
-                    <span className="text-xs font-tech text-[#888888]">
-                      {pkg.riders} {pkg.riders === 1 ? 'Rider' : 'Riders'}
-                    </span>
+                {pkg.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#00A8C8] text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-heading font-black text-2xl text-[#172B3A]">
+                      {pkg.name}
+                    </h3>
+                    <div className="text-sm font-bold text-[#00A8C8] mt-1">
+                      {pkg.riders}
+                    </div>
+                    <div className="text-xs text-[#637786] font-medium mt-0.5">
+                      {pkg.duration}
+                    </div>
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl text-[#FFFFFF] mb-1">
-                    {pkg.name}
-                  </h3>
-
-                  <div className="text-xs font-tech text-[#E7FF39] mb-4">
-                    {pkg.durationLabel} • {pkg.tagline}
-                  </div>
-
-                  {/* Price display controlled by config */}
-                  <div className="mb-4 pb-4 border-b border-[#222222]">
-                    {showPrices ? (
-                      <div>
-                        <div className="text-2xl font-heading font-black text-[#FFFFFF]">
-                          ₹{pkg.indicativePrice.toLocaleString('en-IN')}
-                        </div>
-                        <span className="text-[10px] text-[#888888] font-tech uppercase block">
-                          Indicative — subject to confirmation
-                        </span>
-                      </div>
-                    ) : (
-                      <div>
-                        <div className="text-sm font-heading font-bold text-[#FFFFFF] uppercase">
-                          Custom Quotation
-                        </div>
-                        <span className="text-[10px] text-[#888888] font-tech">
-                          Route feasibility assessment
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <p className="text-xs text-[#888888] leading-relaxed mb-4">
-                    {pkg.description}
+                  <p className="text-xs text-[#637786] leading-relaxed font-normal">
+                    {pkg.desc}
                   </p>
 
-                  <div className="mb-4 p-3 rounded-xl bg-[#000000] border border-[#222222] text-[11px]">
-                    <span className="text-[#03F2FF] font-semibold block mb-0.5">Ideal For:</span>
-                    <span className="text-[#B8B8B8] leading-normal">{pkg.idealFor}</span>
-                  </div>
-
-                  <ul className="space-y-2 mb-6 text-xs text-[#B8B8B8]">
+                  <div className="pt-2 border-t border-[#DCECF2] space-y-2">
                     {pkg.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
-                        <span className="line-clamp-2">{f}</span>
-                      </li>
+                      <div key={i} className="flex items-center gap-2 text-xs text-[#172B3A]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A8C8] shrink-0" />
+                        <span>{f}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-6">
                   <Link
                     href={`/book-campaign?package=${pkg.id}`}
-                    className={`w-full py-3 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all ${
-                      pkg.id === 'local-reach'
-                        ? 'bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] shadow-[0_0_20px_rgba(231,255,57,0.3)]'
-                        : 'bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]'
+                    className={`w-full py-3 rounded-full text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+                      pkg.popular
+                        ? 'bg-[#00A8C8] text-white hover:bg-[#0093AF] shadow-md'
+                        : 'bg-[#F6FAFC] text-[#172B3A] hover:bg-[#EAF9FD] border border-[#DCECF2]'
                     }`}
                   >
-                    <span>Request Quote</span>
+                    <span>Enquire Now</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="p-4 rounded-2xl bg-[#101010] border border-[#222222] text-xs text-[#888888] flex items-start gap-3">
-            <Info className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-            <p>
-              <strong className="text-[#FFFFFF]">Planning Note:</strong> Package configurations represent
-              illustrative planning models from the ADRYD Version 3.0 BRD. Exact commercial quotations
-              incorporate vehicle livery fabrication, showcase mounting requirements, and specific corridor timings.
-            </p>
-          </div>
         </div>
 
-        {/* SECTION 2: 4 MONTHLY SUBSCRIPTION PLANS */}
-        <div id="subscriptions" className="mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#222222]">
-            <div>
-              <span className="font-tech text-xs text-[#03F2FF] uppercase tracking-wider font-bold">
-                Recurring Brand Retainers
-              </span>
-              <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase mt-1">
-                Monthly Subscription Plans
-              </h2>
+        {/* SECTION 2: 4 MONTHLY SUBSCRIPTIONS */}
+        <div className="mb-20">
+          <div className="max-w-2xl mb-10 space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1756C1]">
+              <Calendar className="w-3.5 h-3.5" />
+              <span>Continuous Coverage</span>
             </div>
-            <span className="text-xs text-[#888888] font-tech uppercase">
-              Sustained Street Frequency
-            </span>
+            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+              Monthly Subscription Plans
+            </h2>
+            <p className="text-sm text-[#637786]">
+              Sustained monthly visibility designed to keep your brand top-of-mind across Hyderabad.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {SITE_CONFIG.subscriptionPlans.map((plan) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {subscriptions.map((sub) => (
               <div
-                key={plan.id}
-                className={`p-6 sm:p-8 rounded-3xl border transition-all flex flex-col justify-between ${
-                  plan.id === 'sub-growth'
-                    ? 'bg-[#101010] border-[#E7FF39] shadow-[0_0_30px_rgba(231,255,57,0.15)] ring-1 ring-[#E7FF39]'
-                    : 'bg-[#101010] border-[#222222] hover:border-[#E7FF39]/40'
-                }`}
+                key={sub.id}
+                className={`rounded-3xl p-7 border ${sub.border} ${sub.bg} card-hover-lift flex flex-col justify-between`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-tech font-bold uppercase px-2.5 py-0.5 rounded-full bg-[#000000] text-[#03F2FF] border border-[#03F2FF]/30">
-                      {plan.badge}
-                    </span>
-                    <span className="text-xs font-tech text-[#888888]">Monthly Retainer</span>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-heading font-bold text-xl text-[#172B3A]">
+                      {sub.name}
+                    </h3>
+                    <div className={`text-xs font-bold mt-1 ${sub.color}`}>
+                      {sub.riders}
+                    </div>
+                    <div className="flex items-center gap-1 text-[11px] text-[#637786] font-medium mt-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{sub.hours}</span>
+                    </div>
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl text-[#FFFFFF] mb-1">
-                    {plan.name}
-                  </h3>
-
-                  <div className="text-xs font-tech text-[#E7FF39] mb-4">
-                    {plan.tagline}
-                  </div>
-
-                  <div className="mb-5 pb-5 border-b border-[#222222]">
-                    {showPrices ? (
-                      <div>
-                        <div className="text-2xl font-heading font-black text-[#FFFFFF]">
-                          {plan.displayFee}
-                        </div>
-                        <span className="text-[10px] text-[#888888] font-tech uppercase block">
-                          Indicative monthly fee — subject to confirmation
-                        </span>
-                      </div>
-                    ) : (
-                      <div>
-                        <div className="text-sm font-heading font-bold text-[#FFFFFF] uppercase">
-                          Retainer Agreement
-                        </div>
-                        <span className="text-[10px] text-[#888888] font-tech">
-                          Scheduled corridor activations
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <p className="text-xs text-[#888888] leading-relaxed mb-6">
-                    {plan.description}
+                  <p className="text-xs text-[#637786] leading-relaxed font-normal">
+                    {sub.desc}
                   </p>
 
-                  <ul className="space-y-2.5 mb-8 text-xs text-[#B8B8B8]">
-                    {plan.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
+                  <div className="pt-2 border-t border-[#DCECF2] space-y-2">
+                    {sub.features.map((f, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-[#172B3A]">
+                        <CheckCircle2 className={`w-3.5 h-3.5 ${sub.color} shrink-0`} />
+                        <span>{f}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div>
+                <div className="pt-6">
                   <Link
-                    href={`/book-campaign?objective=${encodeURIComponent(`Monthly Plan: ${plan.name}`)}`}
-                    className={`w-full py-3.5 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 transition-all ${
-                      plan.id === 'sub-growth'
-                        ? 'bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] shadow-[0_0_20px_rgba(231,255,57,0.3)]'
-                        : 'bg-[#000000] hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] hover:shadow-[0_0_15px_rgba(3,242,255,0.25)]'
-                    }`}
+                    href={`/book-campaign?plan=${sub.id}`}
+                    className="w-full py-3 rounded-full text-xs font-bold bg-white text-[#172B3A] border border-[#DCECF2] hover:border-[#00A8C8] hover:text-[#00A8C8] flex items-center justify-center gap-1.5 shadow-sm transition-all"
                   >
-                    <span>Enquire About Monthly Plans</span>
+                    <span>Enquire for Plan</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="p-4 rounded-2xl bg-[#101010] border border-[#222222] text-xs text-[#888888] flex items-start gap-3">
-            <ShieldCheck className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-            <p>
-              <strong className="text-[#FFFFFF]">Subscription Governance:</strong> ADRYD does not charge
-              recurring credit card transactions or auto-debits on this website. Monthly plans represent
-              scheduled commercial agreements executed after route confirmation and partner rider briefing.
-            </p>
-          </div>
         </div>
 
-        {/* SECTION 3: COMPARISON MATRIX */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] shadow-2xl">
-          <div className="max-w-2xl mb-8">
-            <span className="font-tech text-xs text-[#03F2FF] uppercase font-bold">
-              Deployment Comparison
-            </span>
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#FFFFFF] uppercase mt-1">
-              Campaign Packages vs. Monthly Retainers
-            </h3>
-            <p className="text-xs text-[#888888] mt-2 leading-relaxed">
-              Choose short-term tactical bursts for store launches and flash offers, or sustained monthly
-              retainers for ongoing retail discovery and corporate pre-orders.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="border-b border-[#222222] text-[#888888] font-tech uppercase">
-                  <th className="pb-3 font-bold">Feature / Parameter</th>
-                  <th className="pb-3 font-bold text-[#FFFFFF]">Campaign Packages (Burst)</th>
-                  <th className="pb-3 font-bold text-[#E7FF39]">Monthly Subscription Plans</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#222222] text-[#B8B8B8]">
-                <tr>
-                  <td className="py-3 font-semibold text-[#FFFFFF]">Objective</td>
-                  <td className="py-3 text-[#888888]">Store launches, events, sales &amp; product introductions</td>
-                  <td className="py-3 text-[#888888]">Ongoing market presence, pre-orders &amp; brand recall</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-semibold text-[#FFFFFF]">Duration</td>
-                  <td className="py-3 text-[#888888]">3 Hours to Custom Day Blasts</td>
-                  <td className="py-3 text-[#888888]">Monthly sustained weekly schedules</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-semibold text-[#FFFFFF]">Fleet Scale</td>
-                  <td className="py-3 text-[#888888]">1 to 20+ Electric Scooters</td>
-                  <td className="py-3 text-[#888888]">Dedicated monthly fleet allocation</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-semibold text-[#FFFFFF]">Showcase Enclosures</td>
-                  <td className="py-3 text-[#888888]">Available as campaign add-on</td>
-                  <td className="py-3 text-[#888888]">Integrated with Growth &amp; Premium tiers</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-semibold text-[#FFFFFF]">Corridor Flexibility</td>
-                  <td className="py-3 text-[#888888]">Fixed pre-planned routes</td>
-                  <td className="py-3 text-[#888888]">Bi-weekly route adjustments across zones</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
   );

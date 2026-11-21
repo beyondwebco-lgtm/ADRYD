@@ -1,227 +1,180 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import {
-  FileText,
-  Sliders,
-  MapPin,
-  CalendarCheck,
-  CheckCircle2,
-  BarChart3,
-  ArrowRight,
-  Info,
-} from 'lucide-react';
-
-const steps = [
-  {
-    step: '01',
-    title: 'Tell Us About Your Brand',
-    short: 'Brand Discovery',
-    icon: FileText,
-    desc: 'Share your business, products and promotional objectives through our interactive campaign brief.',
-    detail: 'Whether you are an artisanal handloom label, D2C fashion startup, gourmet bakery or regional consumer brand, we understand your audience and goals.',
-  },
-  {
-    step: '02',
-    title: 'Choose Your Campaign',
-    short: 'Service Selection',
-    icon: Sliders,
-    desc: 'Select promotion, showcase, pre-order, delivery or combined service interests tailored to your product type.',
-    detail: 'Choose between pure vehicle promotion, tactile illuminated showcase boxes, on-ground QR mobile selling, pre-orders or last-mile delivery combinations.',
-  },
-  {
-    step: '03',
-    title: 'Select Your Audience',
-    short: 'Zone Targeting',
-    icon: MapPin,
-    desc: 'Choose proposed target areas, PIN codes, landmarks and preferred dates across Hyderabad.',
-    detail: 'Pick prime locations like HITEC City, Madhapur, Kukatpally, Kompally, or Gachibowli to align with where your buyers work, live, and shop.',
-  },
-  {
-    step: '04',
-    title: 'Plan Your Activation',
-    short: 'Route & Wrap Feasibility',
-    icon: CalendarCheck,
-    desc: 'Review campaign requirements, branding, fleet size and operational feasibility with the ADRYD team.',
-    detail: 'Our operations team checks vehicle availability, wrap fabrication specs, corridor timing, and location permissions for scheduled showcase stops.',
-  },
-  {
-    step: '05',
-    title: 'Campaign Execution',
-    short: 'Street Deployment',
-    icon: CheckCircle2,
-    desc: 'Following approval and operational readiness, campaigns may be coordinated with eligible riders and vehicles.',
-    detail: 'Trained EV partner riders deploy along agreed corridors, ensuring pristine vehicle presentation and on-ground customer interaction assistance.',
-  },
-  {
-    step: '06',
-    title: 'Review Outcomes',
-    short: 'Metrics & Telemetry',
-    icon: BarChart3,
-    desc: 'Campaign reporting may include route evidence, QR engagement, enquiries and order-related metrics where supported.',
-    detail: 'Transparent post-campaign summaries consolidate verified route logs, photo proof, digital catalogue visits, and qualified customer leads.',
-  },
-];
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ArrowRight, Target, Compass, Rocket, Bike, Sparkles } from 'lucide-react';
 
 export default function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll tracking for scooter progression along the Palapitta blue route
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 75%', 'end 25%'],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 20,
+    restDelta: 0.001,
+  });
+
+  // Calculate scooter position along horizontal axis for desktop
+  const scooterX = useTransform(smoothProgress, [0, 1], ['5%', '92%']);
+
+  const steps = [
+    {
+      step: '01',
+      title: 'Tell Us Your Goal',
+      description: 'Share your brand, products and campaign needs.',
+      detail: 'Select your preferred target audience, high-traffic corridors, and product showcase requirements.',
+      icon: Target,
+      color: 'text-[#00A8C8]',
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+    },
+    {
+      step: '02',
+      title: 'We Plan Your Campaign',
+      description: 'We help explore suitable riders, routes and promotion formats.',
+      detail: 'Coordinate vehicle branding, rider briefing, display cabinet layouts and scheduled pilot corridors.',
+      icon: Compass,
+      color: 'text-[#1756C1]',
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+    },
+    {
+      step: '03',
+      title: 'Take Your Brand Further',
+      description: "Bring your campaign concept to life through ADRYD's planned mobility network.",
+      detail: 'Engage urban consumers in motion with street-level visibility and instant QR-enabled commerce.',
+      icon: Rocket,
+      color: 'text-[#123C83]',
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+    },
+  ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
-      {/* Background ambient radial glow */}
-      <div className="absolute top-1/2 left-10 w-[500px] h-[400px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
+    <section ref={containerRef} id="how-it-works" className="py-20 lg:py-28 bg-[#F6FAFC] relative overflow-hidden border-t border-[#DCECF2]">
+      {/* Background Soft Palapitta Glows */}
+      <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#EAF9FD] rounded-full blur-3xl opacity-60 pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#EAF9FD] rounded-full blur-3xl opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF] animate-pulse" />
-              HOW ADRYD WORKS
-            </div>
-            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[#FFFFFF] uppercase leading-tight">
-              FROM YOUR IDEA{' '}
-              <br className="hidden sm:inline" />
-              <span className="text-[#E7FF39]">TO A MOVING CAMPAIGN.</span>
-            </h2>
-            <p className="mt-4 text-base text-[#B8B8B8] leading-relaxed">
-              A clear, transparent step-by-step journey connecting your brand objectives to verified
-              electric mobility deployment across Hyderabad.
-            </p>
+        <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#DCECF2] text-[#00A8C8] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Process</span>
           </div>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
+            THREE SIMPLE STEPS.
+          </h2>
+          <p className="text-base sm:text-lg text-[#637786] font-normal">
+            A straightforward process to explore, plan and deploy your mobile campaign concept.
+          </p>
+        </div>
 
-          {/* Quotation Notice */}
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-[#101010] border border-[#222222] max-w-md text-xs text-[#888888]">
-            <Info className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-            <p>
-              <strong className="text-[#FFFFFF]">Enquiry Notice:</strong> The current website accepts
-              campaign briefs and custom quotation requests, not instant automated bookings.
-            </p>
+        {/* ================= CURVED PALAPITTA BLUE ROUTE (Desktop) ================= */}
+        <div className="hidden md:block relative mb-12 px-6">
+          <div className="relative h-16 flex items-center">
+            {/* Background Track Route */}
+            <svg
+              className="w-full h-12 overflow-visible"
+              viewBox="0 0 1000 48"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="palapittaRouteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#00A8C8" />
+                  <stop offset="50%" stopColor="#1756C1" />
+                  <stop offset="100%" stopColor="#58C9EF" />
+                </linearGradient>
+              </defs>
+              {/* Soft Route Shadow */}
+              <path
+                d="M 20,24 Q 250,2 500,24 T 980,24"
+                stroke="#DCECF2"
+                strokeWidth="10"
+                strokeLinecap="round"
+              />
+              {/* Palapitta Curved Moving Route */}
+              <path
+                d="M 20,24 Q 250,2 500,24 T 980,24"
+                stroke="url(#palapittaRouteGrad)"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+            </svg>
+
+            {/* Moving Scooter Indicator along Curved Blue Route */}
+            <motion.div
+              style={{ left: scooterX }}
+              className="absolute -top-3 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#00A8C8] text-white flex items-center justify-center shadow-[0_8px_20px_rgba(0,168,200,0.35)] border-2 border-white ring-2 ring-[#00A8C8]/30">
+                <Bike className="w-5 h-5 animate-pulse" />
+              </div>
+              <span className="text-[10px] font-bold text-[#00A8C8] bg-white px-2 py-0.5 rounded-full shadow-sm mt-1 whitespace-nowrap border border-[#DCECF2]">
+                In Motion
+              </span>
+            </motion.div>
           </div>
         </div>
 
-        {/* 6 Step Navigation Tabs (Desktop) */}
-        <div className="hidden lg:grid grid-cols-6 gap-3 mb-10">
-          {steps.map((s, idx) => {
-            const Icon = s.icon;
-            const isActive = activeStep === idx;
+        {/* 3 Step Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {steps.map((item, idx) => {
+            const Icon = item.icon;
             return (
-              <button
-                key={s.step}
-                type="button"
-                onClick={() => setActiveStep(idx)}
-                className={`text-left p-4 rounded-2xl border transition-all duration-200 relative ${
-                  isActive
-                    ? 'bg-[#101010] border-[#E7FF39] text-[#FFFFFF] shadow-[0_0_20px_rgba(231,255,57,0.15)] ring-1 ring-[#E7FF39]'
-                    : 'bg-[#101010]/70 border-[#222222] text-[#888888] hover:border-[#E7FF39]/40 hover:text-[#FFFFFF]'
-                }`}
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="relative rounded-3xl bg-white p-8 border border-[#DCECF2] shadow-[0_10px_30px_rgba(0,168,200,0.03)] hover:shadow-[0_20px_40px_rgba(0,168,200,0.08)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span
-                    className={`font-heading font-black text-xl ${
-                      isActive ? 'text-[#E7FF39]' : 'text-[#888888]'
-                    }`}
-                  >
-                    {s.step}
-                  </span>
-                  <Icon
-                    className={`w-4 h-4 ${
-                      isActive ? 'text-[#E7FF39]' : 'text-[#888888]'
-                    }`}
-                  />
-                </div>
-                <div className="font-heading font-bold text-xs text-[#FFFFFF] line-clamp-1">
-                  {s.short}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active Step Showcase (Desktop Detail Card) */}
-        <div className="hidden lg:block bg-[#101010] border border-[#222222] rounded-3xl p-10 mb-12 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#03F2FF]/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="grid grid-cols-12 gap-8 items-center relative z-10">
-            <div className="col-span-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-heading font-black text-4xl text-[#E7FF39]">
-                  Step {steps[activeStep].step}
-                </span>
-                <span className="h-4 w-[1px] bg-[#222222]" />
-                <span className="font-tech text-xs uppercase tracking-widest text-[#03F2FF]">
-                  Campaign Phase
-                </span>
-              </div>
-              <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#FFFFFF] uppercase">
-                {steps[activeStep].title}
-              </h3>
-              <p className="text-base text-[#B8B8B8] leading-relaxed">
-                {steps[activeStep].desc}
-              </p>
-              <div className="p-4 rounded-xl bg-[#000000] border border-[#222222] text-xs text-[#888888] leading-relaxed">
-                <span className="text-[#03F2FF] font-semibold">How it operates: </span>
-                {steps[activeStep].detail}
-              </div>
-            </div>
-
-            <div className="col-span-4 flex flex-col items-center justify-center p-8 rounded-2xl bg-[#000000] border border-[#222222] text-center">
-              <div className="w-16 h-16 rounded-2xl bg-[#101010] border border-[#03F2FF]/40 flex items-center justify-center text-[#03F2FF] mb-4">
-                {(() => {
-                  const Icon = steps[activeStep].icon;
-                  return <Icon className="w-8 h-8" />;
-                })()}
-              </div>
-              <div className="text-xs font-tech uppercase tracking-wider text-[#888888] mb-3">
-                Ready to plan?
-              </div>
-              <Link
-                href="/book-campaign"
-                className="w-full py-3 px-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.25)]"
-              >
-                Start Campaign Brief
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile / Tablet Vertical Timeline */}
-        <div className="lg:hidden flex flex-col gap-4">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.step}
-                className="bg-[#101010] border border-[#222222] rounded-2xl p-6 relative flex flex-col gap-3"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-heading font-black text-2xl text-[#E7FF39]">
-                    {s.step}
-                  </span>
-                  <div className="w-10 h-10 rounded-lg bg-[#151515] border border-[#222222] flex items-center justify-center text-[#03F2FF]">
-                    <Icon className="w-5 h-5" />
+                {/* Big decorative number & Icon */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className={`w-14 h-14 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center font-bold shadow-sm`}>
+                    <Icon className="w-7 h-7" />
                   </div>
+                  <span className={`font-heading font-black text-4xl sm:text-5xl ${item.color}`}>
+                    {item.step}
+                  </span>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-[#FFFFFF] uppercase">{s.title}</h3>
-                <p className="text-xs sm:text-sm text-[#B8B8B8] leading-relaxed">{s.desc}</p>
-                <p className="text-xs text-[#888888] pt-2 border-t border-[#222222]">
-                  {s.detail}
-                </p>
-              </div>
+
+                <div className="space-y-3">
+                  <h3 className="font-heading font-bold text-2xl text-[#172B3A]">
+                    {item.title}
+                  </h3>
+                  <p className="text-base text-[#172B3A] font-medium leading-relaxed">
+                    {item.description}
+                  </p>
+                  <p className="text-xs text-[#637786] leading-relaxed">
+                    {item.detail}
+                  </p>
+                </div>
+
+                <div className="pt-8 border-t border-[#DCECF2] mt-6">
+                  <Link
+                    href="/book-campaign"
+                    className={`inline-flex items-center gap-1.5 text-xs font-bold ${item.color} hover:underline`}
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* Section Bottom CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/how-it-works"
-            className="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-[#03F2FF] hover:text-[#E7FF39] transition-colors"
-          >
-            <span>Explore Complete Operational Guidelines &amp; Timeline</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
     </section>
   );

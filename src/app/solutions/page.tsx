@@ -7,133 +7,132 @@ import {
   Compass,
   ArrowRight,
   CheckCircle2,
-  Zap,
+  Sparkles,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Advertising Solutions | ADRYD Mobile EV Media',
+  title: 'Campaign Formats & Solutions | ADRYD',
   description:
-    'Explore ADRYD mobile advertising campaign formats in Hyderabad: Single Rider, Dual Rider, Multi-Rider Fleet, Location Targeting, and ADRYD Upgrade mobile commerce showcases.',
+    'Explore ADRYD mobile advertising campaign formats in Hyderabad: Single Rider, Dual Rider, Multi-Rider Fleet and Location Targeting.',
 };
 
 const solutionsList = [
   {
     slug: 'single-rider',
     name: 'Single Rider Campaign',
-    headline: 'Hyper-Local Street Visibility for Neighbourhood Brands',
+    headline: 'Hyper-Local Street Visibility for Neighborhood Brands',
     desc: 'Deploy a dedicated branded electric scooter covering targeted local retail corridors and residential catchments.',
     icon: Bike,
-    specs: ['1 Electric Scooter & Rider', 'Local Zone Focus', 'Side & Rear Panels', '3 to 30 Day Packages'],
-    cta: 'Explore Single Rider',
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#00A8C8]',
+    specs: ['1 Electric Scooter & Rider', 'Local Corridor Focus', 'Side & Rear Panels', '3 to 30 Day Packages'],
   },
   {
     slug: 'dual-rider',
     name: 'Dual Rider Campaign',
     headline: 'Synchronized Twin-Rider High-Recall Deployments',
-    desc: 'Two branded electric two-wheelers moving in tandem or covering twin high-density corridors for maximum commuter noticeability.',
+    desc: 'Two branded electric two-wheelers moving in tandem across twin commercial zones for multiplied commuter recall.',
     icon: Users,
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#1756C1]',
     specs: ['2 Electric Scooters & Riders', 'Tandem Corridor Sweeps', 'Double Street Frequency', 'High Launch Recall'],
-    cta: 'Explore Dual Rider',
   },
   {
     slug: 'fleet-advertising',
     name: 'Multi-Rider Fleet Advertising',
-    headline: 'Citywide Synchronized Blitz for Enterprises & FMCG',
-    desc: 'Deploy a coordinated fleet of 4 to 10+ branded vehicles blanketing Hyderabad’s major tech corridors and commercial arteries.',
+    headline: 'Citywide Synchronized Blitz for Enterprises & Retailers',
+    desc: 'Deploy a coordinated fleet of 4 to 10+ branded vehicles blanketing Hyderabad’s prime tech hubs and shopping districts.',
     icon: Building2,
+    bg: 'bg-[#EAF9FD]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#123C83]',
     specs: ['4 to 10+ Electric Scooters', 'Multi-Corridor Coverage', 'Dedicated Operations Lead', 'Maximum Street Buzz'],
-    cta: 'Explore Fleet Campaigns',
   },
   {
     slug: 'location-targeting',
     name: 'Location & Corridor Targeting',
-    headline: 'Surgical Geographic Targeting by PIN Code & Arterial Roads',
-    desc: 'Focus your campaign on precise business districts like HITEC City, Gachibowli, Madhapur, Jubilee Hills, and Kukatpally.',
+    headline: 'Surgical Geographic Targeting by Prime Corridors',
+    desc: 'Focus your campaign on precise business corridors: HITEC City, Gachibowli, Madhapur, Jubilee Hills, and Kukatpally.',
     icon: Compass,
+    bg: 'bg-[#F6FAFC]',
+    border: 'border-[#DCECF2]',
+    color: 'text-[#58C9EF]',
     specs: ['Commercial Zone Selection', 'PIN-Code Cluster Mapping', 'Arterial Road Schedules', 'Event & Metro Corridors'],
-    cta: 'Explore Location Targeting',
   },
 ];
 
 export default function SolutionsHubPage() {
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-28 pb-24 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6">
-            <Zap className="w-3.5 h-3.5" />
-            Mobility Media Formats
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            Campaign Formats
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#FFFFFF] uppercase leading-[1.02] mb-6">
-            Mobile Advertising Solutions{' '}
-            <span className="text-[#E7FF39]">Engineered For Impact.</span>
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            Tailored solutions for{' '}
+            <br />
+            <span className="text-[#00A8C8]">every campaign goal.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#B8B8B8] leading-relaxed font-normal">
-            From focused neighbourhood promotions to citywide multi-vehicle fleets, ADRYD offers
-            flexible out-of-home advertising formats tailored to your business scale and launch goals.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            From focused single-neighborhood brand visibility to citywide synchronized multi-rider activations.
           </p>
         </div>
 
-        {/* 4 Solutions Cards Grid */}
+        {/* 4 Solutions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {solutionsList.map((sol) => {
             const Icon = sol.icon;
             return (
               <div
                 key={sol.slug}
-                className="p-8 rounded-2xl bg-[#101010] border border-[#222222] hover:border-[#03F2FF]/50 transition-all duration-300 flex flex-col justify-between shadow-2xl group hover:-translate-y-1"
+                className={`rounded-3xl ${sol.bg} border ${sol.border} p-8 lg:p-10 card-hover-lift flex flex-col justify-between`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#222222]">
-                    <div className="w-12 h-12 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#000000] transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-tech text-[#03F2FF] uppercase tracking-widest">
-                      Hyderabad Pilot
-                    </span>
+                <div className="space-y-4">
+                  <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${sol.color}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 className="font-heading font-black text-2xl text-[#172B3A]">
+                      {sol.name}
+                    </h2>
+                    <p className={`text-xs font-bold mt-1 ${sol.color}`}>
+                      {sol.headline}
+                    </p>
+                    <p className="text-sm text-[#637786] leading-relaxed mt-2.5">
+                      {sol.desc}
+                    </p>
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl text-[#FFFFFF] mb-2">
-                    {sol.name}
-                  </h3>
-                  <div className="text-xs font-tech text-[#E7FF39] uppercase mb-3 font-semibold">
-                    {sol.headline}
-                  </div>
-                  <p className="text-sm text-[#888888] leading-relaxed mb-6">
-                    {sol.desc}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-2 mb-8">
-                    {sol.specs.map((s, i) => (
-                      <div
-                        key={i}
-                        className="p-2.5 rounded-lg bg-[#000000] border border-[#222222] text-xs text-[#B8B8B8] flex items-center gap-1.5"
-                      >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39] shrink-0" />
-                        <span className="line-clamp-1">{s}</span>
+                  <div className="pt-2 grid grid-cols-2 gap-2">
+                    {sol.specs.map((s, idx) => (
+                      <div key={idx} className="flex items-center gap-1.5 text-xs text-[#172B3A]">
+                        <CheckCircle2 className={`w-3.5 h-3.5 ${sol.color} shrink-0`} />
+                        <span>{s}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-[#222222]">
+                <div className="pt-8 flex items-center justify-between border-t border-[#DCECF2]">
                   <Link
                     href={`/solutions/${sol.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-heading font-bold text-[#FFFFFF] group-hover:text-[#03F2FF] transition-colors"
+                    className="text-xs font-bold text-[#172B3A] hover:text-[#00A8C8] transition-colors"
                   >
-                    <span>{sol.cta}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    View Details
                   </Link>
 
                   <Link
-                    href={`/book-campaign?package=${sol.slug}`}
-                    className="px-4 py-2 rounded-lg bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(231,255,57,0.2)]"
+                    href={`/book-campaign?format=${sol.slug}`}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold text-white shadow-sm transition-all bg-[#00A8C8] hover:bg-[#0091AD]"
                   >
-                    Book Quote
+                    <span>Enquire Format</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
@@ -141,92 +140,6 @@ export default function SolutionsHubPage() {
           })}
         </div>
 
-        {/* Comparison: ADRYD vs Traditional Billboards */}
-        <div className="bg-[#101010] border border-[#222222] rounded-2xl p-8 sm:p-12 mb-20 shadow-2xl">
-          <div className="max-w-2xl mb-8">
-            <div className="text-xs font-tech font-bold uppercase tracking-widest text-[#03F2FF] mb-2">
-              Performance Comparison
-            </div>
-            <h2 className="font-heading font-black text-2xl sm:text-4xl text-[#FFFFFF] uppercase">
-              Why Brands Choose Mobile EV Media Over Static Hoardings
-            </h2>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead>
-                <tr className="border-b border-[#222222] text-xs font-tech uppercase text-[#888888]">
-                  <th className="py-4 px-4">Feature Dimension</th>
-                  <th className="py-4 px-4 text-[#E7FF39] font-bold bg-[#000000] border-x border-t border-[#222222] rounded-t-lg">
-                    ADRYD Electric Mobility
-                  </th>
-                  <th className="py-4 px-4 text-[#888888]">Static Hoardings / Billboards</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#222222] text-xs sm:text-sm">
-                <tr>
-                  <td className="py-4 px-4 font-heading font-semibold text-[#FFFFFF]">Visual Perspective</td>
-                  <td className="py-4 px-4 text-[#E7FF39] font-medium bg-[#000000]/40 border-x border-[#222222] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                    Eye-level pedestrian &amp; commuter field of view
-                  </td>
-                  <td className="py-4 px-4 text-[#888888]">High elevated angle easily missed</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-heading font-semibold text-[#FFFFFF]">Geographic Flexibility</td>
-                  <td className="py-4 px-4 text-[#E7FF39] font-medium bg-[#000000]/40 border-x border-[#222222] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                    Flexible routes across multiple PIN codes
-                  </td>
-                  <td className="py-4 px-4 text-[#888888]">Locked to one static location</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-heading font-semibold text-[#FFFFFF]">Campaign Duration</td>
-                  <td className="py-4 px-4 text-[#E7FF39] font-medium bg-[#000000]/40 border-x border-[#222222] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                    Flexible 3-day, 7-day, or monthly runs
-                  </td>
-                  <td className="py-4 px-4 text-[#888888]">Rigid monthly contracts with high lock-ins</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-heading font-semibold text-[#FFFFFF]">Environmental Footprint</td>
-                  <td className="py-4 px-4 text-[#E7FF39] font-medium bg-[#000000]/40 border-x border-[#222222] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                    100% Zero-Emission Electric Scooters
-                  </td>
-                  <td className="py-4 px-4 text-[#888888]">Heavy lighting energy &amp; non-recyclable flex</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-heading font-semibold text-[#FFFFFF]">Execution Proof</td>
-                  <td className="py-4 px-4 text-[#E7FF39] font-medium bg-[#000000]/40 border-x border-[#222222] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                    Photo proofs + planned GPS telemetry summaries
-                  </td>
-                  <td className="py-4 px-4 text-[#888888]">No verified proof of impressions</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="p-8 rounded-2xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 className="font-heading font-bold text-xl text-[#FFFFFF] mb-1">
-              Need Help Selecting The Right Campaign?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#B8B8B8]">
-              Our Hyderabad campaign directors assist with traffic corridor mapping and quotation
-              modeling.
-            </p>
-          </div>
-          <Link
-            href="/book-campaign"
-            className="shrink-0 px-6 py-3 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
-          >
-            Request Custom Quotation
-          </Link>
-        </div>
       </div>
     </div>
   );

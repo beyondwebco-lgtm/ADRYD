@@ -1,198 +1,208 @@
 'use client';
 
+import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  Sparkles,
-  ArrowRight,
-  Shirt,
-  Cookie,
-  Apple,
-  Palette,
-  Heart,
-  Cpu,
-  Flower2,
-  Rocket,
-} from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
+import dynamic from 'next/dynamic';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Shirt, Utensils, Sparkles, Heart, Compass, Store, ArrowRight, CheckCircle2 } from 'lucide-react';
+
+const ProductShowcaseCanvas = dynamic(
+  () => import('@/components/3d/ProductShowcaseCanvas'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[360px] sm:h-[420px] rounded-3xl bg-[#F6FAFC] flex flex-col items-center justify-center gap-3">
+        <div className="w-8 h-8 rounded-full border-2 border-[#00A8C8] border-t-transparent animate-spin" />
+        <span className="text-xs font-semibold text-[#637786]">Loading 3D Product Showcase...</span>
+      </div>
+    ),
+  }
+);
 
 export default function ProductCategoriesSection() {
-  const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-    fashion: Shirt,
-    bakery: Cookie,
-    'food-agri': Apple,
-    handmade: Palette,
-    lifestyle: Heart,
-    'tech-edu': Cpu,
-    'home-garden': Flower2,
-    startups: Rocket,
-  };
+  const [activeTab, setActiveTab] = useState<'beauty' | 'fashion' | 'food' | 'handmade' | 'lifestyle' | 'local'>('beauty');
 
-  const pilotPriorityCategories = SITE_CONFIG.productCategories.filter(
-    (c) => c.isPilotPriority
-  );
-  const secondaryCategories = SITE_CONFIG.productCategories.filter(
-    (c) => !c.isPilotPriority
-  );
+  const categories = [
+    {
+      id: 'beauty' as const,
+      name: 'Beauty & Cosmetics',
+      headline: 'Skincare & fragrance discovery on the move.',
+      desc: 'Let shoppers sample luxury perfumes, serums, and organic cosmetics directly on street corners and boutique hubs.',
+      icon: Heart,
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+      color: 'text-[#00A8C8]',
+      features: ['Live spray and sample counters', 'Scan-to-order QR packaging', 'Boutique beauty corridor routes'],
+    },
+    {
+      id: 'fashion' as const,
+      name: 'Fashion & Apparel',
+      headline: 'Streetwear & designer labels in high-footfall corridors.',
+      desc: 'Showcase seasonal drops, footwear, and accessory capsule collections directly outside cafes, campuses, and cultural districts.',
+      icon: Shirt,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      color: 'text-[#1756C1]',
+      features: ['High-contrast illuminated garment displays', 'Instant mobile checkout links', 'Influencer photo-op activations'],
+    },
+    {
+      id: 'food' as const,
+      name: 'Food & Beverages',
+      headline: 'Gourmet snacks, cold brews & artisanal treats.',
+      desc: 'Deploy moving taste-testing pods that bring seasonal refreshments and artisanal treats directly to offices and parks.',
+      icon: Utensils,
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+      color: 'text-[#00A8C8]',
+      features: ['Food-safe display compartments', 'Hyperlocal pre-order delivery', 'Peak-hour lunch corridor scheduling'],
+    },
+    {
+      id: 'handmade' as const,
+      name: 'Handmade Products',
+      headline: 'Artisan pottery, crafts & independent creators.',
+      desc: 'Give local craftspeople and independent makers prime visibility across premier Hyderabad neighborhoods without mall rent.',
+      icon: Sparkles,
+      bg: 'bg-[#F6FAFC]',
+      border: 'border-[#DCECF2]',
+      color: 'text-[#123C83]',
+      features: ['Curated spotlight showcases', 'Direct maker bio & story links', 'Weekend market synchronizations'],
+    },
+    {
+      id: 'lifestyle' as const,
+      name: 'Lifestyle & Tech',
+      headline: 'Wearables, wellness gear & smart accessories.',
+      desc: 'Introduce consumers to smart home devices, audio gear, and athletic equipment through live demonstrations.',
+      icon: Compass,
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+      color: 'text-[#58C9EF]',
+      features: ['Interactive hands-on demo cases', 'Instant pre-order reservation forms', 'Corporate tech park deployments'],
+    },
+    {
+      id: 'local' as const,
+      name: 'Local Businesses',
+      headline: 'Neighborhood cafes, studios & boutique storefronts.',
+      desc: 'Drive footfall and delivery orders directly to your brick-and-mortar store by advertising across your immediate 5 km radius.',
+      icon: Store,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      color: 'text-[#00A8C8]',
+      features: ['Geo-fenced neighborhood circuits', 'Store direction QR pins', 'Exclusive local customer promo codes'],
+    },
+  ];
+
+  const currentCategory = categories.find((c) => c.id === activeTab) || categories[0];
 
   return (
-    <section id="categories" className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/3 w-[600px] h-[500px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="categories" className="py-20 lg:py-28 bg-white relative border-t border-[#DCECF2]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#03F2FF]/10 border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(3,242,255,0.12)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF]" />
-            Target Retail Verticals
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>3D Product Showcase</span>
+            </div>
+            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
+              MADE FOR EVERY BRAND.
+            </h2>
+            <p className="text-base sm:text-lg text-[#637786] font-normal">
+              Whether you make artisanal treats or run an apparel label, showcase your physical products in real-world motion.
+            </p>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
-            PRODUCTS THAT MOVE{' '}
-            <span className="text-[#E7FF39]">WITH YOUR BRAND.</span>
-          </h2>
-          <p className="mt-4 text-base text-[#B8B8B8] leading-relaxed">
-            Tailored showcase enclosures, sample stops, and QR pre-order workflows across eight diverse
-            consumer product sectors—with five priority categories leading our Hyderabad pilot.
-          </p>
+
+          <Link
+            href="/industries"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#00A8C8] hover:text-[#0093AF] transition-colors shrink-0"
+          >
+            <span>Explore All Sectors</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Priority 5 Pilot Categories Banner */}
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#E7FF39] animate-pulse" />
-            <h3 className="font-heading font-bold text-sm tracking-wider uppercase text-white">
-              Recommended Pilot Categories (Phase 1 Validation)
-            </h3>
-          </div>
-          <span className="text-[10px] font-tech text-[#03F2FF] uppercase tracking-wider hidden sm:inline-block">
-            High Street Recall &amp; Direct Engagement
-          </span>
-        </div>
-
-        {/* 5 Pilot Priority Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {pilotPriorityCategories.map((cat) => {
-            const Icon = categoryIcons[cat.id] || Sparkles;
+        {/* Category Pills Navigation */}
+        <div className="flex items-center gap-2.5 overflow-x-auto pb-4 mb-8 no-scrollbar">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
+            const isSelected = activeTab === cat.id;
             return (
-              <div
+              <button
                 key={cat.id}
-                className="group p-6 rounded-2xl bg-[#101010] border border-[#222222] hover:border-[#E7FF39]/70 hover:bg-[#151515] transition-all duration-300 flex flex-col justify-between shadow-xl hover:-translate-y-1"
+                onClick={() => setActiveTab(cat.id)}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+                  isSelected
+                    ? 'bg-[#00A8C8] text-white shadow-md scale-105'
+                    : 'bg-[#F6FAFC] text-[#637786] hover:bg-[#EAF9FD] hover:text-[#00A8C8] border border-[#DCECF2]'
+                }`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#03F2FF]/15 text-[#03F2FF] border border-[#03F2FF]/30">
-                      Pilot Priority
-                    </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] group-hover:bg-[#E7FF39] group-hover:text-[#000000] transition-all">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
-
-                  <h4 className="font-heading font-bold text-xl text-white mb-1 group-hover:text-[#E7FF39] transition-colors">
-                    {cat.title}
-                  </h4>
-                  <div className="text-xs font-tech text-[#E7FF39] mb-3 uppercase">
-                    {cat.subtitle}
-                  </div>
-                  <p className="text-xs text-[#B8B8B8] leading-relaxed mb-5">
-                    {cat.description}
-                  </p>
-
-                  {/* Examples */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {cat.examples.map((ex, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] font-tech px-2 py-0.5 rounded bg-[#000000] text-[#B8B8B8] border border-[#222222]"
-                      >
-                        {ex}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-[#222222] flex items-center justify-between">
-                  <Link
-                    href={`/book-campaign?category=${encodeURIComponent(cat.title)}`}
-                    className="text-xs font-semibold text-[#E7FF39] hover:underline inline-flex items-center gap-1 group/btn"
-                  >
-                    <span>Enquire for {cat.title.split('&')[0].trim()}</span>
-                    <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+                <Icon className="w-3.5 h-3.5" />
+                <span>{cat.name}</span>
+              </button>
             );
           })}
         </div>
 
-        {/* Secondary 3 Categories */}
-        <div className="mb-6 flex items-center justify-between">
-          <h3 className="font-heading font-bold text-sm tracking-wider uppercase text-white">
-            Additional Planned Categories (Phase 2 Expansion)
-          </h3>
-          <span className="text-[10px] font-tech text-[#888888] uppercase tracking-wider">
-            Subject to Operational Feasibility
-          </span>
-        </div>
+        {/* 3D Showcase Split Stage */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#F6FAFC] rounded-3xl p-6 sm:p-10 border border-[#DCECF2] mb-12 shadow-sm">
+          {/* Left Column: 3D Product Canvas */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white border border-[#DCECF2] shadow-sm overflow-hidden">
+              <ProductShowcaseCanvas activeCategory={activeTab} />
+              
+              <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#DCECF2] text-[10px] font-semibold text-[#637786] pointer-events-none shadow-sm">
+                Interactive 3D Stage • Drag to rotate
+              </div>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {secondaryCategories.map((cat) => {
-            const Icon = categoryIcons[cat.id] || Sparkles;
-            return (
-              <div
-                key={cat.id}
-                className="group p-6 rounded-2xl bg-[#101010]/70 border border-[#222222] hover:border-[#03F2FF]/40 hover:bg-[#151515] transition-all flex flex-col justify-between"
+          {/* Right Column: Category Overview & Perks */}
+          <div className="lg:col-span-6 space-y-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentCategory.id}
+                initial={{ opacity: 0, x: 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -12 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="space-y-4"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#151515] text-[#888888] border border-[#222222]">
-                      Phase 2 Expansion
-                    </span>
-                    <div className="w-8 h-8 rounded-lg bg-[#000000] border border-[#222222] flex items-center justify-center text-[#888888] group-hover:text-[#03F2FF] transition-colors">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  <h4 className="font-heading font-bold text-lg text-white mb-1 group-hover:text-[#E7FF39] transition-colors">
-                    {cat.title}
-                  </h4>
-                  <div className="text-xs font-tech text-[#888888] mb-2 uppercase">
-                    {cat.subtitle}
-                  </div>
-                  <p className="text-xs text-[#888888] leading-relaxed mb-4">
-                    {cat.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {cat.examples.map((ex, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] font-tech px-2 py-0.5 rounded bg-[#000000] text-[#888888] border border-[#222222]"
-                      >
-                        {ex}
-                      </span>
-                    ))}
-                  </div>
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold ${currentCategory.bg} ${currentCategory.color} border ${currentCategory.border}`}>
+                  <currentCategory.icon className="w-3.5 h-3.5" />
+                  <span>{currentCategory.name}</span>
                 </div>
 
-                <div className="pt-3 border-t border-[#222222]">
+                <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#172B3A] uppercase tracking-tight">
+                  {currentCategory.headline}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal">
+                  {currentCategory.desc}
+                </p>
+
+                <div className="space-y-2.5 pt-2">
+                  {currentCategory.features.map((feat, idx) => (
+                    <div key={idx} className="flex items-center gap-2.5 text-xs text-[#172B3A] font-medium">
+                      <CheckCircle2 className={`w-4 h-4 ${currentCategory.color} shrink-0`} />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4">
                   <Link
-                    href={`/book-campaign?category=${encodeURIComponent(cat.title)}`}
-                    className="text-xs font-semibold text-[#888888] hover:text-[#03F2FF] inline-flex items-center gap-1"
+                    href="/book-campaign"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00A8C8] hover:bg-[#0093AF] text-white text-xs font-bold transition-all shadow-sm"
                   >
-                    <span>Request Category Pilot</span>
-                    <ArrowRight className="w-3 h-3" />
+                    <span>Book a {currentCategory.name} Campaign</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </div>
-            );
-          })}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
-        {/* Category Operational Disclosure */}
-        <div className="p-4 rounded-xl bg-[#101010] border border-[#222222] text-xs text-[#888888]">
-          <strong className="text-white">Validation Notice:</strong> Product category classifications represent proposed retail applications. Physical product displaying and sampling are evaluated on a case-by-case basis depending on weight, handling safety, and location permissions.
-        </div>
       </div>
     </section>
   );

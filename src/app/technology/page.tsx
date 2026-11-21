@@ -1,315 +1,135 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Cpu,
-  Smartphone,
+  Navigation,
   QrCode,
-  LayoutDashboard,
+  Smartphone,
   BarChart3,
-  Layers,
-  Activity,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
   CheckCircle2,
-  Info,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Technology & Roadmap | Planned Platform Capabilities',
+  title: 'Technology & Roadmap | ADRYD',
   description:
-    'Explore the proposed technology roadmap of ADRYD Upgrade: Brand Owner Portal, Rider Mobile Application, QR Storefronts, Admin Operations Console, Campaign Insights, and Fleet Partner Portals.',
+    'Explore ADRYD’s planned technology architecture: GPS corridor tracking, QR telemetry, mobile rider coordination and transparent campaign analytics.',
 };
 
-const modules = [
+const techModules = [
   {
-    title: 'Brand Owner Portal',
-    icon: LayoutDashboard,
-    stage: 'Phase 2 Architecture',
-    desc: 'Self-serve web portal for brand owners to configure corridor campaigns, approve digital 3D vehicle wrap proofs, customize QR promotional landing pages, and track campaign summaries.',
-    features: [
-      'Interactive corridor selection & PIN-code targeting',
-      'Automotive wrap template & visual asset uploads',
-      'QR catalogue builder & discount voucher configuration',
-      'Consolidated campaign execution reports & photo proofs',
-    ],
+    stage: 'Stage 1 • Pilot Phase',
+    title: 'Corridor Route Verification',
+    desc: 'Structured GPS trip logging to record planned campaign hours, corridor completion and geographical street coverage across Hyderabad.',
+    icon: Navigation,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#00A8C8]',
   },
   {
-    title: 'Rider Application',
-    icon: Smartphone,
-    stage: 'Phase 2 Architecture',
-    desc: 'Dedicated mobile companion app providing promotional partner riders with route corridor guidance, scheduled showcase stop countdowns, daily checklist verifications, and earnings logs.',
-    features: [
-      'Turn-by-turn navigation along approved commercial corridors',
-      'Stationary showcase stop arrival & departure logging',
-      'Digital checklist for vehicle cleanliness & wrap neatness',
-      'Daily campaign session confirmation & support desk',
-    ],
-  },
-  {
-    title: 'QR-Enabled Customer Storefront',
+    stage: 'Stage 2 • In Progress',
+    title: 'QR Scan Telemetry',
+    desc: 'Time-stamped QR scan analytics recording consumer interactions, digital catalogue views and product lead conversions.',
     icon: QrCode,
-    stage: 'Pilot Web Prototype',
-    desc: 'Fast, mobile-optimized lightweight storefront triggered instantly by scanning on-scooter QR badges, enabling seamless product discovery, launch offers, pre-orders, and WhatsApp ordering.',
-    features: [
-      'Zero-app installation: launches instantly in any mobile browser',
-      'Direct-to-consumer launch offer & voucher code activation',
-      'Pre-order demand capture & corporate gifting enquiries',
-      'Integrated WhatsApp click-to-chat purchase assistance',
-    ],
+    bg: 'bg-[#F6FAFC]',
+    color: 'text-[#1756C1]',
   },
   {
-    title: 'ADRYD Admin Console',
-    icon: Cpu,
-    stage: 'Internal Architecture',
-    desc: 'Central command engine for ADRYD campaign managers to oversee route feasibility, rider allocations, vinyl fabrication inspections, client approvals, and schedule management.',
-    features: [
-      'Corridor dispatch & fleet allocation matching engine',
-      'Pre-deployment vinyl wrap quality control checklists',
-      'Real-time rider session tracking & coordination desk',
-      'Client reporting generator & performance auditing',
-    ],
+    stage: 'Stage 3 • Architecture',
+    title: 'Rider Partner App',
+    desc: 'Mobile application designed for riders to check in for shifts, view assigned corridor routes, verify vehicle livery and submit daily run logs.',
+    icon: Smartphone,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#123C83]',
   },
   {
-    title: 'Campaign Insights',
+    stage: 'Stage 4 • Roadmap',
+    title: 'Brand Analytics Portal',
+    desc: 'Planned dashboard for brand partners to inspect heatmaps, view daily vehicle active hours, review photo verification and download performance summaries.',
     icon: BarChart3,
-    stage: 'Telemetry Roadmap',
-    desc: 'Proposed campaign reporting module providing verified evidence of route transit, QR interaction rates, customer lead volumes, and overall promotional campaign health.',
-    features: [
-      'GPS corridor transit evidence & waypoint confirmations',
-      'QR scan engagement metrics & unique visitor analytics',
-      'Customer lead counts, enquiry types & pre-order demand',
-      'Post-campaign executive PDF summaries for marketing teams',
-    ],
-  },
-  {
-    title: 'Fleet Partner Portal (Later Phase)',
-    icon: Layers,
-    stage: 'Later Phase Roadmap',
-    desc: 'Specialized enterprise platform for commercial electric two-wheeler fleet aggregators and rental companies to register vehicles, view batch campaign opportunities, and track fleet utilization.',
-    features: [
-      'Multi-vehicle registration & battery health tracking',
-      'Batch corridor allocation across Hyderabad zones',
-      'Automated fleet payout management & invoice generation',
-      'Vehicle cosmetic maintenance & wrap inspection records',
-    ],
+    bg: 'bg-[#F6FAFC]',
+    color: 'text-[#58C9EF]',
   },
 ];
 
 export default function TechnologyPage() {
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4">
-            <Cpu className="w-3.5 h-3.5 text-[#03F2FF]" />
-            Designed for a Connected Future
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            Platform Architecture
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#FFFFFF] uppercase leading-[1.02] mb-4">
-            PLANNED PLATFORM{' '}
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            Connected mobility.{' '}
             <br />
-            <span className="text-[#E7FF39]">CAPABILITIES &amp; ROADMAP.</span>
+            <span className="text-[#00A8C8]">Measurable data.</span>
           </h1>
-          <p className="text-base sm:text-lg text-[#B8B8B8] max-w-2xl leading-relaxed">
-            ADRYD Upgrade is designing a multi-stakeholder technology ecosystem to bridge physical electric
-            mobility with digital commerce, campaign verification, and transparent reporting.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            ADRYD is developing verified verification and reporting systems to bring accountability and digital precision to physical out-of-home advertising.
           </p>
         </div>
 
-        {/* Futuristic Interactive Dashboard Mockup Preview */}
-        <div className="rounded-3xl bg-[#101010] border border-[#222222] shadow-2xl p-6 sm:p-10 relative overflow-hidden mb-20">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#222222]">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#222222]" />
-                <span className="w-3 h-3 rounded-full bg-[#222222]" />
-                <span className="w-3 h-3 rounded-full bg-[#03F2FF]" />
-              </div>
-              <span className="text-xs font-tech text-[#888888] uppercase tracking-wider pl-2 border-l border-[#222222]">
-                ADRYD Telemetry &amp; Campaign Console — Conceptual Interface Preview
-              </span>
-            </div>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#000000] border border-[#03F2FF]/40 text-[#03F2FF] text-xs font-tech font-bold uppercase">
-              <Activity className="w-3.5 h-3.5 animate-pulse text-[#03F2FF]" />
-              Technology Roadmap Preview
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-center">
-            {/* Mock Telemetry Metrics */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222]">
-                <div className="text-[10px] font-tech text-[#888888] uppercase">Simulated Campaign ID</div>
-                <div className="font-heading font-black text-xl text-[#FFFFFF] mt-0.5">HYD-PILOT-CORR-04</div>
-                <div className="text-xs text-[#03F2FF] font-tech mt-1">HITEC City × Madhapur Corridor</div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222]">
-                  <div className="text-[10px] font-tech text-[#888888] uppercase">Planned Fleet</div>
-                  <div className="font-heading font-black text-2xl text-[#FFFFFF] mt-0.5">05 EVs</div>
-                  <div className="text-[10px] text-[#03F2FF] font-tech">Synchronized</div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222]">
-                  <div className="text-[10px] font-tech text-[#888888] uppercase">Corridor Hours</div>
-                  <div className="font-heading font-black text-2xl text-[#E7FF39] mt-0.5">25.0 hrs</div>
-                  <div className="text-[10px] text-[#03F2FF] font-tech">Peak Windows</div>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#000000] border border-[#222222] space-y-2">
-                <div className="text-[10px] font-tech text-[#888888] uppercase">Verified Milestones</div>
-                <div className="space-y-1.5 text-xs text-[#B8B8B8]">
+        {/* 4 Tech Modules */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {techModules.map((mod, idx) => {
+            const Icon = mod.icon;
+            return (
+              <div
+                key={idx}
+                className={`rounded-3xl ${mod.bg} border border-[#DCECF2] p-8 lg:p-10 card-hover-lift flex flex-col justify-between`}
+              >
+                <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39]" />
-                      Vehicle Wrap Quality Inspection
-                    </span>
-                    <span className="text-[#03F2FF] font-tech">Verified</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39]" />
-                      Illuminated Showcase Mounting Lock
-                    </span>
-                    <span className="text-[#03F2FF] font-tech">Verified</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39]" />
-                      QR Catalogue Link Resolution
-                    </span>
-                    <span className="text-[#03F2FF] font-tech">Active</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mock Vector Graph Canvas */}
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#000000] border border-[#222222] space-y-4">
-              <div className="flex items-center justify-between text-xs pb-3 border-b border-[#222222]">
-                <span className="font-heading font-bold text-[#FFFFFF]">
-                  Corridor Density &amp; QR Engagement Curve (Illustrative)
-                </span>
-                <span className="text-[10px] font-tech text-[#03F2FF] uppercase">
-                  Telemetry Concept
-                </span>
-              </div>
-
-              {/* Vector Bar Chart */}
-              <div className="relative aspect-[16/8] flex items-end justify-between gap-3 px-4 pt-8 pb-2">
-                {[35, 65, 85, 45, 95, 70, 55, 90].map((h, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                    <div
-                      className="w-full bg-[#151515] hover:bg-[#E7FF39] transition-all rounded-t-lg relative group"
-                      style={{ height: `${h}%` }}
-                    >
-                      <div className="absolute -top-7 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-[#101010] border border-[#222222] text-[9px] font-tech text-[#FFFFFF] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        Slot {i + 1}
-                      </div>
+                    <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${mod.color}`}>
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-tech text-[#888888]">W{i + 1}</span>
+                    <span className="text-xs font-bold uppercase tracking-wider bg-white px-3 py-1 rounded-full text-[#172B3A] shadow-sm">
+                      {mod.stage}
+                    </span>
                   </div>
-                ))}
-              </div>
 
-              <div className="pt-3 border-t border-[#222222] flex items-center justify-between text-xs text-[#888888] font-tech">
-                <span>SIMULATED PILOT TELEMETRY</span>
-                <span className="text-[#03F2FF] uppercase font-bold">Concept Interface</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 6 Planned Platform Modules */}
-        <div className="mb-20">
-          <div className="max-w-2xl mb-10">
-            <span className="font-tech text-xs text-[#03F2FF] uppercase font-bold">
-              Technology Roadmap
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase mt-1">
-              Six Core Platform Components
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {modules.map((m, idx) => {
-              const Icon = m.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col justify-between hover:border-[#03F2FF]/40 transition-all shadow-xl"
-                >
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39]">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-tech uppercase text-[#03F2FF] px-2 py-0.5 rounded bg-[#000000] border border-[#03F2FF]/30">
-                        {m.stage}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading font-bold text-xl text-[#FFFFFF] mb-2">
-                      {m.title}
-                    </h3>
-
-                    <p className="text-xs text-[#888888] leading-relaxed mb-5">
-                      {m.desc}
+                    <h2 className="font-heading font-black text-2xl text-[#172B3A]">
+                      {mod.title}
+                    </h2>
+                    <p className="text-sm text-[#637786] leading-relaxed mt-2">
+                      {mod.desc}
                     </p>
-
-                    <div className="space-y-1.5 pt-3 border-t border-[#222222] mb-4">
-                      {m.features.map((f, i) => (
-                        <div key={i} className="flex items-start gap-2 text-[11px] text-[#B8B8B8]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#E7FF39] shrink-0 mt-0.5" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-3 border-t border-[#222222] text-[10px] font-tech text-[#03F2FF] uppercase font-bold">
-                    Planned Capability
                   </div>
                 </div>
-              );
-            })}
-          </div>
+
+                <div className="pt-6 border-t border-[#DCECF2] text-xs text-[#637786] flex items-center gap-2">
+                  <ShieldCheck className={`w-4 h-4 ${mod.color}`} />
+                  <span>Privacy-compliant anonymous telemetry</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Roadmap Statement & Disclaimer */}
-        <div className="p-6 rounded-3xl bg-[#101010] border border-[#222222] flex items-start gap-4 text-xs text-[#888888] mb-12">
-          <Info className="w-4 h-4 text-[#03F2FF] shrink-0 mt-0.5" />
-          <p>
-            <strong className="text-[#FFFFFF]">Platform Scope Disclosure:</strong> The dashboard previews,
-            mobile app interfaces, and telemetry models shown on this page represent planned future platform
-            features currently in engineering specification. The basic website does not provide functional
-            logins, real-time vehicle telemetry, or automated GPS tracking dashboards. Current pilot operations
-            are managed through rigorous manual verification, photographic proofs, and scheduled route plans.
+        {/* Pilot Disclosure */}
+        <div className="rounded-3xl bg-[#F6FAFC] border border-[#DCECF2] p-8 text-center max-w-3xl mx-auto space-y-3">
+          <h3 className="font-heading font-bold text-lg text-[#172B3A]">
+            Pilot Roadmap Disclosure
+          </h3>
+          <p className="text-xs sm:text-sm text-[#637786] leading-relaxed">
+            ADRYD is actively validating these capabilities during its current Hyderabad pilot. Real-time customer tracking and automated billing portals represent planned platform developments rolling out progressively.
           </p>
+          <div className="pt-2">
+            <Link
+              href="/book-campaign"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#00A8C8] hover:underline"
+            >
+              <span>Explore Active Pilot Packages</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
-              Want to Discuss Campaign Logistics?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888888] mt-1 max-w-xl">
-              Connect with our operations team to evaluate route corridor feasibility and showcase mounting specs.
-            </p>
-          </div>
-          <Link
-            href="/book-campaign"
-            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
-          >
-            Launch a Campaign
-          </Link>
-        </div>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useRef, useState, MouseEvent } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   Megaphone,
   ShoppingBag,
@@ -11,262 +12,264 @@ import {
   Video,
   BarChart3,
   ArrowRight,
-  Check,
+  Sparkles,
 } from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
 
-export default function ServicesSection() {
-  const [activeTab, setActiveTab] = useState<string>('promote');
+interface TiltCardProps {
+  service: {
+    id: string;
+    title: string;
+    tagline: string;
+    icon: React.ElementType;
+    bg: string;
+    border: string;
+    iconBg: string;
+    iconColor: string;
+  };
+  idx: number;
+}
 
-  const icons: Record<string, React.ComponentType<{ className?: string }>> = {
-    promote: Megaphone,
-    showcase: ShoppingBag,
-    sell: QrCode,
-    'pre-order': PackageCheck,
-    deliver: Truck,
-    viral: Video,
-    insights: BarChart3,
+function TiltServiceCard({ service, idx }: TiltCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
+    setRotate({ x: rotateX, y: rotateY });
   };
 
-  const activeService =
-    SITE_CONFIG.services.find((s) => s.id === activeTab) || SITE_CONFIG.services[0];
-  const ActiveIcon = icons[activeService.id] || Megaphone;
+  const handleMouseLeave = () => {
+    setRotate({ x: 0, y: 0 });
+    setIsHovered(false);
+  };
+
+  const Icon = service.icon;
 
   return (
-    <section id="services" className="py-24 bg-[#000000] text-[#B8B8B8] relative overflow-hidden border-t border-[#222222]">
-      {/* Background radial glow */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[400px] bg-[#03F2FF]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#03F2FF]/10 border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-4 shadow-[0_0_12px_rgba(3,242,255,0.12)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#03F2FF]" />
-            Core Capabilities
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: idx * 0.07 }}
+      className="perspective-1000"
+    >
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(${
+            isHovered ? 1.02 : 1
+          }, ${isHovered ? 1.02 : 1}, 1)`,
+          transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.4s ease-out',
+        }}
+        className={`relative h-full rounded-3xl ${service.bg} border ${service.border} p-8 flex flex-col justify-between transition-shadow duration-300 ${
+          isHovered
+            ? 'shadow-[0_20px_40px_rgba(0,168,200,0.14)]'
+            : 'shadow-[0_4px_16px_rgba(0,168,200,0.03)]'
+        }`}
+      >
+        <div>
+          {/* 3D Elevated Icon Badge */}
+          <div
+            style={{
+              transform: isHovered ? 'translateZ(26px)' : 'translateZ(0px)',
+              transition: 'transform 0.3s ease-out',
+            }}
+            className={`w-14 h-14 rounded-2xl ${service.iconBg} ${service.iconColor} shadow-sm flex items-center justify-center mb-6`}
+          >
+            <Icon className="w-7 h-7" />
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
-            SEVEN SERVICES.{' '}
-            <span className="text-[#E7FF39]">ONE CONNECTED BRAND EXPERIENCE.</span>
-          </h2>
-          <p className="mt-4 text-base text-[#B8B8B8] leading-relaxed">
-            From mobile street visibility to live product discovery, contactless sales, pre-order demand
-            generation, local delivery and digital amplification across Hyderabad.
+
+          {/* Service Title */}
+          <h3
+            style={{
+              transform: isHovered ? 'translateZ(18px)' : 'translateZ(0px)',
+              transition: 'transform 0.3s ease-out',
+            }}
+            className="font-heading font-black text-2xl sm:text-3xl text-[#172B3A] uppercase tracking-tight mb-2"
+          >
+            {service.title}
+          </h3>
+
+          {/* Single-sentence tagline per prompt */}
+          <p
+            style={{
+              transform: isHovered ? 'translateZ(12px)' : 'translateZ(0px)',
+              transition: 'transform 0.3s ease-out',
+            }}
+            className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal"
+          >
+            {service.tagline}
           </p>
         </div>
 
-        {/* Service Selector Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-          {SITE_CONFIG.services.map((svc) => {
-            const Icon = icons[svc.id] || Megaphone;
-            const isSelected = activeTab === svc.id;
-            return (
-              <button
-                key={svc.id}
-                onClick={() => setActiveTab(svc.id)}
-                className={`shrink-0 flex items-center gap-2.5 px-4 py-2.5 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer ${
-                  isSelected
-                    ? 'bg-[#E7FF39] text-[#000000] border-[#E7FF39] shadow-[0_0_20px_rgba(231,255,57,0.3)]'
-                    : 'bg-[#101010] text-[#B8B8B8] border-[#222222] hover:text-white hover:border-[#E7FF39]/40 hover:bg-[#151515]'
-                }`}
-              >
-                <Icon className="w-4 h-4" />
-                <span>{svc.name}</span>
-                {svc.isFutureCapability && (
-                  <span
-                    className={`text-[9px] font-tech uppercase px-1.5 py-0.2 rounded ${
-                      isSelected
-                        ? 'bg-[#000000]/20 text-[#000000]'
-                        : 'bg-[#181818] text-[#03F2FF]'
-                    }`}
-                  >
-                    Future
-                  </span>
-                )}
-              </button>
-            );
-          })}
+        {/* Action Link */}
+        <div
+          style={{
+            transform: isHovered ? 'translateZ(14px)' : 'translateZ(0px)',
+            transition: 'transform 0.3s ease-out',
+          }}
+          className="pt-6 mt-4 border-t border-[#DCECF2]"
+        >
+          <Link
+            href={`/services#adryd-${service.id}`}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A8C8] hover:text-[#0093AF] transition-colors"
+          >
+            <span>Explore {service.title}</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function ServicesSection() {
+  // 7 services with alternating Palapitta backgrounds per specification
+  const services = [
+    {
+      id: 'promote',
+      title: 'Promote',
+      tagline: 'Take brands onto the streets.',
+      icon: Megaphone,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      iconBg: 'bg-[#EAF9FD]',
+      iconColor: 'text-[#00A8C8]',
+    },
+    {
+      id: 'showcase',
+      title: 'Showcase',
+      tagline: 'Bring products closer to customers.',
+      icon: ShoppingBag,
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+      iconBg: 'bg-white',
+      iconColor: 'text-[#1756C1]',
+    },
+    {
+      id: 'sell',
+      title: 'Sell',
+      tagline: 'Create opportunities to purchase.',
+      icon: QrCode,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      iconBg: 'bg-[#EAF9FD]',
+      iconColor: 'text-[#00A8C8]',
+    },
+    {
+      id: 'preorder',
+      title: 'Pre-Order',
+      tagline: 'Capture customer interest.',
+      icon: PackageCheck,
+      bg: 'bg-[#F6FAFC]',
+      border: 'border-[#DCECF2]',
+      iconBg: 'bg-white',
+      iconColor: 'text-[#58C9EF]',
+    },
+    {
+      id: 'deliver',
+      title: 'Deliver',
+      tagline: 'Support local fulfilment.',
+      icon: Truck,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      iconBg: 'bg-[#EAF9FD]',
+      iconColor: 'text-[#1756C1]',
+    },
+    {
+      id: 'viral',
+      title: 'Viral',
+      tagline: 'Extend reach through social content.',
+      icon: Video,
+      bg: 'bg-[#EAF9FD]',
+      border: 'border-[#D5EFF7]',
+      iconBg: 'bg-white',
+      iconColor: 'text-[#00A8C8]',
+    },
+    {
+      id: 'insights',
+      title: 'Insights',
+      tagline: 'Explore future reporting capabilities.',
+      icon: BarChart3,
+      bg: 'bg-white',
+      border: 'border-[#DCECF2]',
+      iconBg: 'bg-[#EAF9FD]',
+      iconColor: 'text-[#123C83]',
+    },
+  ];
+
+  return (
+    <section id="services" className="py-20 lg:py-28 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="max-w-2xl space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Seven Verticals</span>
+            </div>
+            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
+              ONE PLATFORM.{' '}
+              <span className="text-[#00A8C8]">MORE POSSIBILITIES.</span>
+            </h2>
+            <p className="text-base sm:text-lg text-[#637786] font-normal">
+              From street-level advertising to product testing and digital amplification.
+            </p>
+          </div>
+
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#00A8C8] hover:text-[#0093AF] transition-colors shrink-0"
+          >
+            <span>Explore All 7 Verticals</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Featured Service Spotlight Card */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] shadow-2xl mb-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#E7FF39]/5 rounded-full blur-3xl pointer-events-none" />
+        {/* 7 Interactive 3D Tilt Cards Grid + 8th Custom Activation Card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, idx) => (
+            <TiltServiceCard key={service.id} service={service} idx={idx} />
+          ))}
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Info Column */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-3">
-                <span className="font-tech text-xs font-bold text-[#03F2FF] bg-[#03F2FF]/10 px-2.5 py-1 rounded border border-[#03F2FF]/30 uppercase">
-                  Service {activeService.number}
-                </span>
-                <span className="text-xs font-tech text-[#888888] uppercase tracking-wider">
-                  {activeService.tagline}
-                </span>
-                {activeService.isFutureCapability && (
-                  <span className="text-[10px] font-tech uppercase px-2 py-0.5 rounded bg-[#151515] text-[#03F2FF] border border-[#222222]">
-                    Proposed Telemetry
-                  </span>
-                )}
+          {/* 8th CTA Showcase Card in Deep Royal Blue */}
+          <div className="rounded-3xl bg-[#123C83] text-white p-8 flex flex-col justify-between shadow-lg">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#58C9EF] text-xs font-bold uppercase tracking-wider">
+                Custom Activation
               </div>
-
-              <h3 className="font-heading font-black text-2xl sm:text-4xl text-white uppercase">
-                {activeService.name}
+              <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight">
+                Design Your Mix
               </h3>
-
-              <p className="text-base text-[#FFFFFF] font-medium leading-relaxed">
-                {activeService.shortDesc}
+              <p className="text-sm text-blue-100 leading-relaxed font-normal">
+                Combine mobile transit, physical sample showcasing, and viral social coverage for your brand.
               </p>
-
-              <p className="text-xs sm:text-sm text-[#B8B8B8] leading-relaxed">
-                {activeService.longDesc}
-              </p>
-
-              {/* Highlights */}
-              <div className="pt-2">
-                <div className="text-xs font-tech font-bold uppercase tracking-wider text-[#E7FF39] mb-3">
-                  Key Capabilities &amp; Highlights:
-                </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#B8B8B8]">
-                  {activeService.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#E7FF39] shrink-0 mt-0.5" />
-                      <span className="text-[#B8B8B8]">{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-4 flex flex-wrap items-center gap-4">
-                {/* Primary CTA: Launch / Book */}
-                <Link
-                  href={`/book-campaign?service=${encodeURIComponent(activeService.name)}`}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(231,255,57,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all"
-                >
-                  <span>{activeService.ctaLabel}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-
-                {/* Secondary CTA: Full details with Cyan accent */}
-                <Link
-                  href={`/services#${activeService.slug}`}
-                  className="inline-flex items-center gap-1.5 px-5 py-3.5 rounded-xl bg-transparent hover:bg-[#03F2FF]/10 border border-[#03F2FF]/40 hover:border-[#03F2FF] text-[#FFFFFF] hover:text-[#03F2FF] text-xs font-heading font-semibold transition-all shadow-[0_0_12px_rgba(3,242,255,0.1)]"
-                >
-                  <span>Full Service Details</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#03F2FF]" />
-                </Link>
-              </div>
             </div>
 
-            {/* Right Illustrative Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="p-8 rounded-2xl bg-[#000000] border border-[#222222] shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[320px]">
-                {/* Tech Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#222222]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-[#101010] border border-[#222222] flex items-center justify-center text-[#E7FF39]">
-                      <ActiveIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="font-heading font-bold text-sm text-white">{activeService.name}</div>
-                      <div className="text-[10px] text-[#03F2FF] font-tech uppercase">Moving Marketplace Vertical</div>
-                    </div>
-                  </div>
-                  <span className="font-heading font-black text-2xl text-[#222222]">{activeService.number}</span>
-                </div>
-
-                {/* Conceptual Preview Box */}
-                <div className="my-6 p-4 rounded-xl bg-[#101010] border border-[#222222] space-y-2.5">
-                  <div className="flex items-center justify-between text-[11px] text-[#888888]">
-                    <span>Deployment Status</span>
-                    <span className="text-[#03F2FF] font-tech font-bold uppercase">
-                      {activeService.isFutureCapability ? 'Technology Roadmap' : 'Pilot Validation'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-[#000000] h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-[#E7FF39] h-full"
-                      style={{ width: activeService.isFutureCapability ? '45%' : '85%' }}
-                    />
-                  </div>
-                  <p className="text-[11px] text-[#888888] leading-relaxed pt-1">
-                    {activeService.isFutureCapability
-                      ? 'Reporting telemetry and analytics dashboards represent upcoming platform milestones.'
-                      : 'Planned promotional routes and showcase deployments scheduled across Hyderabad test zones.'}
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-[#222222] flex items-center justify-between text-xs text-[#888888]">
-                  <span>Launch Market: Hyderabad</span>
-                  <span className="text-[#E7FF39] font-tech font-bold">100% ELECTRIC</span>
-                </div>
-              </div>
+            <div className="pt-6">
+              <Link
+                href="/book-campaign"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#00A8C8] hover:bg-[#0093AF] text-white text-xs font-bold transition-all shadow-md"
+              >
+                <span>Plan Your Campaign</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* 7 Services Grid Quick View */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SITE_CONFIG.services.slice(0, 4).map((svc) => {
-            const Icon = icons[svc.id] || Megaphone;
-            return (
-              <Link
-                key={svc.id}
-                href={`/services#${svc.slug}`}
-                className="group p-5 rounded-2xl bg-[#101010] border border-[#222222] hover:border-[#E7FF39]/60 hover:bg-[#151515] transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-tech font-bold text-[#03F2FF] uppercase">
-                      {svc.number}
-                    </span>
-                    <Icon className="w-4 h-4 text-[#888888] group-hover:text-[#E7FF39] transition-colors" />
-                  </div>
-                  <h4 className="font-heading font-bold text-base text-white group-hover:text-[#E7FF39] transition-colors mb-1">
-                    {svc.name}
-                  </h4>
-                  <p className="text-xs text-[#888888] line-clamp-2 leading-relaxed">
-                    {svc.shortDesc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-[#222222] flex items-center justify-between text-[11px] text-[#E7FF39] font-semibold">
-                  <span>Explore</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-          {SITE_CONFIG.services.slice(4).map((svc) => {
-            const Icon = icons[svc.id] || Megaphone;
-            return (
-              <Link
-                key={svc.id}
-                href={`/services#${svc.slug}`}
-                className="group p-5 rounded-2xl bg-[#101010] border border-[#222222] hover:border-[#E7FF39]/60 hover:bg-[#151515] transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-tech font-bold text-[#03F2FF] uppercase">
-                      {svc.number}
-                    </span>
-                    <Icon className="w-4 h-4 text-[#888888] group-hover:text-[#E7FF39] transition-colors" />
-                  </div>
-                  <h4 className="font-heading font-bold text-base text-white group-hover:text-[#E7FF39] transition-colors mb-1">
-                    {svc.name}
-                  </h4>
-                  <p className="text-xs text-[#888888] line-clamp-2 leading-relaxed">
-                    {svc.shortDesc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-[#222222] flex items-center justify-between text-[11px] text-[#E7FF39] font-semibold">
-                  <span>Explore</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

@@ -22,23 +22,23 @@ export async function POST(request: Request) {
         replyTo: validatedData.email,
         subject: `[Contact Message] ${validatedData.subject} (${ticketId})`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #222222; border-radius: 8px; background-color: #000000; color: #B8B8B8;">
-            <div style="background-color: #101010; border: 1px solid #222222; padding: 16px; border-radius: 6px; text-align: center;">
-              <h2 style="color: #E7FF39; margin: 0; font-size: 20px; letter-spacing: 0.05em;">ADRYD CONTACT INQUIRY</h2>
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #DCECF2; border-radius: 12px; background-color: #FFFFFF; color: #172B3A;">
+            <div style="background-color: #EAF9FD; border-bottom: 3px solid #00A8C8; padding: 20px; border-radius: 8px; text-align: center;">
+              <h2 style="color: #00A8C8; margin: 0; font-size: 20px; letter-spacing: 0.05em; font-weight: 800;">ADRYD CONTACT INQUIRY</h2>
             </div>
-            <div style="padding: 20px 0; color: #B8B8B8;">
-              <p>Ticket: <strong style="color: #03F2FF;">${ticketId}</strong></p>
-              <p><strong style="color: #FFFFFF;">Name:</strong> ${validatedData.fullName}</p>
-              <p><strong style="color: #FFFFFF;">Email:</strong> ${validatedData.email}</p>
-              <p><strong style="color: #FFFFFF;">Phone:</strong> ${validatedData.phone}</p>
-              <p><strong style="color: #FFFFFF;">Subject:</strong> ${validatedData.subject}</p>
-              <div style="margin-top: 15px; padding: 12px; background: #101010; border: 1px solid #222222; border-radius: 6px;">
-                <strong style="color: #E7FF39;">Message:</strong>
-                <p style="white-space: pre-wrap; margin: 6px 0 0 0; color: #FFFFFF;">${validatedData.message}</p>
+            <div style="padding: 24px 0; color: #637786; font-size: 14px; line-height: 1.6;">
+              <p>Reference Ticket: <strong style="color: #00A8C8; font-family: monospace;">${ticketId}</strong></p>
+              <p><strong style="color: #172B3A;">Name:</strong> ${validatedData.fullName}</p>
+              <p><strong style="color: #172B3A;">Email:</strong> ${validatedData.email}</p>
+              <p><strong style="color: #172B3A;">Phone:</strong> ${validatedData.phone}</p>
+              <p><strong style="color: #172B3A;">Subject:</strong> ${validatedData.subject}</p>
+              <div style="margin-top: 15px; padding: 14px; background: #F6FAFC; border: 1px solid #DCECF2; border-radius: 8px;">
+                <strong style="color: #172B3A;">Message:</strong>
+                <p style="white-space: pre-wrap; margin: 6px 0 0 0; color: #172B3A;">${validatedData.message}</p>
               </div>
             </div>
-            <div style="border-top: 1px solid #222222; padding-top: 10px; font-size: 11px; color: #888888;">
-              Received on ${timestamp} via ADRYD Web
+            <div style="border-top: 1px solid #DCECF2; padding-top: 12px; font-size: 11px; color: #637786; text-align: center;">
+              Received on ${timestamp} via ADRYD Web Platform
             </div>
           </div>
         `,

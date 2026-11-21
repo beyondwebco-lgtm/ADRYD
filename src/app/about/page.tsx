@@ -6,225 +6,191 @@ import {
   MapPin,
   CheckCircle2,
   Sparkles,
-  FileCheck,
   Lock,
   UserCheck,
+  FileCheck,
+  ArrowRight,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About ADRYD Upgrade | Our Moving Marketplace Vision',
+  title: 'About ADRYD | The Moving Marketplace',
   description:
-    'Learn about ADRYD Upgrade: an electric mobility-powered mobile advertising, product showcase, commerce, pre-orders and hyperlocal delivery platform in Hyderabad.',
+    'Learn about ADRYD: an electric mobility-powered mobile advertising, product showcase, commerce and hyperlocal delivery platform.',
 };
 
 const sevenCapabilities = [
-  '01 — Brand Promotion across high-recall commercial corridors',
-  '02 — Live Product Showcasing via illuminated mobile display units',
-  '03 — Mobile QR Selling and instant purchase assistance',
-  '04 — Pre-Order Generation & group bookings for teams and communities',
-  '05 — Hyperlocal Delivery & promotional store replenishment',
-  '06 — Social Media Amplification through reels, B-roll & storytelling',
-  '07 — Verified Campaign Insights and telemetry reporting (Roadmap)',
+  { num: '01', title: 'Brand Promotion', desc: 'Eye-level mobile advertising across prime Hyderabad commercial corridors.' },
+  { num: '02', title: 'Product Showcasing', desc: 'Illuminated showcase display compartments letting customers view products up close.' },
+  { num: '03', title: 'QR Commerce', desc: 'Scan-and-buy catalogues connecting curiosity with instant purchases.' },
+  { num: '04', title: 'Pre-Order Demand', desc: 'Capture advance orders and customer interest before major retail drops.' },
+  { num: '05', title: 'Hyperlocal Delivery', desc: 'Fast local fulfilment and sample replenishment on electric vehicles.' },
+  { num: '06', title: 'Viral Social Content', desc: 'Street-to-screen reels and social amplification of real-world interactions.' },
+  { num: '07', title: 'Verified Insights', desc: 'Planned route metrics, corridor impression logs and engagement reporting.' },
 ];
 
 const safetyPrinciples = [
   {
     title: 'Approved Vehicle Branding',
-    desc: 'All wrap materials, display boxes, and livery strictly follow motor vehicle regulations, preserving rider visibility, vehicle balance, and road safety.',
+    desc: 'All wrap materials and display boxes preserve rider visibility, vehicle balance and road safety regulations.',
     icon: CheckCircle2,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#00A8C8]',
   },
   {
     title: 'Rider Safety & Eligibility',
-    desc: 'Promotional riders undergo driving licence verification, vehicle fitness checks, and road etiquette orientation before participating in active corridor runs.',
+    desc: 'Promotional riders undergo licence verification, vehicle fitness checks and road safety orientation.',
     icon: UserCheck,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#1756C1]',
   },
   {
     title: 'Secure Product Handling',
-    desc: 'Custom illuminated display enclosures use weather-sealed, impact-resistant acrylic structures with secure mechanical locks.',
+    desc: 'Weather-sealed, impact-resistant showcase enclosures with mechanical locks protect displayed items.',
     icon: Lock,
+    bg: 'bg-[#F6FAFC]',
+    color: 'text-[#123C83]',
   },
   {
-    title: 'Venue & Location Permissions',
-    desc: 'Stationary showcase stops and sampling sessions are coordinated in approved commercial hubs and private tech park locations.',
+    title: 'Venue & Corridor Permissions',
+    desc: 'Showcase stops and sampling sessions are coordinated in approved commercial hubs and tech parks.',
     icon: MapPin,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#58C9EF]',
   },
   {
-    title: 'Verified Seller Standards',
-    desc: 'Promotional brand partners undergo basic business verification to ensure genuine product representations and transparent customer support.',
+    title: 'Verified Brand Standards',
+    desc: 'Partner brands undergo standard verification to ensure genuine products and customer satisfaction.',
     icon: FileCheck,
+    bg: 'bg-[#EAF9FD]',
+    color: 'text-[#00A8C8]',
   },
   {
     title: 'Responsible Data Practices',
-    desc: 'Customer enquiry portals and QR catalogue interactions adhere to privacy-by-design standards with no third-party data reselling.',
+    desc: 'Customer enquiry portals and QR interactions respect privacy with zero third-party data reselling.',
     icon: ShieldCheck,
+    bg: 'bg-[#F6FAFC]',
+    color: 'text-[#1756C1]',
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#000000] text-[#B8B8B8] pt-32 pb-24 relative overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-[#03F2FF]/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-[#E7FF39]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Page Hero */}
-        <div className="max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101010] border border-[#03F2FF]/30 text-[#03F2FF] text-xs font-tech font-bold uppercase tracking-widest mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-[#03F2FF]" />
-            OUR VISION &amp; OPERATING MODEL
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Our Vision</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#FFFFFF] uppercase leading-[1.02] mb-6">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
             YOUR BRAND.{' '}
             <br />
-            YOUR PRODUCTS.{' '}
-            <br />
-            <span className="text-[#E7FF39]">OUR MOVING MARKETPLACE.</span>
+            <span className="text-[#00A8C8]">OUR MOVING MARKETPLACE.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#B8B8B8] leading-relaxed font-normal">
-            ADRYD is an electric mobility-powered mobile advertising, product showcase, commerce,
-            pre-orders and hyperlocal delivery platform. We connect brands and local customers through
-            daily electric vehicle movement across Hyderabad.
+          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+            ADRYD connects brands and local customers through electric mobility, creative promotions and real-world product experiences across Hyderabad.
           </p>
         </div>
 
-        {/* Cinematic Grid: Image + Manifesto */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-[#222222] shadow-2xl">
-              <Image
-                src="/images/adryd-fleet-hyderabad.jpg"
-                alt="ADRYD Electric Mobility Fleet in Hyderabad"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/90 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#000000]/90 backdrop-blur-md border border-[#222222]">
-                <div className="text-xs font-tech font-bold text-[#03F2FF] uppercase">
-                  Hyderabad Pilot Launch Market
-                </div>
-                <div className="font-heading font-bold text-sm text-[#FFFFFF] mt-0.5">
-                  HITEC City, Madhapur, Kukatpally, Kompally &amp; Gachibowli
-                </div>
-              </div>
-            </div>
+        {/* Image & Mission Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-24">
+          <div className="lg:col-span-6 relative aspect-[16/10] rounded-3xl overflow-hidden shadow-[0_12px_40px_rgba(0,168,200,0.06)] border border-[#DCECF2]">
+            <Image
+              src="/images/adryd-fleet-hyderabad.jpg"
+              alt="ADRYD Fleet"
+              fill
+              className="object-cover"
+            />
           </div>
 
           <div className="lg:col-span-6 space-y-6">
-            <div className="text-xs font-tech text-[#03F2FF] uppercase font-bold tracking-wider">
-              Beyond Static Billboards
-            </div>
-            <h2 className="font-heading font-black text-2xl sm:text-4xl text-[#FFFFFF] uppercase leading-tight">
-              A Moving Marketplace &amp; Promotional Fulfilment Network
-            </h2>
-            <p className="text-sm sm:text-base text-[#B8B8B8] leading-relaxed">
-              Traditional out-of-home advertising is static, expensive, and distant from immediate commerce.
-              ADRYD brings brand messages, physical product discovery, and digital purchasing directly to
-              where people live, work, dine, and commute.
-            </p>
-            <p className="text-sm sm:text-base text-[#B8B8B8] leading-relaxed">
-              By equipping verified electric scooters with high-recall branding, illuminated showcase units,
-              and contactless QR codes, ADRYD transforms daily urban mobility into an engaging moving
-              marketplace.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#222222]">
-              <div>
-                <div className="font-heading font-black text-3xl text-[#E7FF39]">100%</div>
-                <div className="text-xs text-[#888888] mt-1 font-tech uppercase">Zero-Emission EV Fleet</div>
-              </div>
-              <div>
-                <div className="font-heading font-black text-3xl text-[#FFFFFF]">Pilot</div>
-                <div className="text-xs text-[#888888] mt-1 font-tech uppercase">Controlled Urban Validation</div>
+            <div className="rounded-3xl bg-[#F6FAFC] p-8 border border-[#DCECF2] space-y-4">
+              <h2 className="font-heading font-bold text-2xl text-[#172B3A]">
+                Transforming Everyday Transit into Commerce
+              </h2>
+              <p className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal">
+                Traditional static billboards are easily ignored. ADRYD turns zero-emission electric vehicles into moving storefronts and promotional units that meet people where they shop, work and socialize.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/book-campaign"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00A8C8] text-white text-xs font-bold shadow-sm hover:bg-[#0093AF] transition-colors"
+                >
+                  <span>Launch a Campaign</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 7 Capabilities Pillar Box */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] shadow-2xl mb-24">
-          <div className="max-w-2xl mb-8">
-            <span className="font-tech text-xs text-[#03F2FF] uppercase font-bold">
-              Integrated Capabilities
-            </span>
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#FFFFFF] uppercase mt-1">
-              What ADRYD Enables Businesses to Explore
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888888] mt-2 leading-relaxed">
-              Seven interconnected pillars uniting physical visibility with digital sales:
+        {/* 7 Capabilities Section */}
+        <div className="mb-24">
+          <div className="max-w-2xl mb-10 space-y-2">
+            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+              Seven Platform Capabilities
+            </h2>
+            <p className="text-sm text-[#637786]">
+              A complete moving promotional and fulfilment network.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {sevenCapabilities.map((cap, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sevenCapabilities.map((cap) => (
               <div
-                key={i}
-                className="p-4 rounded-xl bg-[#000000] border border-[#222222] flex items-center gap-3 text-xs text-[#B8B8B8] font-medium"
+                key={cap.num}
+                className="rounded-3xl bg-[#F6FAFC] p-6 border border-[#DCECF2] card-hover-lift space-y-2"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#E7FF39] shrink-0" />
-                <span>{cap}</span>
+                <div className="text-xs font-bold text-[#00A8C8]">
+                  Capability {cap.num}
+                </div>
+                <h3 className="font-heading font-bold text-lg text-[#172B3A]">
+                  {cap.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#637786] leading-relaxed font-normal">
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Operating Principles / Safety & Trust */}
-        <div id="safety-trust" className="mb-24">
-          <div className="max-w-2xl mb-12">
-            <span className="font-tech text-xs text-[#03F2FF] uppercase font-bold">
-              Safety &amp; Compliance Guidelines
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#FFFFFF] uppercase mt-1">
-              Built Around Responsible Operations
+        {/* Safety & Compliance Grid */}
+        <div id="safety-trust" className="mb-20 scroll-mt-24">
+          <div className="max-w-2xl mb-10 space-y-2">
+            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+              Safety, Compliance &amp; Trust
             </h2>
-            <p className="text-xs sm:text-sm text-[#888888] mt-2 leading-relaxed">
-              Our operating framework is structured around rider welfare, road compliance, secure
-              merchandise handling, and consumer trust.
+            <p className="text-sm text-[#637786]">
+              Prioritizing road safety, verified operations and responsible branding.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {safetyPrinciples.map((p, idx) => {
-              const Icon = p.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {safetyPrinciples.map((item, idx) => {
+              const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col justify-between hover:border-[#03F2FF]/40 transition-colors"
+                  className="rounded-3xl bg-white p-6 border border-[#DCECF2] shadow-sm card-hover-lift space-y-3"
                 >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-[#000000] border border-[#222222] flex items-center justify-center text-[#E7FF39] mb-4">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-heading font-bold text-lg text-[#FFFFFF] mb-2">
-                      {p.title}
-                    </h3>
-                    <p className="text-xs text-[#888888] leading-relaxed">
-                      {p.desc}
-                    </p>
+                  <div className={`w-11 h-11 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center font-bold`}>
+                    <Icon className="w-5 h-5" />
                   </div>
+                  <h3 className="font-heading font-bold text-base text-[#172B3A]">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#637786] leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Bottom CTA Banner */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 className="font-heading font-black text-2xl text-[#FFFFFF] uppercase">
-              Ready to Explore ADRYD Upgrade?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888888] mt-1 max-w-xl">
-              Plan your promotional campaign or register your electric vehicle fleet in Hyderabad.
-            </p>
-          </div>
-          <Link
-            href="/book-campaign"
-            className="shrink-0 px-8 py-4 rounded-xl bg-[#E7FF39] hover:bg-[#D4FF00] text-[#000000] font-heading font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(231,255,57,0.3)]"
-          >
-            Launch a Campaign
-          </Link>
-        </div>
       </div>
     </div>
   );
