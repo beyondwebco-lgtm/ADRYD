@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
+import GlobalImmersiveBackground from '@/components/3d/GlobalImmersiveBackground';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -96,12 +97,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="bg-[#FFFFFF] text-[#172B3A] font-body selection:bg-[#EAF9FD] selection:text-[#00A8C8] min-h-screen flex flex-col antialiased"
+        className="bg-[#0E1726] text-white font-body selection:bg-[#7856FF]/30 selection:text-[#22D3EE] min-h-screen flex flex-col antialiased relative"
         suppressHydrationWarning
       >
+        <GlobalImmersiveBackground />
         <SmoothScrollProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 relative z-10">{children}</main>
           <Footer />
           <FloatingWhatsApp />
         </SmoothScrollProvider>
