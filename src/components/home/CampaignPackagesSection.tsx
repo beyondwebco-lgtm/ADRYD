@@ -1,168 +1,147 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function CampaignPackagesSection() {
   const packages = [
     {
       id: 'starter',
       name: 'Starter',
-      riders: '1 Rider',
-      scope: '3-Day Test / Single Corridor',
-      description: 'Ideal for local pilots, single-neighborhood buzz, or initial product sampling tests.',
-      highlights: ['1 Branded EV', '1 Specific Corridor', 'Sample / Flyer Handout', 'Pilot Report Summary'],
-      popular: false,
-      border: 'border-[#DFEAF0]',
+      desc: 'Focused single-corridor campaign pilot for local businesses and initial product sampling.',
+      badge: 'Pilot',
+      color: 'text-[#2563EB]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border-[#DBEAFE]',
+      border: 'border-[#DBEAFE]',
       bg: 'bg-white',
-      badge: 'Test Pilot',
-      badgeClass: 'bg-[#EAF9FD] text-[#00A8C8]',
-      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#00A8C8] border border-[#DFEAF0]',
     },
     {
-      id: 'local_reach',
+      id: 'local-reach',
       name: 'Local Reach',
-      riders: '2–3 Riders',
-      scope: '1-Week Campaign / Multi-Area',
-      description: 'Built for store launches, neighborhood saturation, and weekend retail activations.',
-      highlights: ['2–3 Branded EVs', 'Cross-Corridor Routes', 'QR Product Showcasing', 'Visual Proof of Play'],
-      popular: false,
-      border: 'border-[#DFEAF0]',
+      desc: 'Cross-corridor tandem presence built for store openings and neighborhood commercial saturation.',
+      badge: 'Local',
+      color: 'text-[#2563EB]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border-[#DBEAFE]',
+      border: 'border-[#DBEAFE]',
       bg: 'bg-white',
-      badge: 'Local Activation',
-      badgeClass: 'bg-[#EAF9FD] text-[#1756C1]',
-      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#1756C1] border border-[#DFEAF0]',
     },
     {
       id: 'community',
       name: 'Community',
-      riders: '4–5 Riders',
-      scope: '2-Week Multi-Corridor Blitz',
-      description: 'Designed for brands seeking strong, memorable presence across prime urban clusters.',
-      highlights: ['4–5 Branded EVs', 'Dual-Cluster Presence', 'Active Showcasing & QR', 'Priority Corridor Routing'],
-      popular: true,
+      desc: 'Multi-corridor coordinated deployment across premier tech parks, shopping avenues and universities.',
+      badge: 'Featured',
+      color: 'text-[#7856FF]',
+      badgeBg: 'bg-[#7856FF] text-white border-[#7856FF]',
       border: 'border-[#7856FF] ring-2 ring-[#7856FF]/30 shadow-xl',
-      bg: 'bg-gradient-to-b from-[#F0ECFF]/60 to-white',
-      badge: 'Most Popular',
-      badgeClass: 'bg-[#7856FF] text-white',
-      btnClass: 'bg-[#7856FF] hover:bg-[#6440FF] text-white shadow-md',
+      bg: 'bg-gradient-to-b from-[#F5F3FF] to-white',
+      featured: true,
     },
     {
-      id: 'city_activation',
+      id: 'city-activation',
       name: 'City Activation',
-      riders: '6–10 Riders',
-      scope: '1-Month Strategic Deployment',
-      description: 'Full-scale city presence designed to build brand recall across major commercial hubs.',
-      highlights: ['6–10 Branded EVs', 'Citywide Corridors', 'Pre-Order & Showcase', 'Dedicated Account Lead'],
-      popular: false,
-      border: 'border-[#DFEAF0]',
+      desc: 'Strategic high-frequency city coverage designed for sustained brand recall across prime hubs.',
+      badge: 'Strategic',
+      color: 'text-[#2563EB]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border-[#DBEAFE]',
+      border: 'border-[#DBEAFE]',
       bg: 'bg-white',
-      badge: 'High Impact',
-      badgeClass: 'bg-[#EAF9FD] text-[#00A8C8]',
-      btnClass: 'bg-[#F7FAFC] hover:bg-[#EAF9FD] text-[#00A8C8] border border-[#DFEAF0]',
     },
     {
-      id: 'bulk_activation',
+      id: 'bulk-activation',
       name: 'Bulk Activation',
-      riders: '10+ Riders',
-      scope: 'Custom Enterprise Blitz',
-      description: 'Custom fleet deployments, major event sponsorships and corporate brand rollouts.',
-      highlights: ['10+ Custom Fleet', 'Synchronized Convoys', 'Full Media & PR Support', 'Comprehensive Analytics'],
-      popular: false,
-      border: 'border-[#DFEAF0]',
-      bg: 'bg-white',
+      desc: 'Large-scale fleet mobilizations, major brand launches, festival sponsorships and bespoke activations.',
       badge: 'Enterprise',
-      badgeClass: 'bg-[#F0ECFF] text-[#7856FF]',
-      btnClass: 'bg-[#F7FAFC] hover:bg-[#F0ECFF] text-[#7856FF] border border-[#DFEAF0]',
+      color: 'text-[#7856FF]',
+      badgeBg: 'bg-[#F5F3FF] text-[#7856FF] border-[#EDE9FE]',
+      border: 'border-[#EDE9FE]',
+      bg: 'bg-white',
     },
   ];
 
   return (
-    <section id="plans" className="py-20 lg:py-28 bg-[#EAF9FD] relative border-t border-[#DFEAF0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="plans" className="py-24 lg:py-32 bg-[#F5F3FF] relative overflow-hidden border-t border-[#E0E7FF]">
+      {/* Ambient Violet and Electric Blue Lighting */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#7856FF]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-[#2563EB]/15 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0ECFF] text-[#7856FF] text-xs font-bold uppercase tracking-wider border border-[#E4DCFF]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#EDE9FE] text-[#7856FF] text-xs font-bold uppercase tracking-wider shadow-xs">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Campaign Architecture</span>
+              <span>CAMPAIGN TIERS</span>
             </div>
-            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
-              FLEXIBLE CAMPAIGNS.{' '}
-              <span className="text-[#00A8C8]">BIG</span>{' '}
-              <span className="text-[#7856FF]">POSSIBILITIES.</span>
+            
+            <h2 className="font-heading font-black text-4xl sm:text-6xl text-[#142238] tracking-tight uppercase leading-[1.05]">
+              START SMALL.{' '}
+              <span className="text-[#7856FF]">
+                THINK BIG.
+              </span>
             </h2>
-            <p className="text-base sm:text-lg text-[#637786] font-normal">
-              Five compact campaign packages designed for local businesses, product launches and citywide activations.
+            
+            <p className="text-base sm:text-lg text-[#64748B] font-normal leading-relaxed">
+              Five compact campaign options tailored for local pilots, neighborhood launches and citywide activations.
             </p>
           </div>
 
-          <Link
-            href="/campaign-plans"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#7856FF] hover:text-[#6440FF] transition-colors shrink-0"
-          >
-            <span>View Monthly Retainer Plans</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div>
+            <Link
+              href="/campaign-plans"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#7856FF] hover:text-[#5B21B6] transition-colors"
+            >
+              <span>Explore Monthly Retainers</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
-        {/* 5 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {/* 5 Compact Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
           {packages.map((pkg, idx) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className={`rounded-3xl ${pkg.bg} border ${pkg.border} p-6 flex flex-col justify-between card-hover-lift relative`}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className={`p-7 rounded-3xl ${pkg.bg} border ${pkg.border} card-hover-lift flex flex-col justify-between relative shadow-xs`}
             >
               <div>
-                {/* Badge */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full ${pkg.badgeClass}`}>
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${pkg.badgeBg}`}>
                     {pkg.badge}
                   </span>
-                  <span className="text-xs font-bold text-[#172B3A]">
-                    {pkg.riders}
-                  </span>
+                  {pkg.featured && (
+                    <span className="text-xs font-black text-[#7856FF]">★</span>
+                  )}
                 </div>
 
-                {/* Package Name */}
-                <h3 className="font-heading font-black text-xl text-[#172B3A] uppercase tracking-tight mb-1">
+                <h3 className="font-heading font-black text-2xl text-[#142238] mb-3">
                   {pkg.name}
                 </h3>
 
-                {/* Scope */}
-                <div className="text-xs font-semibold text-[#7856FF] mb-3">
-                  {pkg.scope}
-                </div>
-
-                {/* Description */}
-                <p className="text-xs text-[#637786] leading-relaxed mb-6 font-normal">
-                  {pkg.description}
+                <p className="text-sm text-[#64748B] leading-relaxed font-normal mb-6">
+                  {pkg.desc}
                 </p>
-
-                {/* Highlights */}
-                <ul className="space-y-2 mb-6">
-                  {pkg.highlights.map((h, i) => (
-                    <li key={i} className="flex items-center gap-2 text-xs text-[#172B3A] font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00A8C8] shrink-0" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
-              {/* Action Button linking with preselected plan query */}
-              <Link
-                href={`/book-campaign?plan=${pkg.id}`}
-                className={`w-full py-3 px-4 rounded-full text-xs font-bold text-center block transition-all ${pkg.btnClass}`}
-              >
-                Book Package
-              </Link>
+              <div className="pt-4 border-t border-black/5">
+                <Link
+                  href={`/book-campaign?package=${pkg.id}`}
+                  className={`w-full py-3 px-4 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all ${
+                    pkg.featured
+                      ? 'bg-[#7856FF] hover:bg-[#6440FF] text-white shadow-md'
+                      : 'bg-slate-100 hover:bg-[#EFF6FF] text-[#142238] hover:text-[#2563EB]'
+                  }`}
+                >
+                  <span>Enquire Now</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>

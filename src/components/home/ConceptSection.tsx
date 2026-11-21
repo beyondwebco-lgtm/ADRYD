@@ -1,116 +1,130 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Eye, ShoppingBag, MapPin, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Zap, Radio, Globe } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ConceptSection() {
+  const pillars = [
+    {
+      action: 'MOVE',
+      title: 'Active Mobility',
+      desc: 'Turn everyday urban roads into high-recall moving media channels.',
+      color: 'text-[#2563EB]',
+      badgeBg: 'bg-[#EFF6FF]',
+      border: 'border-[#DBEAFE]',
+      icon: Zap,
+    },
+    {
+      action: 'SHOWCASE',
+      title: 'Physical Discovery',
+      desc: 'Illuminated product displays bring real merchandise directly to shoppers.',
+      color: 'text-[#7856FF]',
+      badgeBg: 'bg-[#F5F3FF]',
+      border: 'border-[#EDE9FE]',
+      icon: Radio,
+    },
+    {
+      action: 'CONNECT',
+      title: 'Instant Commerce',
+      desc: 'On-scooter QR codes bridge street encounters to instant checkout.',
+      color: 'text-[#D946EF]',
+      badgeBg: 'bg-[#FDF4FF]',
+      border: 'border-[#F5D0FE]',
+      icon: Globe,
+    },
+  ];
+
   return (
-    <section className="py-20 lg:py-28 bg-[#EAF9FD] relative overflow-hidden border-t border-[#DFEAF0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="the-idea" className="py-24 lg:py-32 bg-[#F5F3FF] relative overflow-hidden border-t border-[#E0E7FF]">
+      {/* Ambient Lavender & Cyan Glows */}
+      <div className="absolute top-0 right-10 w-[500px] h-[500px] bg-[#C4B5FD]/30 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-[#38BDF8]/20 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F0ECFF] text-[#7856FF] text-xs font-bold uppercase tracking-wider border border-[#E4DCFF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The ADRYD Concept</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-[#2563EB] text-xs font-bold uppercase tracking-wider border border-[#DBEAFE] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#7856FF]" />
+            <span>THE CONCEPT</span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
-            MORE THAN ADVERTISING.
+          
+          <h2 className="font-heading font-black text-4xl sm:text-6xl text-[#142238] tracking-tight uppercase leading-[1.05]">
+            MARKETING THAT <span className="text-[#2563EB] drop-shadow-sm">MOVES.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed max-w-2xl mx-auto font-normal">
-            ADRYD transforms everyday urban transit into live product discovery, sampling and direct customer engagement.
+          
+          <p className="text-lg sm:text-xl text-[#64748B] leading-relaxed max-w-2xl mx-auto font-normal">
+            ADRYD brings brands, products and audiences together through electric mobility.
           </p>
         </div>
 
-        {/* 3 Balanced Blue & Violet Feature Blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14">
+        {/* Dynamic Connected Universe Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
           
-          {/* Card 1: High-Street Presence (Palapitta Blue) */}
+          {/* Left Column: Flowing Energy Ribbon & Network Graphic (Image 2 & 3 Reference) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-white p-8 border border-[#DFEAF0] shadow-[0_10px_30px_rgba(0,168,200,0.04)] card-hover-lift space-y-4 text-left"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 relative aspect-square sm:aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border border-white/60 bg-gradient-to-br from-[#2563EB]/10 via-[#7856FF]/10 to-[#EC4899]/10"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#EAF9FD] text-[#00A8C8] flex items-center justify-center font-bold">
-              <Eye className="w-6 h-6" />
+            <Image
+              src="/images/v4/energy-ribbon-loop.jpg"
+              alt="Connected Flowing Marketing Network"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#142238]/80 via-transparent to-transparent flex items-end p-8">
+              <div className="text-white">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#38BDF8]">
+                  The Moving Ecosystem
+                </span>
+                <p className="text-lg font-heading font-bold mt-1">
+                  Moving from static billboards to interactive street experiences.
+                </p>
+              </div>
             </div>
-            <h3 className="font-heading font-bold text-xl text-[#172B3A]">
-              High-Street Presence
-            </h3>
-            <p className="text-sm text-[#637786] leading-relaxed">
-              Eye-level mobile branding navigating premier retail zones, IT corridors and commercial high-streets.
-            </p>
           </motion.div>
 
-          {/* Card 2: Physical Product Experience (Vibrant Violet) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-3xl bg-white p-8 border border-[#E4DCFF] shadow-[0_10px_30px_rgba(120,86,255,0.05)] card-hover-lift space-y-4 text-left"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-[#F0ECFF] text-[#7856FF] flex items-center justify-center font-bold">
-              <ShoppingBag className="w-6 h-6" />
-            </div>
-            <h3 className="font-heading font-bold text-xl text-[#172B3A]">
-              Real Product Experience
-            </h3>
-            <p className="text-sm text-[#637786] leading-relaxed">
-              Transparent showcase compartments let shoppers view actual products, scan QR codes and place orders.
-            </p>
-          </motion.div>
-
-          {/* Card 3: Hyperlocal Corridor Engagement (Royal Blue) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-3xl bg-white p-8 border border-[#DFEAF0] shadow-[0_10px_30px_rgba(23,86,193,0.04)] card-hover-lift space-y-4 text-left"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-[#EAF9FD] text-[#1756C1] flex items-center justify-center font-bold">
-              <MapPin className="w-6 h-6" />
-            </div>
-            <h3 className="font-heading font-bold text-xl text-[#172B3A]">
-              Hyperlocal Engagement
-            </h3>
-            <p className="text-sm text-[#637786] leading-relaxed">
-              Precision corridor routing across Jubilee Hills, HITEC City, Gachibowli, Banjara Hills and Madhapur.
-            </p>
-          </motion.div>
+          {/* Right Column: 3 Action Cards */}
+          <div className="lg:col-span-7 space-y-5">
+            {pillars.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={pillar.action}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.12 }}
+                  className={`p-7 rounded-3xl bg-white border ${pillar.border} shadow-[0_8px_30px_rgba(37,99,235,0.04)] card-hover-lift flex items-start gap-5`}
+                >
+                  <div className={`w-14 h-14 rounded-2xl ${pillar.badgeBg} ${pillar.color} flex items-center justify-center shrink-0`}>
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-3">
+                      <span className={`text-xl font-heading font-black tracking-wider ${pillar.color}`}>
+                        {pillar.action}.
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">
+                        {pillar.title}
+                      </span>
+                    </div>
+                    <p className="text-base text-[#64748B] font-normal leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
         </div>
-
-        {/* Real Fleet Photography Banner */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative rounded-3xl overflow-hidden border border-[#DFEAF0] shadow-xl aspect-[16/7] max-h-[380px] w-full"
-        >
-          <Image
-            src="/images/adryd-fleet-hyderabad.jpg"
-            alt="ADRYD Electric Mobility Fleet in Hyderabad"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1280px) 100vw, 1200px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#172B3A]/80 via-transparent to-transparent flex items-end p-6 sm:p-10">
-            <div className="text-left text-white max-w-xl">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#58C9EF] mb-1">
-                Hyderabad Pilot Deployment
-              </div>
-              <p className="text-sm sm:text-base text-white/95 font-medium leading-relaxed">
-                Zero-emission electric two-wheelers configured for high-visibility moving advertising and transparent product showcases.
-              </p>
-            </div>
-          </div>
-        </motion.div>
 
       </div>
     </section>

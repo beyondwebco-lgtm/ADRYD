@@ -4,38 +4,34 @@ import ServicesSection from '@/components/home/ServicesSection';
 import HowItWorksSection from '@/components/home/HowItWorksSection';
 import ProductCategoriesSection from '@/components/home/ProductCategoriesSection';
 import CampaignPackagesSection from '@/components/home/CampaignPackagesSection';
-import GravitySection from '@/components/home/GravitySection';
 import RiderPartnerSection from '@/components/home/RiderPartnerSection';
 import FinalCtaSection from '@/components/home/FinalCtaSection';
 
 export default function HomePage() {
   return (
     <>
-      {/* 01: Hero — YOUR BRAND. EVERYWHERE IT MATTERS. (3D Palapitta Electric Scooter) */}
+      {/* 01: Hero — YOUR BRAND. EVERYWHERE. IN MOTION. (Futuristic Universe Animation, No 3D Scooter) */}
       <HeroSection />
 
-      {/* 02: About — MORE THAN ADVERTISING. */}
+      {/* 02: The Idea — MARKETING THAT MOVES. (Lavender × Electric Blue) */}
       <ConceptSection />
 
-      {/* 03: Services — ONE PLATFORM. MORE POSSIBILITIES. */}
+      {/* 03: What ADRYD Does — ONE NETWORK. MANY POSSIBILITIES. (7 Multicolor Cards) */}
       <ServicesSection />
 
-      {/* 04: How It Works — THREE SIMPLE STEPS. (Curved Route & Scooter in Motion) */}
+      {/* 04: How It Works — THREE STEPS. REAL-WORLD REACH. (Cyan × Mint × Blue) */}
       <HowItWorksSection />
 
-      {/* 05: Product Categories — MADE FOR EVERY BRAND. (3D Product Showcase) */}
+      {/* 05: Who Can Grow — BUILT FOR EVERY BIG IDEA. (Yellow × Pink × Mint × Lavender) */}
       <ProductCategoriesSection />
 
-      {/* 06: Campaign Plans — FLEXIBLE CAMPAIGNS. BIG POSSIBILITIES. */}
+      {/* 06: Campaign Plans — START SMALL. THINK BIG. (Violet × Blue) */}
       <CampaignPackagesSection />
 
-      {/* 07: 3D Physics — CREATIVE IDEAS. REAL-WORLD IMPACT. */}
-      <GravitySection />
-
-      {/* 08: Become a Partner — RIDE WITH ADRYD. */}
+      {/* 07: Partner With ADRYD — BE PART OF THE MOVEMENT. (Mint × Turquoise) */}
       <RiderPartnerSection />
 
-      {/* 09: Final CTA — LET'S GET YOUR BRAND MOVING. */}
+      {/* 08: Final CTA — LET'S MAKE YOUR BRAND MOVE. (Magenta × Violet × Electric Blue) */}
       <FinalCtaSection />
     </>
   );

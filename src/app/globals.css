@@ -2,63 +2,54 @@
 
 @theme {
   /* ==========================================================================
-     ADRYD V3.0 Blue × White × Vibrant Violet Design System
+     ADRYD V4.0 Futuristic Viral Marketing World — Multicolor Design System
      ========================================================================== */
   
-  /* Primary & Backgrounds (55% White + 25% Palapitta + 20% Vibrant Violet) */
-  --color-bg-white: #FFFFFF;
-  --color-bg-soft: #F7FAFC;
-  --color-bg-ice: #EAF9FD;
-  --color-bg-lavender: #F0ECFF;
-  --color-bg-canvas: #FFFFFF;
-
-  /* Typography */
-  --color-text-charcoal: #172B3A;
-  --color-text-heading: #172B3A;
-  --color-text-body: #172B3A;
-  --color-text-muted: #637786;
-  --color-text-light: #FFFFFF;
-
-  /* Primary Brand Blue (Palapitta Turquoise) */
+  /* Primary Neutrals */
+  --color-dark-ink: #142238;
+  --color-soft-cloud: #F8FAFC;
+  --color-pure-white: #FFFFFF;
+  --color-text-charcoal: #142238;
+  --color-text-muted: #64748B;
+  
+  /* Multicolor Spectrum */
   --color-palapitta: #00A8C8;
-  --color-palapitta-hover: #0093AF;
-  --color-palapitta-glow: rgba(0, 168, 200, 0.25);
-
-  /* Primary Vibrant Violet (Creative & Energy Accent) */
-  --color-violet: #7856FF;
-  --color-violet-hover: #6440FF;
-  --color-violet-glow: rgba(120, 86, 255, 0.25);
-
-  /* Royal & Deep Blue (Wing Accents & Important Headings) */
+  --color-electric-blue: #2563EB;
   --color-royal-blue: #1756C1;
-  --color-royal-hover: #13469E;
-  --color-deep-blue: #123C83;
-  --color-sky-blue: #58C9EF;
+  --color-vibrant-violet: #7856FF;
+  --color-deep-purple: #5B21B6;
+  --color-electric-pink: #EC4899;
+  --color-magenta: #D946EF;
+  --color-fresh-mint: #2DD4BF;
+  --color-emerald: #10B981;
+  --color-lime: #A3E635;
+  --color-golden-yellow: #FACC15;
+  --color-sky-cyan: #38BDF8;
+  --color-lavender: #C4B5FD;
+  --color-soft-peach: #FFD6C9;
 
-  /* Subtle Borders */
-  --color-border-subtle: #DFEAF0;
-  --color-border-ice: #D5EFF7;
-  --color-border-lavender: #E4DCFF;
+  /* Section Background Tints */
+  --color-bg-lavender: #F5F3FF;
+  --color-bg-cyan: #F0F9FF;
+  --color-bg-mint: #F0FDFA;
+  --color-bg-pink: #FDF2F8;
+  --color-bg-yellow: #FEFCE8;
 
   --font-heading: var(--font-plus-jakarta-sans), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 }
 
 :root {
-  --bg-primary: #FFFFFF;
-  --bg-soft: #F7FAFC;
-  --bg-ice: #EAF9FD;
-  --bg-lavender: #F0ECFF;
-  --text-charcoal: #172B3A;
-  --text-muted: #637786;
-  
-  --palapitta: #00A8C8;
-  --violet: #7856FF;
-  --royal-blue: #1756C1;
-  --deep-blue: #123C83;
-  --sky-blue: #58C9EF;
-  --border-subtle: #DFEAF0;
-  --border-lavender: #E4DCFF;
+  --dark-ink: #142238;
+  --electric-blue: #2563EB;
+  --vibrant-violet: #7856FF;
+  --magenta: #D946EF;
+  --sky-cyan: #38BDF8;
+  --fresh-mint: #2DD4BF;
+  --emerald: #10B981;
+  --electric-pink: #EC4899;
+  --golden-yellow: #FACC15;
+  --lavender: #C4B5FD;
 }
 
 /* Custom Scrollbar */
@@ -66,44 +57,82 @@
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F7FAFC;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DFEAF0;
+  background: #CBD5E1;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00A8C8;
+  background: #7856FF;
 }
 
 /* Base Body Styles */
 body {
   background-color: #FFFFFF;
-  color: #172B3A;
+  color: #142238;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Subtle Card Hover Transitions */
+/* Smooth Card Hover Transitions */
 .card-hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
 .card-hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -10px rgba(120, 86, 255, 0.12), 0 0 1px 1px rgba(223, 234, 240, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.15), 0 0 1px 1px rgba(120, 86, 255, 0.2);
+}
+
+/* Ambient Multicolor Animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-slow {
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
 }
 
 /* 3D Perspective Card Container */
 .perspective-1000 {
   perspective: 1000px;
-}
-
-/* Hide scrollbar for category tabs */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

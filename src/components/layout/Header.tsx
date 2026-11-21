@@ -43,13 +43,17 @@ export default function Header() {
     { label: 'Contact', href: '/contact' },
   ];
 
+  const isHeroTop = pathname === '/' && !isScrolled;
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-xl border-b border-[#DCECF2] shadow-[0_4px_25px_rgba(0,168,200,0.04)] py-3'
-            : 'bg-white/80 backdrop-blur-md border-b border-[#DCECF2]/60 py-4'
+          isHeroTop
+            ? 'bg-[#142238]/60 backdrop-blur-md border-b border-white/10 py-4'
+            : isScrolled
+            ? 'bg-white/95 backdrop-blur-xl border-b border-[#DCECF2] shadow-[0_4px_25px_rgba(0,168,200,0.06)] py-3'
+            : 'bg-white/90 backdrop-blur-md border-b border-[#DCECF2]/60 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +64,7 @@ export default function Header() {
               className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00A8C8] rounded-lg transition-transform"
               aria-label="ADRYD - The Moving Marketplace"
             >
-              <BrandLogo size="md" showTagline={true} theme="light" />
+              <BrandLogo size="md" showTagline={true} theme={isHeroTop ? "dark" : "light"} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -73,7 +77,11 @@ export default function Header() {
                     href={link.href}
                     className={`px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'text-[#00A8C8] bg-[#EAF9FD]'
+                        ? isHeroTop
+                          ? 'text-[#38BDF8] bg-white/10 shadow-xs'
+                          : 'text-[#00A8C8] bg-[#EAF9FD]'
+                        : isHeroTop
+                        ? 'text-white/80 hover:text-white hover:bg-white/10'
                         : 'text-[#637786] hover:text-[#172B3A] hover:bg-[#F6FAFC]'
                     }`}
                   >
@@ -90,7 +98,11 @@ export default function Header() {
                   onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
                   className={`px-3 py-2 text-sm font-semibold rounded-full flex items-center gap-1 transition-all ${
                     pathname.startsWith('/adryd-upgrade') || pathname.startsWith('/technology')
-                      ? 'text-[#1756C1] bg-[#EAF9FD]'
+                      ? isHeroTop
+                        ? 'text-[#38BDF8] bg-white/10'
+                        : 'text-[#1756C1] bg-[#EAF9FD]'
+                      : isHeroTop
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
                       : 'text-[#637786] hover:text-[#172B3A] hover:bg-[#F6FAFC]'
                   }`}
                   aria-expanded={dropdownOpen}
@@ -131,11 +143,11 @@ export default function Header() {
               </div>
             </nav>
 
-            {/* Right Action: Launch Campaign CTA in Palapitta Blue */}
+            {/* Right Action: Launch Campaign CTA */}
             <div className="hidden sm:flex items-center gap-3">
               <Link
                 href="/book-campaign"
-                className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#00A8C8] hover:bg-[#0093AF] text-white text-sm font-bold shadow-[0_4px_18px_rgba(0,168,200,0.25)] hover:shadow-[0_6px_24px_rgba(0,168,200,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#00A8C8] via-[#7456FF] to-[#2563EB] hover:from-[#0093AF] hover:to-[#1D4ED8] text-white text-sm font-bold shadow-[0_4px_18px_rgba(0,168,200,0.3)] hover:shadow-[0_6px_24px_rgba(116,86,255,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
                 <span>Launch Campaign</span>
                 <ArrowRight className="w-4 h-4" />
@@ -153,7 +165,11 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-full text-[#172B3A] hover:bg-[#F6FAFC] transition-colors"
+                className={`p-2 rounded-full transition-colors ${
+                  isHeroTop
+                    ? 'text-white hover:bg-white/10'
+                    : 'text-[#172B3A] hover:bg-[#F6FAFC]'
+                }`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

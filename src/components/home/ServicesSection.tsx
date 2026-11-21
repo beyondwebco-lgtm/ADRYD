@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, MouseEvent } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -11,247 +11,189 @@ import {
   Truck,
   Video,
   BarChart3,
-  ArrowRight,
+  ArrowUpRight,
   Sparkles,
 } from 'lucide-react';
 
-interface TiltCardProps {
-  service: {
-    id: string;
-    title: string;
-    tagline: string;
-    icon: React.ElementType;
-    bg: string;
-    border: string;
-    iconBg: string;
-    iconColor: string;
-    badgeColor: string;
-  };
-  idx: number;
-}
-
-function TiltServiceCard({ service, idx }: TiltCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-    setRotate({ x: rotateX, y: rotateY });
-  };
-
-  const handleMouseLeave = () => {
-    setRotate({ x: 0, y: 0 });
-    setIsHovered(false);
-  };
-
-  const Icon = service.icon;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: idx * 0.05 }}
-      className="perspective-1000"
-    >
-      <div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(${
-            isHovered ? 1.02 : 1
-          }, ${isHovered ? 1.02 : 1}, 1)`,
-          transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.4s ease-out',
-        }}
-        className={`relative h-full rounded-3xl ${service.bg} border ${service.border} p-8 flex flex-col justify-between transition-shadow duration-300 ${
-          isHovered
-            ? 'shadow-[0_20px_40px_rgba(120,86,255,0.12)]'
-            : 'shadow-[0_4px_16px_rgba(0,168,200,0.03)]'
-        }`}
-      >
-        <div>
-          {/* Elevated Icon Badge */}
-          <div
-            style={{
-              transform: isHovered ? 'translateZ(24px)' : 'translateZ(0px)',
-              transition: 'transform 0.3s ease-out',
-            }}
-            className={`w-14 h-14 rounded-2xl ${service.iconBg} ${service.iconColor} shadow-sm flex items-center justify-center mb-6`}
-          >
-            <Icon className="w-7 h-7" />
-          </div>
-
-          {/* Service Title */}
-          <h3
-            style={{
-              transform: isHovered ? 'translateZ(16px)' : 'translateZ(0px)',
-              transition: 'transform 0.3s ease-out',
-            }}
-            className="font-heading font-black text-2xl sm:text-3xl text-[#172B3A] uppercase tracking-tight mb-2"
-          >
-            {service.title}
-          </h3>
-
-          {/* Service Tagline */}
-          <p
-            style={{
-              transform: isHovered ? 'translateZ(12px)' : 'translateZ(0px)',
-              transition: 'transform 0.3s ease-out',
-            }}
-            className="text-sm sm:text-base text-[#637786] font-normal leading-relaxed mb-6"
-          >
-            {service.tagline}
-          </p>
-        </div>
-
-        {/* Card Footer Link */}
-        <div
-          style={{
-            transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)',
-            transition: 'transform 0.3s ease-out',
-          }}
-          className="pt-4 border-t border-[#DFEAF0]"
-        >
-          <Link
-            href="/services"
-            className={`inline-flex items-center gap-1.5 text-xs font-bold ${service.badgeColor} hover:opacity-80 transition-opacity`}
-          >
-            <span>Learn More</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 export default function ServicesSection() {
-  // Alternating Blue and Violet Cards per Design System
   const services = [
     {
-      id: 'street-advertising',
-      title: 'Street Advertising',
-      tagline: 'High-visibility illuminated EV panels delivering unmissable eye-level impressions.',
+      action: 'PROMOTE',
+      color: '#2563EB',
+      textColor: 'text-[#2563EB]',
+      bg: 'bg-[#EFF6FF]',
+      border: 'border-[#DBEAFE]',
+      hoverBorder: 'hover:border-[#2563EB]',
       icon: Megaphone,
-      bg: 'bg-white',
-      border: 'border-[#DFEAF0]',
-      iconBg: 'bg-[#EAF9FD]',
-      iconColor: 'text-[#00A8C8]',
-      badgeColor: 'text-[#00A8C8]',
+      desc: 'Make your brand visible.',
+      detail: 'High-recall electric vehicle livery and rider apparel navigating prime urban corridors.',
+      id: 'promote',
     },
     {
-      id: 'product-showcase',
-      title: 'Product Showcase',
-      tagline: 'Transparent mobile pods enabling physical product discovery directly in urban corridors.',
+      action: 'SHOWCASE',
+      color: '#7856FF',
+      textColor: 'text-[#7856FF]',
+      bg: 'bg-[#F5F3FF]',
+      border: 'border-[#EDE9FE]',
+      hoverBorder: 'hover:border-[#7856FF]',
       icon: ShoppingBag,
-      bg: 'bg-white',
-      border: 'border-[#E4DCFF]',
-      iconBg: 'bg-[#F0ECFF]',
-      iconColor: 'text-[#7856FF]',
-      badgeColor: 'text-[#7856FF]',
+      desc: 'Bring products closer.',
+      detail: 'Illuminated, weather-sealed compartments letting customers see and touch actual items.',
+      id: 'showcase',
     },
     {
-      id: 'scan-and-buy',
-      title: 'Scan & Buy Commerce',
-      tagline: 'Integrated instant QR codes driving zero-friction mobile checkouts and pre-orders.',
+      action: 'SELL',
+      color: '#10B981',
+      textColor: 'text-[#10B981]',
+      bg: 'bg-[#ECFDF5]',
+      border: 'border-[#D1FAE5]',
+      hoverBorder: 'hover:border-[#10B981]',
       icon: QrCode,
-      bg: 'bg-white',
-      border: 'border-[#DFEAF0]',
-      iconBg: 'bg-[#EAF9FD]',
-      iconColor: 'text-[#00A8C8]',
-      badgeColor: 'text-[#00A8C8]',
+      desc: 'Turn interest into enquiries.',
+      detail: 'Scan-and-buy catalogues connecting on-street curiosity with instant checkout.',
+      id: 'sell',
     },
     {
-      id: 'sample-handout',
-      title: 'Sample Handouts',
-      tagline: 'Direct-to-consumer sample distribution outside premier cafes, campuses and corporate hubs.',
+      action: 'PRE-ORDER',
+      color: '#EC4899',
+      textColor: 'text-[#EC4899]',
+      bg: 'bg-[#FDF2F8]',
+      border: 'border-[#FCE7F3]',
+      hoverBorder: 'hover:border-[#EC4899]',
       icon: PackageCheck,
-      bg: 'bg-white',
-      border: 'border-[#E4DCFF]',
-      iconBg: 'bg-[#F0ECFF]',
-      iconColor: 'text-[#7856FF]',
-      badgeColor: 'text-[#7856FF]',
+      desc: 'Capture demand early.',
+      detail: 'Validate customer interest and reserve orders before major retail rollouts.',
+      id: 'preorder',
     },
     {
-      id: 'hyperlocal-delivery',
-      title: 'Hyperlocal Delivery',
-      tagline: 'Fast on-demand order dispatch within active 5 km campaign corridors during pilot hours.',
+      action: 'DELIVER',
+      color: '#00A8C8',
+      textColor: 'text-[#00A8C8]',
+      bg: 'bg-[#ECFEFF]',
+      border: 'border-[#CFFAFE]',
+      hoverBorder: 'hover:border-[#00A8C8]',
       icon: Truck,
-      bg: 'bg-white',
-      border: 'border-[#DFEAF0]',
-      iconBg: 'bg-[#EAF9FD]',
-      iconColor: 'text-[#00A8C8]',
-      badgeColor: 'text-[#00A8C8]',
+      desc: 'Connect local commerce.',
+      detail: 'Same-day neighborhood replenishment and promotional sample pack drop-offs.',
+      id: 'deliver',
     },
     {
-      id: 'social-buzz',
-      title: 'Social & Viral Buzz',
-      tagline: 'Eye-catching fleet convoys designed for high-engagement Instagram reels and street UGC.',
+      action: 'VIRAL',
+      color: '#D946EF',
+      textColor: 'text-[#D946EF]',
+      bg: 'bg-[#FDF4FF]',
+      border: 'border-[#F5D0FE]',
+      hoverBorder: 'hover:border-[#D946EF]',
       icon: Video,
-      bg: 'bg-white',
-      border: 'border-[#E4DCFF]',
-      iconBg: 'bg-[#F0ECFF]',
-      iconColor: 'text-[#7856FF]',
-      badgeColor: 'text-[#7856FF]',
+      desc: 'Create moments worth sharing.',
+      detail: 'Authentic street reaction reels and creator collaborations amplifying physical buzz.',
+      id: 'viral',
     },
     {
-      id: 'route-analytics',
-      title: 'Route Analytics',
-      tagline: 'Comprehensive visual campaign summaries, corridor heatmaps and verified pilot proof-of-play.',
+      action: 'INSIGHTS',
+      color: '#1756C1',
+      textColor: 'text-[#1756C1]',
+      bg: 'bg-[#EEF2FF]',
+      border: 'border-[#E0E7FF]',
+      hoverBorder: 'hover:border-[#1756C1]',
       icon: BarChart3,
-      bg: 'bg-white',
-      border: 'border-[#DFEAF0]',
-      iconBg: 'bg-[#EAF9FD]',
-      iconColor: 'text-[#00A8C8]',
-      badgeColor: 'text-[#00A8C8]',
+      desc: 'Explore campaign intelligence.',
+      detail: 'Planned corridor telemetry, active hours verification and audience engagement logs.',
+      id: 'insights',
+      isPlanned: true,
     },
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-white relative border-t border-[#DFEAF0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 lg:py-32 bg-white relative overflow-hidden border-t border-[#E2E8F0]">
+      {/* Subtle Multicolor Glows */}
+      <div className="absolute -top-20 left-1/4 w-[500px] h-[500px] bg-[#38BDF8]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-[500px] h-[500px] bg-[#D946EF]/15 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Seven Moving Solutions</span>
-            </div>
-            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#172B3A] tracking-tight uppercase">
-              ONE PLATFORM.{' '}
-              <span className="text-[#00A8C8]">MORE</span>{' '}
-              <span className="text-[#7856FF]">POSSIBILITIES.</span>
-            </h2>
-            <p className="text-base sm:text-lg text-[#637786] font-normal">
-              A comprehensive quad-mobility system combining advertising, display, commerce and local delivery.
-            </p>
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold uppercase tracking-wider text-[#142238]">
+            <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+            <span>THE 7 CAPABILITIES</span>
           </div>
 
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#7856FF] hover:text-[#6440FF] transition-colors shrink-0"
-          >
-            <span>View Full Services Breakdown</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <h2 className="font-heading font-black text-4xl sm:text-6xl text-[#142238] tracking-tight uppercase leading-[1.05]">
+            ONE NETWORK.{' '}
+            <span className="bg-gradient-to-r from-[#2563EB] via-[#7856FF] to-[#D946EF] bg-clip-text text-transparent animate-gradient-slow">
+              MANY POSSIBILITIES.
+            </span>
+          </h2>
+
+          <p className="text-lg sm:text-xl text-[#64748B] leading-relaxed max-w-2xl mx-auto font-normal">
+            From high-recall brand visibility to illuminated product showcases and same-day delivery.
+          </p>
         </div>
 
-        {/* Services Grid with Alternating Palapitta Blue & Vibrant Violet Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, idx) => (
-            <TiltServiceCard key={service.id} service={service} idx={idx} />
-          ))}
+        {/* 7 Multicolor Creative Grid Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {services.map((svc, idx) => {
+            const Icon = svc.icon;
+            const isWide = idx === 6; // Insights spans remaining space nicely
+
+            return (
+              <motion.div
+                key={svc.action}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className={isWide ? 'md:col-span-2 xl:col-span-2' : ''}
+              >
+                <Link
+                  href={`/services#${svc.id}`}
+                  className={`group block h-full p-8 rounded-3xl ${svc.bg} border ${svc.border} ${svc.hoverBorder} card-hover-lift transition-all duration-300 flex flex-col justify-between relative overflow-hidden`}
+                >
+                  {/* Card Header: Icon & Planned Badge */}
+                  <div>
+                    <div className="flex items-center justify-between mb-8">
+                      <div
+                        className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ color: svc.color }}
+                      >
+                        <Icon className="w-7 h-7" />
+                      </div>
+
+                      {svc.isPlanned ? (
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white text-[#1756C1] border border-[#E0E7FF] shadow-xs">
+                          Planned Architecture
+                        </span>
+                      ) : (
+                        <div className="w-8 h-8 rounded-full bg-white/80 flex items-center justify-center text-slate-400 group-hover:text-slate-900 group-hover:bg-white transition-all">
+                          <ArrowUpRight className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Action-First Typography */}
+                    <div className="space-y-2">
+                      <h3 className={`font-heading font-black text-3xl tracking-tight uppercase ${svc.textColor}`}>
+                        {svc.action}.
+                      </h3>
+                      <p className="text-base font-bold text-[#142238]">
+                        {svc.desc}
+                      </p>
+                      <p className="text-sm text-[#64748B] leading-relaxed pt-1 font-normal">
+                        {svc.detail}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action Hint */}
+                  <div className="pt-6 mt-4 border-t border-black/5 flex items-center justify-between text-xs font-bold text-slate-600 group-hover:text-slate-900">
+                    <span>Explore {svc.action} Details</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
