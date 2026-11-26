@@ -21,15 +21,15 @@ export default function BrandLogo({
   }[size];
 
   const isLight = theme === 'light';
-  const adColor = isLight ? '#092D19' : '#FFFFFF';
-  const rydColor = isLight ? '#005522' : '#B4F000';
-  const taglineColor = isLight ? '#092D19' : '#E4EBE5';
-  const dartStart = isLight ? '#005522' : '#B4F000';
-  const dartEnd = isLight ? '#65B32E' : '#005522';
+  const adColor = isLight ? '#000000' : '#FFFFFF';
+  const rydColor = '#B4F000';
+  const taglineColor = isLight ? '#0A9BE0' : '#E2E8F0';
+  const dartStart = '#0A9BE0';
+  const dartEnd = '#B4F000';
 
   return (
     <div className={`flex items-center select-none group/logo ${className}`}>
-      {/* Precision Vector SVG Logo — Electric Lime × Forest Green Brand Guidelines */}
+      {/* Precision Vector SVG Logo — Black × Electric Blue × Chartreuse Brand Guidelines */}
       <svg
         viewBox="0 0 290 56"
         fill="none"

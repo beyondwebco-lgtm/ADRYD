@@ -14,12 +14,12 @@ export default function RiderPartnerSection() {
       title: 'Rider With Own EV',
       description: 'Monetize your electric scooter through scheduled brand showcase routes across Hyderabad.',
       icon: Bike,
-      cardBg: 'bg-[#092D19]/60 hover:bg-[#092D19]/80',
+      cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
       border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
       glow: 'shadow-[0_0_30px_rgba(180,240,0,0.25)]',
       color: 'text-[#B4F000]',
       iconBg: 'bg-[#B4F000]/20',
-      btnBg: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] font-black',
+      btnBg: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black',
       href: '/become-a-rider?type=own_ev_rider',
       cta: 'Register With My EV',
     },
@@ -29,12 +29,12 @@ export default function RiderPartnerSection() {
       title: 'Rider Without EV',
       description: 'Apply for opportunities involving partner-arranged electric two-wheelers and gear.',
       icon: UserCheck,
-      cardBg: 'bg-[#005522]/35 hover:bg-[#005522]/55',
-      border: 'border-[#65B32E]/40 hover:border-[#B4F000]',
-      glow: 'shadow-[0_0_30px_rgba(101,179,46,0.25)]',
-      color: 'text-[#65B32E]',
-      iconBg: 'bg-[#65B32E]/20',
-      btnBg: 'bg-gradient-to-r from-[#65B32E] to-[#B4F000] text-[#092D19] font-black',
+      cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
+      border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
+      glow: 'shadow-[0_0_30px_rgba(10,155,224,0.25)]',
+      color: 'text-[#0A9BE0]',
+      iconBg: 'bg-[#0A9BE0]/20',
+      btnBg: 'bg-gradient-to-r from-[#0A9BE0] to-[#B4F000] text-[#000000] font-black',
       href: '/become-a-rider?type=without_ev_rider',
       cta: 'Apply as a Rider',
     },
@@ -44,12 +44,12 @@ export default function RiderPartnerSection() {
       title: 'Commercial Fleet Partner',
       description: 'Monetize your commercial two-wheeler fleet during scheduled high-recall campaign hours.',
       icon: Building2,
-      cardBg: 'bg-[#092D19]/70 hover:bg-[#092D19]/90',
-      border: 'border-[#E4EBE5]/25 hover:border-[#B4F000]',
-      glow: 'shadow-[0_0_30px_rgba(0,85,34,0.3)]',
-      color: 'text-[#E4EBE5]',
-      iconBg: 'bg-[#005522]/50',
-      btnBg: 'bg-[#E4EBE5] hover:bg-white text-[#092D19] font-black',
+      cardBg: 'bg-[#041220]/80 hover:bg-[#041220]/95',
+      border: 'border-white/20 hover:border-[#B4F000]',
+      glow: 'shadow-[0_0_30px_rgba(0,0,0,0.5)]',
+      color: 'text-white',
+      iconBg: 'bg-[#0A9BE0]/20',
+      btnBg: 'bg-white hover:bg-slate-100 text-[#000000] font-black',
       href: '/become-a-rider?type=fleet_partner',
       cta: 'Submit Fleet Enquiry',
     },
@@ -57,28 +57,28 @@ export default function RiderPartnerSection() {
 
   return (
     <section id="partner" className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/10 text-white">
-      {/* Ambient Forest Green, Deep Emerald & Electric Lime Atmosphere */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#005522]/25 rounded-full blur-[150px] pointer-events-none" />
+      {/* Ambient Electric Blue & Chartreuse Atmosphere */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#0A9BE0]/20 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[550px] h-[550px] bg-[#B4F000]/15 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-[450px] h-[450px] bg-[#092D19]/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-[450px] h-[450px] bg-[#041220]/50 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#092D19]/60 backdrop-blur-md border border-[#B4F000]/30 text-[#B4F000] text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#041220]/80 backdrop-blur-md border border-[#0A9BE0]/30 text-[#0A9BE0] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#B4F000]" />
             <span>MOBILITY COMMUNITY</span>
           </div>
 
           <h2 className="font-heading font-black text-4xl sm:text-6xl text-white tracking-tight uppercase leading-[1.05]">
             BE PART OF{' '}
-            <span className="bg-gradient-to-r from-[#B4F000] via-[#E4EBE5] to-[#65B32E] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(180,240,0,0.4)]">
+            <span className="bg-gradient-to-r from-[#0A9BE0] via-[#E2E8F0] to-[#B4F000] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(10,155,224,0.4)]">
               THE MOVEMENT.
             </span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed max-w-2xl mx-auto font-normal">
             Whether you own an EV, seek rider opportunities, or manage a commercial fleet, join our mobility community.
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function RiderPartnerSection() {
                     {opt.title}
                   </h3>
 
-                  <p className="text-sm text-[#E4EBE5]/80 leading-relaxed font-normal mb-8">
+                  <p className="text-sm text-[#E2E8F0]/80 leading-relaxed font-normal mb-8">
                     {opt.description}
                   </p>
                 </div>
@@ -131,14 +131,14 @@ export default function RiderPartnerSection() {
         </div>
 
         {/* Real Hyderabad Fleet & Partner Photographic Banner */}
-        <div className="rounded-3xl overflow-hidden border border-[#B4F000]/20 shadow-2xl relative aspect-[21/9] max-h-[300px]">
+        <div className="rounded-3xl overflow-hidden border border-[#0A9BE0]/25 shadow-2xl relative aspect-[21/9] max-h-[300px]">
           <Image
             src="/images/adryd-rider-partner.jpg"
             alt="ADRYD Electric Partner Rider in Hyderabad"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061C12]/90 via-[#061C12]/50 to-transparent flex items-center p-8 sm:p-12">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#041220]/60 to-transparent flex items-center p-8 sm:p-12">
             <div className="max-w-md text-white space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#B4F000]">Verified Partner Network</span>
               <p className="text-xl sm:text-2xl font-heading font-bold text-white">

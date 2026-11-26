@@ -25,7 +25,7 @@ function InteractiveBody({ type, color, initialPosition, size = [0.6, 0.6, 0.6],
       new THREE.MeshStandardMaterial({
         color,
         roughness: 0.22,
-        metalness: 0.12,
+        metalness: 0.15,
       }),
     [color]
   );
@@ -78,7 +78,7 @@ function InteractiveBody({ type, color, initialPosition, size = [0.6, 0.6, 0.6],
   );
 }
 
-// Invisible Boundaries so objects bounce inside the stage
+// Boundaries so objects bounce inside the stage
 function Boundaries() {
   return (
     <>
@@ -86,7 +86,7 @@ function Boundaries() {
       <RigidBody type="fixed" position={[0, -1.8, 0]} restitution={0.35} friction={0.85}>
         <mesh receiveShadow>
           <boxGeometry args={[10, 0.4, 8]} />
-          <meshStandardMaterial color="#F6FAFC" roughness={0.9} />
+          <meshStandardMaterial color="#041220" roughness={0.85} />
         </mesh>
       </RigidBody>
       {/* Left Wall */}
@@ -121,23 +121,23 @@ function Boundaries() {
   );
 }
 
-// 12 Stylized Geometric Shapes: Electric Lime (#B4F000), Deep Emerald (#005522), Leaf Green (#65B32E), Golden Yellow (#F4DE26), Soft Mint (#E4EBE5), White (#FFFFFF)
+// 12 Stylized Geometric Shapes in Approved Palette: Black, Electric Blue (#0A9BE0), Chartreuse (#B4F000), White (#FFFFFF)
 const initialObjects: PhysicsObjectProps[] = [
-  // Product Boxes (Electric Lime & Leaf Green)
+  // Product Boxes (Chartreuse, Electric Blue, White)
   { type: 'box', color: '#B4F000', initialPosition: [-0.8, 4.2, 0.1], size: [0.65, 0.65, 0.65] },
-  { type: 'box', color: '#65B32E', initialPosition: [0.9, 4.8, -0.2], size: [0.6, 0.6, 0.6] },
+  { type: 'box', color: '#0A9BE0', initialPosition: [0.9, 4.8, -0.2], size: [0.6, 0.6, 0.6] },
   { type: 'box', color: '#FFFFFF', initialPosition: [-1.4, 5.5, 0.2], size: [0.55, 0.55, 0.55] },
-  // Cylinders / Showcase Pods (Deep Emerald, Soft Mint & Golden Yellow)
-  { type: 'cylinder', color: '#005522', initialPosition: [0.2, 3.8, 0.3], radius: 0.32, height: 0.65 },
-  { type: 'cylinder', color: '#E4EBE5', initialPosition: [-0.5, 5.0, -0.4], radius: 0.35, height: 0.6 },
-  { type: 'cylinder', color: '#F4DE26', initialPosition: [1.3, 4.2, 0.1], radius: 0.28, height: 0.55 },
-  // Spheres (Electric Lime, Leaf Green & Golden Yellow)
+  // Cylinders / Showcase Pods (Electric Blue, Slate, Chartreuse)
+  { type: 'cylinder', color: '#0A9BE0', initialPosition: [0.2, 3.8, 0.3], radius: 0.32, height: 0.65 },
+  { type: 'cylinder', color: '#E2E8F0', initialPosition: [-0.5, 5.0, -0.4], radius: 0.35, height: 0.6 },
+  { type: 'cylinder', color: '#B4F000', initialPosition: [1.3, 4.2, 0.1], radius: 0.28, height: 0.55 },
+  // Spheres (Chartreuse, Electric Blue, White)
   { type: 'sphere', color: '#B4F000', initialPosition: [-0.2, 4.5, 0.4], radius: 0.32 },
-  { type: 'sphere', color: '#65B32E', initialPosition: [0.7, 5.3, -0.3], radius: 0.28 },
-  { type: 'sphere', color: '#F4DE26', initialPosition: [-1.0, 3.5, -0.2], radius: 0.26 },
+  { type: 'sphere', color: '#0A9BE0', initialPosition: [0.7, 5.3, -0.3], radius: 0.28 },
+  { type: 'sphere', color: '#74D7FF', initialPosition: [-1.0, 3.5, -0.2], radius: 0.26 },
   { type: 'sphere', color: '#FFFFFF', initialPosition: [1.6, 3.9, 0.3], radius: 0.22 },
   // Capsules / Rounded Forms
-  { type: 'capsule', color: '#005522', initialPosition: [0.0, 5.8, -0.1], radius: 0.24, height: 0.5 },
+  { type: 'capsule', color: '#0A9BE0', initialPosition: [0.0, 5.8, -0.1], radius: 0.24, height: 0.5 },
   { type: 'capsule', color: '#B4F000', initialPosition: [-0.7, 4.9, 0.3], radius: 0.22, height: 0.48 },
 ];
 
@@ -164,15 +164,15 @@ export default function GravityPhysicsCanvas() {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-[420px] sm:h-[480px] lg:h-[520px] rounded-3xl bg-[#092D19]/60 backdrop-blur-xl border border-[#B4F000]/25 overflow-hidden shadow-inner">
+    <div ref={containerRef} className="relative w-full h-[420px] sm:h-[480px] lg:h-[520px] rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#0A9BE0]/30 overflow-hidden shadow-inner">
       {/* Control Banner */}
       <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
-        <div className="px-3 py-1 rounded-full bg-[#061C12]/80 backdrop-blur-md border border-[#B4F000]/30 text-[11px] font-semibold text-[#E4EBE5] shadow-sm">
+        <div className="px-3 py-1 rounded-full bg-[#000000]/85 backdrop-blur-md border border-[#0A9BE0]/30 text-[11px] font-semibold text-[#E2E8F0] shadow-sm">
           Interactive Physics Sandbox • Click any shape to bounce
         </div>
         <button
           onClick={handleReset}
-          className="pointer-events-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#061C12]/80 hover:bg-[#005522]/60 border border-[#B4F000]/30 text-xs font-semibold text-white shadow-sm hover:shadow transition-all cursor-pointer"
+          className="pointer-events-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#000000]/85 hover:bg-[#0A9BE0]/20 border border-[#0A9BE0]/30 text-xs font-semibold text-white shadow-sm hover:shadow transition-all cursor-pointer"
           title="Reset & Drop Shapes"
         >
           <RotateCcw className="w-3.5 h-3.5 text-[#B4F000]" />
@@ -196,7 +196,7 @@ export default function GravityPhysicsCanvas() {
             shadow-mapSize={[1024, 1024]}
             shadow-bias={-0.0001}
           />
-          <directionalLight position={[-4, 4, -2]} intensity={0.5} color="#EAF9FD" />
+          <directionalLight position={[-4, 4, -2]} intensity={0.5} color="#0A9BE0" />
 
           <Physics key={resetKey} gravity={[0, -9.81, 0]}>
             <Boundaries />

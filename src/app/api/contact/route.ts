@@ -23,11 +23,11 @@ export async function POST(request: Request) {
         subject: `[Contact Message] ${validatedData.subject} (${ticketId})`,
         html: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #DCECF2; border-radius: 12px; background-color: #FFFFFF; color: #172B3A;">
-            <div style="background-color: #092D19; border-bottom: 3px solid #B4F000; padding: 20px; border-radius: 8px; text-align: center;">
+            <div style="background-color: #000000; border-bottom: 3px solid #B4F000; padding: 20px; border-radius: 8px; text-align: center;">
               <h2 style="color: #B4F000; margin: 0; font-size: 20px; letter-spacing: 0.05em; font-weight: 800;">ADRYD CONTACT INQUIRY</h2>
             </div>
             <div style="padding: 24px 0; color: #637786; font-size: 14px; line-height: 1.6;">
-              <p>Reference Ticket: <strong style="color: #005522; font-family: monospace;">${ticketId}</strong></p>
+              <p>Reference Ticket: <strong style="color: #0A9BE0; font-family: monospace;">${ticketId}</strong></p>
               <p><strong style="color: #172B3A;">Name:</strong> ${validatedData.fullName}</p>
               <p><strong style="color: #172B3A;">Email:</strong> ${validatedData.email}</p>
               <p><strong style="color: #172B3A;">Phone:</strong> ${validatedData.phone}</p>

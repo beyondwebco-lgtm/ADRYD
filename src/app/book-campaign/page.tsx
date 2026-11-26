@@ -215,7 +215,7 @@ function CampaignForm() {
     <div className="min-h-screen text-white pt-28 pb-20 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[#B4F000]/10 blur-[130px] pointer-events-none" />
-      <div className="absolute top-80 right-1/4 w-96 h-96 rounded-full bg-[#005522]/30 blur-[130px] pointer-events-none" />
+      <div className="absolute top-80 right-1/4 w-96 h-96 rounded-full bg-[#051C33]/55 blur-[130px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -226,9 +226,9 @@ function CampaignForm() {
             <span>Campaign Planner • Hyderabad</span>
           </div>
           <h1 className="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
-            Launch Your <span className="text-[#B4F000] text-glow-lime">Campaign</span>
+            Launch Your <span className="text-[#B4F000] text-glow-chartreuse">Campaign</span>
           </h1>
-          <p className="text-sm sm:text-base text-[#E4EBE5]">
+          <p className="text-sm sm:text-base text-[#E2E8F0]">
             Plan your promotion, showcase, QR pre-orders, and local delivery requirements to receive a tailored corridor route.
           </p>
         </div>
@@ -237,20 +237,20 @@ function CampaignForm() {
         {!submitSuccess && (
           <div className="mb-10 max-w-2xl mx-auto">
             <div className="grid grid-cols-4 gap-2 text-center text-xs font-bold uppercase tracking-wider mb-2">
-              <span className={currentStep >= 1 ? 'text-[#B4F000]' : 'text-[#E4EBE5]/40'}>
+              <span className={currentStep >= 1 ? 'text-[#B4F000]' : 'text-[#E2E8F0]/40'}>
                 1. Business
               </span>
-              <span className={currentStep >= 2 ? 'text-[#B4F000]' : 'text-[#E4EBE5]/40'}>
+              <span className={currentStep >= 2 ? 'text-[#B4F000]' : 'text-[#E2E8F0]/40'}>
                 2. Services
               </span>
-              <span className={currentStep >= 3 ? 'text-[#B4F000]' : 'text-[#E4EBE5]/40'}>
+              <span className={currentStep >= 3 ? 'text-[#B4F000]' : 'text-[#E2E8F0]/40'}>
                 3. Scope
               </span>
-              <span className={currentStep >= 4 ? 'text-[#B4F000]' : 'text-[#E4EBE5]/40'}>
+              <span className={currentStep >= 4 ? 'text-[#B4F000]' : 'text-[#E2E8F0]/40'}>
                 4. Review
               </span>
             </div>
-            <div className="w-full bg-[#092D19]/80 h-2 rounded-full overflow-hidden border border-[#B4F000]/20">
+            <div className="w-full bg-[#041220]/90 h-2 rounded-full overflow-hidden border border-[#B4F000]/20">
               <div
                 className="bg-[#B4F000] h-full transition-all duration-300 shadow-[0_0_12px_rgba(180,240,0,0.5)]"
                 style={{ width: `${(currentStep / 4) * 100}%` }}
@@ -261,7 +261,7 @@ function CampaignForm() {
 
         {/* Confirmation Screen */}
         {submitSuccess ? (
-          <div className="bg-[#092D19]/80 backdrop-blur-2xl border border-[#B4F000]/40 rounded-3xl p-8 sm:p-12 text-center shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
+          <div className="bg-[#041220]/90 backdrop-blur-2xl border border-[#B4F000]/40 rounded-3xl p-8 sm:p-12 text-center shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
             <div className="w-20 h-20 rounded-full bg-[#B4F000]/20 border border-[#B4F000]/50 flex items-center justify-center text-[#B4F000] mx-auto mb-6 shadow-[0_0_24px_rgba(180,240,0,0.3)]">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -274,7 +274,7 @@ function CampaignForm() {
               Campaign Brief <span className="text-[#B4F000]">Received!</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#E4EBE5] max-w-lg mx-auto leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-[#E2E8F0] max-w-lg mx-auto leading-relaxed mb-8">
               Thank you, <strong className="text-white">{watchedValues.fullName}</strong>. Your campaign requirements for <strong className="text-[#B4F000]">{watchedValues.companyName}</strong> have been recorded in our Hyderabad planning queue. Our team will review route feasibility and contact you within 24 hours.
             </p>
 
@@ -283,7 +283,7 @@ function CampaignForm() {
                 href={getWhatsAppFollowUp()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] font-black text-xs shadow-[0_4px_20px_rgba(180,240,0,0.35)] transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black text-xs shadow-[0_4px_20px_rgba(180,240,0,0.35)] transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Fast-Track on WhatsApp</span>
@@ -295,7 +295,7 @@ function CampaignForm() {
                   setSubmitSuccess(null);
                   setCurrentStep(1);
                 }}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#092D19]/60 border border-[#B4F000]/30 hover:bg-[#005522]/40 text-white text-xs font-bold transition-all"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#041220]/75 border border-[#B4F000]/30 hover:bg-[#051C33]/60 text-white text-xs font-bold transition-all"
               >
                 Submit Another Brief
               </button>
@@ -304,7 +304,7 @@ function CampaignForm() {
         ) : (
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-[#092D19]/75 backdrop-blur-2xl border border-[#B4F000]/25 rounded-3xl p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
+            className="bg-[#041220]/75 backdrop-blur-2xl border border-[#B4F000]/25 rounded-3xl p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
           >
             {submitError && (
               <div className="mb-6 p-4 rounded-2xl bg-red-900/40 border border-red-500/50 text-red-200 text-xs flex items-center gap-3">
@@ -320,21 +320,21 @@ function CampaignForm() {
                   <h3 className="font-heading font-black text-xl text-white">
                     Step 1: Business Profile
                   </h3>
-                  <p className="text-xs text-[#E4EBE5] mt-1">
+                  <p className="text-xs text-[#E2E8F0] mt-1">
                     Provide your contact details and brand identity.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Full Name *
                     </label>
                     <input
                       {...register('fullName')}
                       type="text"
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder:text-[#E4EBE5]/40"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder:text-[#E2E8F0]/40"
                     />
                     {errors.fullName && (
                       <span className="text-xs text-red-400 mt-1 block">
@@ -344,14 +344,14 @@ function CampaignForm() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Brand / Business Name *
                     </label>
                     <input
                       {...register('companyName')}
                       type="text"
                       placeholder="e.g. Hyderabad Roasters"
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder:text-[#E4EBE5]/40"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder:text-[#E2E8F0]/40"
                     />
                     {errors.companyName && (
                       <span className="text-xs text-red-400 mt-1 block">
@@ -363,14 +363,14 @@ function CampaignForm() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Email Address *
                     </label>
                     <input
                       {...register('email')}
                       type="email"
                       placeholder="e.g. rahul@company.com"
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder:text-[#E4EBE5]/40"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder:text-[#E2E8F0]/40"
                     />
                     {errors.email && (
                       <span className="text-xs text-red-400 mt-1 block">
@@ -380,14 +380,14 @@ function CampaignForm() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Mobile / WhatsApp *
                     </label>
                     <input
                       {...register('mobile')}
                       type="tel"
                       placeholder="e.g. 9876543210"
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder:text-[#E4EBE5]/40"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder:text-[#E2E8F0]/40"
                     />
                     {errors.mobile && (
                       <span className="text-xs text-red-400 mt-1 block">
@@ -398,16 +398,16 @@ function CampaignForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                     Business Category *
                   </label>
                   <select
                     {...register('businessCategory')}
-                    className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
+                    className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white"
                   >
-                    <option value="" disabled className="bg-[#092D19] text-white">Select Business Category</option>
+                    <option value="" disabled className="bg-[#041220] text-white">Select Business Category</option>
                     {BUSINESS_CATEGORIES.map((bc) => (
-                      <option key={bc} value={bc} className="bg-[#092D19] text-white">{bc}</option>
+                      <option key={bc} value={bc} className="bg-[#041220] text-white">{bc}</option>
                     ))}
                   </select>
                   {errors.businessCategory && (
@@ -426,14 +426,14 @@ function CampaignForm() {
                   <h3 className="font-heading font-black text-xl text-white">
                     Step 2: Desired Services &amp; Goal
                   </h3>
-                  <p className="text-xs text-[#E4EBE5] mt-1">
+                  <p className="text-xs text-[#E2E8F0] mt-1">
                     Select one or more of the seven ADRYD services you would like to test.
                   </p>
                 </div>
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-xs font-bold uppercase tracking-wider text-[#E4EBE5]">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#E2E8F0]">
                       Select Desired Services *
                     </label>
                     <span className="text-xs text-[#B4F000] font-bold">
@@ -452,15 +452,15 @@ function CampaignForm() {
                           onClick={() => toggleService(svc.id)}
                           className={`p-4 rounded-2xl text-left border transition-all flex items-start gap-3 cursor-pointer ${
                             isSelected
-                              ? 'bg-[#005522]/60 border-[#B4F000] shadow-[0_0_15px_rgba(180,240,0,0.25)] ring-1 ring-[#B4F000]'
-                              : 'bg-[#061C12]/70 border-[#B4F000]/20 hover:border-[#B4F000]/40'
+                              ? 'bg-[#051C33]/75 border-[#B4F000] shadow-[0_0_15px_rgba(180,240,0,0.25)] ring-1 ring-[#B4F000]'
+                              : 'bg-[#041220]/70 border-[#B4F000]/20 hover:border-[#B4F000]/40'
                           }`}
                         >
                           <div
                             className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${
                               isSelected
-                                ? 'bg-[#B4F000] text-[#092D19]'
-                                : 'bg-[#092D19] text-[#E4EBE5]'
+                                ? 'bg-[#B4F000] text-[#000000]'
+                                : 'bg-[#041220] text-[#E2E8F0]'
                             }`}
                           >
                             <Icon className="w-4 h-4" />
@@ -470,7 +470,7 @@ function CampaignForm() {
                               <span>{svc.label}</span>
                               {isSelected && <Check className="w-4 h-4 text-[#B4F000]" />}
                             </div>
-                            <p className="text-xs text-[#E4EBE5]/80 leading-snug mt-1">
+                            <p className="text-xs text-[#E2E8F0]/80 leading-snug mt-1">
                               {svc.desc}
                             </p>
                           </div>
@@ -482,15 +482,15 @@ function CampaignForm() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Product Category *
                     </label>
                     <select
                       {...register('productCategory')}
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white"
                     >
                       {SITE_CONFIG.productCategories.map((cat) => (
-                        <option key={cat.id} value={cat.title} className="bg-[#092D19] text-white">
+                        <option key={cat.id} value={cat.title} className="bg-[#041220] text-white">
                           {cat.title}
                         </option>
                       ))}
@@ -498,14 +498,14 @@ function CampaignForm() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Campaign Objective *
                     </label>
                     <input
                       {...register('objective')}
                       type="text"
                       placeholder="e.g. New store launch in HITEC City"
-                      className="w-full px-4 py-3 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder:text-[#E4EBE5]/40"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder:text-[#E2E8F0]/40"
                     />
                   </div>
                 </div>
@@ -519,13 +519,13 @@ function CampaignForm() {
                   <h3 className="font-heading font-black text-xl text-white">
                     Step 3: Route &amp; Scope Requirements
                   </h3>
-                  <p className="text-xs text-[#E4EBE5] mt-1">
+                  <p className="text-xs text-[#E2E8F0] mt-1">
                     Select package tier, corridor routes and timing.
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-2">
                     Preferred Campaign Package *
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -536,12 +536,12 @@ function CampaignForm() {
                         onClick={() => setValue('preferredPackage', pkg.name)}
                         className={`p-3.5 rounded-2xl text-left border transition-all cursor-pointer ${
                           selectedPackage === pkg.name
-                            ? 'bg-[#005522]/60 border-[#B4F000] ring-1 ring-[#B4F000] shadow-[0_0_15px_rgba(180,240,0,0.2)]'
-                            : 'bg-[#061C12]/70 border-[#B4F000]/20 hover:border-[#B4F000]/40'
+                            ? 'bg-[#051C33]/75 border-[#B4F000] ring-1 ring-[#B4F000] shadow-[0_0_15px_rgba(180,240,0,0.2)]'
+                            : 'bg-[#041220]/70 border-[#B4F000]/20 hover:border-[#B4F000]/40'
                         }`}
                       >
                         <div className="font-bold text-xs text-white">{pkg.name}</div>
-                        <div className="text-[11px] text-[#E4EBE5]/80 mt-0.5">{pkg.desc}</div>
+                        <div className="text-[11px] text-[#E2E8F0]/80 mt-0.5">{pkg.desc}</div>
                       </button>
                     ))}
                   </div>
@@ -549,7 +549,7 @@ function CampaignForm() {
 
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs font-bold uppercase tracking-wider text-[#E4EBE5]">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#E2E8F0]">
                       Target Hyderabad Corridors *
                     </label>
                     <span className="text-xs text-[#B4F000] font-bold">
@@ -566,11 +566,11 @@ function CampaignForm() {
                           onClick={() => toggleArea(area)}
                           className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all flex items-center gap-1.5 cursor-pointer ${
                             isSelected
-                              ? 'bg-[#B4F000] text-[#092D19] border-[#B4F000] font-bold shadow-[0_0_12px_rgba(180,240,0,0.3)]'
-                              : 'bg-[#061C12]/70 border-[#B4F000]/20 text-[#E4EBE5] hover:border-[#B4F000]/40'
+                              ? 'bg-[#B4F000] text-[#000000] border-[#B4F000] font-bold shadow-[0_0_12px_rgba(180,240,0,0.3)]'
+                              : 'bg-[#041220]/70 border-[#B4F000]/20 text-[#E2E8F0] hover:border-[#B4F000]/40'
                           }`}
                         >
-                          {isSelected && <Check className="w-3.5 h-3.5 text-[#092D19]" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-[#000000]" />}
                           <span>{area}</span>
                         </button>
                       );
@@ -580,7 +580,7 @@ function CampaignForm() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Rider Count
                     </label>
                     <input
@@ -588,56 +588,56 @@ function CampaignForm() {
                       type="number"
                       min={1}
                       max={50}
-                      className="w-full px-3 py-2.5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-xs text-white"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-xs text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Duration
                     </label>
                     <select
                       {...register('preferredDuration')}
-                      className="w-full px-3 py-2.5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-xs text-white"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-xs text-white"
                     >
-                      <option value="3 Hours (Single Session)" className="bg-[#092D19]">3 Hours</option>
-                      <option value="4 Hours (Single Session)" className="bg-[#092D19]">4 Hours</option>
-                      <option value="6 Hours (Peak Windows)" className="bg-[#092D19]">6 Hours</option>
-                      <option value="Weekend Blitz (2 Days)" className="bg-[#092D19]">Weekend Blitz</option>
-                      <option value="Full Week (7 Days)" className="bg-[#092D19]">Full Week</option>
-                      <option value="Monthly Sustained" className="bg-[#092D19]">Monthly Sustained</option>
+                      <option value="3 Hours (Single Session)" className="bg-[#041220]">3 Hours</option>
+                      <option value="4 Hours (Single Session)" className="bg-[#041220]">4 Hours</option>
+                      <option value="6 Hours (Peak Windows)" className="bg-[#041220]">6 Hours</option>
+                      <option value="Weekend Blitz (2 Days)" className="bg-[#041220]">Weekend Blitz</option>
+                      <option value="Full Week (7 Days)" className="bg-[#041220]">Full Week</option>
+                      <option value="Monthly Sustained" className="bg-[#041220]">Monthly Sustained</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Start Date
                     </label>
                     <input
                       {...register('preferredDate')}
                       type="date"
-                      className="w-full px-3 py-2.5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-xs text-white"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-xs text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E2E8F0] mb-1.5">
                       Estimated Budget
                     </label>
                     <select
                       {...register('estimatedBudget')}
-                      className="w-full px-3 py-2.5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-xs text-white"
+                      className="w-full px-3 py-2.5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-xs text-white"
                     >
-                      <option value="₹10,000 - ₹25,000" className="bg-[#092D19]">₹10K - ₹25K</option>
-                      <option value="₹25,000 - ₹50,000" className="bg-[#092D19]">₹25K - ₹50K</option>
-                      <option value="₹50,000 - ₹1,00,000" className="bg-[#092D19]">₹50K - ₹100K</option>
-                      <option value="₹1,00,000+" className="bg-[#092D19]">₹100K+</option>
+                      <option value="₹10,000 - ₹25,000" className="bg-[#041220]">₹10K - ₹25K</option>
+                      <option value="₹25,000 - ₹50,000" className="bg-[#041220]">₹25K - ₹50K</option>
+                      <option value="₹50,000 - ₹1,00,000" className="bg-[#041220]">₹50K - ₹100K</option>
+                      <option value="₹1,00,000+" className="bg-[#041220]">₹100K+</option>
                     </select>
                   </div>
                 </div>
 
                 {hasShowcase && (
-                  <div className="p-5 rounded-2xl bg-[#005522]/30 border border-[#B4F000]/30 space-y-3">
+                  <div className="p-5 rounded-2xl bg-[#051C33]/55 border border-[#B4F000]/30 space-y-3">
                     <div className="flex items-center gap-2 text-xs font-bold text-[#B4F000] uppercase tracking-wider">
                       <ShoppingBag className="w-4 h-4" />
                       <span>Product Showcase &amp; Sampling</span>
@@ -647,13 +647,13 @@ function CampaignForm() {
                         {...register('productType')}
                         type="text"
                         placeholder="Product Type (e.g. Sarees, Gourmet Snacks)"
-                        className="w-full px-3 py-2 rounded-xl bg-[#061C12]/80 border border-[#B4F000]/25 text-xs text-white placeholder:text-[#E4EBE5]/40"
+                        className="w-full px-3 py-2 rounded-xl bg-[#041220]/80 border border-[#B4F000]/25 text-xs text-white placeholder:text-[#E2E8F0]/40"
                       />
                       <input
                         {...register('expectedQuantity')}
                         type="text"
                         placeholder="Sample Quantity (e.g. 50 testers)"
-                        className="w-full px-3 py-2 rounded-xl bg-[#061C12]/80 border border-[#B4F000]/25 text-xs text-white placeholder:text-[#E4EBE5]/40"
+                        className="w-full px-3 py-2 rounded-xl bg-[#041220]/80 border border-[#B4F000]/25 text-xs text-white placeholder:text-[#E2E8F0]/40"
                       />
                     </div>
                   </div>
@@ -668,34 +668,34 @@ function CampaignForm() {
                   <h3 className="font-heading font-black text-xl text-white">
                     Step 4: Review Brief
                   </h3>
-                  <p className="text-xs text-[#E4EBE5] mt-1">
+                  <p className="text-xs text-[#E2E8F0] mt-1">
                     Verify your details before submitting to our Hyderabad operations team.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="p-5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 space-y-2">
+                  <div className="p-5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 space-y-2">
                     <div className="font-bold text-[#B4F000] uppercase tracking-wider">
                       Client Profile
                     </div>
-                    <div><span className="text-[#E4EBE5]">Name:</span> <strong className="text-white">{watchedValues.fullName}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Brand:</span> <strong className="text-white">{watchedValues.companyName}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Email:</span> <strong className="text-white">{watchedValues.email}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Mobile:</span> <strong className="text-white">{watchedValues.mobile}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Name:</span> <strong className="text-white">{watchedValues.fullName}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Brand:</span> <strong className="text-white">{watchedValues.companyName}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Email:</span> <strong className="text-white">{watchedValues.email}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Mobile:</span> <strong className="text-white">{watchedValues.mobile}</strong></div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/25 space-y-2">
-                    <div className="font-bold text-[#F4DE26] uppercase tracking-wider">
+                  <div className="p-5 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/25 space-y-2">
+                    <div className="font-bold text-[#0A9BE0] uppercase tracking-wider">
                       Campaign Scope
                     </div>
-                    <div><span className="text-[#E4EBE5]">Services:</span> <strong className="text-white">{watchedValues.selectedServices?.join(', ')}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Package:</span> <strong className="text-white">{watchedValues.preferredPackage}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Corridors:</span> <strong className="text-white">{watchedValues.targetAreas?.join(', ')}</strong></div>
-                    <div><span className="text-[#E4EBE5]">Budget:</span> <strong className="text-white">{watchedValues.estimatedBudget}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Services:</span> <strong className="text-white">{watchedValues.selectedServices?.join(', ')}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Package:</span> <strong className="text-white">{watchedValues.preferredPackage}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Corridors:</span> <strong className="text-white">{watchedValues.targetAreas?.join(', ')}</strong></div>
+                    <div><span className="text-[#E2E8F0]">Budget:</span> <strong className="text-white">{watchedValues.estimatedBudget}</strong></div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#005522]/30 border border-[#B4F000]/25 flex items-start gap-3 text-xs text-[#E4EBE5]">
+                <div className="p-4 rounded-2xl bg-[#051C33]/55 border border-[#B4F000]/25 flex items-start gap-3 text-xs text-[#E2E8F0]">
                   <ShieldCheck className="w-4 h-4 text-[#B4F000] shrink-0 mt-0.5" />
                   <p>
                     <strong className="text-white">Zero Financial Commitment:</strong> Submitting this brief requests route feasibility and a formal quotation. No payment is processed on this site.
@@ -710,7 +710,7 @@ function CampaignForm() {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 rounded-full bg-[#061C12]/80 border border-[#B4F000]/30 text-white text-xs font-bold hover:bg-[#005522]/40 flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-6 py-3 rounded-full bg-[#041220]/80 border border-[#B4F000]/30 text-white text-xs font-bold hover:bg-[#051C33]/60 flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Previous</span>
@@ -723,7 +723,7 @@ function CampaignForm() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] text-xs font-black shadow-[0_4px_20px_rgba(180,240,0,0.35)] hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] text-xs font-black shadow-[0_4px_20px_rgba(180,240,0,0.35)] hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />
@@ -732,7 +732,7 @@ function CampaignForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] disabled:opacity-50 text-[#092D19] text-xs font-black shadow-[0_4px_20px_rgba(180,240,0,0.35)] hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] disabled:opacity-50 text-[#000000] text-xs font-black shadow-[0_4px_20px_rgba(180,240,0,0.35)] hover:scale-[1.01] flex items-center gap-2 transition-all cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span>Submitting Brief...</span>
@@ -757,7 +757,7 @@ export default function BookCampaignPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#061C12] flex items-center justify-center text-white">
+        <div className="min-h-screen bg-[#000000] flex items-center justify-center text-white">
           Loading Campaign Planner...
         </div>
       }

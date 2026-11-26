@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen text-white pt-28 pb-20 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[#B4F000]/10 blur-[130px] pointer-events-none" />
-      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#005522]/30 blur-[130px] pointer-events-none" />
+      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#051C33]/55 blur-[130px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -33,15 +33,15 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <h1 className="font-heading font-black text-3xl sm:text-5xl text-white uppercase leading-tight">
-            Privacy <span className="text-[#B4F000] text-glow-lime">Policy</span>
+            Privacy <span className="text-[#B4F000] text-glow-chartreuse">Policy</span>
           </h1>
 
-          <p className="text-xs text-[#E4EBE5]">
+          <p className="text-xs text-[#E2E8F0]">
             Last Updated: November 2026 • ADRYD Mobility Technologies, Hyderabad
           </p>
         </div>
 
-        <div className="bg-[#092D19]/75 backdrop-blur-xl border border-[#B4F000]/25 rounded-3xl p-8 sm:p-12 space-y-8 text-sm text-[#E4EBE5] leading-relaxed shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+        <div className="bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/25 rounded-3xl p-8 sm:p-12 space-y-8 text-sm text-[#E2E8F0] leading-relaxed shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
           <section className="space-y-3">
             <h2 className="font-heading font-bold text-xl text-white">1. Introduction</h2>
             <p>

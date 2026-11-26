@@ -23,19 +23,19 @@ export async function POST(request: Request) {
         subject: `[V3.0 Campaign Brief] ${validatedData.companyName} (${validatedData.preferredPackage}) - ${submissionId}`,
         html: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; padding: 24px; border: 1px solid #DCECF2; border-radius: 12px; background-color: #FFFFFF; color: #172B3A;">
-            <div style="background-color: #092D19; border-bottom: 3px solid #B4F000; padding: 20px; border-radius: 8px; text-align: center;">
+            <div style="background-color: #000000; border-bottom: 3px solid #B4F000; padding: 20px; border-radius: 8px; text-align: center;">
               <h1 style="color: #B4F000; margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1px;">ADRYD CAMPAIGN BRIEF</h1>
-              <p style="color: #E4EBE5; margin: 6px 0 0 0; font-size: 11px; letter-spacing: 2px;">THE MOVING MARKETPLACE • HYDERABAD PILOT</p>
+              <p style="color: #E2E8F0; margin: 6px 0 0 0; font-size: 11px; letter-spacing: 2px;">THE MOVING MARKETPLACE • HYDERABAD PILOT</p>
             </div>
             
             <div style="padding: 24px 0;">
-              <p style="font-size: 13px; color: #637786;">Reference ID: <strong style="color: #005522; font-family: monospace;">${submissionId}</strong></p>
+              <p style="font-size: 13px; color: #637786;">Reference ID: <strong style="color: #0A9BE0; font-family: monospace;">${submissionId}</strong></p>
               
               <h2 style="font-size: 15px; color: #172B3A; border-bottom: 2px solid #DCECF2; padding-bottom: 6px; margin-top: 20px;">1. Client & Business Details</h2>
               <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: #172B3A;">
                 <tr><td style="padding: 6px 0; color: #637786; width: 40%;">Full Name:</td><td><strong>${validatedData.fullName}</strong></td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Company / Brand:</td><td><strong>${validatedData.companyName}</strong></td></tr>
-                <tr><td style="padding: 6px 0; color: #637786;">Email:</td><td><a href="mailto:${validatedData.email}" style="color: #005522;">${validatedData.email}</a></td></tr>
+                <tr><td style="padding: 6px 0; color: #637786;">Email:</td><td><a href="mailto:${validatedData.email}" style="color: #0A9BE0;">${validatedData.email}</a></td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Mobile:</td><td>${validatedData.mobile}</td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Business Category:</td><td>${validatedData.businessCategory}</td></tr>
               </table>
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
               <h2 style="font-size: 15px; color: #172B3A; border-bottom: 2px solid #DCECF2; padding-bottom: 6px; margin-top: 24px;">3. Campaign Specifications</h2>
               <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: #172B3A;">
                 <tr><td style="padding: 6px 0; color: #637786; width: 40%;">Objective:</td><td>${validatedData.objective}</td></tr>
-                <tr><td style="padding: 6px 0; color: #637786;">Package / Plan:</td><td style="color: #005522; font-weight: bold;">${validatedData.preferredPackage}</td></tr>
+                <tr><td style="padding: 6px 0; color: #637786;">Package / Plan:</td><td style="color: #0A9BE0; font-weight: bold;">${validatedData.preferredPackage}</td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Rider Count:</td><td>${validatedData.riderCount}</td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Duration:</td><td>${validatedData.preferredDuration}</td></tr>
                 <tr><td style="padding: 6px 0; color: #637786;">Start Date:</td><td>${validatedData.preferredDate}</td></tr>

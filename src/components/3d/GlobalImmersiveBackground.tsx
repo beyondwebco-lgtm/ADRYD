@@ -39,9 +39,9 @@ export default function GlobalImmersiveBackground() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Particle nodes — Electric Lime & Emerald Brand Identity
+    // Particle nodes — Black × Electric Blue × Chartreuse Identity
     let particles: ParticleNode[] = [];
-    const particleColors = ['#B4F000', '#65B32E', '#005522', '#F4DE26', '#E4EBE5', '#B4F000'];
+    const particleColors = ['#0A9BE0', '#B4F000', '#0A9BE0', '#FFFFFF', '#B4F000'];
 
     // Resize handler
     const handleResize = () => {
@@ -99,24 +99,24 @@ export default function GlobalImmersiveBackground() {
       return color1.map((c, i) => Math.round(c + (color2[i] - c) * factor));
     };
 
-    // Palettes across 8 sections in Electric Lime × Forest Green Identity: [R, G, B]
+    // Palettes across 8 sections in Black × Electric Blue × Chartreuse Identity: [R, G, B]
     const sectionPalettes = [
-      // 0. Hero (Electric Lime #B4F000, Deep Emerald #005522, Midnight Green #061C12)
-      { top: [180, 240, 0], mid: [0, 85, 34], bot: [101, 179, 46], bg: [6, 28, 18] },
-      // 1. Concept / The Idea (Forest Green #092D19, Leaf Green #65B32E, Electric Lime #B4F000)
-      { top: [9, 45, 25], mid: [101, 179, 46], bot: [180, 240, 0], bg: [8, 35, 20] },
-      // 2. Services (Deep Emerald #005522, Electric Lime #B4F000, Soft Mint #E4EBE5)
-      { top: [0, 85, 34], mid: [180, 240, 0], bot: [228, 235, 229], bg: [6, 32, 18] },
-      // 3. How It Works (Leaf Green #65B32E, Electric Lime #B4F000, Golden Yellow #F4DE26)
-      { top: [101, 179, 46], mid: [180, 240, 0], bot: [244, 222, 38], bg: [7, 30, 18] },
-      // 4. Product Categories (Forest Green #092D19, Golden Yellow #F4DE26, Electric Lime #B4F000)
-      { top: [9, 45, 25], mid: [244, 222, 38], bot: [180, 240, 0], bg: [9, 36, 22] },
-      // 5. Campaign Plans (Deep Emerald #005522, Electric Lime #B4F000, Leaf Green #65B32E)
-      { top: [0, 85, 34], mid: [180, 240, 0], bot: [101, 179, 46], bg: [6, 28, 18] },
-      // 6. Partner With ADRYD (Electric Lime #B4F000, Soft Mint #E4EBE5, Deep Emerald #005522)
-      { top: [180, 240, 0], mid: [228, 235, 229], bot: [0, 85, 34], bg: [8, 32, 20] },
-      // 7. Final CTA & Footer (Electric Lime #B4F000, Deep Emerald #005522, Golden Yellow #F4DE26)
-      { top: [180, 240, 0], mid: [0, 85, 34], bot: [244, 222, 38], bg: [6, 28, 18] },
+      // 0. Hero (Electric Blue #0A9BE0, Chartreuse #B4F000, Black #000000)
+      { top: [10, 155, 224], mid: [180, 240, 0], bot: [10, 155, 224], bg: [0, 0, 0] },
+      // 1. Concept / The Idea (Deep Blue #041220, Electric Blue #0A9BE0, Chartreuse #B4F000)
+      { top: [4, 18, 32], mid: [10, 155, 224], bot: [180, 240, 0], bg: [2, 10, 18] },
+      // 2. Services (Electric Blue #0A9BE0, Chartreuse #B4F000, Deep Blue #041220)
+      { top: [10, 155, 224], mid: [180, 240, 0], bot: [4, 18, 32], bg: [0, 0, 0] },
+      // 3. How It Works (Deep Blue #041220, Electric Blue #0A9BE0, Chartreuse #B4F000)
+      { top: [4, 18, 32], mid: [10, 155, 224], bot: [180, 240, 0], bg: [3, 14, 25] },
+      // 4. Product Categories (Electric Blue #0A9BE0, Chartreuse #B4F000, Deep Blue #041220)
+      { top: [10, 155, 224], mid: [180, 240, 0], bot: [4, 18, 32], bg: [0, 0, 0] },
+      // 5. Campaign Plans (Deep Blue #041220, Electric Blue #0A9BE0, Chartreuse #B4F000)
+      { top: [4, 18, 32], mid: [10, 155, 224], bot: [180, 240, 0], bg: [2, 10, 18] },
+      // 6. Partner With ADRYD (Chartreuse #B4F000, Electric Blue #0A9BE0, Deep Blue #041220)
+      { top: [180, 240, 0], mid: [10, 155, 224], bot: [4, 18, 32], bg: [0, 0, 0] },
+      // 7. Final CTA & Footer (Electric Blue #0A9BE0, Chartreuse #B4F000, Electric Blue #0A9BE0)
+      { top: [10, 155, 224], mid: [180, 240, 0], bot: [10, 155, 224], bg: [0, 0, 0] },
     ];
 
     // Main animation loop
@@ -149,10 +149,10 @@ export default function GlobalImmersiveBackground() {
           glowTopRef.current.style.backgroundColor = `rgba(${activeTop[0]}, ${activeTop[1]}, ${activeTop[2]}, 0.35)`;
         }
         if (glowMidRef.current) {
-          glowMidRef.current.style.backgroundColor = `rgba(${activeMid[0]}, ${activeMid[1]}, ${activeMid[2]}, 0.38)`;
+          glowMidRef.current.style.backgroundColor = `rgba(${activeMid[0]}, ${activeMid[1]}, ${activeMid[2]}, 0.28)`;
         }
         if (glowBottomRef.current) {
-          glowBottomRef.current.style.backgroundColor = `rgba(${activeBot[0]}, ${activeBot[1]}, ${activeBot[2]}, 0.32)`;
+          glowBottomRef.current.style.backgroundColor = `rgba(${activeBot[0]}, ${activeBot[1]}, ${activeBot[2]}, 0.30)`;
         }
         if (containerRef.current) {
           containerRef.current.style.backgroundColor = `rgb(${activeBg[0]}, ${activeBg[1]}, ${activeBg[2]})`;
@@ -161,7 +161,7 @@ export default function GlobalImmersiveBackground() {
         ctx.clearRect(0, 0, width, height);
 
         // =====================================================================
-        // 1. DRAW 3D FLOWING SATIN RIBBONS (Electric Lime × Emerald Gradient)
+        // 1. DRAW 3D FLOWING SATIN RIBBONS (Electric Blue × Chartreuse Gradient)
         // =====================================================================
         const ribbonCount = 3;
 
@@ -194,27 +194,26 @@ export default function GlobalImmersiveBackground() {
             bottomPoints.push({ x, y: centerY + halfThick });
           }
 
-          // Build ribbon gradient across screen matching new green identity
+          // Build ribbon gradient across screen matching Black × Electric Blue × Chartreuse identity
           const grad = ctx.createLinearGradient(0, height * 0.2, width, height * 0.8);
           if (r === 0) {
-            // Main primary vibrant ribbon: Electric Lime -> Leaf Green -> Deep Emerald -> Golden Yellow -> Soft Mint -> Electric Lime
-            grad.addColorStop(0.0, 'rgba(180, 240, 0, 0.78)');
-            grad.addColorStop(0.22, 'rgba(101, 179, 46, 0.76)');
-            grad.addColorStop(0.48, 'rgba(0, 85, 34, 0.82)');
-            grad.addColorStop(0.72, 'rgba(244, 222, 38, 0.74)');
-            grad.addColorStop(0.88, 'rgba(228, 235, 229, 0.72)');
-            grad.addColorStop(1.0, 'rgba(180, 240, 0, 0.78)');
+            // Main primary vibrant ribbon: Electric Blue -> Chartreuse -> Cyan-Blue -> Chartreuse -> Electric Blue
+            grad.addColorStop(0.0, 'rgba(10, 155, 224, 0.85)');
+            grad.addColorStop(0.25, 'rgba(180, 240, 0, 0.85)');
+            grad.addColorStop(0.50, 'rgba(71, 201, 255, 0.80)');
+            grad.addColorStop(0.75, 'rgba(180, 240, 0, 0.85)');
+            grad.addColorStop(1.0, 'rgba(10, 155, 224, 0.85)');
           } else if (r === 1) {
-            // Secondary companion ribbon: Deep Emerald -> Electric Lime -> Leaf Green -> Soft Mint
-            grad.addColorStop(0.0, 'rgba(0, 85, 34, 0.65)');
-            grad.addColorStop(0.35, 'rgba(180, 240, 0, 0.62)');
-            grad.addColorStop(0.7, 'rgba(101, 179, 46, 0.58)');
-            grad.addColorStop(1.0, 'rgba(228, 235, 229, 0.52)');
+            // Secondary companion ribbon: Deep Blue -> Electric Blue -> Chartreuse -> Electric Blue
+            grad.addColorStop(0.0, 'rgba(4, 25, 46, 0.75)');
+            grad.addColorStop(0.40, 'rgba(10, 155, 224, 0.65)');
+            grad.addColorStop(0.75, 'rgba(180, 240, 0, 0.60)');
+            grad.addColorStop(1.0, 'rgba(10, 155, 224, 0.55)');
           } else {
-            // Ambient deep ribbon: Midnight Green -> Deep Emerald -> Leaf Green
-            grad.addColorStop(0.0, 'rgba(6, 28, 18, 0.52)');
-            grad.addColorStop(0.5, 'rgba(0, 85, 34, 0.48)');
-            grad.addColorStop(1.0, 'rgba(101, 179, 46, 0.42)');
+            // Ambient deep ribbon: Black foundation -> Deep Blue -> Electric Blue
+            grad.addColorStop(0.0, 'rgba(0, 0, 0, 0.65)');
+            grad.addColorStop(0.5, 'rgba(4, 25, 46, 0.50)');
+            grad.addColorStop(1.0, 'rgba(10, 155, 224, 0.40)');
           }
 
           // Draw ribbon body
@@ -237,15 +236,15 @@ export default function GlobalImmersiveBackground() {
           ctx.closePath();
 
           ctx.fillStyle = grad;
-          ctx.shadowColor = r === 0 ? 'rgba(180, 240, 0, 0.4)' : 'rgba(0, 85, 34, 0.3)';
+          ctx.shadowColor = r === 0 ? 'rgba(10, 155, 224, 0.5)' : 'rgba(180, 240, 0, 0.35)';
           ctx.shadowBlur = r === 0 ? 35 : 20;
           ctx.fill();
 
           // Draw satin edge specular highlight
           ctx.lineWidth = r === 0 ? 2.5 : 1.5;
-          ctx.strokeStyle = r === 0 ? 'rgba(255, 255, 255, 0.55)' : 'rgba(180, 240, 0, 0.35)';
+          ctx.strokeStyle = r === 0 ? 'rgba(255, 255, 255, 0.65)' : 'rgba(10, 155, 224, 0.45)';
           ctx.shadowBlur = 12;
-          ctx.shadowColor = '#B4F000';
+          ctx.shadowColor = '#0A9BE0';
           ctx.beginPath();
           ctx.moveTo(topPoints[0].x, topPoints[0].y);
           for (let i = 1; i < topPoints.length; i++) {
@@ -255,7 +254,7 @@ export default function GlobalImmersiveBackground() {
 
           // Subtle shaded lower fold
           ctx.lineWidth = 1.8;
-          ctx.strokeStyle = 'rgba(0, 0, 0, 0.35)';
+          ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
           ctx.shadowBlur = 0;
           ctx.beginPath();
           ctx.moveTo(bottomPoints[0].x, bottomPoints[0].y);
@@ -279,8 +278,8 @@ export default function GlobalImmersiveBackground() {
             const dy = particles[i].y - particles[j].y;
             const dist = Math.hypot(dx, dy);
             if (dist < maxDist) {
-              const alpha = (1 - dist / maxDist) * 0.22;
-              ctx.strokeStyle = `rgba(180, 240, 0, ${alpha})`;
+              const alpha = (1 - dist / maxDist) * 0.25;
+              ctx.strokeStyle = `rgba(10, 155, 224, ${alpha})`;
               ctx.lineWidth = 0.75;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
@@ -344,11 +343,11 @@ export default function GlobalImmersiveBackground() {
     <div
       ref={containerRef}
       className="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden transition-colors duration-700"
-      style={{ backgroundColor: '#061C12' }}
+      style={{ backgroundColor: '#000000' }}
       aria-hidden="true"
     >
       {/* 1. Underlying Atmospheric Fluid Texture */}
-      <div className="absolute inset-0 opacity-30 mix-blend-screen scale-110 blur-xl pointer-events-none">
+      <div className="absolute inset-0 opacity-25 mix-blend-screen scale-110 blur-xl pointer-events-none">
         <Image
           src="/images/v4/energy-ribbon-loop.jpg"
           alt=""
@@ -362,17 +361,17 @@ export default function GlobalImmersiveBackground() {
       <div
         ref={glowTopRef}
         className="absolute -top-32 -left-32 w-[650px] h-[650px] rounded-full blur-[150px] transition-colors duration-700 pointer-events-none"
-        style={{ backgroundColor: 'rgba(180, 240, 0, 0.35)' }}
+        style={{ backgroundColor: 'rgba(10, 155, 224, 0.35)' }}
       />
       <div
         ref={glowMidRef}
         className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[160px] transition-colors duration-700 pointer-events-none"
-        style={{ backgroundColor: 'rgba(0, 85, 34, 0.38)' }}
+        style={{ backgroundColor: 'rgba(180, 240, 0, 0.22)' }}
       />
       <div
         ref={glowBottomRef}
         className="absolute -bottom-40 -right-32 w-[750px] h-[750px] rounded-full blur-[160px] transition-colors duration-700 pointer-events-none"
-        style={{ backgroundColor: 'rgba(101, 179, 46, 0.32)' }}
+        style={{ backgroundColor: 'rgba(10, 155, 224, 0.30)' }}
       />
 
       {/* 3. Persistent 3D Flowing Satin Ribbons & Particle Canvas */}
@@ -382,7 +381,7 @@ export default function GlobalImmersiveBackground() {
       />
 
       {/* 4. Soft Vignette Overlay for Crisp Content Contrast */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#061C12]/30 to-[#061C12]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#000000]/40 to-[#000000]/90 pointer-events-none" />
     </div>
   );
 }

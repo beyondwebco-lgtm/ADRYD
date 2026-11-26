@@ -23,7 +23,7 @@ const solutionsList = [
     headline: 'Hyper-Local Street Visibility for Neighborhood Brands',
     desc: 'Deploy a dedicated branded electric scooter covering targeted local retail corridors and residential catchments.',
     icon: Bike,
-    bg: 'bg-[#092D19]/80',
+    bg: 'bg-[#041220]/80',
     border: 'border-[#B4F000]/30',
     color: 'text-[#B4F000]',
     specs: ['1 Electric Scooter & Rider', 'Local Corridor Focus', 'Side & Rear Panels', '3 to 30 Day Packages'],
@@ -34,9 +34,9 @@ const solutionsList = [
     headline: 'Synchronized Twin-Rider High-Recall Deployments',
     desc: 'Two branded electric two-wheelers moving in tandem across twin commercial zones for multiplied commuter recall.',
     icon: Users,
-    bg: 'bg-[#005522]/60',
-    border: 'border-[#65B32E]/30',
-    color: 'text-[#65B32E]',
+    bg: 'bg-[#051C33]/75',
+    border: 'border-[#0A9BE0]/30',
+    color: 'text-[#0A9BE0]',
     specs: ['2 Electric Scooters & Riders', 'Tandem Corridor Sweeps', 'Double Street Frequency', 'High Launch Recall'],
   },
   {
@@ -45,9 +45,9 @@ const solutionsList = [
     headline: 'Citywide Synchronized Blitz for Enterprises & Retailers',
     desc: 'Deploy a coordinated fleet of 4 to 10+ branded vehicles blanketing Hyderabad’s prime tech hubs and shopping districts.',
     icon: Building2,
-    bg: 'bg-[#092D19]/80',
-    border: 'border-[#F4DE26]/30',
-    color: 'text-[#F4DE26]',
+    bg: 'bg-[#041220]/80',
+    border: 'border-[#0A9BE0]/30',
+    color: 'text-[#0A9BE0]',
     specs: ['4 to 10+ Electric Scooters', 'Multi-Corridor Coverage', 'Dedicated Operations Lead', 'Maximum Street Buzz'],
   },
   {
@@ -56,7 +56,7 @@ const solutionsList = [
     headline: 'Surgical Geographic Targeting by Prime Corridors',
     desc: 'Focus your campaign on precise business corridors: HITEC City, Gachibowli, Madhapur, Jubilee Hills, and Kukatpally.',
     icon: Compass,
-    bg: 'bg-[#005522]/60',
+    bg: 'bg-[#051C33]/75',
     border: 'border-[#B4F000]/30',
     color: 'text-[#B4F000]',
     specs: ['Commercial Zone Selection', 'PIN-Code Cluster Mapping', 'Arterial Road Schedules', 'Event & Metro Corridors'],
@@ -68,7 +68,7 @@ export default function SolutionsHubPage() {
     <div className="min-h-screen text-white pt-28 pb-20 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[#B4F000]/10 blur-[130px] pointer-events-none" />
-      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#005522]/30 blur-[130px] pointer-events-none" />
+      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#051C33]/55 blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -81,9 +81,9 @@ export default function SolutionsHubPage() {
           <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
             Tailored solutions for{' '}
             <br />
-            <span className="text-[#B4F000] text-glow-lime">every campaign goal.</span>
+            <span className="text-[#B4F000] text-glow-chartreuse">every campaign goal.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed font-normal">
+          <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed font-normal">
             From focused single-neighborhood brand visibility to citywide synchronized multi-rider activations.
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function SolutionsHubPage() {
                 className={`rounded-3xl ${sol.bg} backdrop-blur-xl border ${sol.border} p-8 lg:p-10 card-hover-lift flex flex-col justify-between shadow-[0_12px_40px_rgba(0,0,0,0.35)]`}
               >
                 <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${sol.color}`}>
+                  <div className={`w-12 h-12 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${sol.color}`}>
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -108,14 +108,14 @@ export default function SolutionsHubPage() {
                     <p className={`text-xs font-bold mt-1 ${sol.color}`}>
                       {sol.headline}
                     </p>
-                    <p className="text-sm text-[#E4EBE5] leading-relaxed mt-2.5">
+                    <p className="text-sm text-[#E2E8F0] leading-relaxed mt-2.5">
                       {sol.desc}
                     </p>
                   </div>
 
                   <div className="pt-2 grid grid-cols-2 gap-2">
                     {sol.specs.map((s, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 text-xs text-[#E4EBE5]">
+                      <div key={idx} className="flex items-center gap-1.5 text-xs text-[#E2E8F0]">
                         <CheckCircle2 className={`w-3.5 h-3.5 ${sol.color} shrink-0`} />
                         <span>{s}</span>
                       </div>
@@ -133,7 +133,7 @@ export default function SolutionsHubPage() {
 
                   <Link
                     href={`/book-campaign?format=${sol.slug}`}
-                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-black text-[#092D19] shadow-[0_4px_15px_rgba(180,240,0,0.3)] transition-all bg-[#B4F000] hover:bg-[#c3fc18]"
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-black text-[#000000] shadow-[0_4px_15px_rgba(180,240,0,0.3)] transition-all bg-[#B4F000] hover:bg-[#c3fc18]"
                   >
                     <span>Enquire Format</span>
                     <ArrowRight className="w-3.5 h-3.5" />

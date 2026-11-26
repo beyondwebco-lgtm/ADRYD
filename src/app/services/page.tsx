@@ -25,10 +25,10 @@ const serviceVerticals = [
     title: 'Promote',
     tagline: 'Take brands onto the streets.',
     icon: Megaphone,
-    bg: 'bg-[#092D19]/60',
+    bg: 'bg-[#041220]/75',
     border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
     color: 'text-[#B4F000]',
-    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19]',
+    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'High-impact mobile advertising using electric scooter fleets wrapped in vibrant, approved brand livery moving along high-footfall commercial corridors.',
     features: ['High-recall street visibility', 'Targeted urban corridors', 'Uniformed brand ambassadors', 'Eco-friendly electric fleet'],
   },
@@ -37,10 +37,10 @@ const serviceVerticals = [
     title: 'Showcase',
     tagline: 'Bring products closer to customers.',
     icon: ShoppingBag,
-    bg: 'bg-[#005522]/35',
-    border: 'border-[#65B32E]/35 hover:border-[#B4F000]',
-    color: 'text-[#65B32E]',
-    btnColor: 'bg-[#65B32E] hover:bg-[#5aa326] text-white',
+    bg: 'bg-[#051C33]/65',
+    border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
+    color: 'text-[#0A9BE0]',
+    btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Specialized vehicle-mounted illuminated display boxes and product sampling trays that allow potential buyers to examine, touch and experience your items.',
     features: ['Illuminated showcase display', 'Curated sampling trays', 'Live product demos', 'Secure weather-resistant boxes'],
   },
@@ -49,10 +49,10 @@ const serviceVerticals = [
     title: 'Sell',
     tagline: 'Create opportunities to purchase.',
     icon: QrCode,
-    bg: 'bg-[#F4DE26]/10',
-    border: 'border-[#F4DE26]/30 hover:border-[#F4DE26]',
-    color: 'text-[#F4DE26]',
-    btnColor: 'bg-[#F4DE26] hover:bg-[#ebd21e] text-[#092D19]',
+    bg: 'bg-[#041220]/75',
+    border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
+    color: 'text-[#B4F000]',
+    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Direct QR-driven mobile commerce enabling pedestrians and commuters to scan and immediately purchase featured items through mobile-optimized checkout pages.',
     features: ['Instant QR catalogue access', 'Frictionless mobile checkout', 'Digital payment integration', 'Campaign-specific promo codes'],
   },
@@ -61,10 +61,10 @@ const serviceVerticals = [
     title: 'Pre-Order',
     tagline: 'Capture customer interest.',
     icon: PackageCheck,
-    bg: 'bg-[#E4EBE5]/10',
-    border: 'border-[#E4EBE5]/30 hover:border-[#B4F000]',
-    color: 'text-[#E4EBE5]',
-    btnColor: 'bg-[#E4EBE5] hover:bg-white text-[#092D19]',
+    bg: 'bg-[#051C33]/65',
+    border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
+    color: 'text-[#0A9BE0]',
+    btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Capture advance orders, test consumer interest for new product launches, and gather committed purchase intent prior to broad market rollout.',
     features: ['Demand validation testing', 'Exclusive pre-launch reservations', 'Community & office group orders', 'Early-bird customer capture'],
   },
@@ -73,10 +73,10 @@ const serviceVerticals = [
     title: 'Deliver',
     tagline: 'Support local fulfilment.',
     icon: Truck,
-    bg: 'bg-[#092D19]/60',
+    bg: 'bg-[#041220]/75',
     border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
     color: 'text-[#B4F000]',
-    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19]',
+    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Same-day hyperlocal delivery and fast restocking for local retailers, supporting immediate promotional fulfilment within designated delivery corridors.',
     features: ['Same-day neighborhood drop', 'Boutique retail replenishment', 'Sample pack distribution', 'Sustainable zero-emission transit'],
   },
@@ -85,10 +85,10 @@ const serviceVerticals = [
     title: 'Viral',
     tagline: 'Extend reach through social content.',
     icon: Video,
-    bg: 'bg-[#005522]/35',
-    border: 'border-[#65B32E]/35 hover:border-[#B4F000]',
-    color: 'text-[#65B32E]',
-    btnColor: 'bg-[#65B32E] hover:bg-[#5aa326] text-white',
+    bg: 'bg-[#051C33]/65',
+    border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
+    color: 'text-[#0A9BE0]',
+    btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Creative social media capture, street reaction videos, influencer collaborations and high-energy content translating real-world buzz into digital reach.',
     features: ['Street interaction reels', 'High-res campaign B-roll', 'Micro-influencer meetups', 'Multi-platform social content'],
   },
@@ -97,10 +97,10 @@ const serviceVerticals = [
     title: 'Insights',
     tagline: 'Explore future reporting capabilities.',
     icon: BarChart3,
-    bg: 'bg-[#005522]/50',
-    border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
+    bg: 'bg-[#041220]/80',
+    border: 'border-[#0A9BE0]/30 hover:border-[#B4F000]',
     color: 'text-[#B4F000]',
-    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19]',
+    btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Planned telemetry and verification systems designed to log campaign operating hours, route tracking, QR engagement scans and audience reach metrics.',
     features: ['Corridor route logs', 'Daily active hours tracking', 'QR scan interaction logs', 'Campaign post-run summaries'],
   },
@@ -113,16 +113,16 @@ export default function ServicesPage() {
         
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#092D19]/60 backdrop-blur-md text-[#B4F000] text-xs font-bold uppercase tracking-wider border border-[#B4F000]/30 shadow-sm">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#041220]/80 backdrop-blur-md text-[#0A9BE0] text-xs font-bold uppercase tracking-wider border border-[#0A9BE0]/30 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#B4F000]" />
             <span>Seven Service Verticals</span>
           </div>
           <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
             One platform.{' '}
             <br />
-            <span className="text-[#B4F000] text-glow-lime">More possibilities.</span>
+            <span className="text-[#B4F000] text-glow-chartreuse">More possibilities.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed font-normal">
+          <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed font-normal">
             ADRYD connects physical brand movement with product discovery, digital commerce and local delivery.
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function ServicesPage() {
                   
                   {/* Left: Icon & Title */}
                   <div className="lg:col-span-4 space-y-4">
-                    <div className={`w-14 h-14 rounded-2xl bg-[#061C12]/70 shadow-sm flex items-center justify-center ${svc.color} border border-white/10`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-[#000000]/80 shadow-sm flex items-center justify-center ${svc.color} border border-white/10`}>
                       <Icon className="w-7 h-7" />
                     </div>
                     <div>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
 
                   {/* Middle: Description & Features */}
                   <div className="lg:col-span-5 space-y-5">
-                    <p className="text-sm sm:text-base text-[#E4EBE5]/85 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-base text-[#E2E8F0]/85 leading-relaxed font-normal">
                       {svc.description}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
