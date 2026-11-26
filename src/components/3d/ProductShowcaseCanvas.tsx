@@ -24,19 +24,19 @@ function FloatingProducts({ activeCategory = 'beauty' }: ProductShowcaseCanvasPr
     );
   });
 
-  // Dynamic Palapitta tone based on active category
+  // Dynamic Electric Lime tone based on active category
   const themeColor =
     activeCategory === 'fashion'
-      ? '#00A8C8'
+      ? '#B4F000'
       : activeCategory === 'food'
-      ? '#1756C1'
+      ? '#F4DE26'
       : activeCategory === 'handmade'
-      ? '#123C83'
+      ? '#65B32E'
       : activeCategory === 'beauty'
-      ? '#00A8C8'
+      ? '#B4F000'
       : activeCategory === 'lifestyle'
-      ? '#58C9EF'
-      : '#00A8C8';
+      ? '#E4EBE5'
+      : '#B4F000';
 
   return (
     <group ref={groupRef} position={[0, -0.4, 0]}>
@@ -107,18 +107,18 @@ function FloatingProducts({ activeCategory = 'beauty' }: ProductShowcaseCanvasPr
           </mesh>
           <mesh position={[0.05, 0.38, 0]} rotation={[0.2, 0, -0.15]}>
             <sphereGeometry args={[0.08, 16, 16]} />
-            <meshStandardMaterial color="#00A8C8" roughness={0.25} />
+            <meshStandardMaterial color="#B4F000" roughness={0.25} />
           </mesh>
         </Float>
       </group>
 
-      {/* Floating Product 4: Translucent Cyan Organic Pebble (Inspired by Image 2) */}
+      {/* Floating Product 4: Translucent Lime Organic Pebble */}
       <group position={[-0.75, 0.28, -0.2]}>
         <Float speed={1.9} rotationIntensity={1.1} floatIntensity={0.8}>
           <mesh castShadow rotation={[0.5, 0.3, 0.2]}>
             <cylinderGeometry args={[0.22, 0.22, 0.08, 32]} />
             <meshPhysicalMaterial
-              color="#00A8C8"
+              color="#B4F000"
               roughness={0.08}
               transmission={0.8}
               thickness={0.5}
@@ -127,22 +127,22 @@ function FloatingProducts({ activeCategory = 'beauty' }: ProductShowcaseCanvasPr
         </Float>
       </group>
 
-      {/* Floating Product 5: Minimalist Gift Packaging Box in Ice Blue */}
+      {/* Floating Product 5: Minimalist Gift Packaging Box in Leaf Green */}
       <group position={[0.7, 0.9, 0.1]}>
         <Float speed={2.2} rotationIntensity={1.0} floatIntensity={0.95}>
           <mesh castShadow rotation={[0.3, 0.6, -0.2]}>
             <boxGeometry args={[0.34, 0.44, 0.22]} />
-            <meshStandardMaterial color="#58C9EF" roughness={0.2} metalness={0.1} />
+            <meshStandardMaterial color="#65B32E" roughness={0.2} metalness={0.1} />
           </mesh>
         </Float>
       </group>
 
-      {/* Small Orbiting Pearls in Sky Blue */}
+      {/* Small Orbiting Pearls in Electric Lime & Golden Yellow */}
       <group position={[-0.2, 0.95, 0.35]}>
         <Float speed={2.8} floatIntensity={1.4}>
           <mesh>
             <sphereGeometry args={[0.06, 16, 16]} />
-            <meshStandardMaterial color="#00A8C8" roughness={0.1} metalness={0.4} />
+            <meshStandardMaterial color="#B4F000" roughness={0.1} metalness={0.4} />
           </mesh>
         </Float>
       </group>
@@ -150,7 +150,7 @@ function FloatingProducts({ activeCategory = 'beauty' }: ProductShowcaseCanvasPr
         <Float speed={2.6} floatIntensity={1.2}>
           <mesh>
             <sphereGeometry args={[0.08, 16, 16]} />
-            <meshStandardMaterial color="#1756C1" roughness={0.2} />
+            <meshStandardMaterial color="#F4DE26" roughness={0.2} />
           </mesh>
         </Float>
       </group>

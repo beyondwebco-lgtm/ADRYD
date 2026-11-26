@@ -2,57 +2,45 @@
 
 @theme {
   /* ==========================================================================
-     ADRYD V5.0 Immersive Multicolor Experience — Full-Site Design System
+     ADRYD Electric Lime × Forest Green Brand Identity
      ========================================================================== */
   
-  /* Primary Neutrals */
-  --color-dark-ink: #142238;
-  --color-soft-cloud: #F8FAFC;
+  /* Primary Brand Palette */
+  --color-electric-lime: #B4F000;
+  --color-forest-green: #092D19;
+  --color-deep-emerald: #005522;
+  --color-carbon-black: #101510;
   --color-pure-white: #FFFFFF;
-  --color-text-charcoal: #142238;
-  --color-text-muted: #64748B;
-  
-  /* Multicolor Spectrum */
-  --color-palapitta: #00A8C8;
-  --color-electric-blue: #2563EB;
-  --color-royal-blue: #1756C1;
-  --color-vibrant-violet: #7856FF;
-  --color-deep-purple: #6D28D9;
-  --color-electric-pink: #EC4899;
-  --color-magenta: #D946EF;
-  --color-fresh-mint: #2DD4BF;
-  --color-emerald: #10B981;
-  --color-lime: #A3E635;
-  --color-golden-yellow: #FACC15;
-  --color-sky-cyan: #38BDF8;
-  --color-electric-cyan: #22D3EE;
-  --color-coral: #FB7185;
-  --color-lavender: #C4B5FD;
-  --color-soft-peach: #FFD6C9;
+  --color-soft-mint: #E4EBE5;
+  --color-golden-yellow: #F4DE26;
+  --color-leaf-green: #65B32E;
+  --color-midnight-green: #061C12;
+
+  /* Typography Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E4EBE5;
+  --color-text-muted: #9BA89F;
 
   /* Section Background Tints */
-  --color-bg-lavender: #F5F3FF;
-  --color-bg-cyan: #F0F9FF;
-  --color-bg-mint: #F0FDFA;
-  --color-bg-pink: #FDF2F8;
-  --color-bg-yellow: #FEFCE8;
+  --color-bg-forest: #092D19;
+  --color-bg-emerald: #005522;
+  --color-bg-midnight: #061C12;
+  --color-bg-mint-soft: #E4EBE5;
 
   --font-heading: var(--font-plus-jakarta-sans), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 }
 
 :root {
-  --dark-ink: #142238;
-  --electric-blue: #2563EB;
-  --vibrant-violet: #7856FF;
-  --magenta: #D946EF;
-  --sky-cyan: #38BDF8;
-  --electric-cyan: #22D3EE;
-  --fresh-mint: #2DD4BF;
-  --emerald: #10B981;
-  --electric-pink: #EC4899;
-  --golden-yellow: #FACC15;
-  --lavender: #C4B5FD;
+  --electric-lime: #B4F000;
+  --forest-green: #092D19;
+  --deep-emerald: #005522;
+  --carbon-black: #101510;
+  --pure-white: #FFFFFF;
+  --soft-mint: #E4EBE5;
+  --golden-yellow: #F4DE26;
+  --leaf-green: #65B32E;
+  --midnight-green: #061C12;
 }
 
 /* Custom Scrollbar */
@@ -60,20 +48,21 @@
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #061C12;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #005522;
   border-radius: 6px;
+  border: 1px solid rgba(180, 240, 0, 0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7856FF;
+  background: #B4F000;
 }
 
 /* Base Body Styles */
 body {
-  background-color: #0E1726;
-  color: #142238;
+  background-color: #061C12;
+  color: #FFFFFF;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -82,17 +71,24 @@ body {
 
 /* Glassmorphism Card Utilities */
 .glass-card-dark {
-  background: rgba(20, 34, 56, 0.65);
+  background: rgba(9, 45, 25, 0.68);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(180, 240, 0, 0.18);
+}
+
+.glass-card-emerald {
+  background: rgba(0, 85, 34, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(180, 240, 0, 0.22);
 }
 
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(228, 235, 229, 0.12);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(228, 235, 229, 0.22);
 }
 
 .glass-card-tinted {
@@ -101,25 +97,25 @@ body {
 }
 
 /* Text Glows */
-.text-glow-cyan {
-  text-shadow: 0 0 24px rgba(34, 211, 238, 0.45);
+.text-glow-lime {
+  text-shadow: 0 0 24px rgba(180, 240, 0, 0.65);
 }
-.text-glow-violet {
-  text-shadow: 0 0 24px rgba(120, 86, 255, 0.45);
+.text-glow-emerald {
+  text-shadow: 0 0 24px rgba(101, 179, 46, 0.55);
 }
-.text-glow-pink {
-  text-shadow: 0 0 24px rgba(236, 72, 153, 0.45);
+.text-glow-gold {
+  text-shadow: 0 0 24px rgba(244, 222, 38, 0.55);
 }
 
 /* Neon Borders */
-.neon-border-cyan {
-  box-shadow: 0 0 25px -4px rgba(34, 211, 238, 0.3);
+.neon-border-lime {
+  box-shadow: 0 0 25px -4px rgba(180, 240, 0, 0.4);
 }
-.neon-border-violet {
-  box-shadow: 0 0 25px -4px rgba(120, 86, 255, 0.3);
+.neon-border-emerald {
+  box-shadow: 0 0 25px -4px rgba(0, 85, 34, 0.45);
 }
-.neon-border-pink {
-  box-shadow: 0 0 25px -4px rgba(236, 72, 153, 0.3);
+.neon-border-gold {
+  box-shadow: 0 0 25px -4px rgba(244, 222, 38, 0.35);
 }
 
 /* Smooth Card Hover Transitions */
@@ -128,10 +124,10 @@ body {
 }
 .card-hover-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.2), 0 0 1px 1px rgba(120, 86, 255, 0.25);
+  box-shadow: 0 24px 48px -12px rgba(9, 45, 25, 0.4), 0 0 1px 1px rgba(180, 240, 0, 0.35);
 }
 
-/* Ambient Multicolor Animations */
+/* Ambient Animations */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -146,7 +142,7 @@ body {
 
 .animate-gradient-slow {
   background-size: 200% 200%;
-  animation: gradientShift 14s ease infinite;
+  animation: gradientShift 12s ease infinite;
 }
 
 @keyframes floatSlow {

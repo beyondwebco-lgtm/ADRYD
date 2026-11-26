@@ -19,12 +19,12 @@ export default function ServicesSection() {
   const services = [
     {
       action: 'PROMOTE',
-      color: '#38BDF8',
-      textColor: 'text-[#38BDF8]',
-      cardBg: 'bg-[#2563EB]/15 hover:bg-[#2563EB]/25',
-      border: 'border-[#2563EB]/35 hover:border-[#38BDF8]',
-      glow: 'hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]',
-      iconBg: 'bg-[#2563EB]/30',
+      color: '#B4F000',
+      textColor: 'text-[#B4F000]',
+      cardBg: 'bg-[#092D19]/60 hover:bg-[#092D19]/80',
+      border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
+      glow: 'hover:shadow-[0_0_30px_rgba(180,240,0,0.35)]',
+      iconBg: 'bg-[#B4F000]/20',
       icon: Megaphone,
       desc: 'Make your brand visible.',
       detail: 'High-recall electric vehicle livery and rider apparel navigating prime urban corridors.',
@@ -32,12 +32,12 @@ export default function ServicesSection() {
     },
     {
       action: 'SHOWCASE',
-      color: '#C4B5FD',
-      textColor: 'text-[#C4B5FD]',
-      cardBg: 'bg-[#7856FF]/15 hover:bg-[#7856FF]/25',
-      border: 'border-[#7856FF]/35 hover:border-[#C4B5FD]',
-      glow: 'hover:shadow-[0_0_30px_rgba(120,86,255,0.35)]',
-      iconBg: 'bg-[#7856FF]/30',
+      color: '#65B32E',
+      textColor: 'text-[#65B32E]',
+      cardBg: 'bg-[#005522]/35 hover:bg-[#005522]/55',
+      border: 'border-[#005522]/50 hover:border-[#65B32E]',
+      glow: 'hover:shadow-[0_0_30px_rgba(101,179,46,0.35)]',
+      iconBg: 'bg-[#65B32E]/20',
       icon: ShoppingBag,
       desc: 'Bring products closer.',
       detail: 'Illuminated, weather-sealed compartments letting customers see and touch actual items.',
@@ -45,12 +45,12 @@ export default function ServicesSection() {
     },
     {
       action: 'SELL',
-      color: '#34D399',
-      textColor: 'text-[#34D399]',
-      cardBg: 'bg-[#10B981]/15 hover:bg-[#10B981]/25',
-      border: 'border-[#10B981]/35 hover:border-[#34D399]',
-      glow: 'hover:shadow-[0_0_30px_rgba(16,185,129,0.35)]',
-      iconBg: 'bg-[#10B981]/30',
+      color: '#F4DE26',
+      textColor: 'text-[#F4DE26]',
+      cardBg: 'bg-[#F4DE26]/10 hover:bg-[#F4DE26]/20',
+      border: 'border-[#F4DE26]/30 hover:border-[#F4DE26]',
+      glow: 'hover:shadow-[0_0_30px_rgba(244,222,38,0.3)]',
+      iconBg: 'bg-[#F4DE26]/20',
       icon: QrCode,
       desc: 'Turn interest into enquiries.',
       detail: 'Scan-and-buy catalogues connecting on-street curiosity with instant checkout.',
@@ -58,12 +58,12 @@ export default function ServicesSection() {
     },
     {
       action: 'PRE-ORDER',
-      color: '#F472B6',
-      textColor: 'text-[#F472B6]',
-      cardBg: 'bg-[#EC4899]/15 hover:bg-[#EC4899]/25',
-      border: 'border-[#EC4899]/35 hover:border-[#F472B6]',
-      glow: 'hover:shadow-[0_0_30px_rgba(236,72,153,0.35)]',
-      iconBg: 'bg-[#EC4899]/30',
+      color: '#E4EBE5',
+      textColor: 'text-[#E4EBE5]',
+      cardBg: 'bg-[#E4EBE5]/10 hover:bg-[#E4EBE5]/20',
+      border: 'border-[#E4EBE5]/30 hover:border-[#E4EBE5]',
+      glow: 'hover:shadow-[0_0_30px_rgba(228,235,229,0.3)]',
+      iconBg: 'bg-[#E4EBE5]/20',
       icon: PackageCheck,
       desc: 'Capture demand early.',
       detail: 'Validate customer interest and reserve orders before major retail rollouts.',
@@ -71,12 +71,12 @@ export default function ServicesSection() {
     },
     {
       action: 'DELIVER',
-      color: '#22D3EE',
-      textColor: 'text-[#22D3EE]',
-      cardBg: 'bg-[#00A8C8]/15 hover:bg-[#00A8C8]/25',
-      border: 'border-[#00A8C8]/35 hover:border-[#22D3EE]',
-      glow: 'hover:shadow-[0_0_30px_rgba(0,168,200,0.35)]',
-      iconBg: 'bg-[#00A8C8]/30',
+      color: '#B4F000',
+      textColor: 'text-[#B4F000]',
+      cardBg: 'bg-[#092D19]/60 hover:bg-[#092D19]/80',
+      border: 'border-[#B4F000]/30 hover:border-[#B4F000]',
+      glow: 'hover:shadow-[0_0_30px_rgba(180,240,0,0.35)]',
+      iconBg: 'bg-[#B4F000]/20',
       icon: Truck,
       desc: 'Connect local commerce.',
       detail: 'Same-day neighborhood replenishment and promotional sample pack drop-offs.',
@@ -84,12 +84,12 @@ export default function ServicesSection() {
     },
     {
       action: 'VIRAL',
-      color: '#E879F9',
-      textColor: 'text-[#E879F9]',
-      cardBg: 'bg-[#D946EF]/15 hover:bg-[#D946EF]/25',
-      border: 'border-[#D946EF]/35 hover:border-[#E879F9]',
-      glow: 'hover:shadow-[0_0_30px_rgba(217,70,239,0.35)]',
-      iconBg: 'bg-[#D946EF]/30',
+      color: '#65B32E',
+      textColor: 'text-[#65B32E]',
+      cardBg: 'bg-[#005522]/35 hover:bg-[#005522]/55',
+      border: 'border-[#65B32E]/40 hover:border-[#B4F000]',
+      glow: 'hover:shadow-[0_0_30px_rgba(101,179,46,0.35)]',
+      iconBg: 'bg-[#65B32E]/20',
       icon: Video,
       desc: 'Create moments worth sharing.',
       detail: 'Authentic street reaction reels and creator collaborations amplifying physical buzz.',
@@ -97,12 +97,12 @@ export default function ServicesSection() {
     },
     {
       action: 'INSIGHTS',
-      color: '#60A5FA',
-      textColor: 'text-[#60A5FA]',
-      cardBg: 'bg-[#1756C1]/15 hover:bg-[#1756C1]/25',
-      border: 'border-[#1756C1]/35 hover:border-[#60A5FA]',
-      glow: 'hover:shadow-[0_0_30px_rgba(23,86,193,0.35)]',
-      iconBg: 'bg-[#1756C1]/30',
+      color: '#B4F000',
+      textColor: 'text-[#B4F000]',
+      cardBg: 'bg-[#092D19]/70 hover:bg-[#092D19]/90',
+      border: 'border-[#005522] hover:border-[#B4F000]',
+      glow: 'hover:shadow-[0_0_30px_rgba(180,240,0,0.35)]',
+      iconBg: 'bg-[#005522]/60',
       icon: BarChart3,
       desc: 'Explore campaign intelligence.',
       detail: 'Planned corridor telemetry, active hours verification and audience engagement logs.',
@@ -113,28 +113,28 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/10 text-white">
-      {/* Ambient Violet, Pink & Blue Glowing Orbs */}
-      <div className="absolute -top-20 left-1/4 w-[600px] h-[600px] bg-[#7856FF]/20 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-10 w-[550px] h-[550px] bg-[#D946EF]/20 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/3 w-[450px] h-[450px] bg-[#2563EB]/20 rounded-full blur-[140px] pointer-events-none" />
+      {/* Ambient Forest Green, Deep Emerald & Electric Lime Glows */}
+      <div className="absolute -top-20 left-1/4 w-[600px] h-[600px] bg-[#005522]/25 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-[550px] h-[550px] bg-[#B4F000]/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/3 w-[450px] h-[450px] bg-[#092D19]/40 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#C4B5FD] text-xs font-bold uppercase tracking-wider border border-white/20 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#22D3EE]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#092D19]/60 backdrop-blur-md text-[#B4F000] text-xs font-bold uppercase tracking-wider border border-[#B4F000]/30 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#B4F000]" />
             <span>THE 7 CAPABILITIES</span>
           </div>
 
           <h2 className="font-heading font-black text-4xl sm:text-6xl text-white tracking-tight uppercase leading-[1.05]">
             ONE NETWORK.{' '}
-            <span className="bg-gradient-to-r from-[#22D3EE] via-[#C4B5FD] to-[#E879F9] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(120,86,255,0.4)]">
+            <span className="bg-gradient-to-r from-[#B4F000] via-[#E4EBE5] to-[#F4DE26] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(180,240,0,0.4)]">
               MANY POSSIBILITIES.
             </span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed max-w-2xl mx-auto font-normal">
             From high-recall brand visibility to illuminated product showcases and same-day delivery.
           </p>
         </div>
@@ -158,45 +158,42 @@ export default function ServicesSection() {
                   href={`/services#${svc.id}`}
                   className={`group block h-full p-8 rounded-3xl ${svc.cardBg} backdrop-blur-2xl border ${svc.border} ${svc.glow} card-hover-lift transition-all duration-300 flex flex-col justify-between relative overflow-hidden`}
                 >
-                  {/* Card Header: Icon & Planned Badge */}
-                  <div>
-                    <div className="flex items-center justify-between mb-8">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
                       <div
-                        className={`w-14 h-14 rounded-2xl ${svc.iconBg} border border-white/15 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-sm`}
+                        className={`w-12 h-12 rounded-2xl ${svc.iconBg} border border-white/10 flex items-center justify-center`}
                         style={{ color: svc.color }}
                       >
-                        <Icon className="w-7 h-7" />
+                        <Icon className="w-6 h-6" />
                       </div>
-
-                      {svc.isPlanned ? (
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-[#60A5FA] border border-[#60A5FA]/30 shadow-xs">
-                          Planned Architecture
+                      {svc.isPlanned && (
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">
+                          Planned
                         </span>
-                      ) : (
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:bg-white/20 transition-all border border-white/10">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </div>
                       )}
                     </div>
 
-                    {/* Action-First Typography */}
-                    <div className="space-y-2">
-                      <h3 className={`font-heading font-black text-3xl tracking-tight uppercase ${svc.textColor}`}>
+                    <div>
+                      <h3 className={`font-heading font-black text-2xl tracking-wider ${svc.textColor}`}>
                         {svc.action}.
                       </h3>
-                      <p className="text-base font-bold text-white">
+                      <p className="text-base font-bold text-white mt-1">
                         {svc.desc}
                       </p>
-                      <p className="text-sm text-slate-300 leading-relaxed pt-2 font-normal">
+                      <p className="text-xs text-[#E4EBE5]/80 leading-relaxed mt-2 font-normal">
                         {svc.detail}
                       </p>
                     </div>
                   </div>
 
-                  {/* Card Bottom CTA link */}
-                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-bold text-slate-300 group-hover:text-white transition-colors">
-                    <span>Explore capability</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-300 group-hover:text-white transition-colors">
+                      Learn More
+                    </span>
+                    <ArrowUpRight
+                      className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      style={{ color: svc.color }}
+                    />
                   </div>
                 </Link>
               </motion.div>

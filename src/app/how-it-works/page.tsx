@@ -24,9 +24,9 @@ const mainSteps = [
     subtitle: 'Share your brand, products and campaign needs.',
     desc: 'Submit your campaign requirements: objective, target city corridor (e.g. Hitec City, Jubilee Hills), desired duration, rider count, and whether you require vehicle wrap branding, live product showcases, or QR-driven sampling.',
     icon: Target,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#B4F000]/30',
+    color: 'text-[#B4F000]',
   },
   {
     step: '02',
@@ -34,9 +34,9 @@ const mainSteps = [
     subtitle: 'We help explore suitable riders, routes and promotion formats.',
     desc: 'Our operations team plans optimized corridor routing, coordinates approved vehicle branding wraps, prepares illuminated product display enclosures, and briefs verified riders on safety and route protocols.',
     icon: Compass,
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#65B32E]/30',
+    color: 'text-[#65B32E]',
   },
   {
     step: '03',
@@ -44,9 +44,9 @@ const mainSteps = [
     subtitle: "Bring your campaign concept to life through ADRYD's planned mobility network.",
     desc: 'Your branded fleet takes to prime streets, creating high-recall impressions at eye level, showcasing products directly to interested customers, facilitating QR purchases, and generating viral street reaction content.',
     icon: Rocket,
-    bg: 'bg-white',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#123C83]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#F4DE26]/30',
+    color: 'text-[#F4DE26]',
   },
 ];
 
@@ -56,9 +56,9 @@ const stakeholderJourneys = [
     role: 'Brands, Retailers & Makers',
     desc: 'From initial briefing to active street deployment, track your mobile presence and engage shoppers directly in their daily environments.',
     icon: ShoppingBag,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#B4F000]/30',
+    color: 'text-[#B4F000]',
     href: '/book-campaign',
     cta: 'Book Campaign',
   },
@@ -67,9 +67,9 @@ const stakeholderJourneys = [
     role: 'Pedestrians, Commuters & Shoppers',
     desc: 'Encounter eye-level brand vehicles in prime commercial hubs, view illuminated products in transit, scan instant QR codes and order on the spot.',
     icon: Users,
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#65B32E]/30',
+    color: 'text-[#65B32E]',
     href: '/services',
     cta: 'Explore Experience',
   },
@@ -78,9 +78,9 @@ const stakeholderJourneys = [
     role: 'EV Riders & Fleet Operators',
     desc: 'Monetize daily rides on approved electric scooters by participating in coordinated promotional runs with zero commissions taken from your earnings.',
     icon: Bike,
-    bg: 'bg-white',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#123C83]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#F4DE26]/30',
+    color: 'text-[#F4DE26]',
     href: '/become-a-rider',
     cta: 'Join as Rider',
   },
@@ -88,21 +88,25 @@ const stakeholderJourneys = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white pt-28 pb-20 relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[#B4F000]/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#005522]/30 blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B4F000]/15 text-[#B4F000] border border-[#B4F000]/30 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Simple Process</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
             Simple from{' '}
             <br />
-            <span className="text-[#00A8C8]">start to finish.</span>
+            <span className="text-[#B4F000] text-glow-lime">start to finish.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed font-normal">
             How ADRYD transforms brand ideas into high-visibility moving marketplace campaigns across Hyderabad.
           </p>
         </div>
@@ -114,7 +118,7 @@ export default function HowItWorksPage() {
             return (
               <div
                 key={s.step}
-                className={`rounded-3xl ${s.bg} border ${s.border} p-8 lg:p-10 card-hover-lift`}
+                className={`rounded-3xl ${s.bg} backdrop-blur-xl border ${s.border} p-8 lg:p-10 card-hover-lift shadow-[0_12px_40px_rgba(0,0,0,0.35)]`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
@@ -123,11 +127,11 @@ export default function HowItWorksPage() {
                       <span className={`font-heading font-black text-4xl ${s.color}`}>
                         {s.step}
                       </span>
-                      <div className={`w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center ${s.color} border border-[#DCECF2]`}>
+                      <div className={`w-10 h-10 rounded-xl bg-[#061C12]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${s.color}`}>
                         <Icon className="w-5 h-5" />
                       </div>
                     </div>
-                    <h2 className="font-heading font-black text-2xl text-[#172B3A]">
+                    <h2 className="font-heading font-black text-2xl text-white">
                       {s.title}
                     </h2>
                     <p className={`text-sm font-bold ${s.color}`}>
@@ -136,7 +140,7 @@ export default function HowItWorksPage() {
                   </div>
 
                   <div className="lg:col-span-8 space-y-4">
-                    <p className="text-sm sm:text-base text-[#637786] leading-relaxed font-normal">
+                    <p className="text-sm sm:text-base text-[#E4EBE5] leading-relaxed font-normal">
                       {s.desc}
                     </p>
                   </div>
@@ -150,10 +154,10 @@ export default function HowItWorksPage() {
         {/* 3 Stakeholder Journeys */}
         <div className="mb-20">
           <div className="max-w-2xl mb-10 space-y-2">
-            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+            <h2 className="font-heading font-black text-3xl text-white uppercase">
               The Moving Ecosystem
             </h2>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]">
               Connecting three key participants across our mobility network.
             </p>
           </div>
@@ -164,20 +168,20 @@ export default function HowItWorksPage() {
               return (
                 <div
                   key={idx}
-                  className={`rounded-3xl ${j.bg} border ${j.border} p-8 card-hover-lift flex flex-col justify-between`}
+                  className={`rounded-3xl ${j.bg} backdrop-blur-xl border ${j.border} p-8 card-hover-lift flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.3)]`}
                 >
                   <div className="space-y-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${j.color} border border-[#DCECF2]`}>
+                    <div className={`w-12 h-12 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${j.color}`}>
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
                       <span className={`text-[11px] font-bold uppercase tracking-wider ${j.color}`}>
                         {j.role}
                       </span>
-                      <h3 className="font-heading font-bold text-xl text-[#172B3A] mt-1">
+                      <h3 className="font-heading font-bold text-xl text-white mt-1">
                         {j.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#637786] leading-relaxed font-normal mt-2">
+                      <p className="text-xs sm:text-sm text-[#E4EBE5] leading-relaxed font-normal mt-2">
                         {j.desc}
                       </p>
                     </div>
@@ -186,7 +190,7 @@ export default function HowItWorksPage() {
                   <div className="pt-6">
                     <Link
                       href={j.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#172B3A] hover:text-[#00A8C8] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#B4F000] transition-colors"
                     >
                       <span>{j.cta}</span>
                       <ArrowRight className="w-3.5 h-3.5" />

@@ -11,7 +11,7 @@ export default function BrandLogo({
   className = '',
   size = 'md',
   showTagline = true,
-  theme = 'light',
+  theme = 'dark',
 }: BrandLogoProps) {
   // Height sizing
   const dimensions = {
@@ -21,15 +21,15 @@ export default function BrandLogo({
   }[size];
 
   const isLight = theme === 'light';
-  const adColor = isLight ? '#172B3A' : '#FFFFFF';
-  const rydColor = isLight ? '#00A8C8' : '#58C9EF';
-  const taglineColor = isLight ? '#637786' : '#FFFFFF';
-  const dartStart = isLight ? '#00A8C8' : '#58C9EF';
-  const dartEnd = isLight ? '#1756C1' : '#00A8C8';
+  const adColor = isLight ? '#092D19' : '#FFFFFF';
+  const rydColor = isLight ? '#005522' : '#B4F000';
+  const taglineColor = isLight ? '#092D19' : '#E4EBE5';
+  const dartStart = isLight ? '#005522' : '#B4F000';
+  const dartEnd = isLight ? '#65B32E' : '#005522';
 
   return (
     <div className={`flex items-center select-none group/logo ${className}`}>
-      {/* Precision Vector SVG Logo matching official ADRYD brand guidelines */}
+      {/* Precision Vector SVG Logo — Electric Lime × Forest Green Brand Guidelines */}
       <svg
         viewBox="0 0 290 56"
         fill="none"
@@ -64,7 +64,7 @@ export default function BrandLogo({
 
         {/* Wordmark Typography */}
         <g transform="translate(74, 5)">
-          {/* "AD" in Pure Charcoal on light, White on dark */}
+          {/* "AD" in Pure White on dark, Forest Green on light */}
           <text
             x="0"
             y="32"
@@ -78,7 +78,7 @@ export default function BrandLogo({
             AD
           </text>
 
-          {/* "RYD" in Coral Accent on light, Neon Lime on dark */}
+          {/* "RYD" in Electric Lime on dark, Deep Emerald on light */}
           <text
             x="51"
             y="32"

@@ -48,8 +48,8 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0E1726]/85 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)] py-3'
-            : 'bg-[#0E1726]/60 backdrop-blur-md border-b border-white/10 py-4'
+            ? 'bg-[#061C12]/85 backdrop-blur-2xl border-b border-[#B4F000]/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)] py-3'
+            : 'bg-[#061C12]/60 backdrop-blur-md border-b border-white/10 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +57,7 @@ export default function Header() {
             {/* Logo on the left */}
             <Link
               href="/"
-              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE] rounded-lg transition-transform"
+              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F000] rounded-lg transition-transform"
               aria-label="ADRYD - The Moving Marketplace"
             >
               <BrandLogo size="md" showTagline={true} theme="dark" />
@@ -73,8 +73,8 @@ export default function Header() {
                     href={link.href}
                     className={`px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'text-[#22D3EE] bg-white/10 shadow-sm border border-white/15'
-                        : 'text-slate-200 hover:text-white hover:bg-white/10'
+                        ? 'text-[#B4F000] bg-[#B4F000]/10 shadow-sm border border-[#B4F000]/25'
+                        : 'text-slate-200 hover:text-[#B4F000] hover:bg-white/10'
                     }`}
                   >
                     {link.label}
@@ -90,8 +90,8 @@ export default function Header() {
                   onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
                   className={`px-3 py-2 text-sm font-semibold rounded-full flex items-center gap-1 transition-all ${
                     pathname.startsWith('/adryd-upgrade') || pathname.startsWith('/technology')
-                      ? 'text-[#22D3EE] bg-white/10 border border-white/15'
-                      : 'text-slate-200 hover:text-white hover:bg-white/10'
+                      ? 'text-[#B4F000] bg-[#B4F000]/10 border border-[#B4F000]/25'
+                      : 'text-slate-200 hover:text-[#B4F000] hover:bg-white/10'
                   }`}
                   aria-expanded={dropdownOpen}
                 >
@@ -100,17 +100,17 @@ export default function Header() {
                 </button>
 
                 {dropdownOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-56 rounded-2xl bg-[#0E1726]/95 backdrop-blur-2xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.5)] p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute right-0 top-full mt-2 w-56 rounded-2xl bg-[#061C12]/95 backdrop-blur-2xl border border-[#B4F000]/20 shadow-[0_12px_40px_rgba(0,0,0,0.5)] p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                     <Link
                       href="/adryd-upgrade"
                       className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#22D3EE] shrink-0 border border-white/10">
+                      <div className="w-8 h-8 rounded-lg bg-[#B4F000]/15 flex items-center justify-center text-[#B4F000] shrink-0 border border-[#B4F000]/25">
                         <Sparkles className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white group-hover:text-[#22D3EE] transition-colors">ADRYD Upgrade</div>
-                        <div className="text-[11px] text-slate-400">Platform Model</div>
+                        <div className="text-xs font-bold text-white group-hover:text-[#B4F000] transition-colors">ADRYD Upgrade</div>
+                        <div className="text-[11px] text-[#E4EBE5]/70">Platform Model</div>
                       </div>
                     </Link>
 
@@ -118,12 +118,12 @@ export default function Header() {
                       href="/technology"
                       className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#7856FF] shrink-0 border border-white/10">
+                      <div className="w-8 h-8 rounded-lg bg-[#65B32E]/15 flex items-center justify-center text-[#65B32E] shrink-0 border border-[#65B32E]/25">
                         <Zap className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white group-hover:text-[#7856FF] transition-colors">Technology</div>
-                        <div className="text-[11px] text-slate-400">Connected Roadmap</div>
+                        <div className="text-xs font-bold text-white group-hover:text-[#65B32E] transition-colors">Technology</div>
+                        <div className="text-[11px] text-[#E4EBE5]/70">Connected Roadmap</div>
                       </div>
                     </Link>
                   </div>
@@ -135,10 +135,10 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-3">
               <Link
                 href="/book-campaign"
-                className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#22D3EE] via-[#7856FF] to-[#D946EF] hover:from-[#06B6D4] hover:to-[#C026D3] text-white text-sm font-bold shadow-[0_4px_20px_rgba(34,211,238,0.35)] hover:shadow-[0_6px_25px_rgba(120,86,255,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] text-sm font-black shadow-[0_4px_20px_rgba(180,240,0,0.35)] hover:shadow-[0_6px_25px_rgba(180,240,0,0.55)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
                 <span>Launch Campaign</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-[#092D19]" />
               </Link>
             </div>
 
@@ -146,7 +146,7 @@ export default function Header() {
             <div className="flex sm:hidden items-center gap-2">
               <Link
                 href="/book-campaign"
-                className="px-4 py-2 rounded-full bg-gradient-to-r from-[#22D3EE] to-[#7856FF] text-white text-xs font-bold shadow-sm"
+                className="px-4 py-2 rounded-full bg-[#B4F000] text-[#092D19] text-xs font-black shadow-sm"
               >
                 Launch
               </Link>
@@ -165,7 +165,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0E1726]/98 backdrop-blur-3xl pt-24 px-6 pb-12 flex flex-col justify-between overflow-y-auto lg:hidden animate-in fade-in duration-200 text-white">
+        <div className="fixed inset-0 z-40 bg-[#061C12]/98 backdrop-blur-3xl pt-24 px-6 pb-12 flex flex-col justify-between overflow-y-auto lg:hidden animate-in fade-in duration-200 text-white">
           <div className="space-y-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -176,7 +176,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-4 py-3 rounded-2xl text-lg font-bold transition-all ${
                     isActive
-                      ? 'text-[#22D3EE] bg-white/10 border border-white/15'
+                      ? 'text-[#B4F000] bg-[#B4F000]/10 border border-[#B4F000]/25'
                       : 'text-slate-200 hover:bg-white/10'
                   }`}
                 >
@@ -189,7 +189,7 @@ export default function Header() {
               <Link
                 href="/adryd-upgrade"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-4 py-3 rounded-2xl bg-white/10 text-[#22D3EE] font-bold text-base"
+                className="flex items-center justify-between px-4 py-3 rounded-2xl bg-[#B4F000]/10 text-[#B4F000] font-bold text-base"
               >
                 <span>ADRYD Upgrade</span>
                 <Sparkles className="w-4 h-4" />
@@ -197,7 +197,7 @@ export default function Header() {
               <Link
                 href="/technology"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-4 py-3 rounded-2xl bg-white/5 text-[#C4B5FD] font-bold text-base"
+                className="flex items-center justify-between px-4 py-3 rounded-2xl bg-[#65B32E]/10 text-[#65B32E] font-bold text-base"
               >
                 <span>Technology Roadmap</span>
                 <Zap className="w-4 h-4" />
@@ -209,10 +209,10 @@ export default function Header() {
             <Link
               href="/book-campaign"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-full bg-gradient-to-r from-[#22D3EE] via-[#7856FF] to-[#D946EF] text-white font-bold text-base shadow-[0_4px_25px_rgba(34,211,238,0.35)]"
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-full bg-[#B4F000] text-[#092D19] font-black text-base shadow-[0_4px_25px_rgba(180,240,0,0.35)]"
             >
               <span>Launch a Campaign</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 text-[#092D19]" />
             </Link>
           </div>
         </div>

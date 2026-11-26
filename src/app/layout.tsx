@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF',
+  themeColor: '#092D19',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -97,7 +97,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="bg-[#0E1726] text-white font-body selection:bg-[#7856FF]/30 selection:text-[#22D3EE] min-h-screen flex flex-col antialiased relative"
+        className="bg-[#061C12] text-white font-body selection:bg-[#B4F000]/30 selection:text-[#B4F000] min-h-screen flex flex-col antialiased relative"
         suppressHydrationWarning
       >
         <GlobalImmersiveBackground />

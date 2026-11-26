@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   Sparkles,
@@ -9,7 +8,6 @@ import {
   ArrowRight,
   Truck,
   Eye,
-  CheckCircle2,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -24,74 +22,78 @@ const stages = [
     title: 'Brand Promotion',
     desc: 'High-recall electric scooter wrapping and branded rider apparel moving along planned commercial routes.',
     icon: Eye,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#B4F000]/30',
+    color: 'text-[#B4F000]',
   },
   {
     num: '02',
     title: 'Product Showcase',
     desc: 'Illuminated, weather-sealed display compartments bringing real products directly to urban pedestrian hubs.',
     icon: Sparkles,
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#65B32E]/30',
+    color: 'text-[#65B32E]',
   },
   {
     num: '03',
     title: 'QR Commerce',
     desc: 'Pedestrians scan high-contrast on-scooter QR codes to view mobile catalogues and place instant orders.',
     icon: QrCode,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#F4DE26]/30',
+    color: 'text-[#F4DE26]',
   },
   {
     num: '04',
     title: 'Customer Purchase',
     desc: 'Direct ordering assistance and promo code redemption through frictionless mobile checkout.',
     icon: ShoppingBag,
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#B4F000]/30',
+    color: 'text-[#B4F000]',
   },
   {
     num: '05',
     title: 'Pre-Order Capture',
     desc: 'Scheduled showcase stops at corporate tech parks and gated communities collecting advance orders.',
     icon: PackageCheck,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/80',
+    border: 'border-[#65B32E]/30',
+    color: 'text-[#65B32E]',
   },
   {
     num: '06',
     title: 'Hyperlocal Fulfilment',
     desc: 'Same-day delivery and neighborhood order dispatch powered by the electric mobility fleet.',
     icon: Truck,
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#F4DE26]/30',
+    color: 'text-[#F4DE26]',
   },
 ];
 
 export default function AdrydUpgradePage() {
   return (
-    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white pt-28 pb-20 relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[#B4F000]/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-96 right-1/4 w-96 h-96 rounded-full bg-[#005522]/30 blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B4F000]/15 text-[#B4F000] border border-[#B4F000]/30 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Platform Evolution V3.0
+            <span>Platform Evolution V3.0</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
             From visibility to{' '}
             <br />
-            <span className="text-[#00A8C8]">product commerce.</span>
+            <span className="text-[#B4F000] text-glow-lime">product commerce.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed font-normal">
             ADRYD Upgrade transforms electric vehicle transit from passive mobile billboards into interactive moving retail and promotional showrooms.
           </p>
         </div>
@@ -99,10 +101,10 @@ export default function AdrydUpgradePage() {
         {/* 6 Stages Grid */}
         <div className="mb-24">
           <div className="max-w-2xl mb-10 space-y-2">
-            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+            <h2 className="font-heading font-black text-3xl text-white uppercase">
               The 6-Stage Customer Journey
             </h2>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]">
               How awareness converts into discovery and real-world purchase intent.
             </p>
           </div>
@@ -113,11 +115,11 @@ export default function AdrydUpgradePage() {
               return (
                 <div
                   key={stage.num}
-                  className={`rounded-3xl ${stage.bg} border ${stage.border || 'border-[#DFEAF0]'} p-8 card-hover-lift flex flex-col justify-between`}
+                  className={`rounded-3xl ${stage.bg} backdrop-blur-xl border ${stage.border} p-8 card-hover-lift flex flex-col justify-between shadow-[0_12px_40px_rgba(0,0,0,0.35)]`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className={`w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center ${stage.color}`}>
+                      <div className={`w-12 h-12 rounded-2xl bg-[#061C12]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${stage.color}`}>
                         <Icon className="w-6 h-6" />
                       </div>
                       <span className={`font-heading font-black text-3xl ${stage.color}`}>
@@ -126,10 +128,10 @@ export default function AdrydUpgradePage() {
                     </div>
 
                     <div>
-                      <h3 className="font-heading font-bold text-xl text-[#172B3A]">
+                      <h3 className="font-heading font-bold text-xl text-white">
                         {stage.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#637786] leading-relaxed mt-2">
+                      <p className="text-xs sm:text-sm text-[#E4EBE5] leading-relaxed mt-2">
                         {stage.desc}
                       </p>
                     </div>
@@ -141,19 +143,19 @@ export default function AdrydUpgradePage() {
         </div>
 
         {/* Callout Card */}
-        <div className="rounded-3xl bg-[#F6FAFC] border border-[#DCECF2] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="rounded-3xl bg-[#092D19]/75 backdrop-blur-xl border border-[#B4F000]/25 p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
           <div className="space-y-2 max-w-xl">
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#172B3A] uppercase">
+            <h3 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
               Ready to Upgrade Your Brand&apos;s Street Presence?
             </h3>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]">
               Explore customized campaign packages and showcase stops tailored to your products.
             </p>
           </div>
 
           <Link
             href="/book-campaign"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#00A8C8] hover:bg-[#0091AD] text-white font-bold text-sm shadow-md transition-all shrink-0"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] font-black text-sm shadow-[0_4px_20px_rgba(180,240,0,0.35)] transition-all shrink-0"
           >
             <span>Launch a Campaign</span>
             <ArrowRight className="w-4 h-4" />

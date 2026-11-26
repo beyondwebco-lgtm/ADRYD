@@ -24,9 +24,9 @@ const packages = [
     desc: 'Perfect for local business pilots, product sampling runs or single-neighborhood promotions.',
     features: ['1 Branded Electric Vehicle', 'Dedicated Single Corridor', 'Handout & Flyer Distribution', 'Basic Activity Log'],
     popular: false,
-    bg: 'bg-white',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/60',
+    border: 'border-[#E4EBE5]/25 hover:border-[#B4F000]',
+    color: 'text-[#E4EBE5]',
   },
   {
     id: 'local_reach',
@@ -36,9 +36,9 @@ const packages = [
     desc: 'Designed for store openings, weekend buzz and focused commercial district activations.',
     features: ['2–3 Branded Electric Vehicles', 'Cross-Corridor Street Routes', 'Illuminated Product Showcasing', 'QR Code Scan Reports'],
     popular: false,
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#005522]/35',
+    border: 'border-[#65B32E]/35 hover:border-[#B4F000]',
+    color: 'text-[#65B32E]',
   },
   {
     id: 'community',
@@ -48,9 +48,9 @@ const packages = [
     desc: 'High-frequency street presence across IT corridors, universities and prime retail avenues.',
     features: ['4–5 Branded Electric Vehicles', 'Dual-Cluster Corridor Routing', 'QR Ordering & Pre-Orders', 'Visual Verification Reports'],
     popular: true,
-    bg: 'bg-gradient-to-b from-[#F0ECFF]/80 to-white',
-    border: 'border-[#7856FF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#B4F000] ring-2 ring-[#B4F000]/40',
+    color: 'text-[#B4F000]',
   },
   {
     id: 'city_activation',
@@ -60,9 +60,9 @@ const packages = [
     desc: 'Sustained citywide brand recall across Hyderabad’s top high-street commercial hubs.',
     features: ['6–10 Branded Electric Vehicles', 'Citywide Coordinated Routes', 'Full Showcase & Delivery Sync', 'Dedicated Campaign Lead'],
     popular: false,
-    bg: 'bg-white',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/60',
+    border: 'border-[#F4DE26]/30 hover:border-[#F4DE26]',
+    color: 'text-[#F4DE26]',
   },
   {
     id: 'bulk_activation',
@@ -72,9 +72,9 @@ const packages = [
     desc: 'Large-scale fleet mobilizations, major brand launches, festival sponsorships and PR activations.',
     features: ['10+ Custom Electric Fleet', 'Multi-Corridor Synchronized Convoys', 'Full Media & Reel Coverage', 'Custom Reporting Analytics'],
     popular: false,
-    bg: 'bg-[#F6FAFC]',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#123C83]',
+    bg: 'bg-[#005522]/35',
+    border: 'border-[#005522] hover:border-[#B4F000]',
+    color: 'text-[#B4F000]',
   },
 ];
 
@@ -86,9 +86,9 @@ const subscriptions = [
     hours: '40–50 Active Hours / Month',
     desc: 'Consistent monthly street visibility for local cafes, boutiques, handmade creators and neighborhood stores.',
     features: ['1 Designated Brand EV', 'Weekend Peak Hours', 'Local Corridor Focus', 'Monthly Activity Summary'],
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#092D19]/60',
+    border: 'border-[#E4EBE5]/25 hover:border-[#B4F000]',
+    color: 'text-[#E4EBE5]',
   },
   {
     id: 'sub_growth',
@@ -97,9 +97,9 @@ const subscriptions = [
     hours: '80–120 Active Hours / Month',
     desc: 'Steady multi-neighborhood presence for growing retail labels, D2C brands and multi-location businesses.',
     features: ['2–3 Branded EVs', 'Weekday & Weekend Split', 'Rotating Corridor Routes', 'Bi-Weekly Progress Logs'],
-    bg: 'bg-[#F0ECFF]',
-    border: 'border-[#E4DCFF]',
-    color: 'text-[#7856FF]',
+    bg: 'bg-[#005522]/35',
+    border: 'border-[#65B32E]/35 hover:border-[#B4F000]',
+    color: 'text-[#65B32E]',
   },
   {
     id: 'sub_dominance',
@@ -108,9 +108,9 @@ const subscriptions = [
     hours: '160–240 Active Hours / Month',
     desc: 'Continuous high-recall street and storefront presence across Hyderabad’s busiest shopping and tech hubs.',
     features: ['4–6 Branded EVs', 'Daily Peak Transit Hours', 'Full Corridor Saturation', 'Dedicated Operations Lead'],
-    bg: 'bg-[#EAF9FD]',
-    border: 'border-[#D5EFF7]',
-    color: 'text-[#00A8C8]',
+    bg: 'bg-[#005522]/60',
+    border: 'border-[#B4F000]/40 hover:border-[#B4F000]',
+    color: 'text-[#B4F000]',
   },
   {
     id: 'sub_enterprise',
@@ -119,29 +119,29 @@ const subscriptions = [
     hours: 'Custom Fleet Hours / Month',
     desc: 'Fully dedicated mobile marketplace fleet operating as an exclusive mobile retail and promotional arm.',
     features: ['Custom Dedicated Fleet', 'Bespoke Display Designs', 'Full Delivery & Pre-Order Sync', 'Custom SLA & Telemetry'],
-    bg: 'bg-white',
-    border: 'border-[#DFEAF0]',
-    color: 'text-[#123C83]',
+    bg: 'bg-[#092D19]/70',
+    border: 'border-[#F4DE26]/30 hover:border-[#F4DE26]',
+    color: 'text-[#F4DE26]',
   },
 ];
 
 export default function CampaignPlansPage() {
   return (
-    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent text-white pt-28 pb-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider border border-[#D5EFF7]">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#092D19]/60 backdrop-blur-md text-[#B4F000] text-xs font-bold uppercase tracking-wider border border-[#B4F000]/30 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#B4F000]" />
             <span>Flexible Formats</span>
           </div>
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
             Campaign plans.{' '}
             <br />
-            <span className="text-[#00A8C8]">Measurable impact.</span>
+            <span className="text-[#B4F000] text-glow-lime">Measurable impact.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-[#637786] leading-relaxed font-normal">
+          <p className="text-lg sm:text-xl text-[#E4EBE5] leading-relaxed font-normal">
             Choose from five concise campaign activation tiers or structured monthly subscription retainers.
           </p>
         </div>
@@ -149,14 +149,14 @@ export default function CampaignPlansPage() {
         {/* SECTION 1: 5 CAMPAIGN PACKAGES */}
         <div className="mb-24">
           <div className="max-w-2xl mb-10 space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#00A8C8]">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B4F000]">
               <Layers className="w-3.5 h-3.5" />
               <span>Deployment Tiers</span>
             </div>
-            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+            <h2 className="font-heading font-black text-3xl text-white uppercase">
               Campaign Packages
             </h2>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]/80">
               Designed for product drops, grand openings and focused promotional blitzes.
             </p>
           </div>
@@ -165,35 +165,35 @@ export default function CampaignPlansPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`rounded-3xl p-6 border ${pkg.border} ${pkg.bg} card-hover-lift flex flex-col justify-between relative shadow-sm`}
+                className={`rounded-3xl p-6 border ${pkg.border} ${pkg.bg} backdrop-blur-2xl card-hover-lift flex flex-col justify-between relative shadow-xl transition-all duration-300`}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#00A8C8] text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#B4F000] text-[#092D19] text-[11px] font-black uppercase tracking-wider shadow-md">
                     Most Popular
                   </div>
                 )}
 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-heading font-black text-2xl text-[#172B3A]">
+                    <h3 className="font-heading font-black text-2xl text-white">
                       {pkg.name}
                     </h3>
-                    <div className="text-sm font-bold text-[#00A8C8] mt-1">
+                    <div className={`text-sm font-bold mt-1 ${pkg.color}`}>
                       {pkg.riders}
                     </div>
-                    <div className="text-xs text-[#637786] font-medium mt-0.5">
+                    <div className="text-xs text-[#E4EBE5]/70 font-medium mt-0.5">
                       {pkg.duration}
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#637786] leading-relaxed font-normal">
+                  <p className="text-xs text-[#E4EBE5]/85 leading-relaxed font-normal">
                     {pkg.desc}
                   </p>
 
-                  <div className="pt-2 border-t border-[#DCECF2] space-y-2">
+                  <div className="pt-2 border-t border-white/10 space-y-2">
                     {pkg.features.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-[#172B3A]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A8C8] shrink-0" />
+                      <div key={i} className="flex items-center gap-2 text-xs text-white">
+                        <CheckCircle2 className={`w-3.5 h-3.5 ${pkg.color} shrink-0`} />
                         <span>{f}</span>
                       </div>
                     ))}
@@ -203,10 +203,10 @@ export default function CampaignPlansPage() {
                 <div className="pt-6">
                   <Link
                     href={`/book-campaign?package=${pkg.id}`}
-                    className={`w-full py-3 rounded-full text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+                    className={`w-full py-3 rounded-full text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
                       pkg.popular
-                        ? 'bg-[#00A8C8] text-white hover:bg-[#0093AF] shadow-md'
-                        : 'bg-[#F6FAFC] text-[#172B3A] hover:bg-[#EAF9FD] border border-[#DCECF2]'
+                        ? 'bg-[#B4F000] text-[#092D19] hover:bg-[#c3fc18] shadow-md'
+                        : 'bg-white/15 text-white hover:bg-white/25 border border-white/15'
                     }`}
                   >
                     <span>Enquire Now</span>
@@ -221,14 +221,14 @@ export default function CampaignPlansPage() {
         {/* SECTION 2: 4 MONTHLY SUBSCRIPTIONS */}
         <div className="mb-20">
           <div className="max-w-2xl mb-10 space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1756C1]">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#65B32E]">
               <Calendar className="w-3.5 h-3.5" />
               <span>Continuous Coverage</span>
             </div>
-            <h2 className="font-heading font-black text-3xl text-[#172B3A] uppercase">
+            <h2 className="font-heading font-black text-3xl text-white uppercase">
               Monthly Subscription Plans
             </h2>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]/80">
               Sustained monthly visibility designed to keep your brand top-of-mind across Hyderabad.
             </p>
           </div>
@@ -237,29 +237,29 @@ export default function CampaignPlansPage() {
             {subscriptions.map((sub) => (
               <div
                 key={sub.id}
-                className={`rounded-3xl p-7 border ${sub.border} ${sub.bg} card-hover-lift flex flex-col justify-between`}
+                className={`rounded-3xl p-7 border ${sub.border} ${sub.bg} backdrop-blur-2xl card-hover-lift flex flex-col justify-between shadow-xl transition-all duration-300`}
               >
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-heading font-bold text-xl text-[#172B3A]">
+                    <h3 className="font-heading font-bold text-xl text-white">
                       {sub.name}
                     </h3>
                     <div className={`text-xs font-bold mt-1 ${sub.color}`}>
                       {sub.riders}
                     </div>
-                    <div className="flex items-center gap-1 text-[11px] text-[#637786] font-medium mt-1">
-                      <Clock className="w-3 h-3" />
+                    <div className="flex items-center gap-1 text-[11px] text-[#E4EBE5]/70 font-medium mt-1">
+                      <Clock className="w-3 h-3 text-[#B4F000]" />
                       <span>{sub.hours}</span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#637786] leading-relaxed font-normal">
+                  <p className="text-xs text-[#E4EBE5]/85 leading-relaxed font-normal">
                     {sub.desc}
                   </p>
 
-                  <div className="pt-2 border-t border-[#DCECF2] space-y-2">
+                  <div className="pt-2 border-t border-white/10 space-y-2">
                     {sub.features.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-[#172B3A]">
+                      <div key={i} className="flex items-center gap-2 text-xs text-white">
                         <CheckCircle2 className={`w-3.5 h-3.5 ${sub.color} shrink-0`} />
                         <span>{f}</span>
                       </div>
@@ -270,10 +270,10 @@ export default function CampaignPlansPage() {
                 <div className="pt-6">
                   <Link
                     href={`/book-campaign?plan=${sub.id}`}
-                    className="w-full py-3 rounded-full text-xs font-bold bg-white text-[#172B3A] border border-[#DCECF2] hover:border-[#00A8C8] hover:text-[#00A8C8] flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                    className="w-full py-3 rounded-full text-xs font-black bg-[#B4F000] text-[#092D19] hover:bg-[#c3fc18] flex items-center justify-center gap-1.5 shadow-sm transition-all"
                   >
                     <span>Enquire for Plan</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#092D19]" />
                   </Link>
                 </div>
               </div>

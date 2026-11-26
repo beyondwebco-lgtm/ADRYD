@@ -135,24 +135,24 @@ export default function BecomeARiderPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#172B3A] pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent text-white pt-28 pb-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9FD] text-[#00A8C8] text-xs font-bold uppercase tracking-wider">
-              <Zap className="w-3.5 h-3.5" />
-              Partner Network • Hyderabad
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#092D19]/60 backdrop-blur-md text-[#B4F000] text-xs font-bold uppercase tracking-wider border border-[#B4F000]/30 shadow-sm">
+              <Zap className="w-3.5 h-3.5 text-[#B4F000]" />
+              <span>Partner Network • Hyderabad</span>
             </div>
 
-            <h1 className="font-heading font-black text-4xl sm:text-6xl text-[#172B3A] uppercase leading-tight">
+            <h1 className="font-heading font-black text-4xl sm:text-6xl text-white uppercase leading-tight">
               Ride with ADRYD.{' '}
               <br />
-              <span className="text-[#00A8C8]">Grow with us.</span>
+              <span className="text-[#B4F000] text-glow-lime">Grow with us.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-[#637786] max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-[#E4EBE5] max-w-xl leading-relaxed font-normal">
               Earn with your electric scooter or join our mobility network as a commercial fleet partner. Flexible opportunities across Hyderabad&apos;s prime corridors.
             </p>
 
@@ -160,17 +160,17 @@ export default function BecomeARiderPage() {
             <div className="pt-2 flex items-center gap-4">
               <a
                 href="#partner-registration"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#00A8C8] hover:bg-[#0091AD] text-white text-xs font-bold shadow-md hover:scale-[1.02] transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] text-xs font-black shadow-md hover:scale-[1.02] transition-all"
               >
                 <span>Register Interest Below</span>
-                <ArrowDown className="w-3.5 h-3.5" />
+                <ArrowDown className="w-3.5 h-3.5 text-[#092D19]" />
               </a>
-              <span className="text-xs text-[#637786]">Quick 2-minute form</span>
+              <span className="text-xs text-[#E4EBE5]/70">Quick 2-minute form</span>
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-[#DCECF2]">
+          <div className="lg:col-span-5 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#B4F000]/25">
             <Image
               src="/images/adryd-rider-partner.jpg"
               alt="ADRYD EV Partner Rider"
@@ -186,10 +186,10 @@ export default function BecomeARiderPage() {
           
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#172B3A] uppercase">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl text-white uppercase">
               Select Your Partnership
             </h2>
-            <p className="text-sm text-[#637786]">
+            <p className="text-sm text-[#E4EBE5]/80">
               Choose the option that describes your profile to begin your registration.
             </p>
           </div>
@@ -200,10 +200,10 @@ export default function BecomeARiderPage() {
             <button
               type="button"
               onClick={() => handleSelectPartnerType('own_ev_rider')}
-              className={`p-6 sm:p-7 rounded-3xl text-left border transition-all duration-300 flex flex-col justify-between relative cursor-pointer ${
+              className={`p-6 sm:p-7 rounded-3xl text-left border backdrop-blur-2xl transition-all duration-300 flex flex-col justify-between relative cursor-pointer shadow-xl ${
                 partnerType === 'own_ev_rider'
-                  ? 'bg-[#EAF9FD] border-[#00A8C8] ring-2 ring-[#00A8C8]/30 shadow-md'
-                  : 'bg-white border-[#DCECF2] hover:border-gray-300'
+                  ? 'bg-[#005522]/60 border-[#B4F000] ring-2 ring-[#B4F000]/30 shadow-md'
+                  : 'bg-[#092D19]/50 border-white/10 hover:border-[#B4F000]/40'
               }`}
             >
               <div>
@@ -211,8 +211,8 @@ export default function BecomeARiderPage() {
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
                       partnerType === 'own_ev_rider'
-                        ? 'bg-[#00A8C8] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#B4F000] text-[#092D19]'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     <Bike className="w-6 h-6" />
@@ -221,28 +221,28 @@ export default function BecomeARiderPage() {
                   <span
                     className={`text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${
                       partnerType === 'own_ev_rider'
-                        ? 'bg-[#00A8C8] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#B4F000] text-[#092D19] font-black'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     {partnerType === 'own_ev_rider' ? 'Selected' : 'Option 1'}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-black text-xl text-[#172B3A] mb-2">
+                <h3 className="font-heading font-black text-xl text-white mb-2">
                   I Have My Own Electric Bike
                 </h3>
 
-                <p className="text-xs text-[#637786] leading-relaxed mb-6">
+                <p className="text-xs text-[#E4EBE5]/80 leading-relaxed mb-6 font-normal">
                   Own an electric scooter? Register your interest in participating in ADRYD&apos;s mobile advertising and local showcase campaigns.
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#DCECF2] flex items-center justify-between text-xs font-bold">
-                <span className={partnerType === 'own_ev_rider' ? 'text-[#00A8C8]' : 'text-[#637786]'}>
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold">
+                <span className={partnerType === 'own_ev_rider' ? 'text-[#B4F000]' : 'text-[#E4EBE5]/70'}>
                   {partnerType === 'own_ev_rider' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'own_ev_rider' && <Check className="w-4 h-4 text-[#00A8C8]" />}
+                {partnerType === 'own_ev_rider' && <Check className="w-4 h-4 text-[#B4F000]" />}
               </div>
             </button>
 
@@ -250,10 +250,10 @@ export default function BecomeARiderPage() {
             <button
               type="button"
               onClick={() => handleSelectPartnerType('without_ev_rider')}
-              className={`p-6 sm:p-7 rounded-3xl text-left border transition-all duration-300 flex flex-col justify-between relative cursor-pointer ${
+              className={`p-6 sm:p-7 rounded-3xl text-left border backdrop-blur-2xl transition-all duration-300 flex flex-col justify-between relative cursor-pointer shadow-xl ${
                 partnerType === 'without_ev_rider'
-                  ? 'bg-[#F0ECFF] border-[#7856FF] ring-2 ring-[#7856FF]/30 shadow-md'
-                  : 'bg-white border-[#DFEAF0] hover:border-gray-300'
+                  ? 'bg-[#005522]/60 border-[#65B32E] ring-2 ring-[#65B32E]/30 shadow-md'
+                  : 'bg-[#092D19]/50 border-white/10 hover:border-[#65B32E]/40'
               }`}
             >
               <div>
@@ -261,8 +261,8 @@ export default function BecomeARiderPage() {
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
                       partnerType === 'without_ev_rider'
-                        ? 'bg-[#7856FF] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#65B32E] text-white'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     <UserCheck className="w-6 h-6" />
@@ -271,28 +271,28 @@ export default function BecomeARiderPage() {
                   <span
                     className={`text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${
                       partnerType === 'without_ev_rider'
-                        ? 'bg-[#7856FF] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#65B32E] text-white font-black'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     {partnerType === 'without_ev_rider' ? 'Selected' : 'Option 2'}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-black text-xl text-[#172B3A] mb-2">
+                <h3 className="font-heading font-black text-xl text-white mb-2">
                   I Don&apos;t Have a Bike
                 </h3>
 
-                <p className="text-xs text-[#637786] leading-relaxed mb-6">
+                <p className="text-xs text-[#E4EBE5]/80 leading-relaxed mb-6 font-normal">
                   Interested in joining ADRYD but don&apos;t own an EV? Register as a candidate for partner-arranged vehicle opportunities.
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#DFEAF0] flex items-center justify-between text-xs font-bold">
-                <span className={partnerType === 'without_ev_rider' ? 'text-[#7856FF]' : 'text-[#637786]'}>
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold">
+                <span className={partnerType === 'without_ev_rider' ? 'text-[#65B32E]' : 'text-[#E4EBE5]/70'}>
                   {partnerType === 'without_ev_rider' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'without_ev_rider' && <Check className="w-4 h-4 text-[#7856FF]" />}
+                {partnerType === 'without_ev_rider' && <Check className="w-4 h-4 text-[#65B32E]" />}
               </div>
             </button>
 
@@ -300,10 +300,10 @@ export default function BecomeARiderPage() {
             <button
               type="button"
               onClick={() => handleSelectPartnerType('fleet_partner')}
-              className={`p-6 sm:p-7 rounded-3xl text-left border transition-all duration-300 flex flex-col justify-between relative cursor-pointer ${
+              className={`p-6 sm:p-7 rounded-3xl text-left border backdrop-blur-2xl transition-all duration-300 flex flex-col justify-between relative cursor-pointer shadow-xl ${
                 partnerType === 'fleet_partner'
-                  ? 'bg-[#F6FAFC] border-[#123C83] ring-2 ring-[#123C83]/30 shadow-md'
-                  : 'bg-white border-[#DCECF2] hover:border-gray-300'
+                  ? 'bg-[#005522]/60 border-[#F4DE26] ring-2 ring-[#F4DE26]/30 shadow-md'
+                  : 'bg-[#092D19]/50 border-white/10 hover:border-[#F4DE26]/40'
               }`}
             >
               <div>
@@ -311,8 +311,8 @@ export default function BecomeARiderPage() {
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
                       partnerType === 'fleet_partner'
-                        ? 'bg-[#123C83] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#F4DE26] text-[#092D19]'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     <Layers className="w-6 h-6" />
@@ -321,54 +321,54 @@ export default function BecomeARiderPage() {
                   <span
                     className={`text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${
                       partnerType === 'fleet_partner'
-                        ? 'bg-[#123C83] text-white'
-                        : 'bg-[#F6FAFC] text-[#637786]'
+                        ? 'bg-[#F4DE26] text-[#092D19] font-black'
+                        : 'bg-white/10 text-[#E4EBE5]'
                     }`}
                   >
                     {partnerType === 'fleet_partner' ? 'Selected' : 'Option 3'}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-black text-xl text-[#172B3A] mb-2">
+                <h3 className="font-heading font-black text-xl text-white mb-2">
                   Commercial Fleet Partner
                 </h3>
 
-                <p className="text-xs text-[#637786] leading-relaxed mb-6">
+                <p className="text-xs text-[#E4EBE5]/80 leading-relaxed mb-6 font-normal">
                   For commercial fleet operators, EV rental aggregators and fleet managers seeking structured batch campaign deployments.
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#DCECF2] flex items-center justify-between text-xs font-bold">
-                <span className={partnerType === 'fleet_partner' ? 'text-[#123C83]' : 'text-[#637786]'}>
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold">
+                <span className={partnerType === 'fleet_partner' ? 'text-[#F4DE26]' : 'text-[#E4EBE5]/70'}>
                   {partnerType === 'fleet_partner' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'fleet_partner' && <Check className="w-4 h-4 text-[#123C83]" />}
+                {partnerType === 'fleet_partner' && <Check className="w-4 h-4 text-[#F4DE26]" />}
               </div>
             </button>
           </div>
 
           {/* DYNAMIC REGISTRATION FORM */}
-          <div className="max-w-3xl mx-auto bg-white border border-[#DCECF2] rounded-3xl p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,168,200,0.04)]">
+          <div className="max-w-3xl mx-auto bg-[#061C12]/80 backdrop-blur-2xl border border-[#B4F000]/25 rounded-3xl p-6 sm:p-10 shadow-2xl">
             {submitSuccess ? (
               <div className="text-center py-8 space-y-5">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto">
+                <div className="w-16 h-16 rounded-full bg-[#005522]/40 border border-[#B4F000]/50 flex items-center justify-center text-[#B4F000] mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs font-bold text-[#00A8C8] uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#B4F000] uppercase tracking-wider">
                     Registration Received
                   </span>
-                  <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#172B3A]">
+                  <h3 className="font-heading font-black text-2xl sm:text-3xl text-white">
                     {partnerType === 'fleet_partner'
                       ? 'Fleet Partnership Enquiry Recorded'
                       : 'Rider Partner Interest Recorded'}
                   </h3>
                 </div>
 
-                <p className="text-sm text-[#637786] max-w-lg mx-auto leading-relaxed">
+                <p className="text-sm text-[#E4EBE5]/80 max-w-lg mx-auto leading-relaxed font-normal">
                   Thank you for registering. Your reference ID is{' '}
-                  <strong className="text-[#00A8C8] font-mono text-sm">
+                  <strong className="text-[#B4F000] font-mono text-sm">
                     {submitSuccess.applicationId}
                   </strong>
                   . Our operations team reviews all submissions according to corridor routes and verification requirements in Hyderabad.
@@ -379,16 +379,16 @@ export default function BecomeARiderPage() {
                     href={getWhatsAppFollowUpUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#092D19] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4 text-[#092D19]" />
                     <span>Connect On WhatsApp</span>
                   </a>
 
                   <button
                     type="button"
                     onClick={() => setSubmitSuccess(null)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-xs font-bold text-[#172B3A] border border-[#DCECF2] hover:bg-[#F6FAFC] transition-all"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-white/10 text-xs font-bold text-white border border-white/20 hover:bg-white/20 transition-all"
                   >
                     Submit Another Application
                   </button>
@@ -405,20 +405,20 @@ export default function BecomeARiderPage() {
                 />
 
                 {submitError && (
-                  <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-3">
-                    <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <div className="p-4 rounded-2xl bg-red-950/60 border border-red-500/50 text-red-200 text-xs flex items-center gap-3">
+                    <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
                     <span>{submitError}</span>
                   </div>
                 )}
 
                 {/* Scope Header */}
-                <div className="border-b border-[#DCECF2] pb-4">
-                  <h3 className="font-heading font-black text-xl text-[#172B3A]">
+                <div className="border-b border-white/10 pb-4">
+                  <h3 className="font-heading font-black text-xl text-white">
                     {partnerType === 'own_ev_rider' && 'Register With Your Electric Scooter'}
                     {partnerType === 'without_ev_rider' && 'Apply as a Rider Candidate'}
                     {partnerType === 'fleet_partner' && 'Commercial EV Fleet Partnership'}
                   </h3>
-                  <p className="text-xs text-[#637786] mt-1">
+                  <p className="text-xs text-[#E4EBE5]/70 mt-1">
                     {partnerType === 'own_ev_rider' && 'Fill in your vehicle model and preferred operating corridors in Hyderabad.'}
                     {partnerType === 'without_ev_rider' && 'Register for partner-arranged EV opportunities, subject to eligibility.'}
                     {partnerType === 'fleet_partner' && 'For fleet operators with electric two-wheelers seeking campaign integration.'}
@@ -427,10 +427,10 @@ export default function BecomeARiderPage() {
 
                 {/* Option 2 Fair Disclaimer */}
                 {partnerType === 'without_ev_rider' && (
-                  <div className="p-4 rounded-2xl bg-[#F6FAFC] border border-[#DCECF2] flex items-start gap-3 text-xs text-[#637786]">
-                    <ShieldCheck className="w-4 h-4 text-[#1756C1] shrink-0 mt-0.5" />
+                  <div className="p-4 rounded-2xl bg-[#092D19]/60 border border-[#65B32E]/30 flex items-start gap-3 text-xs text-[#E4EBE5]/85">
+                    <ShieldCheck className="w-4 h-4 text-[#65B32E] shrink-0 mt-0.5" />
                     <p>
-                      <strong className="text-[#172B3A]">Candidate Note:</strong> This expresses your interest in riding partner-provided electric scooters when openings arise. ADRYD does not promise a free vehicle, salary, fixed income or guaranteed employment.
+                      <strong className="text-white">Candidate Note:</strong> This expresses your interest in riding partner-provided electric scooters when openings arise. ADRYD does not promise a free vehicle, salary, fixed income or guaranteed employment.
                     </p>
                   </div>
                 )}
@@ -439,17 +439,17 @@ export default function BecomeARiderPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {partnerType === 'fleet_partner' && (
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Fleet Company Name *
                       </label>
                       <input
                         {...register('companyName')}
                         type="text"
                         placeholder="e.g. GreenWheels Logistics"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                       />
                       {errors.companyName && (
-                        <span className="text-xs text-red-500 mt-1 block">
+                        <span className="text-xs text-red-400 mt-1 block">
                           {errors.companyName.message}
                         </span>
                       )}
@@ -457,34 +457,34 @@ export default function BecomeARiderPage() {
                   )}
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                       {partnerType === 'fleet_partner' ? 'Contact Person *' : 'Full Name *'}
                     </label>
                     <input
                       {...register('fullName')}
                       type="text"
                       placeholder="e.g. Suresh Kumar"
-                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                     />
                     {errors.fullName && (
-                      <span className="text-xs text-red-500 mt-1 block">
+                      <span className="text-xs text-red-400 mt-1 block">
                         {errors.fullName.message}
                       </span>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                       Mobile / WhatsApp *
                     </label>
                     <input
                       {...register('mobile')}
                       type="tel"
                       placeholder="e.g. 9876543210"
-                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                     />
                     {errors.mobile && (
-                      <span className="text-xs text-red-500 mt-1 block">
+                      <span className="text-xs text-red-400 mt-1 block">
                         {errors.mobile.message}
                       </span>
                     )}
@@ -493,17 +493,17 @@ export default function BecomeARiderPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                       Email Address
                     </label>
                     <input
                       {...register('email')}
                       type="email"
                       placeholder="e.g. yourname@example.com"
-                      className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                     />
                     {errors.email && (
-                      <span className="text-xs text-red-500 mt-1 block">
+                      <span className="text-xs text-red-400 mt-1 block">
                         {errors.email.message}
                       </span>
                     )}
@@ -511,7 +511,7 @@ export default function BecomeARiderPage() {
 
                   {partnerType !== 'fleet_partner' ? (
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Age * (Must be 18+)
                       </label>
                       <input
@@ -520,24 +520,24 @@ export default function BecomeARiderPage() {
                         min="18"
                         max="70"
                         placeholder="e.g. 24"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                       />
                       {errors.age && (
-                        <span className="text-xs text-red-500 mt-1 block">
+                        <span className="text-xs text-red-400 mt-1 block">
                           {errors.age.message}
                         </span>
                       )}
                     </div>
                   ) : (
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         City / Location *
                       </label>
                       <input
                         {...register('city')}
                         type="text"
                         defaultValue="Hyderabad"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                       />
                     </div>
                   )}
@@ -548,43 +548,43 @@ export default function BecomeARiderPage() {
                   <>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                           Electric Scooter Brand &amp; Model *
                         </label>
                         <input
                           {...register('vehicleModel')}
                           type="text"
                           placeholder="e.g. Ather 450X, Ola S1 Pro, TVS iQube"
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                          className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                         />
                         {errors.vehicleModel && (
-                          <span className="text-xs text-red-500 mt-1 block">
+                          <span className="text-xs text-red-400 mt-1 block">
                             {errors.vehicleModel.message}
                           </span>
                         )}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                           Vehicle Registration Number
                         </label>
                         <input
                           {...register('vehicleRegNumber')}
                           type="text"
                           placeholder="e.g. TS 09 EA 1234"
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A] uppercase"
+                          className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40 uppercase"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                           Ownership Status
                         </label>
                         <select
                           {...register('vehicleOwnership')}
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                          className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                         >
                           <option value="Self Owned">Self Owned</option>
                           <option value="Family Owned">Family Owned</option>
@@ -594,12 +594,12 @@ export default function BecomeARiderPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                           Driving Licence *
                         </label>
                         <select
                           {...register('drivingLicence')}
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                          className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                         >
                           <option value="Valid 2-Wheeler Driving Licence">Valid 2-Wheeler Driving Licence</option>
                           <option value="Learning Licence (LLR)">Learning Licence (LLR)</option>
@@ -614,12 +614,12 @@ export default function BecomeARiderPage() {
                 {partnerType === 'without_ev_rider' && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Driving Licence *
                       </label>
                       <select
                         {...register('drivingLicence')}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                       >
                         <option value="Valid 2-Wheeler Driving Licence">Valid 2-Wheeler Driving Licence</option>
                         <option value="Learning Licence (LLR)">Learning Licence (LLR)</option>
@@ -628,12 +628,12 @@ export default function BecomeARiderPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Riding Experience
                       </label>
                       <select
                         {...register('ridingExperience')}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                       >
                         <option value="Food / Grocery Delivery (Zomato/Swiggy/Blinkit)">Delivery Experience (Swiggy/Zomato/etc.)</option>
                         <option value="Courier / Logistics Delivery">Courier / Logistics</option>
@@ -648,26 +648,26 @@ export default function BecomeARiderPage() {
                 {partnerType === 'fleet_partner' && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Total Electric Scooters in Fleet
                       </label>
                       <input
                         {...register('fleetCount')}
                         type="text"
                         placeholder="e.g. 5–15 EVs, 20+ Vehicles"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Operating Hubs in Hyderabad
                       </label>
                       <input
                         {...register('fleetHubs')}
                         type="text"
                         placeholder="e.g. Madhapur, Kukatpally, Secunderabad"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                       />
                     </div>
                   </div>
@@ -677,12 +677,12 @@ export default function BecomeARiderPage() {
                 {partnerType !== 'fleet_partner' && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Preferred Corridor
                       </label>
                       <select
                         {...register('serviceArea')}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                       >
                         {HYDERABAD_ZONES_LIST.map((zone) => (
                           <option key={zone} value={zone}>
@@ -693,12 +693,12 @@ export default function BecomeARiderPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                         Preferred Availability
                       </label>
                       <select
                         {...register('preferredAvailability')}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A]"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#092D19] border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white"
                       >
                         <option value="Peak Commute Hours (Morning & Evening)">Peak Commute Hours (Morning &amp; Evening)</option>
                         <option value="Full Day (4-6 Hours)">Full Day (4–6 Hours)</option>
@@ -711,14 +711,14 @@ export default function BecomeARiderPage() {
 
                 {/* Additional Notes */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#172B3A] mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#E4EBE5] mb-1.5">
                     Additional Notes
                   </label>
                   <textarea
                     {...register('additionalNotes')}
                     rows={3}
                     placeholder="Any additional information regarding your availability, vehicle details or schedule..."
-                    className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-200 focus:border-[#00A8C8] focus:ring-2 focus:ring-[#00A8C8]/20 focus:outline-none text-sm text-[#172B3A] placeholder-gray-400"
+                    className="w-full px-4 py-3 rounded-2xl bg-[#092D19]/60 border border-white/15 focus:border-[#B4F000] focus:ring-2 focus:ring-[#B4F000]/20 focus:outline-none text-sm text-white placeholder-[#E4EBE5]/40"
                   />
                 </div>
 
@@ -727,7 +727,7 @@ export default function BecomeARiderPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-full bg-[#00A8C8] hover:bg-[#0091AD] disabled:opacity-50 text-white font-bold text-sm shadow-[0_4px_20px_rgba(0,168,200,0.3)] flex items-center justify-center gap-2 hover:scale-[1.01] transition-all cursor-pointer"
+                    className="w-full py-4 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] disabled:opacity-50 text-[#092D19] font-black text-sm shadow-[0_4px_20px_rgba(180,240,0,0.3)] flex items-center justify-center gap-2 hover:scale-[1.01] transition-all cursor-pointer"
                   >
                     {isSubmitting ? (
                       <span>Recording Interest...</span>
@@ -738,7 +738,7 @@ export default function BecomeARiderPage() {
                           {partnerType === 'without_ev_rider' && 'Apply as a Rider'}
                           {partnerType === 'fleet_partner' && 'Submit Fleet Partnership Enquiry'}
                         </span>
-                        <Send className="w-4 h-4" />
+                        <Send className="w-4 h-4 text-[#092D19]" />
                       </>
                     )}
                   </button>
@@ -748,7 +748,7 @@ export default function BecomeARiderPage() {
           </div>
 
           {/* Legal Notice */}
-          <div className="max-w-3xl mx-auto mt-6 text-center text-[11px] text-[#637786] leading-relaxed">
+          <div className="max-w-3xl mx-auto mt-6 text-center text-[11px] text-[#E4EBE5]/70 leading-relaxed">
             Registration is an expression of interest only and does not promise employment, guaranteed income or vehicle allocation. Subject to operational requirements and fleet availability.
           </div>
 
