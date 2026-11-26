@@ -32,6 +32,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'High-impact mobile advertising using electric scooter fleets wrapped in vibrant, approved brand livery moving along high-footfall commercial corridors.',
     features: ['High-recall street visibility', 'Targeted urban corridors', 'Uniformed brand ambassadors', 'Eco-friendly electric fleet'],
+    image: '/images/campaigns/service-adryd-promote.jpg',
   },
   {
     id: 'showcase',
@@ -44,6 +45,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Specialized vehicle-mounted illuminated display boxes and product sampling trays that allow potential buyers to examine, touch and experience your items.',
     features: ['Illuminated showcase display', 'Curated sampling trays', 'Live product demos', 'Secure weather-resistant boxes'],
+    image: '/images/campaigns/service-adryd-showcase.jpg',
   },
   {
     id: 'sell',
@@ -56,6 +58,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Direct QR-driven mobile commerce enabling pedestrians and commuters to scan and immediately purchase featured items through mobile-optimized checkout pages.',
     features: ['Instant QR catalogue access', 'Frictionless mobile checkout', 'Digital payment integration', 'Campaign-specific promo codes'],
+    image: '/images/campaigns/service-adryd-sell.jpg',
   },
   {
     id: 'preorder',
@@ -68,6 +71,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Capture advance orders, test consumer interest for new product launches, and gather committed purchase intent prior to broad market rollout.',
     features: ['Demand validation testing', 'Exclusive pre-launch reservations', 'Community & office group orders', 'Early-bird customer capture'],
+    image: '/images/campaigns/service-adryd-preorder.jpg',
   },
   {
     id: 'deliver',
@@ -80,6 +84,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Same-day hyperlocal delivery and fast restocking for local retailers, supporting immediate promotional fulfilment within designated delivery corridors.',
     features: ['Same-day neighborhood drop', 'Boutique retail replenishment', 'Sample pack distribution', 'Sustainable zero-emission transit'],
+    image: '/images/campaigns/service-adryd-deliver.jpg',
   },
   {
     id: 'viral',
@@ -105,6 +110,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000]',
     description: 'Planned telemetry and verification systems designed to log campaign operating hours, route tracking, QR engagement scans and audience reach metrics.',
     features: ['Corridor route logs', 'Daily active hours tracking', 'QR scan interaction logs', 'Campaign post-run summaries'],
+    image: '/images/campaigns/service-adryd-insights.jpg',
   },
 ];
 

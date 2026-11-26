@@ -26,7 +26,7 @@ export default function ProductCategoriesSection() {
       border: 'border-[#0A9BE0]/35 hover:border-[#0A9BE0]',
       halo: 'shadow-[0_0_35px_rgba(10,155,224,0.25)]',
       cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
-      image: '/images/v4/geometric-primitives-stack.jpg',
+      image: '/images/posters/category-food-bakery.jpg',
     },
     {
       id: 'beauty',
@@ -36,7 +36,7 @@ export default function ProductCategoriesSection() {
       border: 'border-[#B4F000]/35 hover:border-[#B4F000]',
       halo: 'shadow-[0_0_35px_rgba(180,240,0,0.25)]',
       cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
-      image: '/images/v4/cosmetics-shopping-bag.jpg',
+      image: '/images/posters/category-beauty-wellness.jpg',
     },
     {
       id: 'lifestyle',
@@ -46,7 +46,7 @@ export default function ProductCategoriesSection() {
       border: 'border-[#0A9BE0]/35 hover:border-[#0A9BE0]',
       halo: 'shadow-[0_0_35px_rgba(10,155,224,0.25)]',
       cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
-      image: '/images/v4/abstract-geometric-world.jpg',
+      image: '/images/posters/category-lifestyle-living.jpg',
     },
     {
       id: 'technology',
@@ -56,7 +56,7 @@ export default function ProductCategoriesSection() {
       border: 'border-[#B4F000]/35 hover:border-[#B4F000]',
       halo: 'shadow-[0_0_35px_rgba(180,240,0,0.25)]',
       cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
-      image: '/images/v4/connected-network-mesh.jpg',
+      image: '/images/posters/category-technology.jpg',
     },
     {
       id: 'local',
@@ -66,7 +66,7 @@ export default function ProductCategoriesSection() {
       border: 'border-[#0A9BE0]/35 hover:border-[#0A9BE0]',
       halo: 'shadow-[0_0_35px_rgba(10,155,224,0.25)]',
       cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
-      image: '/images/v4/ribbon-flow-minimal.jpg',
+      image: '/images/posters/category-local-brands.jpg',
     },
   ];
 

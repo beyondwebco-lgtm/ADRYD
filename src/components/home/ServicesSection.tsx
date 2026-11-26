@@ -30,6 +30,7 @@ export default function ServicesSection() {
       desc: 'Make your brand visible.',
       detail: 'High-recall electric vehicle livery and rider apparel navigating prime urban corridors.',
       id: 'promote',
+      image: '/images/campaigns/service-adryd-promote.jpg',
     },
     {
       action: 'SHOWCASE',
@@ -43,6 +44,7 @@ export default function ServicesSection() {
       desc: 'Bring products closer.',
       detail: 'Illuminated, weather-sealed compartments letting customers see and touch actual items.',
       id: 'showcase',
+      image: '/images/campaigns/service-adryd-showcase.jpg',
     },
     {
       action: 'SELL',
@@ -56,6 +58,7 @@ export default function ServicesSection() {
       desc: 'Turn interest into enquiries.',
       detail: 'Scan-and-buy catalogues connecting on-street curiosity with instant checkout.',
       id: 'sell',
+      image: '/images/campaigns/service-adryd-sell.jpg',
     },
     {
       action: 'PRE-ORDER',
@@ -69,6 +72,7 @@ export default function ServicesSection() {
       desc: 'Capture demand early.',
       detail: 'Validate customer interest and reserve orders before major retail rollouts.',
       id: 'preorder',
+      image: '/images/campaigns/service-adryd-preorder.jpg',
     },
     {
       action: 'DELIVER',
@@ -82,6 +86,7 @@ export default function ServicesSection() {
       desc: 'Connect local commerce.',
       detail: 'Same-day neighborhood replenishment and promotional sample pack drop-offs.',
       id: 'deliver',
+      image: '/images/campaigns/service-adryd-deliver.jpg',
     },
     {
       action: 'VIRAL',
@@ -110,6 +115,7 @@ export default function ServicesSection() {
       detail: 'Planned corridor telemetry, active hours verification and audience engagement logs.',
       id: 'insights',
       isPlanned: true,
+      image: '/images/campaigns/service-adryd-insights.jpg',
     },
   ];
 
