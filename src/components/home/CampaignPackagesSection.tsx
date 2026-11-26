@@ -37,6 +37,9 @@ export default function CampaignPackagesSection() {
             <p className="text-base sm:text-lg text-[#E2E8F0] font-normal leading-relaxed">
               Five compact campaign formats tailored for local business pilots, neighborhood launches and citywide activations.
             </p>
+            <p className="text-xs text-[#94A3B8] font-medium mt-1">
+              Campaign specifications are indicative and subject to confirmed scope, availability and applicable commercial agreements.
+            </p>
           </div>
 
           <div>

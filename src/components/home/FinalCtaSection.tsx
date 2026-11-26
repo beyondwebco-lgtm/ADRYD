@@ -76,6 +76,10 @@ export default function FinalCtaSection() {
           </Link>
         </motion.div>
 
+        <p className="text-center text-xs text-[#94A3B8] font-normal pt-6">
+          Campaigns and programme opportunities are subject to availability, eligibility and agreed terms.
+        </p>
+
       </div>
     </section>
   );

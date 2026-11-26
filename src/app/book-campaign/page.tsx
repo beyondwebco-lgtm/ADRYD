@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -698,8 +699,52 @@ function CampaignForm() {
                 <div className="p-4 rounded-2xl bg-[#051C33]/55 border border-[#B4F000]/25 flex items-start gap-3 text-xs text-[#E2E8F0]">
                   <ShieldCheck className="w-4 h-4 text-[#B4F000] shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-white">Zero Financial Commitment:</strong> Submitting this brief requests route feasibility and a formal quotation. No payment is processed on this site.
+                    <strong className="text-white">Zero Financial Commitment:</strong> Submitting this brief requests route feasibility and a formal quotation. No payment is processed on this site. Campaign specifications are indicative and subject to confirmed scope, availability and applicable commercial agreements.
                   </p>
+                </div>
+
+                {/* Legal & Compliance Consent */}
+                <div className="p-5 rounded-2xl bg-[#041220]/90 border border-white/10 space-y-3 text-xs text-[#E2E8F0]/85">
+                  <div className="flex items-start gap-2.5">
+                    <input
+                      {...register('termsAccepted')}
+                      type="checkbox"
+                      id="book-termsAccepted"
+                      className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                    />
+                    <label htmlFor="book-termsAccepted" className="cursor-pointer leading-snug">
+                      I agree to the{' '}
+                      <Link href="/terms" target="_blank" className="text-[#B4F000] hover:underline font-semibold">
+                        ADRYD Terms and Conditions
+                      </Link>{' '}
+                      and{' '}
+                      <Link href="/partner-terms" target="_blank" className="text-[#B4F000] hover:underline font-semibold">
+                        Entrepreneur &amp; Brand Partner Terms
+                      </Link>
+                      . I acknowledge the{' '}
+                      <Link href="/privacy" target="_blank" className="text-[#0A9BE0] hover:underline font-semibold">
+                        Privacy Policy
+                      </Link>
+                      . *
+                    </label>
+                  </div>
+                  {errors.termsAccepted && (
+                    <span className="text-xs text-red-400 block ml-6">
+                      {errors.termsAccepted.message}
+                    </span>
+                  )}
+
+                  <div className="flex items-start gap-2.5">
+                    <input
+                      {...register('marketingConsent')}
+                      type="checkbox"
+                      id="book-marketingConsent"
+                      className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                    />
+                    <label htmlFor="book-marketingConsent" className="cursor-pointer text-[#94A3B8] text-[11px] leading-snug">
+                      I would like to receive promotional updates, corridor availability alerts and programme announcements from ADRYD through my selected communication channels. (Optional)
+                    </label>
+                  </div>
                 </div>
               </div>
             )}

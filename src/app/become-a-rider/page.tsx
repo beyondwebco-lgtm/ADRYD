@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -720,6 +721,54 @@ export default function BecomeARiderPage() {
                     placeholder="Any additional information regarding your availability, vehicle details or schedule..."
                     className="w-full px-4 py-3 rounded-2xl bg-[#041220]/75 border border-white/15 focus:border-[#0A9BE0] focus:ring-2 focus:ring-[#0A9BE0]/25 focus:outline-none text-sm text-white placeholder-[#94A3B8]/50"
                   />
+                </div>
+
+                {/* Legal Acceptance & Operational Notice */}
+                <div className="space-y-3 pt-3 p-4 rounded-2xl bg-[#041220]/90 border border-white/10 text-xs text-[#E2E8F0]/85">
+                  <p className="text-[11px] text-[#94A3B8] leading-relaxed">
+                    Notice: Submitting an application does not guarantee approval, employment, campaign allocation or vehicle availability.
+                  </p>
+
+                  <div className="flex items-start gap-2.5">
+                    <input
+                      {...register('termsAccepted')}
+                      type="checkbox"
+                      id="rider-termsAccepted"
+                      className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                    />
+                    <label htmlFor="rider-termsAccepted" className="cursor-pointer leading-snug">
+                      I confirm that I am at least 18 years old and agree to the{' '}
+                      <Link href="/terms" target="_blank" className="text-[#B4F000] hover:underline font-semibold">
+                        ADRYD Terms and Conditions
+                      </Link>{' '}
+                      and{' '}
+                      <Link href="/rider-terms" target="_blank" className="text-[#B4F000] hover:underline font-semibold">
+                        Riderpreneur Terms
+                      </Link>
+                      . I acknowledge the{' '}
+                      <Link href="/privacy" target="_blank" className="text-[#0A9BE0] hover:underline font-semibold">
+                        Privacy Policy
+                      </Link>
+                      . *
+                    </label>
+                  </div>
+                  {errors.termsAccepted && (
+                    <span className="text-xs text-red-400 block ml-6">
+                      {errors.termsAccepted.message}
+                    </span>
+                  )}
+
+                  <div className="flex items-start gap-2.5">
+                    <input
+                      {...register('marketingConsent')}
+                      type="checkbox"
+                      id="rider-marketingConsent"
+                      className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                    />
+                    <label htmlFor="rider-marketingConsent" className="cursor-pointer text-[#94A3B8] text-[11px] leading-snug">
+                      I would like to receive promotional updates, fleet partner notices and programme announcements from ADRYD. (Optional)
+                    </label>
+                  </div>
                 </div>
 
                 {/* Submit Button */}

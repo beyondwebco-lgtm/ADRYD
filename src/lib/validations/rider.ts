@@ -41,6 +41,12 @@ export const riderRegistrationSchema = z
     // Common Textarea Notes & Honeypot
     additionalNotes: z.string().optional(),
     honeypot: z.string().optional(),
+
+    // Mandatory Legal Acceptance & Optional Marketing Consent
+    termsAccepted: z.boolean().refine((val) => val === true, {
+      message: 'You must confirm you are 18+ and agree to the Terms & Conditions and Riderpreneur Terms',
+    }),
+    marketingConsent: z.boolean().optional(),
   })
   .superRefine((data, ctx) => {
     if (data.partnerType === 'own_ev_rider') {

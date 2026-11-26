@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactSchema, type ContactInput } from '@/lib/validations/contact';
@@ -262,6 +263,55 @@ export default function ContactPage() {
                         {errors.message.message}
                       </span>
                     )}
+                  </div>
+
+                  {/* Legal Notice & Mandatory Consent */}
+                  <div className="space-y-3 pt-2 text-xs text-[#E2E8F0]/85 border-t border-white/10">
+                    <p className="text-[11px] text-[#94A3B8] leading-relaxed">
+                      By submitting this form, you acknowledge the{' '}
+                      <Link href="/privacy" className="text-[#0A9BE0] hover:underline font-semibold">
+                        Privacy Policy
+                      </Link>{' '}
+                      and understand that ADRYD will use your information to respond to your enquiry.
+                    </p>
+
+                    <div className="flex items-start gap-2.5">
+                      <input
+                        {...register('termsAccepted')}
+                        type="checkbox"
+                        id="contact-termsAccepted"
+                        className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                      />
+                      <label htmlFor="contact-termsAccepted" className="cursor-pointer leading-snug">
+                        I agree to the{' '}
+                        <Link href="/terms" className="text-[#B4F000] hover:underline font-semibold">
+                          ADRYD Terms and Conditions
+                        </Link>{' '}
+                        and acknowledge the{' '}
+                        <Link href="/privacy" className="text-[#0A9BE0] hover:underline font-semibold">
+                          Privacy Policy
+                        </Link>
+                        . *
+                      </label>
+                    </div>
+                    {errors.termsAccepted && (
+                      <span className="text-xs text-red-400 block ml-6">
+                        {errors.termsAccepted.message}
+                      </span>
+                    )}
+
+                    {/* Separate Optional Marketing Consent */}
+                    <div className="flex items-start gap-2.5">
+                      <input
+                        {...register('marketingConsent')}
+                        type="checkbox"
+                        id="contact-marketingConsent"
+                        className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0 mt-0.5"
+                      />
+                      <label htmlFor="contact-marketingConsent" className="cursor-pointer text-[#94A3B8] text-[11px] leading-snug">
+                        I would like to receive promotional updates and programme announcements from ADRYD through my selected communication channels. (Optional)
+                      </label>
+                    </div>
                   </div>
 
                   <button

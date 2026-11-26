@@ -18,18 +18,55 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/technology',
     '/creative-services',
     '/become-a-rider',
+    '/riderpreneur',
     '/book-campaign',
     '/contact',
+    // Legal & Operational Policy Pages
+    '/terms',
+    '/privacy',
+    '/cookie-policy',
+    '/refund-policy',
+    '/rider-terms',
+    '/partner-terms',
+    '/affiliate-policy',
+    '/rewards-policy',
+    '/safety-guidelines',
+    '/disclaimer',
+    // Legacy canonical aliases
     '/privacy-policy',
     '/terms-and-conditions',
   ];
 
   const currentDate = new Date().toISOString();
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: currentDate,
-    changeFrequency: route === '' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : route.startsWith('/solutions') || route === '/book-campaign' ? 0.9 : 0.8,
-  }));
+  return routes.map((route) => {
+    const isLegal = [
+      '/terms',
+      '/privacy',
+      '/cookie-policy',
+      '/refund-policy',
+      '/rider-terms',
+      '/partner-terms',
+      '/affiliate-policy',
+      '/rewards-policy',
+      '/safety-guidelines',
+      '/disclaimer',
+      '/privacy-policy',
+      '/terms-and-conditions',
+    ].includes(route);
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified: currentDate,
+      changeFrequency: route === '' ? 'daily' : isLegal ? 'monthly' : 'weekly',
+      priority:
+        route === ''
+          ? 1.0
+          : route.startsWith('/solutions') || route === '/book-campaign' || route === '/riderpreneur'
+            ? 0.9
+            : isLegal
+              ? 0.5
+              : 0.8,
+    };
+  });
 }

@@ -93,6 +93,13 @@ export default function RiderpreneurPage() {
 
       {/* Section 16: How to Start Your ADRYD Journey (9-Step Timeline & Final CTA) */}
       <OnboardingJourneySection />
+
+      {/* Legal & Operational Notice */}
+      <div className="py-8 bg-black border-t border-white/5 text-center px-4">
+        <p className="text-xs text-[#94A3B8] max-w-3xl mx-auto leading-relaxed">
+          Riderpreneur opportunities, career levels, affiliate benefits and rewards are subject to programme availability and approved eligibility criteria. Submitting an application does not guarantee approval, employment, campaign allocation or vehicle availability.
+        </p>
+      </div>
     </div>
   );
 }

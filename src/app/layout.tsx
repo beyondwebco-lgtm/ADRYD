@@ -4,6 +4,8 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
+import CookieConsentBanner from '@/components/legal/CookieConsentBanner';
+import PrivacyGrievanceModal from '@/components/legal/PrivacyGrievanceModal';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import GlobalImmersiveBackground from '@/components/3d/GlobalImmersiveBackground';
 
@@ -106,6 +108,8 @@ export default function RootLayout({
           <main className="flex-1 relative z-10">{children}</main>
           <Footer />
           <FloatingWhatsApp />
+          <CookieConsentBanner />
+          <PrivacyGrievanceModal />
         </SmoothScrollProvider>
       </body>
     </html>

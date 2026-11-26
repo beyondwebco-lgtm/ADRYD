@@ -42,6 +42,9 @@ export default function RiderDashboardPreview() {
           <p className="text-slate-300 text-base sm:text-lg">
             Manage your campaign dispatches, live earnings, GPS corridor verification, affiliate analytics, and career milestones through one intuitive mobile console.
           </p>
+          <p className="text-xs text-[#94A3B8] font-medium mt-1">
+            Illustrative platform preview. Certain features are under development.
+          </p>
         </div>
 
         {/* Dashboard Mockup Console */}

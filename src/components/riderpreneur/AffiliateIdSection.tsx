@@ -67,6 +67,9 @@ export default function AffiliateIdSection() {
           <p className="text-slate-300 text-base sm:text-lg">
             Every customer you introduce to a partner brand remains tied to your unique code. Turn casual street conversations into recurring commercial attribution.
           </p>
+          <p className="text-xs text-[#94A3B8] font-medium mt-1">
+            A lifetime affiliate identifier does not guarantee lifetime earnings or permanent commission rates.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

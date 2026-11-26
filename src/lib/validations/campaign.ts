@@ -37,6 +37,12 @@ export const campaignEnquirySchema = z.object({
   deliveryReqs: z.string().optional(),
   brandingRequirements: z.string().optional(),
   additionalNotes: z.string().optional(),
+
+  // Mandatory Legal Acceptance & Optional Marketing Consent
+  termsAccepted: z.boolean().refine((val) => val === true, {
+    message: 'You must accept the Terms and Conditions and Partner Terms to proceed',
+  }),
+  marketingConsent: z.boolean().optional(),
 });
 
 export type CampaignEnquiryInput = z.infer<typeof campaignEnquirySchema>;

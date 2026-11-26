@@ -263,8 +263,8 @@ export default function EarningsCalculatorSection() {
             <div className="p-4 rounded-2xl bg-[#050b12] border border-white/10 flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <p className="text-[11px] text-slate-400 leading-relaxed">
-                <strong className="text-slate-200">Required Financial Disclaimer: </strong>
-                Earnings figures displayed above are illustrative projections calculated from standard campaign rate cards and hypothetical activity metrics. Actual income depends directly on personal working hours, individual performance, regional demand, client campaign bookings, and partner conversion rates. ADRYD does not guarantee a minimum or fixed income.
+                <strong className="text-slate-200">Illustrative example only. </strong>
+                Actual earnings are not guaranteed and depend on verified performance, available campaigns, applicable agreements and operating expenses.
               </p>
             </div>
           </div>

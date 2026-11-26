@@ -61,6 +61,9 @@ export default function RewardsShowcaseSection() {
           <p className="text-slate-300 text-base sm:text-lg">
             Hard work deserves tangible appreciation. Earn premium branded apparel, smart tech accessories, creator gear, and annual distinction trophies.
           </p>
+          <p className="text-xs text-[#94A3B8] font-medium mt-1">
+            Rewards and sponsored travel are subject to published eligibility criteria, programme availability and confirmed sponsorship.
+          </p>
         </div>
 
         {/* Rewards Grid */}
