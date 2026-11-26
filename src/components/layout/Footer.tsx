@@ -50,6 +50,9 @@ export default function Footer() {
                 <Link href="/campaign-plans" className="text-[#E2E8F0]/80 hover:text-[#B4F000] transition-colors">Campaign Plans</Link>
               </li>
               <li>
+                <Link href="/riderpreneur" className="text-[#B4F000] hover:text-[#0A9BE0] transition-colors font-semibold">Riderpreneur Program</Link>
+              </li>
+              <li>
                 <Link href="/become-a-rider" className="text-[#E2E8F0]/80 hover:text-[#B4F000] transition-colors">Partner Network</Link>
               </li>
               <li>
