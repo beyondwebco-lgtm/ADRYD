@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Bike, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -54,6 +55,42 @@ export default function SingleRiderPage() {
             <p className="text-xs text-[#E2E8F0] mt-2">
               Hourly, daily or multi-week booking options to fit your local promotional timeline.
             </p>
+          </div>
+        </div>
+
+        {/* Visual Showcase */}
+        <div className="mb-12 rounded-3xl bg-[#041220]/80 backdrop-blur-2xl border border-[#B4F000]/30 overflow-hidden shadow-xl p-6 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/package-starter.jpg"
+                alt="Single Rider Campaign Format"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div className="md:col-span-7 space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B4F000]/15 text-[#B4F000] border border-[#B4F000]/30 text-xs font-bold uppercase tracking-wider">
+                <span>Starter Activation Tier</span>
+              </div>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
+                1 Rider • 3 Days / 1 Corridor Pilot
+              </h2>
+              <p className="text-sm text-[#E2E8F0]/85 leading-relaxed font-normal">
+                Perfect for local business pilots, product sampling runs or single-neighborhood promotions. Includes branded electric scooter decals, dedicated rider ambassador and flyer distribution.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/book-campaign?format=single-rider"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#B4F000] text-[#000000] hover:bg-[#c3fc18] font-black text-xs shadow-md transition-all"
+                >
+                  <span>Enquire for Single Rider</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#000000]" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 

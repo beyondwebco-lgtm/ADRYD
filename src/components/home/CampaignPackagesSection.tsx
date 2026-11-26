@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
@@ -16,6 +17,7 @@ export default function CampaignPackagesSection() {
       border: 'border-white/20 hover:border-[#B4F000]',
       cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
       glow: 'shadow-[0_0_25px_rgba(0,0,0,0.5)]',
+      image: '/images/campaigns/package-starter.jpg',
     },
     {
       id: 'local-reach',
@@ -26,6 +28,7 @@ export default function CampaignPackagesSection() {
       border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
       cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
       glow: 'shadow-[0_0_25px_rgba(10,155,224,0.2)]',
+      image: '/images/campaigns/package-local-reach.jpg',
     },
     {
       id: 'community',
@@ -37,6 +40,7 @@ export default function CampaignPackagesSection() {
       cardBg: 'bg-[#041B33]/80 hover:bg-[#041B33]/95',
       glow: 'shadow-[0_0_40px_rgba(180,240,0,0.35)]',
       featured: true,
+      image: '/images/campaigns/package-community.jpg',
     },
     {
       id: 'city-activation',
@@ -47,6 +51,7 @@ export default function CampaignPackagesSection() {
       border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
       cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
       glow: 'shadow-[0_0_25px_rgba(10,155,224,0.2)]',
+      image: '/images/campaigns/package-city-activation.jpg',
     },
     {
       id: 'bulk-activation',
@@ -57,6 +62,7 @@ export default function CampaignPackagesSection() {
       border: 'border-[#0A9BE0]/30 hover:border-[#B4F000]',
       cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
       glow: 'shadow-[0_0_25px_rgba(0,0,0,0.5)]',
+      image: '/images/campaigns/package-bulk-activation.jpg',
     },
   ];
 
@@ -111,7 +117,7 @@ export default function CampaignPackagesSection() {
               className={`p-7 rounded-3xl ${pkg.cardBg} backdrop-blur-2xl border ${pkg.border} ${pkg.glow} card-hover-lift flex flex-col justify-between relative`}
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-4">
                   <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${pkg.badgeStyle}`}>
                     {pkg.badge}
                   </span>
@@ -120,11 +126,23 @@ export default function CampaignPackagesSection() {
                   )}
                 </div>
 
-                <h3 className="font-heading font-black text-2xl text-white mb-3">
+                {/* Campaign Visual Poster */}
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-white/10 group-hover:border-[#B4F000]/40 transition-all bg-[#000000]/50 shadow-inner">
+                  <Image
+                    src={pkg.image}
+                    alt={pkg.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
+                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                <h3 className="font-heading font-black text-2xl text-white mb-2">
                   {pkg.name}
                 </h3>
 
-                <p className="text-sm text-[#E2E8F0]/80 leading-relaxed font-normal mb-6">
+                <p className="text-sm text-[#E2E8F0]/80 leading-relaxed font-normal mb-5">
                   {pkg.desc}
                 </p>
               </div>

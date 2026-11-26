@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Compass, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -51,6 +52,53 @@ export default function LocationTargetingPage() {
           <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed">
             Concentrate your campaign along specific commercial roads, high-density residential catchments, and metro corridors in Hyderabad for maximum local relevance.
           </p>
+        </div>
+
+        {/* Citywide & Corridor Visual Showcase */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#0A9BE0]/40 p-6 space-y-4 shadow-xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/package-city-activation.jpg"
+                alt="Citywide Hyderabad Campaign"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0A9BE0]/20 text-[#0A9BE0] border border-[#0A9BE0]/30">
+                Citywide Activation
+              </span>
+              <h3 className="font-heading font-black text-2xl text-white mt-2">Hyderabad Metro Fleet</h3>
+              <p className="text-xs text-[#E2E8F0]/85 mt-1 leading-relaxed">
+                6–10 Branded EVs operating across top high-street commercial hubs with synchronized citywide routes.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/30 p-6 space-y-4 shadow-xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/package-community.jpg"
+                alt="Community Corridor Campaign"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">
+                Community Outreach
+              </span>
+              <h3 className="font-heading font-black text-2xl text-white mt-2">IT Corridors &amp; Hubs</h3>
+              <p className="text-xs text-[#E2E8F0]/85 mt-1 leading-relaxed">
+                4–5 Branded EVs providing dual-cluster corridor routing across HITEC City, Gachibowli and retail avenues.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 4 Corridors Grid */}

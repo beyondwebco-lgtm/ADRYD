@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Megaphone,
   ShoppingBag,
@@ -91,6 +92,7 @@ const serviceVerticals = [
     btnColor: 'bg-[#0A9BE0] hover:bg-[#0889c7] text-white',
     description: 'Creative social media capture, street reaction videos, influencer collaborations and high-energy content translating real-world buzz into digital reach.',
     features: ['Street interaction reels', 'High-res campaign B-roll', 'Micro-influencer meetups', 'Multi-platform social content'],
+    image: '/images/campaigns/service-adryd-viral.jpg',
   },
   {
     id: 'insights',
@@ -152,6 +154,19 @@ export default function ServicesPage() {
                         {svc.tagline}
                       </p>
                     </div>
+
+                    {svc.image && (
+                      <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden mt-3 border border-white/10 group-hover:border-[#0A9BE0]/40 transition-all bg-[#000000]/50 shadow-inner">
+                        <Image
+                          src={svc.image}
+                          alt={svc.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 350px"
+                          className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                      </div>
+                    )}
                   </div>
 
                   {/* Middle: Description & Features */}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Users, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -54,6 +55,42 @@ export default function DualRiderPage() {
             <p className="text-xs text-[#E2E8F0] mt-2">
               Ideal for new retail store openings, weekend buzz campaigns and festive retail promotions.
             </p>
+          </div>
+        </div>
+
+        {/* Visual Showcase */}
+        <div className="mb-12 rounded-3xl bg-[#041220]/80 backdrop-blur-2xl border border-[#0A9BE0]/35 overflow-hidden shadow-xl p-6 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/package-local-reach.jpg"
+                alt="Dual Rider Local Reach Campaign"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div className="md:col-span-7 space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A9BE0]/20 text-[#0A9BE0] border border-[#0A9BE0]/30 text-xs font-bold uppercase tracking-wider">
+                <span>Local Reach Activation Tier</span>
+              </div>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
+                2–3 Riders • 1 Week / Multi-Area
+              </h2>
+              <p className="text-sm text-[#E2E8F0]/85 leading-relaxed font-normal">
+                Designed for store openings, weekend buzz and focused commercial district activations. Includes illuminated product showcase compartments, cross-corridor route scheduling and QR scan reporting.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/book-campaign?format=dual-rider"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#B4F000] text-[#000000] hover:bg-[#c3fc18] font-black text-xs shadow-md transition-all"
+                >
+                  <span>Enquire for Dual Rider</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#000000]" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 

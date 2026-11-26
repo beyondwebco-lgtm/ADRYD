@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Layers,
   Calendar,
@@ -27,6 +28,7 @@ const packages = [
     bg: 'bg-[#041220]/75',
     border: 'border-white/20 hover:border-[#B4F000]',
     color: 'text-[#E2E8F0]',
+    image: '/images/campaigns/package-starter.jpg',
   },
   {
     id: 'local_reach',
@@ -39,6 +41,7 @@ const packages = [
     bg: 'bg-[#051C33]/65',
     border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
     color: 'text-[#0A9BE0]',
+    image: '/images/campaigns/package-local-reach.jpg',
   },
   {
     id: 'community',
@@ -51,6 +54,7 @@ const packages = [
     bg: 'bg-[#041B33]/85',
     border: 'border-[#B4F000] ring-2 ring-[#B4F000]/40',
     color: 'text-[#B4F000]',
+    image: '/images/campaigns/package-community.jpg',
   },
   {
     id: 'city_activation',
@@ -63,6 +67,7 @@ const packages = [
     bg: 'bg-[#051C33]/65',
     border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
     color: 'text-[#0A9BE0]',
+    image: '/images/campaigns/package-city-activation.jpg',
   },
   {
     id: 'bulk_activation',
@@ -75,6 +80,7 @@ const packages = [
     bg: 'bg-[#041220]/75',
     border: 'border-[#0A9BE0]/30 hover:border-[#B4F000]',
     color: 'text-[#B4F000]',
+    image: '/images/campaigns/package-bulk-activation.jpg',
   },
 ];
 
@@ -111,6 +117,7 @@ const subscriptions = [
     bg: 'bg-[#041B33]/85',
     border: 'border-[#B4F000]/40 hover:border-[#B4F000]',
     color: 'text-[#B4F000]',
+    image: '/images/campaigns/retainer-commercial-dominance.jpg',
   },
   {
     id: 'sub_enterprise',
@@ -122,6 +129,7 @@ const subscriptions = [
     bg: 'bg-[#041220]/80',
     border: 'border-[#0A9BE0]/35 hover:border-[#0A9BE0]',
     color: 'text-[#0A9BE0]',
+    image: '/images/campaigns/retainer-enterprise-fleet.jpg',
   },
 ];
 
@@ -174,6 +182,18 @@ export default function CampaignPlansPage() {
                 )}
 
                 <div className="space-y-4">
+                  {/* Campaign Visual Poster */}
+                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#B4F000]/40 transition-all bg-[#000000]/50 shadow-inner">
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
+                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
                   <div>
                     <h3 className="font-heading font-black text-2xl text-white">
                       {pkg.name}
@@ -240,6 +260,19 @@ export default function CampaignPlansPage() {
                 className={`rounded-3xl p-7 border ${sub.border} ${sub.bg} backdrop-blur-2xl card-hover-lift flex flex-col justify-between shadow-xl transition-all duration-300`}
               >
                 <div className="space-y-4">
+                  {sub.image && (
+                    <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#0A9BE0]/40 transition-all bg-[#000000]/50 shadow-inner">
+                      <Image
+                        src={sub.image}
+                        alt={sub.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                    </div>
+                  )}
+
                   <div>
                     <h3 className="font-heading font-bold text-xl text-white">
                       {sub.name}

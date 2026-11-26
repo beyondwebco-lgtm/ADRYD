@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Building2, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -54,6 +55,53 @@ export default function FleetAdvertisingPage() {
             <p className="text-xs text-[#E2E8F0] mt-2">
               Full route logistics, daily deployment verification, and consolidated post-campaign analytics.
             </p>
+          </div>
+        </div>
+
+        {/* Visual Showcase */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#0A9BE0]/40 p-6 space-y-4 shadow-xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/retainer-enterprise-fleet.jpg"
+                alt="Enterprise Fleet Advertising"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0A9BE0]/20 text-[#0A9BE0] border border-[#0A9BE0]/30">
+                8+ Riders Dedicated
+              </span>
+              <h3 className="font-heading font-black text-2xl text-white mt-2">Enterprise Fleet Retainer</h3>
+              <p className="text-xs text-[#E2E8F0]/85 mt-1 leading-relaxed">
+                Dedicated mobile marketplace fleet operating as an exclusive mobile retail and promotional arm.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/30 p-6 space-y-4 shadow-xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+              <Image
+                src="/images/campaigns/package-bulk-activation.jpg"
+                alt="Bulk Fleet Activation"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">
+                10+ Custom Fleet
+              </span>
+              <h3 className="font-heading font-black text-2xl text-white mt-2">Bulk Activation Blitz</h3>
+              <p className="text-xs text-[#E2E8F0]/85 mt-1 leading-relaxed">
+                Large-scale fleet mobilizations, major brand launches, festival sponsorships and synchronized convoys.
+              </p>
+            </div>
           </div>
         </div>
 

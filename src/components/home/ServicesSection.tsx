@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Megaphone,
@@ -94,6 +95,7 @@ export default function ServicesSection() {
       desc: 'Create moments worth sharing.',
       detail: 'Authentic street reaction reels and creator collaborations amplifying physical buzz.',
       id: 'viral',
+      image: '/images/campaigns/service-adryd-viral.jpg',
     },
     {
       action: 'INSIGHTS',
@@ -172,6 +174,19 @@ export default function ServicesSection() {
                         </span>
                       )}
                     </div>
+
+                    {svc.image && (
+                      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#0A9BE0]/40 transition-all bg-[#000000]/50 shadow-inner">
+                        <Image
+                          src={svc.image}
+                          alt={svc.action}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 25vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                      </div>
+                    )}
 
                     <div>
                       <h3 className={`font-heading font-black text-2xl tracking-wider ${svc.textColor}`}>

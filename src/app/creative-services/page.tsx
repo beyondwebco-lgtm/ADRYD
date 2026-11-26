@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Video,
   Sparkles,
@@ -73,6 +74,42 @@ export default function CreativeServicesPage() {
           <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed font-normal">
             We bridge physical outdoor impressions with digital social momentum through custom reels, professional B-roll and high-impact livery design.
           </p>
+        </div>
+
+        {/* Featured Viral Showcase Poster */}
+        <div className="mb-16 rounded-3xl bg-[#041220]/80 backdrop-blur-2xl border border-[#0A9BE0]/40 overflow-hidden shadow-[0_12px_50px_rgba(10,155,224,0.25)] p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-xl">
+              <Image
+                src="/images/campaigns/service-adryd-viral.jpg"
+                alt="ADRYD Viral - Street to Screen"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B4F000]/15 text-[#B4F000] border border-[#B4F000]/30 text-xs font-bold uppercase tracking-wider">
+                <span>1.2M+ Viral Social Reach</span>
+              </div>
+              <h2 className="font-heading font-black text-3xl sm:text-4xl text-white uppercase">
+                Street Interaction Reels &amp; Creator Collaborations
+              </h2>
+              <p className="text-sm sm:text-base text-[#E2E8F0]/85 leading-relaxed font-normal">
+                Capture organic moments where customers touch products, scan QR codes and react to your mobile campaign on Hyderabad streets. Our creative crew records, edits and distributes high-res vertical video formats ready for Instagram and YouTube.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/book-campaign?service=ADRYD%20Viral"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#B4F000] text-[#000000] hover:bg-[#c3fc18] font-black text-xs shadow-md transition-all"
+                >
+                  <span>Book Viral Content Package</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 4 Creative Offerings */}
