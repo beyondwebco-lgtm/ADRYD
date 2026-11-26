@@ -1,11 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Target, Compass, Radio, Sparkles } from 'lucide-react';
+import InteractiveRouteLine from './InteractiveRouteLine';
 
 export default function HowItWorksSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const steps = [
     {
       num: '01',
@@ -52,7 +54,7 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/10 text-white">
+    <section ref={sectionRef} id="how-it-works" className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/10 text-white">
       {/* Ambient Electric Blue & Chartreuse Lighting */}
       <div className="absolute top-0 left-1/3 w-[650px] h-[650px] bg-[#0A9BE0]/20 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-10 w-[600px] h-[600px] bg-[#B4F000]/15 rounded-full blur-[150px] pointer-events-none" />
@@ -78,30 +80,9 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Connected Route Visualization (Desktop) */}
-        <div className="hidden lg:block relative mb-12 px-12">
-          <svg
-            className="w-full h-14 overflow-visible"
-            viewBox="0 0 1000 40"
-            fill="none"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="blueLimeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0A9BE0" />
-                <stop offset="50%" stopColor="#74D7FF" />
-                <stop offset="100%" stopColor="#B4F000" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 50,20 Q 300,5 500,20 T 950,20"
-              stroke="url(#blueLimeGradient)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeDasharray="10 10"
-              className="animate-pulse"
-            />
-          </svg>
+        {/* Connected Route Visualization (Interactive Mouse-Responsive Animation) */}
+        <div className="relative mb-12 px-4 sm:px-8 lg:px-12">
+          <InteractiveRouteLine sectionRef={sectionRef} />
         </div>
 
         {/* 3 Frosted Action Steps Grid */}
