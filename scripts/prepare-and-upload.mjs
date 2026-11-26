@@ -126,11 +126,32 @@ console.log(`Missing hashes to upload: ${missingHashes.length} (Skipping ${allHa
 
 // 4. Upload missing assets
 if (missingHashes.length > 0) {
-  console.log("Uploading missing assets in batches...");
-  // Group into batches of ~25MB or 100 files
-  const BATCH_SIZE = 50;
-  for (let i = 0; i < missingHashes.length; i += BATCH_SIZE) {
-    const batch = missingHashes.slice(i, i + BATCH_SIZE);
+  console.log(`Uploading ${missingHashes.length} missing assets in small safe batches...`);
+  const MAX_FILES_PER_BATCH = 3;
+  const MAX_BYTES_PER_BATCH = 400 * 1024; // 400 KB unencoded to stay well below limits
+
+  const batches = [];
+  let currentBatch = [];
+  let currentBatchSize = 0;
+
+  for (const hash of missingHashes) {
+    const fileInfo = hashMap.get(hash);
+    if (currentBatch.length >= MAX_FILES_PER_BATCH || (currentBatchSize + fileInfo.size > MAX_BYTES_PER_BATCH && currentBatch.length > 0)) {
+      batches.push(currentBatch);
+      currentBatch = [];
+      currentBatchSize = 0;
+    }
+    currentBatch.push(hash);
+    currentBatchSize += fileInfo.size;
+  }
+  if (currentBatch.length > 0) {
+    batches.push(currentBatch);
+  }
+
+  console.log(`Split into ${batches.length} batches.`);
+
+  for (let i = 0; i < batches.length; i++) {
+    const batch = batches[i];
     const payload = batch.map(hash => {
       const fileInfo = hashMap.get(hash);
       const content = fs.readFileSync(fileInfo.path).toString('base64');
@@ -144,20 +165,43 @@ if (missingHashes.length > 0) {
       };
     });
 
-    console.log(`Uploading batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(missingHashes.length / BATCH_SIZE)} (${batch.length} files)...`);
-    const uploadRes = await fetch("https://api.cloudflare.com/client/v4/pages/assets/upload", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${JWT}`
-      },
-      body: JSON.stringify(payload)
-    });
+    const batchSizeKb = (payload.reduce((acc, p) => acc + p.value.length, 0) / 1024).toFixed(0);
+    process.stdout.write(`Uploading batch ${i + 1}/${batches.length} (${batch.length} files, ${batchSizeKb} KB)... `);
+    
+    let attempts = 0;
+    let uploaded = false;
+    while (attempts < 5 && !uploaded) {
+      attempts++;
+      try {
+        const uploadRes = await fetch("https://api.cloudflare.com/client/v4/pages/assets/upload", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${JWT}`
+          },
+          body: JSON.stringify(payload)
+        });
 
-    if (!uploadRes.ok) {
-      const err = await uploadRes.text();
-      console.error("upload batch failed:", uploadRes.status, err);
-      process.exit(1);
+        if (!uploadRes.ok) {
+          const err = await uploadRes.text();
+          console.error(`\nAttempt ${attempts} failed (${uploadRes.status}): ${err.slice(0, 150)}`);
+          if (attempts < 5) {
+            await new Promise(r => setTimeout(r, 1500 * attempts));
+          } else {
+            process.exit(1);
+          }
+        } else {
+          uploaded = true;
+          console.log(`OK`);
+        }
+      } catch (err) {
+        console.error(`\nAttempt ${attempts} error: ${err.message}`);
+        if (attempts < 5) {
+          await new Promise(r => setTimeout(r, 1500 * attempts));
+        } else {
+          process.exit(1);
+        }
+      }
     }
   }
   console.log("All assets uploaded successfully!");

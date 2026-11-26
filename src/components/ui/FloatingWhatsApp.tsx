@@ -1,14 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
 
 export default function FloatingWhatsApp() {
+  const [mounted, setMounted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
+
+  useEffect(() => {
+    // Defer rendering until idle so it never impacts TBT
+    if ('requestIdleCallback' in window) {
+      (window as unknown as { requestIdleCallback: (cb: () => void) => number }).requestIdleCallback(() => setMounted(true));
+    } else {
+      setTimeout(() => setMounted(true), 400);
+    }
+  }, []);
+
   const num = SITE_CONFIG.contact.whatsapp.replace(/\D/g, '');
 
-  if (!num) return null;
+  if (!mounted || !num) return null;
 
   const url = `https://wa.me/${num}?text=${encodeURIComponent(
     SITE_CONFIG.whatsappMessages.campaign
