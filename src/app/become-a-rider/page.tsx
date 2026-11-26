@@ -170,10 +170,10 @@ export default function BecomeARiderPage() {
           </div>
 
           {/* Right Image */}
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#B4F000]/25">
+          <div className="lg:col-span-5 relative aspect-[3/2] rounded-3xl overflow-hidden shadow-2xl border border-[#B4F000]/25">
             <Image
               src="/images/adryd-rider-partner.jpg"
-              alt="ADRYD EV Partner Rider"
+              alt="ADRYD EV Partner Riders and Branded Mobility Fleet"
               fill
               priority
               className="object-cover"
