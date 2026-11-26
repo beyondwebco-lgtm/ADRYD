@@ -9,80 +9,13 @@ import {
   Sparkles,
   Clock,
 } from 'lucide-react';
+import CampaignPlansGrid from '@/components/campaigns/CampaignPlansGrid';
 
 export const metadata: Metadata = {
   title: 'Campaign Plans & Monthly Subscriptions | ADRYD',
   description:
     'Explore ADRYD’s five campaign activation formats and four monthly subscription retainers designed for brands of all sizes across Hyderabad.',
 };
-
-const packages = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    riders: '1 Rider',
-    duration: '3 Days / 1 Corridor',
-    desc: 'Perfect for local business pilots, product sampling runs or single-neighborhood promotions.',
-    features: ['1 Branded Electric Vehicle', 'Dedicated Single Corridor', 'Handout & Flyer Distribution', 'Basic Activity Log'],
-    popular: false,
-    bg: 'bg-[#041220]/75',
-    border: 'border-white/20 hover:border-[#B4F000]',
-    color: 'text-[#E2E8F0]',
-    image: '/images/campaigns/package-starter.jpg',
-  },
-  {
-    id: 'local_reach',
-    name: 'Local Reach',
-    riders: '2–3 Riders',
-    duration: '1 Week / Multi-Area',
-    desc: 'Designed for store openings, weekend buzz and focused commercial district activations.',
-    features: ['2–3 Branded Electric Vehicles', 'Cross-Corridor Street Routes', 'Illuminated Product Showcasing', 'QR Code Scan Reports'],
-    popular: false,
-    bg: 'bg-[#051C33]/65',
-    border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
-    color: 'text-[#0A9BE0]',
-    image: '/images/campaigns/package-local-reach.jpg',
-  },
-  {
-    id: 'community',
-    name: 'Community',
-    riders: '4–5 Riders',
-    duration: '2 Weeks / Prime Hubs',
-    desc: 'High-frequency street presence across IT corridors, universities and prime retail avenues.',
-    features: ['4–5 Branded Electric Vehicles', 'Dual-Cluster Corridor Routing', 'QR Ordering & Pre-Orders', 'Visual Verification Reports'],
-    popular: true,
-    bg: 'bg-[#041B33]/85',
-    border: 'border-[#B4F000] ring-2 ring-[#B4F000]/40',
-    color: 'text-[#B4F000]',
-    image: '/images/campaigns/package-community.jpg',
-  },
-  {
-    id: 'city_activation',
-    name: 'City Activation',
-    riders: '6–10 Riders',
-    duration: '1 Month Strategic',
-    desc: 'Sustained citywide brand recall across Hyderabad’s top high-street commercial hubs.',
-    features: ['6–10 Branded Electric Vehicles', 'Citywide Coordinated Routes', 'Full Showcase & Delivery Sync', 'Dedicated Campaign Lead'],
-    popular: false,
-    bg: 'bg-[#051C33]/65',
-    border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
-    color: 'text-[#0A9BE0]',
-    image: '/images/campaigns/package-city-activation.jpg',
-  },
-  {
-    id: 'bulk_activation',
-    name: 'Bulk Activation',
-    riders: '10+ Riders',
-    duration: 'Custom Scope / Enterprise',
-    desc: 'Large-scale fleet mobilizations, major brand launches, festival sponsorships and PR activations.',
-    features: ['10+ Custom Electric Fleet', 'Multi-Corridor Synchronized Convoys', 'Full Media & Reel Coverage', 'Custom Reporting Analytics'],
-    popular: false,
-    bg: 'bg-[#041220]/75',
-    border: 'border-[#0A9BE0]/30 hover:border-[#B4F000]',
-    color: 'text-[#B4F000]',
-    image: '/images/campaigns/package-bulk-activation.jpg',
-  },
-];
 
 const subscriptions = [
   {
@@ -154,7 +87,7 @@ export default function CampaignPlansPage() {
           </p>
         </div>
 
-        {/* SECTION 1: 5 CAMPAIGN PACKAGES */}
+        {/* SECTION 1: 5 INTERACTIVE CAMPAIGN PACKAGES WITH ANIMATED EXPANDABLE POPUP */}
         <div className="mb-24">
           <div className="max-w-2xl mb-10 space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B4F000]">
@@ -165,77 +98,12 @@ export default function CampaignPlansPage() {
               Campaign Packages
             </h2>
             <p className="text-sm text-[#E2E8F0]/80">
-              Designed for product drops, grand openings and focused promotional blitzes.
+              Designed for product drops, grand openings and focused promotional blitzes. Click any package card to view complete specifications and campaign deliverables.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className={`rounded-3xl p-6 border ${pkg.border} ${pkg.bg} backdrop-blur-2xl card-hover-lift flex flex-col justify-between relative shadow-xl transition-all duration-300`}
-              >
-                {pkg.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#B4F000] text-[#000000] text-[11px] font-black uppercase tracking-wider shadow-md">
-                    Most Popular
-                  </div>
-                )}
-
-                <div className="space-y-4">
-                  {/* Campaign Visual Poster */}
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#B4F000]/40 transition-all bg-[#000000]/50 shadow-inner">
-                    <Image
-                      src={pkg.image}
-                      alt={pkg.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
-                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
-                  </div>
-
-                  <div>
-                    <h3 className="font-heading font-black text-2xl text-white">
-                      {pkg.name}
-                    </h3>
-                    <div className={`text-sm font-bold mt-1 ${pkg.color}`}>
-                      {pkg.riders}
-                    </div>
-                    <div className="text-xs text-[#E2E8F0]/70 font-medium mt-0.5">
-                      {pkg.duration}
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-[#E2E8F0]/85 leading-relaxed font-normal">
-                    {pkg.desc}
-                  </p>
-
-                  <div className="pt-2 border-t border-white/10 space-y-2">
-                    {pkg.features.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-white">
-                        <CheckCircle2 className={`w-3.5 h-3.5 ${pkg.color} shrink-0`} />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6">
-                  <Link
-                    href={`/book-campaign?package=${pkg.id}`}
-                    className={`w-full py-3 rounded-full text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
-                      pkg.popular
-                        ? 'bg-[#B4F000] text-[#000000] hover:bg-[#c3fc18] shadow-md'
-                        : 'bg-white/15 text-white hover:bg-white/25 border border-white/15'
-                    }`}
-                  >
-                    <span>Enquire Now</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Interactive Client Component Grid with Framer Motion LayoutId Expansion */}
+          <CampaignPlansGrid />
         </div>
 
         {/* SECTION 2: 4 MONTHLY SUBSCRIPTIONS */}

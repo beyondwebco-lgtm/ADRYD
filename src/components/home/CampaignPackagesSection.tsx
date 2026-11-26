@@ -1,70 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { motion, LayoutGroup } from 'framer-motion';
+import { ArrowRight, Sparkles, Maximize2 } from 'lucide-react';
+import { CAMPAIGN_PACKAGES, CampaignPackage } from '@/components/campaigns/campaignPackagesData';
+import CampaignDetailsModal from '@/components/campaigns/CampaignDetailsModal';
 
 export default function CampaignPackagesSection() {
-  const packages = [
-    {
-      id: 'starter',
-      name: 'Starter',
-      desc: 'Focused single-corridor campaign pilot for local businesses and initial product sampling.',
-      badge: 'Pilot',
-      badgeStyle: 'bg-white/10 text-white border-white/20',
-      border: 'border-white/20 hover:border-[#B4F000]',
-      cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
-      glow: 'shadow-[0_0_25px_rgba(0,0,0,0.5)]',
-      image: '/images/campaigns/package-starter.jpg',
-    },
-    {
-      id: 'local-reach',
-      name: 'Local Reach',
-      desc: 'Cross-corridor tandem presence built for store openings and neighborhood commercial saturation.',
-      badge: 'Local',
-      badgeStyle: 'bg-[#0A9BE0]/20 text-[#0A9BE0] border-[#0A9BE0]/30',
-      border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
-      cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
-      glow: 'shadow-[0_0_25px_rgba(10,155,224,0.2)]',
-      image: '/images/campaigns/package-local-reach.jpg',
-    },
-    {
-      id: 'community',
-      name: 'Community',
-      desc: 'Multi-corridor coordinated deployment across premier tech parks, shopping avenues and universities.',
-      badge: 'Featured Tier',
-      badgeStyle: 'bg-[#B4F000] text-[#000000] font-black border-[#B4F000]',
-      border: 'border-[#B4F000] ring-2 ring-[#B4F000]/40',
-      cardBg: 'bg-[#041B33]/80 hover:bg-[#041B33]/95',
-      glow: 'shadow-[0_0_40px_rgba(180,240,0,0.35)]',
-      featured: true,
-      image: '/images/campaigns/package-community.jpg',
-    },
-    {
-      id: 'city-activation',
-      name: 'City Activation',
-      desc: 'Strategic high-frequency city coverage designed for sustained brand recall across prime hubs.',
-      badge: 'Strategic',
-      badgeStyle: 'bg-[#0A9BE0]/20 text-[#0A9BE0] border-[#0A9BE0]/30',
-      border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
-      cardBg: 'bg-[#051C33]/60 hover:bg-[#051C33]/85',
-      glow: 'shadow-[0_0_25px_rgba(10,155,224,0.2)]',
-      image: '/images/campaigns/package-city-activation.jpg',
-    },
-    {
-      id: 'bulk-activation',
-      name: 'Bulk Activation',
-      desc: 'Large-scale fleet mobilizations, major brand launches, festival sponsorships and bespoke activations.',
-      badge: 'Enterprise',
-      badgeStyle: 'bg-[#B4F000]/20 text-[#B4F000] border-[#B4F000]/30',
-      border: 'border-[#0A9BE0]/30 hover:border-[#B4F000]',
-      cardBg: 'bg-[#041220]/70 hover:bg-[#041220]/90',
-      glow: 'shadow-[0_0_25px_rgba(0,0,0,0.5)]',
-      image: '/images/campaigns/package-bulk-activation.jpg',
-    },
-  ];
+  const [selectedPackage, setSelectedPackage] = useState<CampaignPackage | null>(null);
 
   return (
     <section id="plans" className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/10 text-white">
@@ -105,64 +50,108 @@ export default function CampaignPackagesSection() {
           </div>
         </div>
 
-        {/* 5 Compact Frosted Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
-          {packages.map((pkg, idx) => (
-            <motion.div
-              key={pkg.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`p-7 rounded-3xl ${pkg.cardBg} backdrop-blur-2xl border ${pkg.border} ${pkg.glow} card-hover-lift flex flex-col justify-between relative`}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${pkg.badgeStyle}`}>
-                    {pkg.badge}
-                  </span>
-                  {pkg.featured && (
-                    <span className="text-xs font-black text-[#B4F000] animate-pulse">★ FEATURED</span>
-                  )}
+        {/* 5 Compact Frosted Cards Grid with Shared Layout Group */}
+        <LayoutGroup id="home-campaign-packages">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+            {CAMPAIGN_PACKAGES.map((pkg, idx) => (
+              <motion.div
+                key={pkg.id}
+                layoutId={`campaign-card-${pkg.id}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                onClick={() => setSelectedPackage(pkg)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${pkg.name} campaign details`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedPackage(pkg);
+                  }
+                }}
+                className={`p-7 rounded-3xl ${pkg.cardBg} backdrop-blur-2xl border ${pkg.border} ${pkg.glow} card-hover-lift flex flex-col justify-between relative cursor-pointer group`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${pkg.badgeStyle}`}>
+                      {pkg.badge}
+                    </span>
+                    {pkg.featured && (
+                      <span className="text-xs font-black text-[#B4F000] animate-pulse">★ FEATURED</span>
+                    )}
+                  </div>
+
+                  {/* Campaign Visual Poster */}
+                  <motion.div
+                    layoutId={`campaign-image-${pkg.id}`}
+                    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-white/10 group-hover:border-[#B4F000]/50 transition-all bg-[#000000]/60 shadow-inner"
+                  >
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-transparent pointer-events-none" />
+
+                    {/* Subtle Expand Indicator Overlay */}
+                    <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Maximize2 className="w-3.5 h-3.5 text-[#B4F000]" />
+                    </div>
+                  </motion.div>
+
+                  <motion.h3
+                    layoutId={`campaign-title-${pkg.id}`}
+                    className="font-heading font-black text-2xl text-white mb-2 group-hover:text-[#B4F000] transition-colors"
+                  >
+                    {pkg.name}
+                  </motion.h3>
+
+                  <div className={`text-xs font-bold mb-2 ${pkg.color}`}>
+                    {pkg.riders} • {pkg.duration}
+                  </div>
+
+                  <p className="text-sm text-[#E2E8F0]/80 leading-relaxed font-normal mb-5">
+                    {pkg.desc}
+                  </p>
                 </div>
 
-                {/* Campaign Visual Poster */}
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-white/10 group-hover:border-[#B4F000]/40 transition-all bg-[#000000]/50 shadow-inner">
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
-                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="pt-4 border-t border-white/10 space-y-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedPackage(pkg);
+                    }}
+                    className={`w-full py-3 px-4 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all ${
+                      pkg.featured
+                        ? 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black shadow-lg shadow-[#B4F000]/25'
+                        : 'bg-white/15 hover:bg-white/25 text-white border border-white/15 hover:border-[#0A9BE0]'
+                    }`}
+                  >
+                    <span>Enquire Now</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+
+                  <div className="text-center">
+                    <span className="text-[10px] text-[#E2E8F0]/50 group-hover:text-[#B4F000] transition-colors">
+                      Click to expand details ↗
+                    </span>
+                  </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
 
-                <h3 className="font-heading font-black text-2xl text-white mb-2">
-                  {pkg.name}
-                </h3>
-
-                <p className="text-sm text-[#E2E8F0]/80 leading-relaxed font-normal mb-5">
-                  {pkg.desc}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/10">
-                <Link
-                  href={`/book-campaign?package=${pkg.id}`}
-                  className={`w-full py-3 px-4 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all ${
-                    pkg.featured
-                      ? 'bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black shadow-lg shadow-[#B4F000]/25'
-                      : 'bg-white/15 hover:bg-white/25 text-white border border-white/15'
-                  }`}
-                >
-                  <span>Select Plan</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          {/* Centered Animated Details Popup Modal */}
+          <CampaignDetailsModal
+            selectedPackage={selectedPackage}
+            onClose={() => setSelectedPackage(null)}
+          />
+        </LayoutGroup>
 
       </div>
     </section>
