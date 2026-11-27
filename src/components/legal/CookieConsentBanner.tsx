@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, Check, X, Shield, Settings2 } from 'lucide-react';
+import { modalBackdropVariants, modalCardVariants } from '@/lib/motion';
 
 interface CookiePreferencesState {
   essential: boolean; // Always true
@@ -47,6 +49,24 @@ export default function CookieConsentBanner() {
     window.addEventListener('open-cookie-preferences', handleOpen);
     return () => window.removeEventListener('open-cookie-preferences', handleOpen);
   }, []);
+
+  useEffect(() => {
+    if (modalOpen) {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('adryd-modal-state', { detail: { isOpen: true } }));
+      }
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setModalOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new CustomEvent('adryd-modal-state', { detail: { isOpen: false } }));
+        }
+      };
+    }
+  }, [modalOpen]);
 
   const savePreferences = (newPrefs: CookiePreferencesState) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newPrefs));
@@ -128,117 +148,135 @@ export default function CookieConsentBanner() {
       )}
 
       {/* Detailed Cookie Preferences Modal */}
-      {modalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
-        >
-          <div className="w-full max-w-lg rounded-3xl bg-[#041220] border border-[#0A9BE0]/40 p-6 sm:p-7 text-white shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div className="flex items-center gap-2.5">
-                <Settings2 className="w-5 h-5 text-[#B4F000]" />
-                <h3 className="font-heading font-black text-lg text-white uppercase tracking-tight">
-                  Cookie & Privacy Preferences
-                </h3>
+      <AnimatePresence>
+        {modalOpen && (
+          <motion.div
+            key="cookie-modal-backdrop"
+            variants={modalBackdropVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            role="dialog"
+            aria-modal="true"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setModalOpen(false);
+            }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
+          >
+            <motion.div
+              key="cookie-modal-card"
+              variants={modalCardVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-lg rounded-3xl bg-[#041220] border border-[#0A9BE0]/40 p-6 sm:p-7 text-white shadow-2xl space-y-5 cursor-default"
+            >
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <Settings2 className="w-5 h-5 text-[#B4F000]" />
+                  <h3 className="font-heading font-black text-lg text-white uppercase tracking-tight">
+                    Cookie & Privacy Preferences
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setModalOpen(false)}
+                  className="p-1 rounded-full text-[#94A3B8] hover:text-white hover:bg-white/10 transition-colors"
+                  aria-label="Close preferences"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-              <button
-                onClick={() => setModalOpen(false)}
-                className="p-1 rounded-full text-[#94A3B8] hover:text-white hover:bg-white/10 transition-colors"
-                aria-label="Close preferences"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
 
-            <p className="text-xs text-[#E2E8F0]/80 leading-relaxed">
-              Customize which categories of technologies you permit. Essential cookies are required to deliver basic security, routing, and access.
-            </p>
+              <p className="text-xs text-[#E2E8F0]/80 leading-relaxed">
+                Customize which categories of technologies you permit. Essential cookies are required to deliver basic security, routing, and access.
+              </p>
 
-            <div className="space-y-3 text-xs max-h-64 overflow-y-auto pr-1">
-              {/* Essential Category */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
-                <div className="space-y-0.5 pr-4">
-                  <div className="flex items-center gap-2 font-bold text-white">
-                    <Shield className="w-3.5 h-3.5 text-[#0A9BE0]" />
-                    <span>Strictly Essential (Always Active)</span>
+              <div className="space-y-3 text-xs max-h-64 overflow-y-auto pr-1">
+                {/* Essential Category */}
+                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                  <div className="space-y-0.5 pr-4">
+                    <div className="flex items-center gap-2 font-bold text-white">
+                      <Shield className="w-3.5 h-3.5 text-[#0A9BE0]" />
+                      <span>Strictly Essential (Always Active)</span>
+                    </div>
+                    <p className="text-[#94A3B8] text-[11px] leading-relaxed">
+                      Required for core security, session integrity, form submission tokens, and CDN routing.
+                    </p>
                   </div>
-                  <p className="text-[#94A3B8] text-[11px] leading-relaxed">
-                    Required for core security, session integrity, form submission tokens, and CDN routing.
-                  </p>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0A9BE0] px-2 py-0.5 rounded bg-[#0A9BE0]/20 border border-[#0A9BE0]/30 shrink-0">
+                    Required
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#0A9BE0] px-2 py-0.5 rounded bg-[#0A9BE0]/20 border border-[#0A9BE0]/30 shrink-0">
-                  Required
-                </span>
+
+                {/* Preferences Category */}
+                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                  <div className="space-y-0.5 pr-4">
+                    <span className="font-bold text-white block">Preferences & Interface</span>
+                    <p className="text-[#94A3B8] text-[11px] leading-relaxed">
+                      Remembers dismissed announcements, UI view mode, and chosen language settings.
+                    </p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={prefs.preferences}
+                    onChange={(e) => setPrefs({ ...prefs, preferences: e.target.checked })}
+                    className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
+                  />
+                </div>
+
+                {/* Analytics Category */}
+                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                  <div className="space-y-0.5 pr-4">
+                    <span className="font-bold text-white block">Performance Diagnostics</span>
+                    <p className="text-[#94A3B8] text-[11px] leading-relaxed">
+                      Collects aggregated metrics on page rendering speeds, network latency, and Core Web Vitals.
+                    </p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={prefs.analytics}
+                    onChange={(e) => setPrefs({ ...prefs, analytics: e.target.checked })}
+                    className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
+                  />
+                </div>
+
+                {/* Marketing Category */}
+                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                  <div className="space-y-0.5 pr-4">
+                    <span className="font-bold text-white block">Attribution & Referral Tracking</span>
+                    <p className="text-[#94A3B8] text-[11px] leading-relaxed">
+                      Measures partner campaign reach, QR scan conversions, and affiliate tracking tokens.
+                    </p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={prefs.marketing}
+                    onChange={(e) => setPrefs({ ...prefs, marketing: e.target.checked })}
+                    className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
+                  />
+                </div>
               </div>
 
-              {/* Preferences Category */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
-                <div className="space-y-0.5 pr-4">
-                  <span className="font-bold text-white block">Preferences & Interface</span>
-                  <p className="text-[#94A3B8] text-[11px] leading-relaxed">
-                    Remembers dismissed announcements, UI view mode, and chosen language settings.
-                  </p>
-                </div>
-                <input
-                  type="checkbox"
-                  checked={prefs.preferences}
-                  onChange={(e) => setPrefs({ ...prefs, preferences: e.target.checked })}
-                  className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
-                />
+              <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                <button
+                  onClick={handleRejectOptional}
+                  className="py-2.5 px-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition-colors"
+                >
+                  Reject Optional
+                </button>
+                <button
+                  onClick={() => savePreferences(prefs)}
+                  className="py-2.5 px-5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black text-xs shadow-md transition-all flex items-center gap-1.5"
+                >
+                  <Check className="w-3.5 h-3.5" />
+                  <span>Save Choices</span>
+                </button>
               </div>
-
-              {/* Analytics Category */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
-                <div className="space-y-0.5 pr-4">
-                  <span className="font-bold text-white block">Performance Diagnostics</span>
-                  <p className="text-[#94A3B8] text-[11px] leading-relaxed">
-                    Collects aggregated metrics on page rendering speeds, network latency, and Core Web Vitals.
-                  </p>
-                </div>
-                <input
-                  type="checkbox"
-                  checked={prefs.analytics}
-                  onChange={(e) => setPrefs({ ...prefs, analytics: e.target.checked })}
-                  className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
-                />
-              </div>
-
-              {/* Marketing Category */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
-                <div className="space-y-0.5 pr-4">
-                  <span className="font-bold text-white block">Attribution & Referral Tracking</span>
-                  <p className="text-[#94A3B8] text-[11px] leading-relaxed">
-                    Measures partner campaign reach, QR scan conversions, and affiliate tracking tokens.
-                  </p>
-                </div>
-                <input
-                  type="checkbox"
-                  checked={prefs.marketing}
-                  onChange={(e) => setPrefs({ ...prefs, marketing: e.target.checked })}
-                  className="w-4 h-4 accent-[#B4F000] cursor-pointer shrink-0"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between pt-3 border-t border-white/10">
-              <button
-                onClick={handleRejectOptional}
-                className="py-2.5 px-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition-colors"
-              >
-                Reject Optional
-              </button>
-              <button
-                onClick={() => savePreferences(prefs)}
-                className="py-2.5 px-5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black text-xs shadow-md transition-all flex items-center gap-1.5"
-              >
-                <Check className="w-3.5 h-3.5" />
-                <span>Save Choices</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

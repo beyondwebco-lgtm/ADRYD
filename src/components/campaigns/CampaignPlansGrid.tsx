@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { motion, LayoutGroup } from 'framer-motion';
-import { CheckCircle2, ArrowRight, Sparkles, Maximize2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Maximize2 } from 'lucide-react';
 import { CAMPAIGN_PACKAGES, CampaignPackage } from './campaignPackagesData';
 import CampaignDetailsModal from './CampaignDetailsModal';
 
@@ -12,12 +10,11 @@ export default function CampaignPlansGrid() {
   const [selectedPackage, setSelectedPackage] = useState<CampaignPackage | null>(null);
 
   return (
-    <LayoutGroup id="campaign-plans-grid">
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {CAMPAIGN_PACKAGES.map((pkg) => (
-          <motion.div
+          <div
             key={pkg.id}
-            layoutId={`campaign-card-${pkg.id}`}
             onClick={() => setSelectedPackage(pkg)}
             tabIndex={0}
             role="button"
@@ -37,11 +34,8 @@ export default function CampaignPlansGrid() {
             )}
 
             <div className="space-y-4">
-              {/* Campaign Visual Poster */}
-              <motion.div
-                layoutId={`campaign-image-${pkg.id}`}
-                className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#B4F000]/50 transition-all bg-[#000000]/60 shadow-inner"
-              >
+              {/* Campaign Visual Poster Preview */}
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover:border-[#B4F000]/50 transition-all bg-[#000000]/60 shadow-inner">
                 <Image
                   src={pkg.image}
                   alt={pkg.name}
@@ -55,15 +49,12 @@ export default function CampaignPlansGrid() {
                 <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <Maximize2 className="w-3.5 h-3.5 text-[#B4F000]" />
                 </div>
-              </motion.div>
+              </div>
 
               <div>
-                <motion.h3
-                  layoutId={`campaign-title-${pkg.id}`}
-                  className="font-heading font-black text-2xl text-white group-hover:text-[#B4F000] transition-colors"
-                >
+                <h3 className="font-heading font-black text-2xl text-white group-hover:text-[#B4F000] transition-colors">
                   {pkg.name}
-                </motion.h3>
+                </h3>
                 <div className={`text-sm font-bold mt-1 ${pkg.color}`}>
                   {pkg.riders}
                 </div>
@@ -109,7 +100,7 @@ export default function CampaignPlansGrid() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -118,6 +109,6 @@ export default function CampaignPlansGrid() {
         selectedPackage={selectedPackage}
         onClose={() => setSelectedPackage(null)}
       />
-    </LayoutGroup>
+    </>
   );
 }

@@ -117,17 +117,17 @@ export default function RiderpreneurHero() {
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-[#0A9BE0] via-[#B4F000] to-[#0A9BE0] opacity-35 blur-xl animate-pulse" />
 
               <div className="relative rounded-3xl bg-[#040e17] border border-[#0A9BE0]/40 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] group">
-                <div className="relative aspect-[4/4] sm:aspect-[4/3] lg:aspect-[4/4] w-full overflow-hidden bg-black/60">
+                <div className="relative aspect-[3/2] w-full overflow-hidden bg-black/60">
                   <Image
                     src="/images/adryd-riderpreneur-kit.jpg"
                     alt="ADRYD Riderpreneur Branded Gear Kit and Electric Scooter Showcase"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
                   />
                   {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/90 via-[#000000]/20 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Floating Bottom Card */}

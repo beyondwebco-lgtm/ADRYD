@@ -60,7 +60,18 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
       setTimeout(initLenis, 300);
     }
 
+    const handleModalState = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen?: boolean }>;
+      if (customEvent.detail?.isOpen) {
+        lenisRef.current?.stop();
+      } else {
+        lenisRef.current?.start();
+      }
+    };
+    window.addEventListener('adryd-modal-state', handleModalState);
+
     return () => {
+      window.removeEventListener('adryd-modal-state', handleModalState);
       if (rafId) cancelAnimationFrame(rafId);
       if (lenis) {
         lenis.destroy();

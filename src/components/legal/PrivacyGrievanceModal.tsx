@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, X, Send, CheckCircle2, HelpCircle } from 'lucide-react';
 import { LEGAL_CONFIG } from '@/config/legal';
+import { modalBackdropVariants, modalCardVariants } from '@/lib/motion';
 
 export default function PrivacyGrievanceModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,24 @@ export default function PrivacyGrievanceModal() {
     window.addEventListener('open-grievance-modal', handleOpen);
     return () => window.removeEventListener('open-grievance-modal', handleOpen);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('adryd-modal-state', { detail: { isOpen: true } }));
+      }
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setIsOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new CustomEvent('adryd-modal-state', { detail: { isOpen: false } }));
+        }
+      };
+    }
+  }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,24 +84,43 @@ export default function PrivacyGrievanceModal() {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto"
-    >
-      <div className="w-full max-w-lg rounded-3xl bg-[#041220] border border-[#0A9BE0]/40 p-6 sm:p-8 text-white shadow-2xl relative my-8">
-        
-        {/* Close Button */}
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-5 right-5 p-1.5 rounded-full text-[#94A3B8] hover:text-white hover:bg-white/10 transition-colors"
-          aria-label="Close dialog"
+    <AnimatePresence>
+      {isOpen && (
+        <div
+          role="presentation"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
         >
-          <X className="w-5 h-5" />
-        </button>
+          {/* Backdrop */}
+          <motion.div
+            variants={modalBackdropVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+            aria-hidden="true"
+          />
+
+          {/* Modal Container */}
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            variants={modalCardVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-lg rounded-3xl bg-[#041220] border border-[#0A9BE0]/40 p-6 sm:p-8 text-white shadow-2xl relative my-8 z-10"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center text-[#94A3B8] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              aria-label="Close dialog"
+            >
+              <X className="w-5 h-5" />
+            </button>
 
         {submittedId ? (
           /* Confirmation State */
@@ -271,7 +310,9 @@ export default function PrivacyGrievanceModal() {
           </form>
         )}
 
-      </div>
-    </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }

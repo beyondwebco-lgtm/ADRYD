@@ -7,6 +7,7 @@ import { SITE_CONFIG } from '@/config/site';
 export default function FloatingWhatsApp() {
   const [mounted, setMounted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Defer rendering until idle so it never impacts TBT
@@ -15,11 +16,21 @@ export default function FloatingWhatsApp() {
     } else {
       setTimeout(() => setMounted(true), 400);
     }
+
+    const handleModalState = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen?: boolean }>;
+      setIsModalOpen(!!customEvent.detail?.isOpen);
+    };
+    window.addEventListener('adryd-modal-state', handleModalState);
+
+    return () => {
+      window.removeEventListener('adryd-modal-state', handleModalState);
+    };
   }, []);
 
   const num = SITE_CONFIG.contact.whatsapp.replace(/\D/g, '');
 
-  if (!mounted || !num) return null;
+  if (!mounted || !num || isModalOpen) return null;
 
   const url = `https://wa.me/${num}?text=${encodeURIComponent(
     SITE_CONFIG.whatsappMessages.campaign

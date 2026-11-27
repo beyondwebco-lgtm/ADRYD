@@ -57,15 +57,14 @@ export default function LocationTargetingPage() {
         {/* Citywide & Corridor Visual Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#0A9BE0]/40 p-6 space-y-4 shadow-xl">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-[#07141c] p-2 flex items-center justify-center">
               <Image
                 src="/images/campaigns/package-city-activation.jpg"
                 alt="Citywide Hyderabad Campaign"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                className="object-contain object-center hover:scale-102 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
             </div>
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0A9BE0]/20 text-[#0A9BE0] border border-[#0A9BE0]/30">
@@ -79,15 +78,14 @@ export default function LocationTargetingPage() {
           </div>
 
           <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/30 p-6 space-y-4 shadow-xl">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-[#07141c] p-2 flex items-center justify-center">
               <Image
                 src="/images/campaigns/package-community.jpg"
                 alt="Community Corridor Campaign"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                className="object-contain object-center hover:scale-102 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
             </div>
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">

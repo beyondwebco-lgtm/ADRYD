@@ -103,11 +103,18 @@ export default function GlobalImmersiveBackground() {
       window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
-    // Page visibility optimization
+    // Page visibility & modal pause optimization
+    let isModalActive = false;
     const handleVisibilityChange = () => {
       isVisible = !document.hidden;
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    const handleModalState = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen?: boolean }>;
+      isModalActive = !!customEvent.detail?.isOpen;
+    };
+    window.addEventListener('adryd-modal-state', handleModalState);
 
     // Color interpolation function
     const interpolateColor = (color1: number[], color2: number[], factor: number) => {
@@ -168,7 +175,7 @@ export default function GlobalImmersiveBackground() {
 
     // Main animation loop
     const render = (now: number) => {
-      if (isVisible && !prefersReducedMotion) {
+      if (isVisible && !prefersReducedMotion && !isModalActive) {
         const elapsed = now - lastRenderTime;
 
         if (elapsed >= targetInterval) {
@@ -340,6 +347,7 @@ export default function GlobalImmersiveBackground() {
         window.removeEventListener('mousemove', handleMouseMove);
       }
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('adryd-modal-state', handleModalState);
     };
   }, []);
 

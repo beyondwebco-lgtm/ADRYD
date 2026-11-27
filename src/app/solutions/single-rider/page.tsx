@@ -61,15 +61,14 @@ export default function SingleRiderPage() {
         {/* Visual Showcase */}
         <div className="mb-12 rounded-3xl bg-[#041220]/80 backdrop-blur-2xl border border-[#B4F000]/30 overflow-hidden shadow-xl p-6 sm:p-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-[#07141c] p-2 flex items-center justify-center">
               <Image
                 src="/images/campaigns/package-starter.jpg"
                 alt="Single Rider Campaign Format"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                className="object-contain object-center hover:scale-102 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
             </div>
             <div className="md:col-span-7 space-y-3">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B4F000]/15 text-[#B4F000] border border-[#B4F000]/30 text-xs font-bold uppercase tracking-wider">

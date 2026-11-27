@@ -16,6 +16,7 @@ export interface CampaignPackage {
   featured?: boolean;
   image: string;
   tagline: string;
+  category?: string; // e.g. 'Campaign Package' | 'Monthly Subscription'
 }
 
 export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
@@ -43,6 +44,7 @@ export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
     color: 'text-[#E2E8F0]',
     accentColor: '#E2E8F0',
     image: '/images/campaigns/package-starter.jpg',
+    category: 'Campaign Package',
   },
   {
     id: 'local-reach',
@@ -68,6 +70,7 @@ export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
     color: 'text-[#0A9BE0]',
     accentColor: '#0A9BE0',
     image: '/images/campaigns/package-local-reach.jpg',
+    category: 'Campaign Package',
   },
   {
     id: 'community',
@@ -94,6 +97,7 @@ export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
     accentColor: '#B4F000',
     featured: true,
     image: '/images/campaigns/package-community.jpg',
+    category: 'Campaign Package',
   },
   {
     id: 'city-activation',
@@ -119,6 +123,7 @@ export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
     color: 'text-[#0A9BE0]',
     accentColor: '#0A9BE0',
     image: '/images/campaigns/package-city-activation.jpg',
+    category: 'Campaign Package',
   },
   {
     id: 'bulk-activation',
@@ -144,5 +149,119 @@ export const CAMPAIGN_PACKAGES: CampaignPackage[] = [
     color: 'text-[#B4F000]',
     accentColor: '#B4F000',
     image: '/images/campaigns/package-bulk-activation.jpg',
+    category: 'Campaign Package',
   },
+];
+
+export const SUBSCRIPTION_PLANS: CampaignPackage[] = [
+  {
+    id: 'sub_micro',
+    name: 'Micro-Brand Presence',
+    riders: '1 Rider • Part-Time',
+    duration: 'Monthly Retainer',
+    coverage: 'Local High-Street Corridor Focus',
+    tagline: 'Consistent Monthly Street Visibility',
+    badge: 'Micro Retainer',
+    badgeStyle: 'bg-white/10 text-white border-white/20',
+    desc: 'Consistent monthly street visibility for local cafes, boutiques, handmade creators and neighborhood stores.',
+    features: [
+      '1 Designated Brand Electric Scooter',
+      'Weekend & Peak Hour Saturation',
+      'Local Commercial Corridor Focus',
+      'Monthly Verification & Run Logs',
+      'QR Code Ordering & Traffic Sync',
+      'Flexible Month-to-Month Renewal'
+    ],
+    border: 'border-white/20 hover:border-[#B4F000]',
+    cardBg: 'bg-[#041220]/75 hover:bg-[#041220]/90',
+    glow: 'shadow-[0_0_25px_rgba(0,0,0,0.5)]',
+    color: 'text-[#E2E8F0]',
+    accentColor: '#E2E8F0',
+    image: '/images/campaigns/package-starter.jpg',
+    category: 'Monthly Subscription',
+  },
+  {
+    id: 'sub_growth',
+    name: 'Growth Retainer',
+    riders: '2–3 Riders • Regular',
+    duration: 'Monthly Retainer',
+    coverage: 'Rotating High-Street Corridor Routes',
+    tagline: 'Multi-Neighborhood Steady Reach',
+    badge: 'Growth Tier',
+    badgeStyle: 'bg-[#0A9BE0]/20 text-[#0A9BE0] border-[#0A9BE0]/30',
+    desc: 'Steady multi-neighborhood presence for growing retail labels, D2C brands and multi-location businesses.',
+    features: [
+      '2–3 Branded Electric Vehicles',
+      'Weekday & Weekend Route Split',
+      'Rotating Corridor Street Routes',
+      'Bi-Weekly Progress & Impression Logs',
+      'Back-Box Product Showcase Setup',
+      'Dedicated Route Planning & Support'
+    ],
+    border: 'border-[#0A9BE0]/40 hover:border-[#B4F000]',
+    cardBg: 'bg-[#051C33]/65 hover:bg-[#051C33]/85',
+    glow: 'shadow-[0_0_25px_rgba(10,155,224,0.25)]',
+    color: 'text-[#0A9BE0]',
+    accentColor: '#0A9BE0',
+    image: '/images/campaigns/package-local-reach.jpg',
+    category: 'Monthly Subscription',
+  },
+  {
+    id: 'sub_dominance',
+    name: 'Commercial Dominance',
+    riders: '4–6 Riders • Daily',
+    duration: 'Monthly Retainer',
+    coverage: 'Busiest Shopping & Tech Corridors',
+    tagline: 'Continuous High-Recall Street Presence',
+    badge: 'Most Popular Retainer',
+    badgeStyle: 'bg-[#B4F000] text-[#000000] font-black border-[#B4F000]',
+    desc: 'Continuous high-recall street and storefront presence across Hyderabad’s busiest shopping and tech hubs.',
+    features: [
+      '4–6 Branded Electric Vehicles Daily',
+      '160–240 Active Corridor Hours / Month',
+      'Daily Peak Transit Saturation',
+      'Full Corridor Route Saturation',
+      'Dedicated Operations Lead Assigned',
+      'Real-Time GPS & Verified Run Logs'
+    ],
+    border: 'border-[#B4F000]/60 ring-1 ring-[#B4F000]/40',
+    cardBg: 'bg-[#041B33]/85 hover:bg-[#041B33]/95',
+    glow: 'shadow-[0_0_35px_rgba(180,240,0,0.3)]',
+    color: 'text-[#B4F000]',
+    accentColor: '#B4F000',
+    featured: true,
+    image: '/images/campaigns/retainer-commercial-dominance.jpg',
+    category: 'Monthly Subscription',
+  },
+  {
+    id: 'sub_enterprise',
+    name: 'Enterprise Fleet',
+    riders: '8+ Riders • Dedicated',
+    duration: 'Monthly Retainer',
+    coverage: 'Exclusive Mobile Retail & Promotion',
+    tagline: 'Exclusive Mobile Retail & Promotion Arm',
+    badge: 'Enterprise Retainer',
+    badgeStyle: 'bg-[#0A9BE0]/20 text-[#0A9BE0] border-[#0A9BE0]/30',
+    desc: 'Fully dedicated mobile marketplace fleet operating as an exclusive mobile retail and promotional arm.',
+    features: [
+      '8+ Custom Branded Dedicated Fleet',
+      'Bespoke Mobile Display & Rig Designs',
+      'Full Delivery & Pre-Order Synchronization',
+      'Custom Fleet Hours / Month Scope',
+      'Enterprise SLA & Dedicated Support Desk',
+      'Advanced Corridor Telemetry Analytics'
+    ],
+    border: 'border-[#0A9BE0]/40 hover:border-[#0A9BE0]',
+    cardBg: 'bg-[#041220]/80 hover:bg-[#041220]/95',
+    glow: 'shadow-[0_0_30px_rgba(10,155,224,0.3)]',
+    color: 'text-[#0A9BE0]',
+    accentColor: '#0A9BE0',
+    image: '/images/campaigns/retainer-enterprise-fleet.jpg',
+    category: 'Monthly Subscription',
+  },
+];
+
+export const ALL_CAMPAIGN_PLANS: CampaignPackage[] = [
+  ...CAMPAIGN_PACKAGES,
+  ...SUBSCRIPTION_PLANS,
 ];
