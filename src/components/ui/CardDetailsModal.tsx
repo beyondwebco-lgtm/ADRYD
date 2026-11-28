@@ -129,43 +129,65 @@ export default function CardDetailsModal({ item, onClose }: CardDetailsModalProp
             animate="animate"
             exit="exit"
             onClick={(e) => e.stopPropagation()}
-            className="relative z-10 w-[92vw] max-w-[1140px] max-h-[88dvh] bg-[#030d17]/95 backdrop-blur-2xl border border-[#0A9BE0]/40 rounded-3xl overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(10,155,224,0.25)] text-white flex flex-col md:flex-row my-auto outline-none"
+            className="relative z-10 w-[94vw] max-w-[1140px] md:h-[650px] max-h-[90dvh] bg-[#030d17]/95 backdrop-blur-2xl border border-[#0A9BE0]/40 rounded-3xl overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(10,155,224,0.25)] text-white flex flex-col md:flex-row my-auto outline-none"
           >
             {/* Top Close Button (Consistent 44px touch target) */}
             <button
               type="button"
               onClick={onClose}
               aria-label="Close card details"
-              className="absolute top-3.5 right-3.5 md:top-4 md:right-4 z-40 w-11 h-11 rounded-full bg-black/70 hover:bg-black/95 text-white/80 hover:text-white border border-white/20 hover:border-[#B4F000] flex items-center justify-center transition-all cursor-pointer backdrop-blur-md shadow-lg active:scale-95"
+              className="absolute top-3.5 right-3.5 md:top-4 md:right-4 z-50 w-11 h-11 rounded-full bg-black/80 hover:bg-black text-white/80 hover:text-white border border-white/20 hover:border-[#B4F000] flex items-center justify-center transition-all cursor-pointer backdrop-blur-md shadow-lg active:scale-95"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* =========================================================================
-                LEFT PANEL: 100% UNSTRETCHED, UNCROPPED ORIGINAL GRAPHIC/POSTER (~44%)
-                - Dedicated container with subtle dark background #07141c
-                - object-fit: contain ensures entire artwork is pristine & visible
-                - Preserves native aspect ratio without distortion
+                LEFT PANEL: DEDICATED VISUAL MEDIA SHOWCASE BLOCK (~46%)
+                - Fixed, stable proportions ensuring consistent alignment across all cards
+                - Crisp, defined "box or block" with subtle neon border & dark glass surface
+                - Graphic / photo is guaranteed to FIT inside the box with Next.js fill + object-contain
+                - Preserves 100% native aspect ratio without distortion or cropping
                ========================================================================= */}
-            <div className="w-full md:w-[44%] shrink-0 bg-[#07141c] flex items-center justify-center p-4 sm:p-6 md:p-8 border-b md:border-b-0 md:border-r border-[#0A9BE0]/25 overflow-hidden">
-              <div className="relative w-full h-[32dvh] sm:h-[38dvh] md:h-full md:max-h-[76dvh] flex items-center justify-center">
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt || item.title}
-                  width={900}
-                  height={1000}
-                  priority
-                  className="w-auto h-auto max-w-full max-h-full object-contain object-center rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+            <div className="w-full md:w-[46%] md:h-full shrink-0 bg-[#030e18] p-3.5 sm:p-5 md:p-6 border-b md:border-b-0 md:border-r border-[#0A9BE0]/20 flex flex-col justify-center overflow-hidden">
+              {/* Defined Box / Block Frame */}
+              <div className="relative w-full h-[280px] sm:h-[350px] md:h-full rounded-2xl bg-[#010810] border border-[#0A9BE0]/30 shadow-[inset_0_2px_12px_rgba(0,0,0,0.85),0_8px_30px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-5 group">
+                {/* Subtle Ambient Radial Glow behind the artwork */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-40"
+                  style={{
+                    background:
+                      'radial-gradient(circle at center, rgba(10,155,224,0.20) 0%, rgba(180,240,0,0.06) 50%, transparent 75%)',
+                  }}
+                  aria-hidden="true"
                 />
+
+                {/* Dedicated Fitting Graphic / Photo Container */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt || item.title}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 46vw"
+                    className="object-contain object-center rounded-xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]"
+                  />
+                </div>
+
+                {/* Corner Brackets for High-Tech Engineering Frame Feel */}
+                <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t-2 border-l-2 border-[#0A9BE0]/50 rounded-tl pointer-events-none" />
+                <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-[#0A9BE0]/50 rounded-tr pointer-events-none" />
+                <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b-2 border-l-2 border-[#B4F000]/50 rounded-bl pointer-events-none" />
+                <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-[#B4F000]/50 rounded-br pointer-events-none" />
               </div>
             </div>
 
             {/* =========================================================================
-                RIGHT PANEL: STRUCTURED SPECIFICATIONS & ACTIONS (~56%)
+                RIGHT PANEL: STRUCTURED SPECIFICATIONS & ACTIONS (~54%)
                 - Internally scrollable if content exceeds vertical space
                 - Clear typographic visual hierarchy
+                - Discrete action buttons
                ========================================================================= */}
-            <div className="w-full md:w-[56%] flex flex-col justify-between overflow-y-auto max-h-[56dvh] md:max-h-[88dvh] p-5 sm:p-7 md:p-9 space-y-6 scrollbar-thin scrollbar-thumb-white/10">
+            <div className="w-full md:w-[54%] md:h-full flex flex-col justify-between overflow-y-auto p-5 sm:p-7 md:p-8 space-y-6 scrollbar-thin scrollbar-thumb-white/10">
               <div className="space-y-5">
                 {/* 1. Category label */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A9BE0]/15 border border-[#0A9BE0]/30 text-[#0A9BE0] text-xs font-bold uppercase tracking-wider">
