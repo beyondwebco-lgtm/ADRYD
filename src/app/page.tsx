@@ -14,6 +14,9 @@ const CampaignPackagesSection = dynamic(
 const RiderPartnerSection = dynamic(
   () => import('@/components/home/RiderPartnerSection')
 );
+const BrandActivationPromoSection = dynamic(
+  () => import('@/components/home/BrandActivationPromoSection')
+);
 const FinalCtaSection = dynamic(
   () => import('@/components/home/FinalCtaSection')
 );
@@ -29,6 +32,9 @@ export default function HomePage() {
 
       {/* 03: What ADRYD Does — ONE NETWORK. MANY POSSIBILITIES. */}
       <ServicesSection />
+
+      {/* 03b: Brand Activation Promo — MORE THAN ADVERTISING. */}
+      <BrandActivationPromoSection />
 
       {/* 04: How It Works — THREE STEPS. REAL-WORLD REACH. */}
       <HowItWorksSection />

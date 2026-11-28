@@ -69,6 +69,12 @@ export default function Footer() {
                 <Link href="/campaign-plans" className="text-[#E2E8F0]/80 hover:text-[#B4F000] transition-colors">Campaign Plans</Link>
               </li>
               <li>
+                <Link href="/brand-activation" className="text-[#B4F000] hover:text-[#0A9BE0] transition-colors font-semibold flex items-center gap-1.5">
+                  <span>Brand Activation</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#0A9BE0]/20 text-[#0A9BE0] border border-[#0A9BE0]/30 uppercase font-mono">New</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/riderpreneur" className="text-[#B4F000] hover:text-[#0A9BE0] transition-colors font-semibold">Riderpreneur Program</Link>
               </li>
               <li>
