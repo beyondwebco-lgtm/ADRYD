@@ -2,7 +2,7 @@ import React from 'react';
 
 interface BrandLogoProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'nav';
   showTagline?: boolean;
   theme?: 'light' | 'dark';
 }
@@ -16,6 +16,7 @@ export default function BrandLogo({
   // Height sizing
   const dimensions = {
     sm: { height: 30, logoH: 'h-7', textScale: 'text-xl' },
+    nav: { height: 28, logoH: 'h-[27px] sm:h-[29px] w-[138px] sm:w-[146px] xl:w-[150px]', textScale: 'text-2xl' },
     md: { height: 38, logoH: 'h-8 sm:h-9', textScale: 'text-2xl' },
     lg: { height: 46, logoH: 'h-10 sm:h-11', textScale: 'text-3xl' },
   }[size];

@@ -216,29 +216,32 @@ export const accordionVariants = {
 
 /**
  * Dropdown Menu Scale & Fade
+ * Opening: Opacity 0->1, Y -8->0, Scale 0.98->1, Duration 300ms (280-320ms)
+ * Closing: Opacity 1->0, Y 0->-6, Scale 1->0.98, Duration 220ms (200-240ms)
+ * Easing: cubic-bezier(0.22, 1, 0.36, 1)
  */
 export const dropdownVariants = {
   initial: {
     opacity: 0,
-    scale: 0.96,
-    y: -6,
+    scale: 0.98,
+    y: -8,
   },
   animate: {
     opacity: 1,
     scale: 1,
     y: 0,
     transition: {
-      duration: 0.22,
-      ease: motionTokens.ease.premium,
+      duration: 0.3,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
   exit: {
     opacity: 0,
-    scale: 0.96,
+    scale: 0.98,
     y: -6,
     transition: {
-      duration: 0.16,
-      ease: motionTokens.ease.exit,
+      duration: 0.22,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };

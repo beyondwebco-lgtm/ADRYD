@@ -201,3 +201,85 @@ body {
 .perspective-1000 {
   perspective: 1000px;
 }
+
+/* ==========================================================================
+   ADRYD Global Navbar Responsive Intelligence Tiers
+   Preserves single-line layout across 1024px, 1280px, 1440px, 1920px
+   Progressive overflow into More dropdown based on priority:
+   1. How It Works (< 1480px)
+   2. Become a Partner (< 1360px)
+   3. About (< 1220px)
+   4. Contact (< 1120px)
+   ========================================================================== */
+
+/* Tier 1: How It Works (< 1480px) */
+@media (min-width: 1480px) {
+  .nav-item-how-it-works {
+    display: inline-flex !important;
+  }
+  .dropdown-item-how-it-works {
+    display: none !important;
+  }
+}
+@media (max-width: 1479.98px) {
+  .nav-item-how-it-works {
+    display: none !important;
+  }
+  .dropdown-item-how-it-works {
+    display: flex !important;
+  }
+}
+
+/* Tier 2: Become a Partner (< 1360px) */
+@media (min-width: 1360px) {
+  .nav-item-become-partner {
+    display: inline-flex !important;
+  }
+  .dropdown-item-become-partner {
+    display: none !important;
+  }
+}
+@media (max-width: 1359.98px) {
+  .nav-item-become-partner {
+    display: none !important;
+  }
+  .dropdown-item-become-partner {
+    display: flex !important;
+  }
+}
+
+/* Tier 3: About (< 1220px) */
+@media (min-width: 1220px) {
+  .nav-item-about {
+    display: inline-flex !important;
+  }
+  .dropdown-item-about {
+    display: none !important;
+  }
+}
+@media (max-width: 1219.98px) {
+  .nav-item-about {
+    display: none !important;
+  }
+  .dropdown-item-about {
+    display: flex !important;
+  }
+}
+
+/* Tier 4: Contact (< 1120px) */
+@media (min-width: 1120px) {
+  .nav-item-contact {
+    display: inline-flex !important;
+  }
+  .dropdown-item-contact {
+    display: none !important;
+  }
+}
+@media (max-width: 1119.98px) {
+  .nav-item-contact {
+    display: none !important;
+  }
+  .dropdown-item-contact {
+    display: flex !important;
+  }
+}
