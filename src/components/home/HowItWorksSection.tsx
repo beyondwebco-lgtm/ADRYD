@@ -1,13 +1,17 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Target, Compass, Radio, Sparkles } from 'lucide-react';
+import { Target, Compass, Radio, Sparkles, Maximize2 } from 'lucide-react';
 import InteractiveRouteLine from './InteractiveRouteLine';
+import { HOW_IT_WORKS_CARD_DETAILS, DetailCardItem } from '@/data/websiteCardsData';
+import CardDetailsModal from '@/components/ui/CardDetailsModal';
 
 export default function HowItWorksSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [selectedStep, setSelectedStep] = useState<DetailCardItem | null>(null);
+
   const steps = [
     {
       num: '01',
@@ -70,13 +74,13 @@ export default function HowItWorksSection() {
           </div>
 
           <h2 className="font-heading font-black text-4xl sm:text-6xl text-white tracking-tight uppercase leading-[1.05]">
-            <span className="bg-gradient-to-r from-[#0A9BE0] via-[#E2E8F0] to-[#B4F000] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(10,155,224,0.4)]">
+            <span className="bg-gradient-to-r from-[#0A9BE0] via-[#E2E8F0] to-[#B4F000] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(10,155,224,0.4)]">
               PLAN. MOVE. CONNECT.
             </span>
           </h2>
 
           <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed max-w-2xl mx-auto font-normal">
-            A frictionless journey from campaign concept to active street-level engagement.
+            A frictionless journey from campaign concept to active street-level engagement. Click any step to inspect the operational stage blueprint.
           </p>
         </div>
 
@@ -89,6 +93,10 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, idx) => {
             const Icon = step.icon;
+            const detailItem =
+              HOW_IT_WORKS_CARD_DETAILS[step.action.toLowerCase()] ||
+              HOW_IT_WORKS_CARD_DETAILS[step.num] ||
+              null;
 
             return (
               <motion.div
@@ -97,8 +105,23 @@ export default function HowItWorksSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className={`p-8 rounded-3xl ${step.cardBg} backdrop-blur-2xl border ${step.border} ${step.glow} card-hover-lift flex flex-col justify-between relative`}
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedStep(detailItem)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedStep(detailItem);
+                  }
+                }}
+                className={`group p-8 rounded-3xl ${step.cardBg} backdrop-blur-2xl border ${step.border} ${step.glow} card-hover-lift flex flex-col justify-between relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#B4F000]`}
               >
+                {/* Subtle top indicator */}
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/70 group-hover:text-white group-hover:bg-[#0A9BE0]/20 group-hover:border-[#0A9BE0]/40 transition-all">
+                  <Maximize2 className="w-3 h-3 text-[#B4F000]" />
+                  <span>View Details</span>
+                </div>
+
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="text-4xl font-heading font-black text-white/30">
@@ -125,9 +148,12 @@ export default function HowItWorksSection() {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-white/10">
+                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
                   <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                     Step {step.num} of 03
+                  </span>
+                  <span className="text-xs font-bold text-[#B4F000] opacity-0 group-hover:opacity-100 transition-opacity">
+                    Explore Blueprint →
                   </span>
                 </div>
               </motion.div>
@@ -150,6 +176,12 @@ export default function HowItWorksSection() {
         </div>
 
       </div>
+
+      {/* Premium Smooth Animated Details Modal */}
+      <CardDetailsModal
+        item={selectedStep}
+        onClose={() => setSelectedStep(null)}
+      />
     </section>
   );
 }

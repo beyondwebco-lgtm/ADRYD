@@ -28,6 +28,8 @@ import {
   Check,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
+import { RIDER_PARTNER_CARD_DETAILS, DetailCardItem } from '@/data/websiteCardsData';
+import CardDetailsModal from '@/components/ui/CardDetailsModal';
 
 const HYDERABAD_ZONES_LIST = [
   'HITEC City & Madhapur',
@@ -45,6 +47,7 @@ type PartnerOptionType = 'own_ev_rider' | 'without_ev_rider' | 'fleet_partner';
 
 export default function BecomeARiderPage() {
   const [partnerType, setPartnerType] = useState<PartnerOptionType>('own_ev_rider');
+  const [selectedDetailModal, setSelectedDetailModal] = useState<DetailCardItem | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState<{
     applicationId?: string;
@@ -243,7 +246,18 @@ export default function BecomeARiderPage() {
                 <span className={partnerType === 'own_ev_rider' ? 'text-[#B4F000]' : 'text-[#E2E8F0]/70'}>
                   {partnerType === 'own_ev_rider' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'own_ev_rider' && <Check className="w-4 h-4 text-[#B4F000]" />}
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDetailModal(RIDER_PARTNER_CARD_DETAILS['own_ev']);
+                  }}
+                  className="text-[11px] text-[#B4F000] hover:underline flex items-center gap-1 cursor-pointer"
+                >
+                  <span>View Specifications</span>
+                  <Sparkles className="w-3 h-3 text-[#B4F000]" />
+                </span>
               </div>
             </button>
 
@@ -293,7 +307,18 @@ export default function BecomeARiderPage() {
                 <span className={partnerType === 'without_ev_rider' ? 'text-[#0A9BE0]' : 'text-[#E2E8F0]/70'}>
                   {partnerType === 'without_ev_rider' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'without_ev_rider' && <Check className="w-4 h-4 text-[#0A9BE0]" />}
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDetailModal(RIDER_PARTNER_CARD_DETAILS['without_ev']);
+                  }}
+                  className="text-[11px] text-[#0A9BE0] hover:underline flex items-center gap-1 cursor-pointer"
+                >
+                  <span>View Specifications</span>
+                  <Sparkles className="w-3 h-3 text-[#0A9BE0]" />
+                </span>
               </div>
             </button>
 
@@ -343,7 +368,18 @@ export default function BecomeARiderPage() {
                 <span className={partnerType === 'fleet_partner' ? 'text-[#0A9BE0]' : 'text-[#E2E8F0]/70'}>
                   {partnerType === 'fleet_partner' ? 'Active Form' : 'Select Option'}
                 </span>
-                {partnerType === 'fleet_partner' && <Check className="w-4 h-4 text-[#0A9BE0]" />}
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDetailModal(RIDER_PARTNER_CARD_DETAILS['fleet_partner']);
+                  }}
+                  className="text-[11px] text-[#0A9BE0] hover:underline flex items-center gap-1 cursor-pointer"
+                >
+                  <span>View Specifications</span>
+                  <Sparkles className="w-3 h-3 text-[#0A9BE0]" />
+                </span>
               </div>
             </button>
           </div>
@@ -804,6 +840,12 @@ export default function BecomeARiderPage() {
         </div>
 
       </div>
+
+      {/* Premium Smooth Animated Details Modal */}
+      <CardDetailsModal
+        item={selectedDetailModal}
+        onClose={() => setSelectedDetailModal(null)}
+      />
     </div>
   );
 }

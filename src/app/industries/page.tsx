@@ -1,83 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  Shirt,
-  Utensils,
-  Sparkles,
-  Heart,
-  Compass,
-  Store,
-  ArrowRight,
-} from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import IndustriesList from '@/components/industries/IndustriesList';
 
 export const metadata: Metadata = {
   title: 'Product Categories | ADRYD The Moving Marketplace',
   description:
     'Explore how ADRYD empowers Fashion, Food, Handmade Crafts, Beauty, D2C Startups and Local Businesses with mobile advertising and product showcases in Hyderabad.',
 };
-
-const industries = [
-  {
-    id: 'fashion',
-    name: 'Fashion & Apparel',
-    tagline: 'Designer Sarees, Casuals & Handloom Collections',
-    desc: 'Showcase fabric textures, embroidery details and festive collections directly in high-footfall shopping areas.',
-    icon: Shirt,
-    bg: 'bg-[#041220]/80',
-    border: 'border-[#B4F000]/30',
-    color: 'text-[#B4F000]',
-  },
-  {
-    id: 'food',
-    name: 'Food & Bakery',
-    tagline: 'Artisanal Chocolates, Snacks & Specialty Foods',
-    desc: 'Deploy temperature-protected sample units with instant QR ordering for sweet treats and gourmet foods.',
-    icon: Utensils,
-    bg: 'bg-[#051C33]/75',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-  {
-    id: 'handmade',
-    name: 'Handmade Crafts',
-    tagline: 'Artisan Goods, Candles & Home Accents',
-    desc: 'Connect independent makers with urban consumers through tactile showcases in front of cafes and lifestyle parks.',
-    icon: Sparkles,
-    bg: 'bg-[#041220]/80',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-  {
-    id: 'beauty',
-    name: 'Beauty & Wellness',
-    tagline: 'Skincare, Fragrances & Personal Care',
-    desc: 'Distribute tester samples, promote pre-orders and demonstrate premium beauty products at eye level.',
-    icon: Heart,
-    bg: 'bg-[#051C33]/75',
-    border: 'border-[#B4F000]/30',
-    color: 'text-[#B4F000]',
-  },
-  {
-    id: 'lifestyle',
-    name: 'Lifestyle & Electronics',
-    tagline: 'Gadgets, Accessories & Home Living',
-    desc: 'Drive curiosity for consumer tech, wearables and daily innovations with illuminated vehicle enclosures.',
-    icon: Compass,
-    bg: 'bg-[#041220]/80',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-  {
-    id: 'local',
-    name: 'Local Businesses & Cafés',
-    tagline: 'Neighborhood Outlets & Dining Hubs',
-    desc: 'Create immediate neighborhood buzz for new store openings, weekend specials and seasonal discounts.',
-    icon: Store,
-    bg: 'bg-[#051C33]/75',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-];
 
 export default function IndustriesPage() {
   return (
@@ -100,64 +30,27 @@ export default function IndustriesPage() {
             <span className="text-[#B4F000] text-glow-chartreuse">kind of brand.</span>
           </h1>
           <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed font-normal">
-            Whether you craft boutique sarees, bake artisanal treats, or operate a neighborhood retail store, take your products to the streets.
+            Whether you craft boutique sarees, bake artisanal treats, or operate a neighborhood retail store, take your products to the streets. Click any card to explore full specifications and activation blueprints.
           </p>
         </div>
 
-        {/* 6 Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {industries.map((ind) => {
-            const Icon = ind.icon;
-            return (
-              <div
-                key={ind.id}
-                className={`rounded-3xl ${ind.bg} backdrop-blur-xl border ${ind.border} p-8 card-hover-lift flex flex-col justify-between shadow-[0_12px_40px_rgba(0,0,0,0.35)]`}
-              >
-                <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${ind.color}`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h2 className="font-heading font-bold text-2xl text-white">
-                      {ind.name}
-                    </h2>
-                    <p className={`text-xs font-bold mt-1 ${ind.color}`}>
-                      {ind.tagline}
-                    </p>
-                    <p className="text-sm text-[#E2E8F0] leading-relaxed mt-2.5">
-                      {ind.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-6">
-                  <Link
-                    href={`/book-campaign?category=${ind.id}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#B4F000] transition-colors"
-                  >
-                    <span>Plan a Campaign for {ind.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* 6 Category Interactive Clickable Cards Grid */}
+        <IndustriesList />
 
         {/* CTA */}
         <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/25 p-8 lg:p-12 text-center max-w-3xl mx-auto space-y-4 shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
           <h3 className="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
             Have a Unique Product Format?
           </h3>
-          <p className="text-sm text-[#E2E8F0] max-w-xl mx-auto">
-            Our engineering and creative team designs custom illuminated enclosures and sampling mounts for virtually any merchandise.
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-normal max-w-xl mx-auto">
+            Our custom fabrication and operations team can configure vehicle wraps, acrylic displays and product dispensers for nearly any retail category.
           </p>
           <div className="pt-2">
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#B4F000] hover:bg-[#c3fc18] text-[#000000] font-black text-xs shadow-[0_4px_20px_rgba(180,240,0,0.35)] transition-all"
+              href="/book-campaign"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#B4F000] text-[#000000] hover:bg-[#c3fc18] font-black text-xs shadow-md transition-all"
             >
-              <span>Discuss Custom Display</span>
+              <span>Consult With Campaign Specialist</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

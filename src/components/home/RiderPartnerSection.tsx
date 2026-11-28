@@ -1,12 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Bike, UserCheck, Building2, ArrowRight, Sparkles } from 'lucide-react';
+import { Bike, UserCheck, Building2, ArrowRight, Sparkles, Maximize2 } from 'lucide-react';
+import { RIDER_PARTNER_CARD_DETAILS, DetailCardItem } from '@/data/websiteCardsData';
+import CardDetailsModal from '@/components/ui/CardDetailsModal';
 
 export default function RiderPartnerSection() {
+  const [selectedOption, setSelectedOption] = useState<DetailCardItem | null>(null);
+
   const options = [
     {
       id: 'own_ev',
@@ -73,13 +77,13 @@ export default function RiderPartnerSection() {
 
           <h2 className="font-heading font-black text-4xl sm:text-6xl text-white tracking-tight uppercase leading-[1.05]">
             BE PART OF{' '}
-            <span className="bg-gradient-to-r from-[#0A9BE0] via-[#E2E8F0] to-[#B4F000] bg-clip-text text-transparent animate-gradient-slow drop-shadow-[0_4px_30px_rgba(10,155,224,0.4)]">
+            <span className="bg-gradient-to-r from-[#0A9BE0] via-[#E2E8F0] to-[#B4F000] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(10,155,224,0.4)]">
               THE MOVEMENT.
             </span>
           </h2>
 
           <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed max-w-2xl mx-auto font-normal">
-            Whether you own an EV, seek rider opportunities, or manage a commercial fleet, join our mobility community.
+            Whether you own an EV, seek rider opportunities, or manage a commercial fleet, join our mobility community. Click any card to inspect partner benefits and payouts.
           </p>
         </div>
 
@@ -87,6 +91,7 @@ export default function RiderPartnerSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {options.map((opt, idx) => {
             const Icon = opt.icon;
+            const detailItem = RIDER_PARTNER_CARD_DETAILS[opt.id] || null;
 
             return (
               <motion.div
@@ -95,8 +100,23 @@ export default function RiderPartnerSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.12 }}
-                className={`p-8 rounded-3xl ${opt.cardBg} backdrop-blur-2xl border ${opt.border} ${opt.glow} card-hover-lift flex flex-col justify-between`}
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedOption(detailItem)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedOption(detailItem);
+                  }
+                }}
+                className={`group p-8 rounded-3xl ${opt.cardBg} backdrop-blur-2xl border ${opt.border} ${opt.glow} card-hover-lift flex flex-col justify-between relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#B4F000]`}
               >
+                {/* Subtle top indicator */}
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/70 group-hover:text-white group-hover:bg-[#0A9BE0]/20 group-hover:border-[#0A9BE0]/40 transition-all">
+                  <Maximize2 className="w-3 h-3 text-[#B4F000]" />
+                  <span>View Details</span>
+                </div>
+
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className={`text-xs font-black uppercase tracking-wider ${opt.color}`}>
@@ -116,7 +136,7 @@ export default function RiderPartnerSection() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10">
+                <div className="pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
                   <Link
                     href={opt.href}
                     className={`w-full py-3.5 px-6 rounded-full font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all ${opt.btnBg}`}
@@ -149,6 +169,12 @@ export default function RiderPartnerSection() {
         </div>
 
       </div>
+
+      {/* Premium Smooth Animated Details Modal */}
+      <CardDetailsModal
+        item={selectedOption}
+        onClose={() => setSelectedOption(null)}
+      />
     </section>
   );
 }

@@ -2,54 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Video,
   Sparkles,
-  Camera,
-  Share2,
-  Palette,
   ArrowRight,
 } from 'lucide-react';
+import CreativeServicesList from '@/components/creative/CreativeServicesList';
 
 export const metadata: Metadata = {
   title: 'Creative Services & ADRYD Viral | Studio',
   description:
     'Discover ADRYD Creative Services: street-to-screen social reels, vehicle wrap design, influencer activations and high-energy video production in Hyderabad.',
 };
-
-const services = [
-  {
-    title: 'Street Interaction Reels',
-    desc: 'Short-form vertical video capturing authentic consumer reactions, unboxings and live product sampling moments.',
-    icon: Video,
-    bg: 'bg-[#041220]/80',
-    border: 'border-[#B4F000]/30',
-    color: 'text-[#B4F000]',
-  },
-  {
-    title: 'Vehicle Wrap Design',
-    desc: 'High-contrast automotive livery layouts engineered specifically for moving two-wheelers and high legibility at distance.',
-    icon: Palette,
-    bg: 'bg-[#051C33]/75',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-  {
-    title: 'Campaign Cinematics & B-Roll',
-    desc: 'High-resolution drone footage and moving convoy tracking shots capturing your fleet moving through Hyderabad landmarks.',
-    icon: Camera,
-    bg: 'bg-[#041220]/80',
-    border: 'border-[#0A9BE0]/30',
-    color: 'text-[#0A9BE0]',
-  },
-  {
-    title: 'Social Amplification Packages',
-    desc: 'Packaged content assets optimized for Instagram, YouTube Shorts and digital ad placements.',
-    icon: Share2,
-    bg: 'bg-[#051C33]/75',
-    border: 'border-[#B4F000]/30',
-    color: 'text-[#B4F000]',
-  },
-];
 
 export default function CreativeServicesPage() {
   return (
@@ -72,7 +34,7 @@ export default function CreativeServicesPage() {
             <span className="text-[#B4F000] text-glow-chartreuse">to the screen.</span>
           </h1>
           <p className="text-lg sm:text-xl text-[#E2E8F0] leading-relaxed font-normal">
-            We bridge physical outdoor impressions with digital social momentum through custom reels, professional B-roll and high-impact livery design.
+            We bridge physical outdoor impressions with digital social momentum through custom reels, professional B-roll and high-impact livery design. Click any card to explore studio specifications and deliverables.
           </p>
         </div>
 
@@ -112,42 +74,8 @@ export default function CreativeServicesPage() {
           </div>
         </div>
 
-        {/* 4 Creative Offerings */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {services.map((svc, idx) => {
-            const Icon = svc.icon;
-            return (
-              <div
-                key={idx}
-                className={`rounded-3xl ${svc.bg} backdrop-blur-xl border ${svc.border} p-8 lg:p-10 card-hover-lift flex flex-col justify-between shadow-[0_12px_40px_rgba(0,0,0,0.35)]`}
-              >
-                <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-2xl bg-[#041220]/80 border border-[#B4F000]/30 shadow-sm flex items-center justify-center ${svc.color}`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h2 className="font-heading font-black text-2xl text-white">
-                      {svc.title}
-                    </h2>
-                    <p className="text-sm text-[#E2E8F0] leading-relaxed mt-2">
-                      {svc.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-6">
-                  <Link
-                    href="/book-campaign?service=ADRYD%20Viral"
-                    className={`inline-flex items-center gap-2 text-xs font-bold ${svc.color} hover:underline`}
-                  >
-                    <span>Include in Campaign Brief</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* 4 Creative Interactive Clickable Offerings */}
+        <CreativeServicesList />
 
         {/* CTA */}
         <div className="rounded-3xl bg-[#041220]/80 backdrop-blur-xl border border-[#B4F000]/25 p-8 lg:p-12 text-center max-w-3xl mx-auto space-y-4 shadow-[0_12px_40px_rgba(0,0,0,0.35)]">

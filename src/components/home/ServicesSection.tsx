@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -15,8 +15,12 @@ import {
   ArrowUpRight,
   Sparkles,
 } from 'lucide-react';
+import { SERVICES_CARD_DETAILS, DetailCardItem } from '@/data/websiteCardsData';
+import CardDetailsModal from '@/components/ui/CardDetailsModal';
 
 export default function ServicesSection() {
+  const [selectedService, setSelectedService] = useState<DetailCardItem | null>(null);
+
   const services = [
     {
       action: 'PROMOTE',
@@ -162,9 +166,10 @@ export default function ServicesSection() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={isWide ? 'md:col-span-2 xl:col-span-2' : ''}
               >
-                <Link
-                  href={`/services#${svc.id}`}
-                  className={`group block h-full p-8 rounded-3xl ${svc.cardBg} backdrop-blur-2xl border ${svc.border} ${svc.glow} card-hover-lift transition-all duration-300 flex flex-col justify-between relative overflow-hidden`}
+                <button
+                  type="button"
+                  onClick={() => setSelectedService(SERVICES_CARD_DETAILS[svc.id] || null)}
+                  className={`group text-left block w-full h-full p-8 rounded-3xl ${svc.cardBg} backdrop-blur-2xl border ${svc.border} ${svc.glow} card-hover-lift transition-all duration-300 flex flex-col justify-between relative overflow-hidden cursor-pointer active:scale-[0.99]`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -174,11 +179,16 @@ export default function ServicesSection() {
                       >
                         <Icon className="w-6 h-6" />
                       </div>
-                      {svc.isPlanned && (
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">
-                          Planned
+                      <div className="flex items-center gap-2">
+                        {svc.isPlanned && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#B4F000]/20 text-[#B4F000] border border-[#B4F000]/30">
+                            Planned
+                          </span>
+                        )}
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/10 text-white/80 border border-white/15 opacity-0 group-hover:opacity-100 transition-opacity">
+                          Details ↗
                         </span>
-                      )}
+                      </div>
                     </div>
 
                     {svc.image && (
@@ -207,22 +217,28 @@ export default function ServicesSection() {
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between w-full">
                     <span className="text-xs font-semibold text-slate-300 group-hover:text-white transition-colors">
-                      Learn More
+                      View Service Details
                     </span>
                     <ArrowUpRight
                       className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       style={{ color: svc.color }}
                     />
                   </div>
-                </Link>
+                </button>
               </motion.div>
             );
           })}
         </div>
 
       </div>
+
+      {/* Interactive Details Modal */}
+      <CardDetailsModal
+        item={selectedService}
+        onClose={() => setSelectedService(null)}
+      />
     </section>
   );
 }
