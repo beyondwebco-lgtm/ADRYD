@@ -59,7 +59,8 @@ for (let i = 0; i < batches.length; i++) {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${JWT}`
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(20000)
       });
 
       if (!uploadRes.ok) {
@@ -96,7 +97,8 @@ const upsertRes = await fetch("https://api.cloudflare.com/client/v4/pages/assets
     "Content-Type": "application/json",
     "Authorization": `Bearer ${JWT}`
   },
-  body: JSON.stringify({ hashes: allHashes })
+  body: JSON.stringify({ hashes: allHashes }),
+  signal: AbortSignal.timeout(20000)
 });
 
 if (!upsertRes.ok) {
